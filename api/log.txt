@@ -1,0 +1,1 @@
+select passMD5 from membership_users where lcase(memberID)='archie' and isApproved=1 and isBanned=0

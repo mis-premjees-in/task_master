@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the whys_init() hook (in hooks/whys.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="whys-whys_id-<%%VALUE(whys_id)%%>" class="whys-whys_id text-right"><%%SELECT%%><%%VALUE(whys_id)%%><%%ENDSELECT%%></td>
+		<td id="whys-whys_why1-<%%VALUE(whys_id)%%>" class="whys-whys_why1"><%%SELECT%%><%%VALUE(whys_why1)%%><%%ENDSELECT%%></td>
+		<td id="whys-whys_why2-<%%VALUE(whys_id)%%>" class="whys-whys_why2"><%%SELECT%%><%%VALUE(whys_why2)%%><%%ENDSELECT%%></td>
+		<td id="whys-whys_why3-<%%VALUE(whys_id)%%>" class="whys-whys_why3"><%%SELECT%%><%%VALUE(whys_why3)%%><%%ENDSELECT%%></td>
+		<td id="whys-whys_description-<%%VALUE(whys_id)%%>" class="whys-whys_description"><%%SELECT%%><%%VALUE(whys_description)%%><%%ENDSELECT%%></td>
+		<td id="whys-whys_created-<%%VALUE(whys_id)%%>" class="whys-whys_created"><%%SELECT%%><%%VALUE(whys_created)%%><%%ENDSELECT%%></td>
+		<td id="whys-whys_updated-<%%VALUE(whys_id)%%>" class="whys-whys_updated"><%%SELECT%%><%%VALUE(whys_updated)%%><%%ENDSELECT%%></td>

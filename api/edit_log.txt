@@ -1,0 +1,1 @@
+clients1UPDATE clients SET contact='1234567890' WHERE id='1'

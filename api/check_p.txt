@@ -1,0 +1,1 @@
+select memberID from membership_userrecords where tableName='customer' and pkValue=22:kanishka:kanishka

@@ -1,0 +1,1 @@
+SELECT * FROM `customer` , `membership_userrecords` WHERE `customer`.`customer_id`=`membership_userrecords`.`pkValue` AND `membership_userrecords`.`tableName`='customer' AND LCASE(`membership_userrecords`.`memberID`)='kanishka' AND customer_id='42' LIMIT 0,5
