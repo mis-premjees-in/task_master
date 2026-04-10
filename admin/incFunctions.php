@@ -2460,24 +2460,24 @@
 	 *     if $isError is false, $dataOrMsg is assumed to be data and $errorStatusCode is ignored
 	 *     example success response: `{"status":"success","data":{"id":1,"name":"John Doe"}}`
 	 */
-	function json_response($dataOrMsg, $isError = false, $errorStatusCode = 400) {
-		@header('Content-type: application/json');
+	// function json_response($dataOrMsg, $isError = false, $errorStatusCode = 400) {
+	// 	@header('Content-type: application/json');
 
-		if($isError) {
-			@header($_SERVER['SERVER_PROTOCOL'] . ' ' . $errorStatusCode . ' Internal Server Error');
-			@header('Status: ' . $errorStatusCode . ' Bad Request');
+	// 	if($isError) {
+	// 		@header($_SERVER['SERVER_PROTOCOL'] . ' ' . $errorStatusCode . ' Internal Server Error');
+	// 		@header('Status: ' . $errorStatusCode . ' Bad Request');
 
-			die(json_encode([
-				'status' => 'error',
-				'message' => $dataOrMsg,
-			]));
-		}
+	// 		die(json_encode([
+	// 			'status' => 'error',
+	// 			'message' => $dataOrMsg,
+	// 		]));
+	// 	}
 
-		die(json_encode([
-			'status' => 'success',
-			'data' => $dataOrMsg,
-		]));
-	}
+	// 	die(json_encode([
+	// 		'status' => 'success',
+	// 		'data' => $dataOrMsg,
+	// 	]));
+	// }
 
 	/**
 	 * Check if a string is alphanumeric.
