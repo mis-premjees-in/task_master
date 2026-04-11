@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the whats_init() hook (in hooks/whats.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="whats-whats_id-<%%VALUE(whats_id)%%>" class="whats-whats_id text-right text-bold"><%%VALUE(whats_id)%%></td>
+		<td id="whats-whats_what1-<%%VALUE(whats_id)%%>" class="whats-whats_what1 text-bold"><%%VALUE(whats_what1)%%></td>
+		<td id="whats-whats_what2-<%%VALUE(whats_id)%%>" class="whats-whats_what2 text-bold"><%%VALUE(whats_what2)%%></td>
+		<td id="whats-whats_what3-<%%VALUE(whats_id)%%>" class="whats-whats_what3 text-bold"><%%VALUE(whats_what3)%%></td>
+		<td id="whats-whats_description-<%%VALUE(whats_id)%%>" class="whats-whats_description text-bold"><%%VALUE(whats_description)%%></td>
+		<td id="whats-whats_created-<%%VALUE(whats_id)%%>" class="whats-whats_created text-bold"><%%VALUE(whats_created)%%></td>
+		<td id="whats-whats_updated-<%%VALUE(whats_id)%%>" class="whats-whats_updated text-bold"><%%VALUE(whats_updated)%%></td>

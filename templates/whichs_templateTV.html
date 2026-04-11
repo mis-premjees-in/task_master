@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the whichs_init() hook (in hooks/whichs.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="whichs-whichs_id-<%%VALUE(whichs_id)%%>" class="whichs-whichs_id text-right"><%%SELECT%%><%%VALUE(whichs_id)%%><%%ENDSELECT%%></td>
+		<td id="whichs-whichs_which1-<%%VALUE(whichs_id)%%>" class="whichs-whichs_which1"><%%SELECT%%><%%VALUE(whichs_which1)%%><%%ENDSELECT%%></td>
+		<td id="whichs-whichs_which2-<%%VALUE(whichs_id)%%>" class="whichs-whichs_which2"><%%SELECT%%><%%VALUE(whichs_which2)%%><%%ENDSELECT%%></td>
+		<td id="whichs-whichs_which3-<%%VALUE(whichs_id)%%>" class="whichs-whichs_which3"><%%SELECT%%><%%VALUE(whichs_which3)%%><%%ENDSELECT%%></td>
+		<td id="whichs-whichs_description-<%%VALUE(whichs_id)%%>" class="whichs-whichs_description"><%%SELECT%%><%%VALUE(whichs_description)%%><%%ENDSELECT%%></td>
+		<td id="whichs-whichs_created-<%%VALUE(whichs_id)%%>" class="whichs-whichs_created"><%%SELECT%%><%%VALUE(whichs_created)%%><%%ENDSELECT%%></td>
+		<td id="whichs-whichs_updated-<%%VALUE(whichs_id)%%>" class="whichs-whichs_updated"><%%SELECT%%><%%VALUE(whichs_updated)%%><%%ENDSELECT%%></td>

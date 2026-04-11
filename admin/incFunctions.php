@@ -112,6 +112,41 @@
 					'group' => $tg[0],
 					'homepageShowCount' => 0
 				],
+				'wheres' => [
+					'Caption' => 'Wheres',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'whichs' => [
+					'Caption' => 'Whichs',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'whens' => [
+					'Caption' => 'Whens',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'whos' => [
+					'Caption' => 'Whos',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'whats' => [
+					'Caption' => 'Whats',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) return $all_tables;
@@ -129,6 +164,11 @@
 		$arrTables = [
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */
 			'whys' => ['Whys', '', 'table.gif', 'None'],
+			'wheres' => ['Wheres', '', 'table.gif', 'None'],
+			'whichs' => ['Whichs', '', 'table.gif', 'None'],
+			'whens' => ['Whens', '', 'table.gif', 'None'],
+			'whos' => ['Whos', '', 'table.gif', 'None'],
+			'whats' => ['Whats', '', 'table.gif', 'None'],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) {
@@ -717,7 +757,7 @@
 	}
 	########################################################################
 	function isEmail($email){
-		if(preg_match('/^([*+!.&#$ï¿½\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,30})$/i', $email))
+		if(preg_match('/^([*+!.&#$¦\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,30})$/i', $email))
 			return $email;
 
 		return false;
@@ -892,44 +932,299 @@
 						],
 					],
 					'whys_why1' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'Whys why1',
-							'description' => '',
+							'caption' => 'Why1 (Precinct)',
+							'description' => 'Department',
 						],
 					],
 					'whys_why2' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'Whys why2',
-							'description' => '',
+							'caption' => 'Why2 (Sub-Precinct)',
+							'description' => 'Sub-Department',
 						],
 					],
 					'whys_why3' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Whys why3',
+							'caption' => 'Why3 (If Any)',
 							'description' => '',
 						],
 					],
 					'whys_description' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
-							'caption' => 'Whys description',
+							'caption' => 'Description',
 							'description' => '',
 						],
 					],
 					'whys_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
-							'caption' => 'Whys created',
+							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],
 					'whys_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
-							'caption' => 'Whys updated',
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'wheres' => [
+					'wheres_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Wheres id',
+							'description' => '',
+						],
+					],
+					'wheres_where1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Where1 (Main Place)',
+							'description' => 'Main Place',
+						],
+					],
+					'wheres_where2' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Wheres2 (Sub Place)',
+							'description' => 'Sub-Place',
+						],
+					],
+					'wheres_where3' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Where3 (If Any)',
+							'description' => '',
+						],
+					],
+					'wheres_description' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'wheres_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'wheres_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'whichs' => [
+					'whichs_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Whichs id',
+							'description' => '',
+						],
+					],
+					'whichs_which1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Which1 (Main Thing)',
+							'description' => 'Main Thing',
+						],
+					],
+					'whichs_which2' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Which2 (Sub Thing)',
+							'description' => 'Sub-Thing',
+						],
+					],
+					'whichs_which3' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Which3 (If Any)',
+							'description' => '',
+						],
+					],
+					'whichs_description' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'whichs_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'whichs_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'whens' => [
+					'whens_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Whens id',
+							'description' => '',
+						],
+					],
+					'whens_when1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'When1 (Frequency)',
+							'description' => 'Frequency',
+						],
+					],
+					'whens_when2' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'When2 (Sessions)',
+							'description' => 'Sessions',
+						],
+					],
+					'whens_when3' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'When3 (Specific Time)',
+							'description' => 'Specific Time',
+						],
+					],
+					'whens_description' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'whens_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'whens_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'whos' => [
+					'whos_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Whos id',
+							'description' => '',
+						],
+					],
+					'whos_who1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Who1 (Doer Role)',
+							'description' => 'Doer Role',
+						],
+					],
+					'whos_who2' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Who2 (Doer ID)',
+							'description' => 'Doer ID',
+						],
+					],
+					'whos_who3' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Who3 (Buddy)',
+							'description' => '',
+						],
+					],
+					'whos_description' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'whos_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'whos_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'whats' => [
+					'whats_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Whats id',
+							'description' => '',
+						],
+					],
+					'whats_what1' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'What1 (Task English)',
+							'description' => 'Task English',
+						],
+					],
+					'whats_what2' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'What2 (Task Hindi)',
+							'description' => 'Task Hindi',
+						],
+					],
+					'whats_what3' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'What3 (If Any)',
+							'description' => '',
+						],
+					],
+					'whats_description' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'whats_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'whats_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
 							'description' => '',
 						],
 					],
@@ -2128,6 +2423,11 @@
 		 */
 		return [
 			'whys' => [],
+			'wheres' => [],
+			'whichs' => [],
+			'whens' => [],
+			'whos' => [],
+			'whats' => [],
 		];
 	}
 	#########################################################
@@ -2252,6 +2552,16 @@
 		*/
 		$lookupQuery = [
 			'whys' => [
+			],
+			'wheres' => [
+			],
+			'whichs' => [
+			],
+			'whens' => [
+			],
+			'whos' => [
+			],
+			'whats' => [
 			],
 		];
 
@@ -2460,24 +2770,24 @@
 	 *     if $isError is false, $dataOrMsg is assumed to be data and $errorStatusCode is ignored
 	 *     example success response: `{"status":"success","data":{"id":1,"name":"John Doe"}}`
 	 */
-	// function json_response($dataOrMsg, $isError = false, $errorStatusCode = 400) {
-	// 	@header('Content-type: application/json');
+	function json_response($dataOrMsg, $isError = false, $errorStatusCode = 400) {
+		@header('Content-type: application/json');
 
-	// 	if($isError) {
-	// 		@header($_SERVER['SERVER_PROTOCOL'] . ' ' . $errorStatusCode . ' Internal Server Error');
-	// 		@header('Status: ' . $errorStatusCode . ' Bad Request');
+		if($isError) {
+			@header($_SERVER['SERVER_PROTOCOL'] . ' ' . $errorStatusCode . ' Internal Server Error');
+			@header('Status: ' . $errorStatusCode . ' Bad Request');
 
-	// 		die(json_encode([
-	// 			'status' => 'error',
-	// 			'message' => $dataOrMsg,
-	// 		]));
-	// 	}
+			die(json_encode([
+				'status' => 'error',
+				'message' => $dataOrMsg,
+			]));
+		}
 
-	// 	die(json_encode([
-	// 		'status' => 'success',
-	// 		'data' => $dataOrMsg,
-	// 	]));
-	// }
+		die(json_encode([
+			'status' => 'success',
+			'data' => $dataOrMsg,
+		]));
+	}
 
 	/**
 	 * Check if a string is alphanumeric.

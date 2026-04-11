@@ -106,6 +106,11 @@
 	function get_sql_fields($table_name) {
 		$sql_fields = [
 			'whys' => "`whys`.`whys_id` as 'whys_id', `whys`.`whys_why1` as 'whys_why1', `whys`.`whys_why2` as 'whys_why2', `whys`.`whys_why3` as 'whys_why3', `whys`.`whys_description` as 'whys_description', `whys`.`whys_created` as 'whys_created', `whys`.`whys_updated` as 'whys_updated'",
+			'wheres' => "`wheres`.`wheres_id` as 'wheres_id', `wheres`.`wheres_where1` as 'wheres_where1', `wheres`.`wheres_where2` as 'wheres_where2', `wheres`.`wheres_where3` as 'wheres_where3', `wheres`.`wheres_description` as 'wheres_description', `wheres`.`wheres_created` as 'wheres_created', `wheres`.`wheres_updated` as 'wheres_updated'",
+			'whichs' => "`whichs`.`whichs_id` as 'whichs_id', `whichs`.`whichs_which1` as 'whichs_which1', `whichs`.`whichs_which2` as 'whichs_which2', `whichs`.`whichs_which3` as 'whichs_which3', `whichs`.`whichs_description` as 'whichs_description', `whichs`.`whichs_created` as 'whichs_created', `whichs`.`whichs_updated` as 'whichs_updated'",
+			'whens' => "`whens`.`whens_id` as 'whens_id', `whens`.`whens_when1` as 'whens_when1', `whens`.`whens_when2` as 'whens_when2', `whens`.`whens_when3` as 'whens_when3', `whens`.`whens_description` as 'whens_description', `whens`.`whens_created` as 'whens_created', `whens`.`whens_updated` as 'whens_updated'",
+			'whos' => "`whos`.`whos_id` as 'whos_id', `whos`.`whos_who1` as 'whos_who1', `whos`.`whos_who2` as 'whos_who2', `whos`.`whos_who3` as 'whos_who3', `whos`.`whos_description` as 'whos_description', `whos`.`whos_created` as 'whos_created', `whos`.`whos_updated` as 'whos_updated'",
+			'whats' => "`whats`.`whats_id` as 'whats_id', `whats`.`whats_what1` as 'whats_what1', `whats`.`whats_what2` as 'whats_what2', `whats`.`whats_what3` as 'whats_what3', `whats`.`whats_description` as 'whats_description', `whats`.`whats_created` as 'whats_created', `whats`.`whats_updated` as 'whats_updated'",
 		];
 
 		if(isset($sql_fields[$table_name])) return $sql_fields[$table_name];
@@ -118,10 +123,20 @@
 	function get_sql_from($table_name, $skip_permissions = false, $skip_joins = false, $lower_permissions = false) {
 		$sql_from = [
 			'whys' => "`whys` ",
+			'wheres' => "`wheres` ",
+			'whichs' => "`whichs` ",
+			'whens' => "`whens` ",
+			'whos' => "`whos` ",
+			'whats' => "`whats` ",
 		];
 
 		$pkey = [
 			'whys' => 'whys_id',
+			'wheres' => 'wheres_id',
+			'whichs' => 'whichs_id',
+			'whens' => 'whens_id',
+			'whos' => 'whos_id',
+			'whats' => 'whats_id',
 		];
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -179,6 +194,51 @@
 				'whys_description' => '',
 				'whys_created' => '',
 				'whys_updated' => '',
+			],
+			'wheres' => [
+				'wheres_id' => '',
+				'wheres_where1' => '',
+				'wheres_where2' => '',
+				'wheres_where3' => '',
+				'wheres_description' => '',
+				'wheres_created' => '',
+				'wheres_updated' => '',
+			],
+			'whichs' => [
+				'whichs_id' => '',
+				'whichs_which1' => '',
+				'whichs_which2' => '',
+				'whichs_which3' => '',
+				'whichs_description' => '',
+				'whichs_created' => '',
+				'whichs_updated' => '',
+			],
+			'whens' => [
+				'whens_id' => '',
+				'whens_when1' => '',
+				'whens_when2' => '',
+				'whens_when3' => '',
+				'whens_description' => '',
+				'whens_created' => '',
+				'whens_updated' => '',
+			],
+			'whos' => [
+				'whos_id' => '',
+				'whos_who1' => '',
+				'whos_who2' => '',
+				'whos_who3' => '',
+				'whos_description' => '',
+				'whos_created' => '',
+				'whos_updated' => '',
+			],
+			'whats' => [
+				'whats_id' => '',
+				'whats_what1' => '',
+				'whats_what2' => '',
+				'whats_what3' => '',
+				'whats_description' => '',
+				'whats_created' => '',
+				'whats_updated' => '',
 			],
 		];
 
@@ -1212,6 +1272,16 @@ EOT;
 		$pcConfig = [
 			'whys' => [
 			],
+			'wheres' => [
+			],
+			'whichs' => [
+			],
+			'whens' => [
+			],
+			'whos' => [
+			],
+			'whats' => [
+			],
 		];
 
 		if($skipPermissions) return $pcConfig;
@@ -1257,7 +1327,7 @@ EOT;
 	#########################################################
 
 	function isDetailViewEnabled($tn) {
-		$tables = ['whys', ];
+		$tables = ['whys', 'wheres', 'whichs', 'whens', 'whos', 'whats', ];
 		return in_array($tn, $tables);
 	}
 

@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the whens_init() hook (in hooks/whens.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="whens-whens_id-<%%VALUE(whens_id)%%>" class="whens-whens_id text-right"><%%SELECT%%><%%VALUE(whens_id)%%><%%ENDSELECT%%></td>
+		<td id="whens-whens_when1-<%%VALUE(whens_id)%%>" class="whens-whens_when1"><%%SELECT%%><%%VALUE(whens_when1)%%><%%ENDSELECT%%></td>
+		<td id="whens-whens_when2-<%%VALUE(whens_id)%%>" class="whens-whens_when2"><%%SELECT%%><%%VALUE(whens_when2)%%><%%ENDSELECT%%></td>
+		<td id="whens-whens_when3-<%%VALUE(whens_id)%%>" class="whens-whens_when3"><%%SELECT%%><%%VALUE(whens_when3)%%><%%ENDSELECT%%></td>
+		<td id="whens-whens_description-<%%VALUE(whens_id)%%>" class="whens-whens_description"><%%SELECT%%><%%VALUE(whens_description)%%><%%ENDSELECT%%></td>
+		<td id="whens-whens_created-<%%VALUE(whens_id)%%>" class="whens-whens_created"><%%SELECT%%><%%VALUE(whens_created)%%><%%ENDSELECT%%></td>
+		<td id="whens-whens_updated-<%%VALUE(whens_id)%%>" class="whens-whens_updated"><%%SELECT%%><%%VALUE(whens_updated)%%><%%ENDSELECT%%></td>

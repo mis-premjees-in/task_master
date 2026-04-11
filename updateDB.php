@@ -11,6 +11,16 @@
 		// set up tables
 		setupTable('whys', []);
 
+		setupTable('wheres', []);
+
+		setupTable('whichs', []);
+
+		setupTable('whens', []);
+
+		setupTable('whos', []);
+
+		setupTable('whats', []);
+
 
 
 		// set up internal tables

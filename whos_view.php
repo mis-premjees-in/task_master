@@ -3,76 +3,76 @@
 // Download AppGini for free from https://bigprof.com/appgini/download/
 
 	include_once(__DIR__ . '/lib.php');
-	@include_once(__DIR__ . '/hooks/whys.php');
-	include_once(__DIR__ . '/whys_dml.php');
+	@include_once(__DIR__ . '/hooks/whos.php');
+	include_once(__DIR__ . '/whos_dml.php');
 
 	// mm: can the current member access this page?
-	$perm = getTablePermissions('whys');
+	$perm = getTablePermissions('whos');
 	if(!$perm['access']) {
 		echo error_message($Translation['tableAccessDenied']);
 		exit;
 	}
 
 	$x = new DataList;
-	$x->TableName = 'whys';
+	$x->TableName = 'whos';
 
 	// Fields that can be displayed in the table view
 	$x->QueryFieldsTV = [
-		"`whys`.`whys_id`" => "whys_id",
-		"`whys`.`whys_why1`" => "whys_why1",
-		"`whys`.`whys_why2`" => "whys_why2",
-		"`whys`.`whys_why3`" => "whys_why3",
-		"`whys`.`whys_description`" => "whys_description",
-		"`whys`.`whys_created`" => "whys_created",
-		"`whys`.`whys_updated`" => "whys_updated",
+		"`whos`.`whos_id`" => "whos_id",
+		"`whos`.`whos_who1`" => "whos_who1",
+		"`whos`.`whos_who2`" => "whos_who2",
+		"`whos`.`whos_who3`" => "whos_who3",
+		"`whos`.`whos_description`" => "whos_description",
+		"`whos`.`whos_created`" => "whos_created",
+		"`whos`.`whos_updated`" => "whos_updated",
 	];
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = [
-		1 => '`whys`.`whys_id`',
+		1 => '`whos`.`whos_id`',
 		2 => 2,
 		3 => 3,
 		4 => 4,
 		5 => 5,
-		6 => '`whys`.`whys_created`',
-		7 => '`whys`.`whys_updated`',
+		6 => '`whos`.`whos_created`',
+		7 => '`whos`.`whos_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = [
-		"`whys`.`whys_id`" => "whys_id",
-		"`whys`.`whys_why1`" => "whys_why1",
-		"`whys`.`whys_why2`" => "whys_why2",
-		"`whys`.`whys_why3`" => "whys_why3",
-		"`whys`.`whys_description`" => "whys_description",
-		"`whys`.`whys_created`" => "whys_created",
-		"`whys`.`whys_updated`" => "whys_updated",
+		"`whos`.`whos_id`" => "whos_id",
+		"`whos`.`whos_who1`" => "whos_who1",
+		"`whos`.`whos_who2`" => "whos_who2",
+		"`whos`.`whos_who3`" => "whos_who3",
+		"`whos`.`whos_description`" => "whos_description",
+		"`whos`.`whos_created`" => "whos_created",
+		"`whos`.`whos_updated`" => "whos_updated",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
-		"`whys`.`whys_id`" => "Whys id",
-		"`whys`.`whys_why1`" => "Why1 (Precinct)",
-		"`whys`.`whys_why2`" => "Why2 (Sub-Precinct)",
-		"`whys`.`whys_why3`" => "Why3 (If Any)",
-		"`whys`.`whys_description`" => "Description",
-		"`whys`.`whys_created`" => "Created AT",
-		"`whys`.`whys_updated`" => "Updated AT",
+		"`whos`.`whos_id`" => "Whos id",
+		"`whos`.`whos_who1`" => "Who1 (Doer Role)",
+		"`whos`.`whos_who2`" => "Who2 (Doer ID)",
+		"`whos`.`whos_who3`" => "Who3 (Buddy)",
+		"`whos`.`whos_description`" => "Description",
+		"`whos`.`whos_created`" => "Created AT",
+		"`whos`.`whos_updated`" => "Updated AT",
 	];
 
 	// Fields that can be quick searched
 	$x->QueryFieldsQS = [
-		"`whys`.`whys_id`" => "whys_id",
-		"`whys`.`whys_why1`" => "whys_why1",
-		"`whys`.`whys_why2`" => "whys_why2",
-		"`whys`.`whys_why3`" => "whys_why3",
-		"`whys`.`whys_description`" => "whys_description",
-		"`whys`.`whys_created`" => "whys_created",
-		"`whys`.`whys_updated`" => "whys_updated",
+		"`whos`.`whos_id`" => "whos_id",
+		"`whos`.`whos_who1`" => "whos_who1",
+		"`whos`.`whos_who2`" => "whos_who2",
+		"`whos`.`whos_who3`" => "whos_who3",
+		"`whos`.`whos_description`" => "whos_description",
+		"`whos`.`whos_created`" => "whos_created",
+		"`whos`.`whos_updated`" => "whos_updated",
 	];
 
 	// Lookup fields that can be used as filterers
 	$x->filterers = [];
 
-	$x->QueryFrom = "`whys` ";
+	$x->QueryFrom = "`whos` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -95,21 +95,21 @@
 	$x->RecordsPerPage = 10;
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
-	$x->ScriptFileName = 'whys_view.php';
-	$x->TableTitle = 'Whys';
+	$x->ScriptFileName = 'whos_view.php';
+	$x->TableTitle = 'Whos';
 	$x->TableIcon = 'table.gif';
-	$x->PrimaryKey = '`whys`.`whys_id`';
+	$x->PrimaryKey = '`whos`.`whos_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Whys id', 'Why1 (Precinct)', 'Why2 (Sub-Precinct)', 'Why3 (If Any)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['whys_id', 'whys_why1', 'whys_why2', 'whys_why3', 'whys_description', 'whys_created', 'whys_updated', ];
+	$x->ColCaption = ['Whos id', 'Who1 (Doer Role)', 'Who2 (Doer ID)', 'Who3 (Buddy)', 'Description', 'Created AT', 'Updated AT', ];
+	$x->ColFieldName = ['whos_id', 'whos_who1', 'whos_who2', 'whos_who3', 'whos_description', 'whos_created', 'whos_updated', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
 
 	// template paths below are based on the app main directory
-	$x->Template = 'templates/whys_templateTV.html';
-	$x->SelectedTemplate = 'templates/whys_templateTVS.html';
-	$x->TemplateDV = 'templates/whys_templateDV.html';
-	$x->TemplateDVP = 'templates/whys_templateDVP.html';
+	$x->Template = 'templates/whos_templateTV.html';
+	$x->SelectedTemplate = 'templates/whos_templateTVS.html';
+	$x->TemplateDV = 'templates/whos_templateDV.html';
+	$x->TemplateDVP = 'templates/whos_templateDVP.html';
 
 	$x->ShowTableHeader = 1;
 	$x->TVClasses = "";
@@ -118,20 +118,20 @@
 	$x->AllowConsoleLog = false;
 	$x->AllowDVNavigation = true;
 
-	// hook: whys_init
+	// hook: whos_init
 	$render = true;
-	if(function_exists('whys_init')) {
+	if(function_exists('whos_init')) {
 		$args = [];
-		$render = whys_init($x, getMemberInfo(), $args);
+		$render = whos_init($x, getMemberInfo(), $args);
 	}
 
 	if($render) $x->Render();
 
-	// hook: whys_header
+	// hook: whos_header
 	$headerCode = '';
-	if(function_exists('whys_header')) {
+	if(function_exists('whos_header')) {
 		$args = [];
-		$headerCode = whys_header($x->ContentType, getMemberInfo(), $args);
+		$headerCode = whos_header($x->ContentType, getMemberInfo(), $args);
 	}
 
 	if(!$headerCode) {
@@ -144,11 +144,11 @@
 
 	echo $x->HTML;
 
-	// hook: whys_footer
+	// hook: whos_footer
 	$footerCode = '';
-	if(function_exists('whys_footer')) {
+	if(function_exists('whos_footer')) {
 		$args = [];
-		$footerCode = whys_footer($x->ContentType, getMemberInfo(), $args);
+		$footerCode = whos_footer($x->ContentType, getMemberInfo(), $args);
 	}
 
 	if(!$footerCode) {

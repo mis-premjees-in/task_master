@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the wheres_init() hook (in hooks/wheres.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="wheres-wheres_id-<%%VALUE(wheres_id)%%>" class="wheres-wheres_id text-right"><%%SELECT%%><%%VALUE(wheres_id)%%><%%ENDSELECT%%></td>
+		<td id="wheres-wheres_where1-<%%VALUE(wheres_id)%%>" class="wheres-wheres_where1"><%%SELECT%%><%%VALUE(wheres_where1)%%><%%ENDSELECT%%></td>
+		<td id="wheres-wheres_where2-<%%VALUE(wheres_id)%%>" class="wheres-wheres_where2"><%%SELECT%%><%%VALUE(wheres_where2)%%><%%ENDSELECT%%></td>
+		<td id="wheres-wheres_where3-<%%VALUE(wheres_id)%%>" class="wheres-wheres_where3"><%%SELECT%%><%%VALUE(wheres_where3)%%><%%ENDSELECT%%></td>
+		<td id="wheres-wheres_description-<%%VALUE(wheres_id)%%>" class="wheres-wheres_description"><%%SELECT%%><%%VALUE(wheres_description)%%><%%ENDSELECT%%></td>
+		<td id="wheres-wheres_created-<%%VALUE(wheres_id)%%>" class="wheres-wheres_created"><%%SELECT%%><%%VALUE(wheres_created)%%><%%ENDSELECT%%></td>
+		<td id="wheres-wheres_updated-<%%VALUE(wheres_id)%%>" class="wheres-wheres_updated"><%%SELECT%%><%%VALUE(wheres_updated)%%><%%ENDSELECT%%></td>

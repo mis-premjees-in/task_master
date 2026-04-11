@@ -10,11 +10,46 @@
 
 			return $data;
 		},
+		'wheres' => function($data, $options = []) {
+			if(isset($data['wheres_created'])) $data['wheres_created'] = guessMySQLDateTime($data['wheres_created']);
+			if(isset($data['wheres_updated'])) $data['wheres_updated'] = guessMySQLDateTime($data['wheres_updated']);
+
+			return $data;
+		},
+		'whichs' => function($data, $options = []) {
+			if(isset($data['whichs_created'])) $data['whichs_created'] = guessMySQLDateTime($data['whichs_created']);
+			if(isset($data['whichs_updated'])) $data['whichs_updated'] = guessMySQLDateTime($data['whichs_updated']);
+
+			return $data;
+		},
+		'whens' => function($data, $options = []) {
+			if(isset($data['whens_created'])) $data['whens_created'] = guessMySQLDateTime($data['whens_created']);
+			if(isset($data['whens_updated'])) $data['whens_updated'] = guessMySQLDateTime($data['whens_updated']);
+
+			return $data;
+		},
+		'whos' => function($data, $options = []) {
+			if(isset($data['whos_created'])) $data['whos_created'] = guessMySQLDateTime($data['whos_created']);
+			if(isset($data['whos_updated'])) $data['whos_updated'] = guessMySQLDateTime($data['whos_updated']);
+
+			return $data;
+		},
+		'whats' => function($data, $options = []) {
+			if(isset($data['whats_created'])) $data['whats_created'] = guessMySQLDateTime($data['whats_created']);
+			if(isset($data['whats_updated'])) $data['whats_updated'] = guessMySQLDateTime($data['whats_updated']);
+
+			return $data;
+		},
 	];
 
 	// accept a record as an assoc array, return a boolean indicating whether to import or skip record
 	$filterFunctions = [
 		'whys' => function($data, $options = []) { return true; },
+		'wheres' => function($data, $options = []) { return true; },
+		'whichs' => function($data, $options = []) { return true; },
+		'whens' => function($data, $options = []) { return true; },
+		'whos' => function($data, $options = []) { return true; },
+		'whats' => function($data, $options = []) { return true; },
 	];
 
 	/*

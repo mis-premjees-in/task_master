@@ -1,8 +1,8 @@
 <?php
-	$dbServer = 'localhost';
-	$dbUsername = 'root';
-	$dbPassword = 'Another10$';
-	$dbDatabase = 'tm_premjees';
+	$dbServer = 'tm.premjees.in';
+	$dbUsername = 'vvidin_tm_premjees';
+	$dbPassword = 'Another10$1';
+	$dbDatabase = 'vvidin_tm_premjees';
 	$dbPort = '3306';
 	$appURI = 'task_master';
 	$host = 'localhost';

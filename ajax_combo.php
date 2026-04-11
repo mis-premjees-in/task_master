@@ -34,6 +34,16 @@
 	$lookups = [
 		'whys' => [
 		],
+		'wheres' => [
+		],
+		'whichs' => [
+		],
+		'whens' => [
+		],
+		'whos' => [
+		],
+		'whats' => [
+		],
 	];
 
 	// XSS prevention
