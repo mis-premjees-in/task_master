@@ -4,33 +4,27 @@
 
 	// accept a record as an assoc array, return transformed row ready to insert to table
 	$transformFunctions = [
-		'whys' => function($data, $options = []) {
-			if(isset($data['whys_created'])) $data['whys_created'] = guessMySQLDateTime($data['whys_created']);
-			if(isset($data['whys_updated'])) $data['whys_updated'] = guessMySQLDateTime($data['whys_updated']);
-
-			return $data;
-		},
-		'wheres' => function($data, $options = []) {
-			if(isset($data['wheres_created'])) $data['wheres_created'] = guessMySQLDateTime($data['wheres_created']);
-			if(isset($data['wheres_updated'])) $data['wheres_updated'] = guessMySQLDateTime($data['wheres_updated']);
-
-			return $data;
-		},
-		'whichs' => function($data, $options = []) {
-			if(isset($data['whichs_created'])) $data['whichs_created'] = guessMySQLDateTime($data['whichs_created']);
-			if(isset($data['whichs_updated'])) $data['whichs_updated'] = guessMySQLDateTime($data['whichs_updated']);
-
-			return $data;
-		},
-		'whens' => function($data, $options = []) {
-			if(isset($data['whens_created'])) $data['whens_created'] = guessMySQLDateTime($data['whens_created']);
-			if(isset($data['whens_updated'])) $data['whens_updated'] = guessMySQLDateTime($data['whens_updated']);
-
-			return $data;
-		},
-		'whos' => function($data, $options = []) {
-			if(isset($data['whos_created'])) $data['whos_created'] = guessMySQLDateTime($data['whos_created']);
-			if(isset($data['whos_updated'])) $data['whos_updated'] = guessMySQLDateTime($data['whos_updated']);
+		'madb' => function($data, $options = []) {
+			if(isset($data['madb_what1'])) $data['madb_what1'] = pkGivenLookupText($data['madb_what1'], 'madb', 'madb_what1');
+			if(isset($data['madb_who1'])) $data['madb_who1'] = pkGivenLookupText($data['madb_who1'], 'madb', 'madb_who1');
+			if(isset($data['madb_when1'])) $data['madb_when1'] = pkGivenLookupText($data['madb_when1'], 'madb', 'madb_when1');
+			if(isset($data['madb_which1'])) $data['madb_which1'] = pkGivenLookupText($data['madb_which1'], 'madb', 'madb_which1');
+			if(isset($data['madb_where1'])) $data['madb_where1'] = pkGivenLookupText($data['madb_where1'], 'madb', 'madb_where1');
+			if(isset($data['madb_why1'])) $data['madb_why1'] = pkGivenLookupText($data['madb_why1'], 'madb', 'madb_why1');
+			if(isset($data['madb_created'])) $data['madb_created'] = guessMySQLDateTime($data['madb_created']);
+			if(isset($data['madb_updated'])) $data['madb_updated'] = guessMySQLDateTime($data['madb_updated']);
+			if(isset($data['madb_why2'])) $data['madb_why2'] = thisOr($data['madb_why1'], pkGivenLookupText($data['madb_why2'], 'madb', 'madb_why2'));
+			if(isset($data['madb_why3'])) $data['madb_why3'] = thisOr($data['madb_why1'], pkGivenLookupText($data['madb_why3'], 'madb', 'madb_why3'));
+			if(isset($data['madb_where2'])) $data['madb_where2'] = thisOr($data['madb_where1'], pkGivenLookupText($data['madb_where2'], 'madb', 'madb_where2'));
+			if(isset($data['madb_where3'])) $data['madb_where3'] = thisOr($data['madb_where1'], pkGivenLookupText($data['madb_where3'], 'madb', 'madb_where3'));
+			if(isset($data['madb_which2'])) $data['madb_which2'] = thisOr($data['madb_which1'], pkGivenLookupText($data['madb_which2'], 'madb', 'madb_which2'));
+			if(isset($data['madb_which3'])) $data['madb_which3'] = thisOr($data['madb_which1'], pkGivenLookupText($data['madb_which3'], 'madb', 'madb_which3'));
+			if(isset($data['madb_when2'])) $data['madb_when2'] = thisOr($data['madb_when1'], pkGivenLookupText($data['madb_when2'], 'madb', 'madb_when2'));
+			if(isset($data['madb_when3'])) $data['madb_when3'] = thisOr($data['madb_when1'], pkGivenLookupText($data['madb_when3'], 'madb', 'madb_when3'));
+			if(isset($data['madb_who2'])) $data['madb_who2'] = thisOr($data['madb_who1'], pkGivenLookupText($data['madb_who2'], 'madb', 'madb_who2'));
+			if(isset($data['madb_who3'])) $data['madb_who3'] = thisOr($data['madb_who1'], pkGivenLookupText($data['madb_who3'], 'madb', 'madb_who3'));
+			if(isset($data['madb_what2'])) $data['madb_what2'] = thisOr($data['madb_what1'], pkGivenLookupText($data['madb_what2'], 'madb', 'madb_what2'));
+			if(isset($data['madb_what3'])) $data['madb_what3'] = thisOr($data['madb_what1'], pkGivenLookupText($data['madb_what3'], 'madb', 'madb_what3'));
 
 			return $data;
 		},
@@ -40,16 +34,47 @@
 
 			return $data;
 		},
+		'whos' => function($data, $options = []) {
+			if(isset($data['whos_created'])) $data['whos_created'] = guessMySQLDateTime($data['whos_created']);
+			if(isset($data['whos_updated'])) $data['whos_updated'] = guessMySQLDateTime($data['whos_updated']);
+
+			return $data;
+		},
+		'whens' => function($data, $options = []) {
+			if(isset($data['whens_created'])) $data['whens_created'] = guessMySQLDateTime($data['whens_created']);
+			if(isset($data['whens_updated'])) $data['whens_updated'] = guessMySQLDateTime($data['whens_updated']);
+
+			return $data;
+		},
+		'whichs' => function($data, $options = []) {
+			if(isset($data['whichs_created'])) $data['whichs_created'] = guessMySQLDateTime($data['whichs_created']);
+			if(isset($data['whichs_updated'])) $data['whichs_updated'] = guessMySQLDateTime($data['whichs_updated']);
+
+			return $data;
+		},
+		'wheres' => function($data, $options = []) {
+			if(isset($data['wheres_created'])) $data['wheres_created'] = guessMySQLDateTime($data['wheres_created']);
+			if(isset($data['wheres_updated'])) $data['wheres_updated'] = guessMySQLDateTime($data['wheres_updated']);
+
+			return $data;
+		},
+		'whys' => function($data, $options = []) {
+			if(isset($data['whys_created'])) $data['whys_created'] = guessMySQLDateTime($data['whys_created']);
+			if(isset($data['whys_updated'])) $data['whys_updated'] = guessMySQLDateTime($data['whys_updated']);
+
+			return $data;
+		},
 	];
 
 	// accept a record as an assoc array, return a boolean indicating whether to import or skip record
 	$filterFunctions = [
-		'whys' => function($data, $options = []) { return true; },
-		'wheres' => function($data, $options = []) { return true; },
-		'whichs' => function($data, $options = []) { return true; },
-		'whens' => function($data, $options = []) { return true; },
-		'whos' => function($data, $options = []) { return true; },
+		'madb' => function($data, $options = []) { return true; },
 		'whats' => function($data, $options = []) { return true; },
+		'whos' => function($data, $options = []) { return true; },
+		'whens' => function($data, $options = []) { return true; },
+		'whichs' => function($data, $options = []) { return true; },
+		'wheres' => function($data, $options = []) { return true; },
+		'whys' => function($data, $options = []) { return true; },
 	];
 
 	/*

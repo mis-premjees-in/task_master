@@ -14,13 +14,6 @@
 
 <div class="panel-body">
 	<fieldset class="form-horizontal">
-		<!-- Field: Whichs id -->
-		<div class="form-group whichs-whichs_id" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Whichs id</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whichs_id)%%></div>
-			</div>
-		</div>
 		<!-- Field: Which1 (Main Thing) -->
 		<div class="form-group whichs-whichs_which1" style="border-bottom: dotted 1px #DDD;">
 			<label class="col-xs-3 control-label">Which1 (Main Thing)</label>
@@ -49,20 +42,6 @@
 				<div class="form-control-static"><%%VALUE(whichs_description)%%></div>
 			</div>
 		</div>
-		<!-- Field: Created AT -->
-		<div class="form-group whichs-whichs_created" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Created AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whichs_created)%%></div>
-			</div>
-		</div>
-		<!-- Field: Updated AT -->
-		<div class="form-group whichs-whichs_updated" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Updated AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whichs_updated)%%></div>
-			</div>
-		</div>
 	</fieldset>
 </div>
 <script>
@@ -76,3 +55,32 @@
 			.after('<i class="glyphicon glyphicon-unchecked"></i>')
 	})
 </script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="whichs-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=whichs-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'whichs',
+				SelectedID: '<%%VALUE(whichs_id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'whichs-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

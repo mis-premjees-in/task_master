@@ -49,7 +49,7 @@
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
-		"`whats`.`whats_id`" => "Whats id",
+		"`whats`.`whats_id`" => "Id",
 		"`whats`.`whats_what1`" => "What1 (Task English)",
 		"`whats`.`whats_what2`" => "What2 (Task Hindi)",
 		"`whats`.`whats_what3`" => "What3 (If Any)",
@@ -92,7 +92,7 @@
 	$x->AllowPrintingDV = 1;
 	$x->AllowCSV = 1;
 	$x->AllowAdminShowSQL = showSQL();
-	$x->RecordsPerPage = 10;
+	$x->RecordsPerPage = 100;
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whats_view.php';
@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whats`.`whats_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Whats id', 'What1 (Task English)', 'What2 (Task Hindi)', 'What3 (If Any)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['whats_id', 'whats_what1', 'whats_what2', 'whats_what3', 'whats_description', 'whats_created', 'whats_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'What1 (Task English)', 'What2 (Task Hindi)', 'What3 (If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['whats_id', 'whats_what1', 'whats_what2', 'whats_what3', 'whats_description', 'whats_created', 'whats_updated', '%madb.madb_what1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/whats_templateTV.html';

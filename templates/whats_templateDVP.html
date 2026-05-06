@@ -14,13 +14,6 @@
 
 <div class="panel-body">
 	<fieldset class="form-horizontal">
-		<!-- Field: Whats id -->
-		<div class="form-group whats-whats_id" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Whats id</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whats_id)%%></div>
-			</div>
-		</div>
 		<!-- Field: What1 (Task English) -->
 		<div class="form-group whats-whats_what1" style="border-bottom: dotted 1px #DDD;">
 			<label class="col-xs-3 control-label">What1 (Task English)</label>
@@ -49,20 +42,6 @@
 				<div class="form-control-static"><%%VALUE(whats_description)%%></div>
 			</div>
 		</div>
-		<!-- Field: Created AT -->
-		<div class="form-group whats-whats_created" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Created AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whats_created)%%></div>
-			</div>
-		</div>
-		<!-- Field: Updated AT -->
-		<div class="form-group whats-whats_updated" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Updated AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whats_updated)%%></div>
-			</div>
-		</div>
 	</fieldset>
 </div>
 <script>
@@ -76,3 +55,32 @@
 			.after('<i class="glyphicon glyphicon-unchecked"></i>')
 	})
 </script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="whats-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=whats-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'whats',
+				SelectedID: '<%%VALUE(whats_id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'whats-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

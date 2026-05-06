@@ -49,7 +49,7 @@
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
-		"`whichs`.`whichs_id`" => "Whichs id",
+		"`whichs`.`whichs_id`" => "Id",
 		"`whichs`.`whichs_which1`" => "Which1 (Main Thing)",
 		"`whichs`.`whichs_which2`" => "Which2 (Sub Thing)",
 		"`whichs`.`whichs_which3`" => "Which3 (If Any)",
@@ -92,7 +92,7 @@
 	$x->AllowPrintingDV = 1;
 	$x->AllowCSV = 1;
 	$x->AllowAdminShowSQL = showSQL();
-	$x->RecordsPerPage = 10;
+	$x->RecordsPerPage = 100;
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whichs_view.php';
@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whichs`.`whichs_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Whichs id', 'Which1 (Main Thing)', 'Which2 (Sub Thing)', 'Which3 (If Any)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['whichs_id', 'whichs_which1', 'whichs_which2', 'whichs_which3', 'whichs_description', 'whichs_created', 'whichs_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Which1 (Main Thing)', 'Which2 (Sub Thing)', 'Which3 (If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['whichs_id', 'whichs_which1', 'whichs_which2', 'whichs_which3', 'whichs_description', 'whichs_created', 'whichs_updated', '%madb.madb_which1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/whichs_templateTV.html';

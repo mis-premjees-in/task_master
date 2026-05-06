@@ -12,3 +12,7 @@
 		<td id="whats-whats_description-<%%VALUE(whats_id)%%>" class="whats-whats_description"><%%SELECT%%><%%VALUE(whats_description)%%><%%ENDSELECT%%></td>
 		<td id="whats-whats_created-<%%VALUE(whats_id)%%>" class="whats-whats_created"><%%SELECT%%><%%VALUE(whats_created)%%><%%ENDSELECT%%></td>
 		<td id="whats-whats_updated-<%%VALUE(whats_id)%%>" class="whats-whats_updated"><%%SELECT%%><%%VALUE(whats_updated)%%><%%ENDSELECT%%></td>
+		<td class="child-madb-madb_what1 child-records-info" data-id="<%%VALUE(whats_id)%%>" data-table="madb" data-lookup-field="madb_what1">
+			<a href="madb_view.php?filterer_madb_what1=<%%VALUE(whats_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Madb)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="madb_view.php?filterer_madb_what1=<%%VALUE(whats_id)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Madb)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

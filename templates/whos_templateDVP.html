@@ -14,13 +14,6 @@
 
 <div class="panel-body">
 	<fieldset class="form-horizontal">
-		<!-- Field: Whos id -->
-		<div class="form-group whos-whos_id" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Whos id</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whos_id)%%></div>
-			</div>
-		</div>
 		<!-- Field: Who1 (Doer Role) -->
 		<div class="form-group whos-whos_who1" style="border-bottom: dotted 1px #DDD;">
 			<label class="col-xs-3 control-label">Who1 (Doer Role)</label>
@@ -35,9 +28,9 @@
 				<div class="form-control-static"><%%VALUE(whos_who2)%%></div>
 			</div>
 		</div>
-		<!-- Field: Who3 (Buddy) -->
+		<!-- Field: Who3 (Buddy ID) -->
 		<div class="form-group whos-whos_who3" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Who3 (Buddy)</label>
+			<label class="col-xs-3 control-label">Who3 (Buddy ID)</label>
 			<div class="col-xs-9">
 				<div class="form-control-static"><%%VALUE(whos_who3)%%></div>
 			</div>
@@ -47,20 +40,6 @@
 			<label class="col-xs-3 control-label">Description</label>
 			<div class="col-xs-9">
 				<div class="form-control-static"><%%VALUE(whos_description)%%></div>
-			</div>
-		</div>
-		<!-- Field: Created AT -->
-		<div class="form-group whos-whos_created" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Created AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whos_created)%%></div>
-			</div>
-		</div>
-		<!-- Field: Updated AT -->
-		<div class="form-group whos-whos_updated" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Updated AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whos_updated)%%></div>
 			</div>
 		</div>
 	</fieldset>
@@ -76,3 +55,32 @@
 			.after('<i class="glyphicon glyphicon-unchecked"></i>')
 	})
 </script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="whos-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=whos-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'whos',
+				SelectedID: '<%%VALUE(whos_id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'whos-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

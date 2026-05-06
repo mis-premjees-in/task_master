@@ -12,3 +12,7 @@
 		<td id="wheres-wheres_description-<%%VALUE(wheres_id)%%>" class="wheres-wheres_description text-bold"><%%VALUE(wheres_description)%%></td>
 		<td id="wheres-wheres_created-<%%VALUE(wheres_id)%%>" class="wheres-wheres_created text-bold"><%%VALUE(wheres_created)%%></td>
 		<td id="wheres-wheres_updated-<%%VALUE(wheres_id)%%>" class="wheres-wheres_updated text-bold"><%%VALUE(wheres_updated)%%></td>
+		<td class="child-madb-madb_where1 child-records-info" data-id="<%%VALUE(wheres_id)%%>" data-table="madb" data-lookup-field="madb_where1">
+			<a href="madb_view.php?filterer_madb_where1=<%%VALUE(wheres_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Madb)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="madb_view.php?filterer_madb_where1=<%%VALUE(wheres_id)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Madb)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

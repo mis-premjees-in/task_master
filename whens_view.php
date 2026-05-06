@@ -21,7 +21,7 @@
 		"`whens`.`whens_id`" => "whens_id",
 		"`whens`.`whens_when1`" => "whens_when1",
 		"`whens`.`whens_when2`" => "whens_when2",
-		"`whens`.`whens_when3`" => "whens_when3",
+		"TIME_FORMAT(`whens`.`whens_when3`, '%r')" => "whens_when3",
 		"`whens`.`whens_description`" => "whens_description",
 		"`whens`.`whens_created`" => "whens_created",
 		"`whens`.`whens_updated`" => "whens_updated",
@@ -31,7 +31,7 @@
 		1 => '`whens`.`whens_id`',
 		2 => 2,
 		3 => 3,
-		4 => 4,
+		4 => '`whens`.`whens_when3`',
 		5 => 5,
 		6 => '`whens`.`whens_created`',
 		7 => '`whens`.`whens_updated`',
@@ -42,14 +42,14 @@
 		"`whens`.`whens_id`" => "whens_id",
 		"`whens`.`whens_when1`" => "whens_when1",
 		"`whens`.`whens_when2`" => "whens_when2",
-		"`whens`.`whens_when3`" => "whens_when3",
+		"TIME_FORMAT(`whens`.`whens_when3`, '%r')" => "whens_when3",
 		"`whens`.`whens_description`" => "whens_description",
 		"`whens`.`whens_created`" => "whens_created",
 		"`whens`.`whens_updated`" => "whens_updated",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
-		"`whens`.`whens_id`" => "Whens id",
+		"`whens`.`whens_id`" => "Id",
 		"`whens`.`whens_when1`" => "When1 (Frequency)",
 		"`whens`.`whens_when2`" => "When2 (Sessions)",
 		"`whens`.`whens_when3`" => "When3 (Specific Time)",
@@ -63,7 +63,7 @@
 		"`whens`.`whens_id`" => "whens_id",
 		"`whens`.`whens_when1`" => "whens_when1",
 		"`whens`.`whens_when2`" => "whens_when2",
-		"`whens`.`whens_when3`" => "whens_when3",
+		"TIME_FORMAT(`whens`.`whens_when3`, '%r')" => "whens_when3",
 		"`whens`.`whens_description`" => "whens_description",
 		"`whens`.`whens_created`" => "whens_created",
 		"`whens`.`whens_updated`" => "whens_updated",
@@ -92,7 +92,7 @@
 	$x->AllowPrintingDV = 1;
 	$x->AllowCSV = 1;
 	$x->AllowAdminShowSQL = showSQL();
-	$x->RecordsPerPage = 10;
+	$x->RecordsPerPage = 100;
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whens_view.php';
@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whens`.`whens_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Whens id', 'When1 (Frequency)', 'When2 (Sessions)', 'When3 (Specific Time)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['whens_id', 'whens_when1', 'whens_when2', 'whens_when3', 'whens_description', 'whens_created', 'whens_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'When1 (Frequency)', 'When2 (Sessions)', 'When3 (Specific Time)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['whens_id', 'whens_when1', 'whens_when2', 'whens_when3', 'whens_description', 'whens_created', 'whens_updated', '%madb.madb_when1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/whens_templateTV.html';

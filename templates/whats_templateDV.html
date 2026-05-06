@@ -9,23 +9,18 @@
 	<!-- child links -->
 	<div class="row vspacer-md">
 		<div class="col-xs-12 children-links">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="madb_view.php?filterer_madb_what1=<%%URLVALUE(whats_id)%%>&<%%EMBEDDED%%>" id="madb_link"><img src="table.gif"> Master Anatomy DB</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="madb_view.php?filterer_madb_what1=<%%URLVALUE(whats_id)%%>&<%%EMBEDDED%%>" id="xs_madb_link"><img src="table.gif"> Master Anatomy DB</a>
+			<input type="hidden" id="madb_hclink" value="madb_view.php?filterer_madb_what1=<%%URLVALUE(whats_id)%%>&<%%EMBEDDED%%>">
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	<hr class="hidden-xs hidden-sm">
 
 	<div class="row">
 		<!-- form inputs -->
 		<div class="col-md-8 col-lg-10" id="whats_dv_form">
 			<fieldset class="form-horizontal">
-
-				<!-- Field: Whats id -->
-				<div class="form-group whats-whats_id">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="whats_id">Whats id</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="whats_id"><%%VALUE(whats_id)%%></div>
-					</div>
-				</div>
 
 				<!-- Field: What1 (Task English) -->
 				<div class="form-group whats-whats_what1">
@@ -33,7 +28,7 @@
 					<label class="control-label col-lg-3" for="whats_what1">What1 (Task English)<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#whats_what1-description"></i></label>
 					<div class="col-lg-9">
 						<span class="help-block bspacer-xs collapse" id="whats_what1-description"><div class="alert alert-info bspacer-xs">Task English</div></span>
-						<textarea maxlength="255" class="form-control" name="whats_what1" id="whats_what1" rows=" 5"><%%VALUE(whats_what1)%%></textarea>
+						<textarea maxlength="255" class="form-control" name="whats_what1" id="whats_what1" rows=" 5"><%%VALUE(whats_what1)%%></textarea><div class="text-danger vspacer-md" id="whats_what1-uniqueness-note" style="display: none;"><%%TRANSLATION(unique field error)%%></div>
 					</div>
 				</div>
 
@@ -65,24 +60,6 @@
 					</div>
 				</div>
 
-				<!-- Field: Created AT -->
-				<div class="form-group whats-whats_created">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Created AT</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="whats_created"><%%VALUE(whats_created)%%></div>
-					</div>
-				</div>
-
-				<!-- Field: Updated AT -->
-				<div class="form-group whats-whats_updated">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Updated AT</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="whats_updated"><%%VALUE(whats_updated)%%></div>
-					</div>
-				</div>
-
 			</fieldset>
 		</div>
 
@@ -105,6 +82,16 @@
 		</div>
 	</div>
 
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="whats-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
 
 </div><!-- /div class="panel-body" -->
 	<script>
@@ -130,6 +117,35 @@
 
 			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
 
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"]):not([href$=".jpg"]):not([href$=".png"]):not([href$=".gif"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setInterval(append_embedded, 1000);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'whats',
+						SelectedID: '<%%VALUE(whats_id)%%>',
+						Operation: 'show-children'
+					},
+					'whats-children'
+				);
+			}
 
 			if(true /* !embedded_mode */) {
 				$j('.add_new_parent').click(function() {
@@ -236,5 +252,6 @@
 		});
 
 		var whatsUniqueFields = [
+			'whats_what1',
 		];
 	</script>

@@ -43,6 +43,35 @@ function whats_copy_children($destination_id, $source_id) {
 	$currentUsername = getLoggedMemberID();
 	$errorMessage = '';
 
+	// copy madb
+	$res = sql("SELECT * FROM `madb` WHERE `madb_what1`='{$safe_sid}'", $eo);
+	while($row = db_fetch_assoc($res)) {
+		$data = [
+			'SelectedID' => $row['madb_id'],
+			'madb_what1' => $destination_id,
+			'madb_who1' => $row['madb_who1'],
+			'madb_when1' => $row['madb_when1'],
+			'madb_which1' => $row['madb_which1'],
+			'madb_where1' => $row['madb_where1'],
+			'madb_why1' => $row['madb_why1'],
+			'madb_why2' => $row['madb_why2'],
+			'madb_why3' => $row['madb_why3'],
+			'madb_where2' => $row['madb_where2'],
+			'madb_where3' => $row['madb_where3'],
+			'madb_which2' => $row['madb_which2'],
+			'madb_which3' => $row['madb_which3'],
+			'madb_when2' => $row['madb_when2'],
+			'madb_when3' => $row['madb_when3'],
+			'madb_who2' => $row['madb_who2'],
+			'madb_who3' => $row['madb_who3'],
+			'madb_what2' => $row['madb_what2'],
+			'madb_what3' => $row['madb_what3'],
+		];
+
+		$ch = curl_insert_handler('madb', $data);
+		if($ch !== false) $requests[] = $ch;
+	}
+
 	// launch requests, asynchronously
 	curl_batch($requests);
 }
@@ -66,6 +95,26 @@ function whats_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks =
 					'<div class="text-bold">' . strip_tags($args['error_message']) . '</div>'
 					: ''
 			);
+	}
+
+	// child table: madb
+	$res = sql("SELECT `whats_id` FROM `whats` WHERE `whats_id`='{$selected_id}'", $eo);
+	$whats_id = db_fetch_row($res);
+	$rires = sql("SELECT COUNT(1) FROM `madb` WHERE `madb_what1`='" . makeSafe($whats_id[0]) . "'", $eo);
+	$rirow = db_fetch_row($rires);
+	$childrenATag = '<a class="alert-link" href="madb_view.php?filterer_madb_what1=' . urlencode($whats_id[0]) . '">%s</a>';
+	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation["couldn't delete"];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'madb'), $RetMsg);
+		return $RetMsg;
+	} elseif($rirow[0] && $AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation['confirm delete'];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'madb'), $RetMsg);
+		$RetMsg = str_replace('<Delete>', '<input type="button" class="btn btn-danger" value="' . html_attr($Translation['yes']) . '" onClick="window.location = `whats_view.php?SelectedID=' . urlencode($selected_id) . '&delete_x=1&confirmed=1&csrf_token=' . urlencode(csrf_token(false, true)) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		$RetMsg = str_replace('<Cancel>', '<input type="button" class="btn btn-success" value="' . html_attr($Translation[ 'no']) . '" onClick="window.location = `whats_view.php?SelectedID=' . urlencode($selected_id) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		return $RetMsg;
 	}
 
 	sql("DELETE FROM `whats` WHERE `whats_id`='{$selected_id}'", $eo);
@@ -211,6 +260,22 @@ function whats_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
 	}
+
+	ob_start();
+	?>
+
+	<script>
+		// initial lookup values
+
+		$j(function() {
+			setTimeout(function() {
+			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
+		});
+	</script>
+	<?php
+
+	$lookups = str_replace('__RAND__', $rnd1, ob_get_clean());
+
 
 	// code for template based detail view forms
 

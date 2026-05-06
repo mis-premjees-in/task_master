@@ -105,12 +105,13 @@
 
 	function get_sql_fields($table_name) {
 		$sql_fields = [
-			'whys' => "`whys`.`whys_id` as 'whys_id', `whys`.`whys_why1` as 'whys_why1', `whys`.`whys_why2` as 'whys_why2', `whys`.`whys_why3` as 'whys_why3', `whys`.`whys_description` as 'whys_description', `whys`.`whys_created` as 'whys_created', `whys`.`whys_updated` as 'whys_updated'",
-			'wheres' => "`wheres`.`wheres_id` as 'wheres_id', `wheres`.`wheres_where1` as 'wheres_where1', `wheres`.`wheres_where2` as 'wheres_where2', `wheres`.`wheres_where3` as 'wheres_where3', `wheres`.`wheres_description` as 'wheres_description', `wheres`.`wheres_created` as 'wheres_created', `wheres`.`wheres_updated` as 'wheres_updated'",
-			'whichs' => "`whichs`.`whichs_id` as 'whichs_id', `whichs`.`whichs_which1` as 'whichs_which1', `whichs`.`whichs_which2` as 'whichs_which2', `whichs`.`whichs_which3` as 'whichs_which3', `whichs`.`whichs_description` as 'whichs_description', `whichs`.`whichs_created` as 'whichs_created', `whichs`.`whichs_updated` as 'whichs_updated'",
-			'whens' => "`whens`.`whens_id` as 'whens_id', `whens`.`whens_when1` as 'whens_when1', `whens`.`whens_when2` as 'whens_when2', `whens`.`whens_when3` as 'whens_when3', `whens`.`whens_description` as 'whens_description', `whens`.`whens_created` as 'whens_created', `whens`.`whens_updated` as 'whens_updated'",
-			'whos' => "`whos`.`whos_id` as 'whos_id', `whos`.`whos_who1` as 'whos_who1', `whos`.`whos_who2` as 'whos_who2', `whos`.`whos_who3` as 'whos_who3', `whos`.`whos_description` as 'whos_description', `whos`.`whos_created` as 'whos_created', `whos`.`whos_updated` as 'whos_updated'",
+			'madb' => "`madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated'",
 			'whats' => "`whats`.`whats_id` as 'whats_id', `whats`.`whats_what1` as 'whats_what1', `whats`.`whats_what2` as 'whats_what2', `whats`.`whats_what3` as 'whats_what3', `whats`.`whats_description` as 'whats_description', `whats`.`whats_created` as 'whats_created', `whats`.`whats_updated` as 'whats_updated'",
+			'whos' => "`whos`.`whos_id` as 'whos_id', `whos`.`whos_who1` as 'whos_who1', `whos`.`whos_who2` as 'whos_who2', `whos`.`whos_who3` as 'whos_who3', `whos`.`whos_description` as 'whos_description', `whos`.`whos_created` as 'whos_created', `whos`.`whos_updated` as 'whos_updated'",
+			'whens' => "`whens`.`whens_id` as 'whens_id', `whens`.`whens_when1` as 'whens_when1', `whens`.`whens_when2` as 'whens_when2', TIME_FORMAT(`whens`.`whens_when3`, '%r') as 'whens_when3', `whens`.`whens_description` as 'whens_description', `whens`.`whens_created` as 'whens_created', `whens`.`whens_updated` as 'whens_updated'",
+			'whichs' => "`whichs`.`whichs_id` as 'whichs_id', `whichs`.`whichs_which1` as 'whichs_which1', `whichs`.`whichs_which2` as 'whichs_which2', `whichs`.`whichs_which3` as 'whichs_which3', `whichs`.`whichs_description` as 'whichs_description', `whichs`.`whichs_created` as 'whichs_created', `whichs`.`whichs_updated` as 'whichs_updated'",
+			'wheres' => "`wheres`.`wheres_id` as 'wheres_id', `wheres`.`wheres_where1` as 'wheres_where1', `wheres`.`wheres_where2` as 'wheres_where2', `wheres`.`wheres_where3` as 'wheres_where3', `wheres`.`wheres_description` as 'wheres_description', `wheres`.`wheres_created` as 'wheres_created', `wheres`.`wheres_updated` as 'wheres_updated'",
+			'whys' => "`whys`.`whys_id` as 'whys_id', `whys`.`whys_why1` as 'whys_why1', `whys`.`whys_why2` as 'whys_why2', `whys`.`whys_why3` as 'whys_why3', `whys`.`whys_description` as 'whys_description', `whys`.`whys_created` as 'whys_created', `whys`.`whys_updated` as 'whys_updated'",
 		];
 
 		if(isset($sql_fields[$table_name])) return $sql_fields[$table_name];
@@ -122,21 +123,23 @@
 
 	function get_sql_from($table_name, $skip_permissions = false, $skip_joins = false, $lower_permissions = false) {
 		$sql_from = [
-			'whys' => "`whys` ",
-			'wheres' => "`wheres` ",
-			'whichs' => "`whichs` ",
-			'whens' => "`whens` ",
-			'whos' => "`whos` ",
+			'madb' => "`madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ",
 			'whats' => "`whats` ",
+			'whos' => "`whos` ",
+			'whens' => "`whens` ",
+			'whichs' => "`whichs` ",
+			'wheres' => "`wheres` ",
+			'whys' => "`whys` ",
 		];
 
 		$pkey = [
-			'whys' => 'whys_id',
-			'wheres' => 'wheres_id',
-			'whichs' => 'whichs_id',
-			'whens' => 'whens_id',
-			'whos' => 'whos_id',
+			'madb' => 'madb_id',
 			'whats' => 'whats_id',
+			'whos' => 'whos_id',
+			'whens' => 'whens_id',
+			'whichs' => 'whichs_id',
+			'wheres' => 'wheres_id',
+			'whys' => 'whys_id',
 		];
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -186,41 +189,37 @@
 	function get_defaults($table) {
 		/* array of tables and their fields, with default values (or empty), excluding automatic values */
 		$defaults = [
-			'whys' => [
-				'whys_id' => '',
-				'whys_why1' => '',
-				'whys_why2' => '',
-				'whys_why3' => '',
-				'whys_description' => '',
-				'whys_created' => '',
-				'whys_updated' => '',
+			'madb' => [
+				'madb_id' => '',
+				'madb_what1' => '',
+				'madb_who1' => '',
+				'madb_when1' => '',
+				'madb_which1' => '',
+				'madb_where1' => '',
+				'madb_why1' => '',
+				'madb_why2' => '',
+				'madb_why3' => '',
+				'madb_where2' => '',
+				'madb_where3' => '',
+				'madb_which2' => '',
+				'madb_which3' => '',
+				'madb_when2' => '',
+				'madb_when3' => '',
+				'madb_who2' => '',
+				'madb_who3' => '',
+				'madb_what2' => '',
+				'madb_what3' => '',
+				'madb_created' => '',
+				'madb_updated' => '',
 			],
-			'wheres' => [
-				'wheres_id' => '',
-				'wheres_where1' => '',
-				'wheres_where2' => '',
-				'wheres_where3' => '',
-				'wheres_description' => '',
-				'wheres_created' => '',
-				'wheres_updated' => '',
-			],
-			'whichs' => [
-				'whichs_id' => '',
-				'whichs_which1' => '',
-				'whichs_which2' => '',
-				'whichs_which3' => '',
-				'whichs_description' => '',
-				'whichs_created' => '',
-				'whichs_updated' => '',
-			],
-			'whens' => [
-				'whens_id' => '',
-				'whens_when1' => '',
-				'whens_when2' => '',
-				'whens_when3' => '',
-				'whens_description' => '',
-				'whens_created' => '',
-				'whens_updated' => '',
+			'whats' => [
+				'whats_id' => '',
+				'whats_what1' => '',
+				'whats_what2' => '',
+				'whats_what3' => '',
+				'whats_description' => '',
+				'whats_created' => '',
+				'whats_updated' => '',
 			],
 			'whos' => [
 				'whos_id' => '',
@@ -231,14 +230,41 @@
 				'whos_created' => '',
 				'whos_updated' => '',
 			],
-			'whats' => [
-				'whats_id' => '',
-				'whats_what1' => '',
-				'whats_what2' => '',
-				'whats_what3' => '',
-				'whats_description' => '',
-				'whats_created' => '',
-				'whats_updated' => '',
+			'whens' => [
+				'whens_id' => '',
+				'whens_when1' => '',
+				'whens_when2' => '',
+				'whens_when3' => '',
+				'whens_description' => '',
+				'whens_created' => '',
+				'whens_updated' => '',
+			],
+			'whichs' => [
+				'whichs_id' => '',
+				'whichs_which1' => '',
+				'whichs_which2' => '',
+				'whichs_which3' => '',
+				'whichs_description' => '',
+				'whichs_created' => '',
+				'whichs_updated' => '',
+			],
+			'wheres' => [
+				'wheres_id' => '',
+				'wheres_where1' => '',
+				'wheres_where2' => '',
+				'wheres_where3' => '',
+				'wheres_description' => '',
+				'wheres_created' => '',
+				'wheres_updated' => '',
+			],
+			'whys' => [
+				'whys_id' => '',
+				'whys_why1' => '',
+				'whys_why2' => '',
+				'whys_why3' => '',
+				'whys_description' => '',
+				'whys_created' => '',
+				'whys_updated' => '',
 			],
 		];
 
@@ -1065,7 +1091,7 @@
 	#########################################################
 
 	function tablesWithAddNewInHomepage() {
-		return [];
+		return ['madb','whats','whos','whens','whichs','wheres','whys',];
 	}
 
 	#########################################################
@@ -1270,17 +1296,163 @@ EOT;
 
 	function getLookupFields($skipPermissions = false, $filterByPermission = 'view') {
 		$pcConfig = [
-			'whys' => [
+			'madb' => [
+				'madb_what1' => [
+					'parent-table' => 'whats',
+					'parent-primary-key' => 'whats_id',
+					'child-primary-key' => 'madb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(What1)</span>',
+					'auto-close' => true,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Id', 1 => 'What1', 2 => 'Who1', 3 => 'When1', 4 => 'Which1', 5 => 'Where1', 6 => 'Why1', 7 => 'Why2', 8 => 'Why3', 9 => 'Where2', 10 => 'Where3', 11 => 'Which2', 12 => 'Which3', 13 => 'When2', 14 => 'When3', 15 => 'Who2', 16 => 'Who3', 17 => 'What2', 18 => 'What3', 19 => 'Created AT', 20 => 'Updated AT'],
+					'display-field-names' => [0 => 'madb_id', 1 => 'madb_what1', 2 => 'madb_who1', 3 => 'madb_when1', 4 => 'madb_which1', 5 => 'madb_where1', 6 => 'madb_why1', 7 => 'madb_why2', 8 => 'madb_why3', 9 => 'madb_where2', 10 => 'madb_where3', 11 => 'madb_which2', 12 => 'madb_which3', 13 => 'madb_when2', 14 => 'madb_when3', 15 => 'madb_who2', 16 => 'madb_who3', 17 => 'madb_what2', 18 => 'madb_what3', 19 => 'madb_created', 20 => 'madb_updated'],
+					'sortable-fields' => [0 => '`madb`.`madb_id`', 1 => '`whats1`.`whats_what1`', 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`whys1`.`whys_why2`', 8 => '`whys1`.`whys_why3`', 9 => '`wheres1`.`wheres_where2`', 10 => '`wheres1`.`wheres_where3`', 11 => '`whichs1`.`whichs_which2`', 12 => '`whichs1`.`whichs_which3`', 13 => '`whens1`.`whens_when2`', 14 => 'time_format(`whens1`.`whens_when3`,\'%r\')', 15 => '`whos1`.`whos_who2`', 16 => '`whos1`.`whos_who3`', 17 => '`whats1`.`whats_what2`', 18 => '`whats1`.`whats_what3`', 19 => '`madb`.`madb_created`', 20 => '`madb`.`madb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-madb',
+					'template-printable' => 'children-madb-printable',
+					'query' => "SELECT `madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated' FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` "
+				],
+				'madb_who1' => [
+					'parent-table' => 'whos',
+					'parent-primary-key' => 'whos_id',
+					'child-primary-key' => 'madb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Who1)</span>',
+					'auto-close' => true,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Id', 1 => 'What1', 2 => 'Who1', 3 => 'When1', 4 => 'Which1', 5 => 'Where1', 6 => 'Why1', 7 => 'Why2', 8 => 'Why3', 9 => 'Where2', 10 => 'Where3', 11 => 'Which2', 12 => 'Which3', 13 => 'When2', 14 => 'When3', 15 => 'Who2', 16 => 'Who3', 17 => 'What2', 18 => 'What3', 19 => 'Created AT', 20 => 'Updated AT'],
+					'display-field-names' => [0 => 'madb_id', 1 => 'madb_what1', 2 => 'madb_who1', 3 => 'madb_when1', 4 => 'madb_which1', 5 => 'madb_where1', 6 => 'madb_why1', 7 => 'madb_why2', 8 => 'madb_why3', 9 => 'madb_where2', 10 => 'madb_where3', 11 => 'madb_which2', 12 => 'madb_which3', 13 => 'madb_when2', 14 => 'madb_when3', 15 => 'madb_who2', 16 => 'madb_who3', 17 => 'madb_what2', 18 => 'madb_what3', 19 => 'madb_created', 20 => 'madb_updated'],
+					'sortable-fields' => [0 => '`madb`.`madb_id`', 1 => '`whats1`.`whats_what1`', 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`whys1`.`whys_why2`', 8 => '`whys1`.`whys_why3`', 9 => '`wheres1`.`wheres_where2`', 10 => '`wheres1`.`wheres_where3`', 11 => '`whichs1`.`whichs_which2`', 12 => '`whichs1`.`whichs_which3`', 13 => '`whens1`.`whens_when2`', 14 => 'time_format(`whens1`.`whens_when3`,\'%r\')', 15 => '`whos1`.`whos_who2`', 16 => '`whos1`.`whos_who3`', 17 => '`whats1`.`whats_what2`', 18 => '`whats1`.`whats_what3`', 19 => '`madb`.`madb_created`', 20 => '`madb`.`madb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-madb',
+					'template-printable' => 'children-madb-printable',
+					'query' => "SELECT `madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated' FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` "
+				],
+				'madb_when1' => [
+					'parent-table' => 'whens',
+					'parent-primary-key' => 'whens_id',
+					'child-primary-key' => 'madb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(When1)</span>',
+					'auto-close' => true,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Id', 1 => 'What1', 2 => 'Who1', 3 => 'When1', 4 => 'Which1', 5 => 'Where1', 6 => 'Why1', 7 => 'Why2', 8 => 'Why3', 9 => 'Where2', 10 => 'Where3', 11 => 'Which2', 12 => 'Which3', 13 => 'When2', 14 => 'When3', 15 => 'Who2', 16 => 'Who3', 17 => 'What2', 18 => 'What3', 19 => 'Created AT', 20 => 'Updated AT'],
+					'display-field-names' => [0 => 'madb_id', 1 => 'madb_what1', 2 => 'madb_who1', 3 => 'madb_when1', 4 => 'madb_which1', 5 => 'madb_where1', 6 => 'madb_why1', 7 => 'madb_why2', 8 => 'madb_why3', 9 => 'madb_where2', 10 => 'madb_where3', 11 => 'madb_which2', 12 => 'madb_which3', 13 => 'madb_when2', 14 => 'madb_when3', 15 => 'madb_who2', 16 => 'madb_who3', 17 => 'madb_what2', 18 => 'madb_what3', 19 => 'madb_created', 20 => 'madb_updated'],
+					'sortable-fields' => [0 => '`madb`.`madb_id`', 1 => '`whats1`.`whats_what1`', 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`whys1`.`whys_why2`', 8 => '`whys1`.`whys_why3`', 9 => '`wheres1`.`wheres_where2`', 10 => '`wheres1`.`wheres_where3`', 11 => '`whichs1`.`whichs_which2`', 12 => '`whichs1`.`whichs_which3`', 13 => '`whens1`.`whens_when2`', 14 => 'time_format(`whens1`.`whens_when3`,\'%r\')', 15 => '`whos1`.`whos_who2`', 16 => '`whos1`.`whos_who3`', 17 => '`whats1`.`whats_what2`', 18 => '`whats1`.`whats_what3`', 19 => '`madb`.`madb_created`', 20 => '`madb`.`madb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-madb',
+					'template-printable' => 'children-madb-printable',
+					'query' => "SELECT `madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated' FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` "
+				],
+				'madb_which1' => [
+					'parent-table' => 'whichs',
+					'parent-primary-key' => 'whichs_id',
+					'child-primary-key' => 'madb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Which1)</span>',
+					'auto-close' => true,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Id', 1 => 'What1', 2 => 'Who1', 3 => 'When1', 4 => 'Which1', 5 => 'Where1', 6 => 'Why1', 7 => 'Why2', 8 => 'Why3', 9 => 'Where2', 10 => 'Where3', 11 => 'Which2', 12 => 'Which3', 13 => 'When2', 14 => 'When3', 15 => 'Who2', 16 => 'Who3', 17 => 'What2', 18 => 'What3', 19 => 'Created AT', 20 => 'Updated AT'],
+					'display-field-names' => [0 => 'madb_id', 1 => 'madb_what1', 2 => 'madb_who1', 3 => 'madb_when1', 4 => 'madb_which1', 5 => 'madb_where1', 6 => 'madb_why1', 7 => 'madb_why2', 8 => 'madb_why3', 9 => 'madb_where2', 10 => 'madb_where3', 11 => 'madb_which2', 12 => 'madb_which3', 13 => 'madb_when2', 14 => 'madb_when3', 15 => 'madb_who2', 16 => 'madb_who3', 17 => 'madb_what2', 18 => 'madb_what3', 19 => 'madb_created', 20 => 'madb_updated'],
+					'sortable-fields' => [0 => '`madb`.`madb_id`', 1 => '`whats1`.`whats_what1`', 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`whys1`.`whys_why2`', 8 => '`whys1`.`whys_why3`', 9 => '`wheres1`.`wheres_where2`', 10 => '`wheres1`.`wheres_where3`', 11 => '`whichs1`.`whichs_which2`', 12 => '`whichs1`.`whichs_which3`', 13 => '`whens1`.`whens_when2`', 14 => 'time_format(`whens1`.`whens_when3`,\'%r\')', 15 => '`whos1`.`whos_who2`', 16 => '`whos1`.`whos_who3`', 17 => '`whats1`.`whats_what2`', 18 => '`whats1`.`whats_what3`', 19 => '`madb`.`madb_created`', 20 => '`madb`.`madb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-madb',
+					'template-printable' => 'children-madb-printable',
+					'query' => "SELECT `madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated' FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` "
+				],
+				'madb_where1' => [
+					'parent-table' => 'wheres',
+					'parent-primary-key' => 'wheres_id',
+					'child-primary-key' => 'madb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Where1)</span>',
+					'auto-close' => true,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Id', 1 => 'What1', 2 => 'Who1', 3 => 'When1', 4 => 'Which1', 5 => 'Where1', 6 => 'Why1', 7 => 'Why2', 8 => 'Why3', 9 => 'Where2', 10 => 'Where3', 11 => 'Which2', 12 => 'Which3', 13 => 'When2', 14 => 'When3', 15 => 'Who2', 16 => 'Who3', 17 => 'What2', 18 => 'What3', 19 => 'Created AT', 20 => 'Updated AT'],
+					'display-field-names' => [0 => 'madb_id', 1 => 'madb_what1', 2 => 'madb_who1', 3 => 'madb_when1', 4 => 'madb_which1', 5 => 'madb_where1', 6 => 'madb_why1', 7 => 'madb_why2', 8 => 'madb_why3', 9 => 'madb_where2', 10 => 'madb_where3', 11 => 'madb_which2', 12 => 'madb_which3', 13 => 'madb_when2', 14 => 'madb_when3', 15 => 'madb_who2', 16 => 'madb_who3', 17 => 'madb_what2', 18 => 'madb_what3', 19 => 'madb_created', 20 => 'madb_updated'],
+					'sortable-fields' => [0 => '`madb`.`madb_id`', 1 => '`whats1`.`whats_what1`', 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`whys1`.`whys_why2`', 8 => '`whys1`.`whys_why3`', 9 => '`wheres1`.`wheres_where2`', 10 => '`wheres1`.`wheres_where3`', 11 => '`whichs1`.`whichs_which2`', 12 => '`whichs1`.`whichs_which3`', 13 => '`whens1`.`whens_when2`', 14 => 'time_format(`whens1`.`whens_when3`,\'%r\')', 15 => '`whos1`.`whos_who2`', 16 => '`whos1`.`whos_who3`', 17 => '`whats1`.`whats_what2`', 18 => '`whats1`.`whats_what3`', 19 => '`madb`.`madb_created`', 20 => '`madb`.`madb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-madb',
+					'template-printable' => 'children-madb-printable',
+					'query' => "SELECT `madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated' FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` "
+				],
+				'madb_why1' => [
+					'parent-table' => 'whys',
+					'parent-primary-key' => 'whys_id',
+					'child-primary-key' => 'madb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Why1)</span>',
+					'auto-close' => true,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Id', 1 => 'What1', 2 => 'Who1', 3 => 'When1', 4 => 'Which1', 5 => 'Where1', 6 => 'Why1', 7 => 'Why2', 8 => 'Why3', 9 => 'Where2', 10 => 'Where3', 11 => 'Which2', 12 => 'Which3', 13 => 'When2', 14 => 'When3', 15 => 'Who2', 16 => 'Who3', 17 => 'What2', 18 => 'What3', 19 => 'Created AT', 20 => 'Updated AT'],
+					'display-field-names' => [0 => 'madb_id', 1 => 'madb_what1', 2 => 'madb_who1', 3 => 'madb_when1', 4 => 'madb_which1', 5 => 'madb_where1', 6 => 'madb_why1', 7 => 'madb_why2', 8 => 'madb_why3', 9 => 'madb_where2', 10 => 'madb_where3', 11 => 'madb_which2', 12 => 'madb_which3', 13 => 'madb_when2', 14 => 'madb_when3', 15 => 'madb_who2', 16 => 'madb_who3', 17 => 'madb_what2', 18 => 'madb_what3', 19 => 'madb_created', 20 => 'madb_updated'],
+					'sortable-fields' => [0 => '`madb`.`madb_id`', 1 => '`whats1`.`whats_what1`', 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`whys1`.`whys_why2`', 8 => '`whys1`.`whys_why3`', 9 => '`wheres1`.`wheres_where2`', 10 => '`wheres1`.`wheres_where3`', 11 => '`whichs1`.`whichs_which2`', 12 => '`whichs1`.`whichs_which3`', 13 => '`whens1`.`whens_when2`', 14 => 'time_format(`whens1`.`whens_when3`,\'%r\')', 15 => '`whos1`.`whos_who2`', 16 => '`whos1`.`whos_who3`', 17 => '`whats1`.`whats_what2`', 18 => '`whats1`.`whats_what3`', 19 => '`madb`.`madb_created`', 20 => '`madb`.`madb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-madb',
+					'template-printable' => 'children-madb-printable',
+					'query' => "SELECT `madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated' FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` "
+				],
 			],
-			'wheres' => [
-			],
-			'whichs' => [
-			],
-			'whens' => [
+			'whats' => [
 			],
 			'whos' => [
 			],
-			'whats' => [
+			'whens' => [
+			],
+			'whichs' => [
+			],
+			'wheres' => [
+			],
+			'whys' => [
 			],
 		];
 
@@ -1327,7 +1499,7 @@ EOT;
 	#########################################################
 
 	function isDetailViewEnabled($tn) {
-		$tables = ['whys', 'wheres', 'whichs', 'whens', 'whos', 'whats', ];
+		$tables = ['madb', 'whats', 'whos', 'whens', 'whichs', 'wheres', 'whys', ];
 		return in_array($tn, $tables);
 	}
 
@@ -1448,7 +1620,7 @@ EOT;
 	 * @return bool true if the current user is an admin and revealing SQL is allowed, false otherwise
 	 */
 	function showSQL() {
-		$allowAdminShowSQL = false;
+		$allowAdminShowSQL = true;
 		return $allowAdminShowSQL && getLoggedAdmin() !== false;
 	}
 

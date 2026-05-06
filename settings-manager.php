@@ -37,11 +37,6 @@
 		@include_once(APP_DIR . "/resources/lib/{$class}.php");
 	});
 
-	/* trim $_POST, $_GET, $_REQUEST */
-	if(count($_POST)) $_POST = array_trim($_POST);
-	if(count($_GET)) $_GET = array_trim($_GET);
-	if(count($_REQUEST)) $_REQUEST = array_trim($_REQUEST);
-
 /************************************************/
 
 	function configFileName() {

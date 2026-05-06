@@ -9,23 +9,18 @@
 	<!-- child links -->
 	<div class="row vspacer-md">
 		<div class="col-xs-12 children-links">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="madb_view.php?filterer_madb_where1=<%%URLVALUE(wheres_id)%%>&<%%EMBEDDED%%>" id="madb_link"><img src="table.gif"> Master Anatomy DB</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="madb_view.php?filterer_madb_where1=<%%URLVALUE(wheres_id)%%>&<%%EMBEDDED%%>" id="xs_madb_link"><img src="table.gif"> Master Anatomy DB</a>
+			<input type="hidden" id="madb_hclink" value="madb_view.php?filterer_madb_where1=<%%URLVALUE(wheres_id)%%>&<%%EMBEDDED%%>">
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	<hr class="hidden-xs hidden-sm">
 
 	<div class="row">
 		<!-- form inputs -->
 		<div class="col-md-8 col-lg-10" id="wheres_dv_form">
 			<fieldset class="form-horizontal">
-
-				<!-- Field: Wheres id -->
-				<div class="form-group wheres-wheres_id">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="wheres_id">Wheres id</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="wheres_id"><%%VALUE(wheres_id)%%></div>
-					</div>
-				</div>
 
 				<!-- Field: Where1 (Main Place) -->
 				<div class="form-group wheres-wheres_where1">
@@ -33,14 +28,14 @@
 					<label class="control-label col-lg-3" for="wheres_where1">Where1 (Main Place)<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#wheres_where1-description"></i></label>
 					<div class="col-lg-9">
 						<span class="help-block bspacer-xs collapse" id="wheres_where1-description"><div class="alert alert-info bspacer-xs">Main Place</div></span>
-						<input maxlength="40" type="text" class="form-control" name="wheres_where1" id="wheres_where1" value="<%%VALUE(wheres_where1)%%>" required>
+						<%%COMBO(wheres_where1)%%>
 					</div>
 				</div>
 
-				<!-- Field: Wheres2 (Sub Place) -->
+				<!-- Field: Where2 (Zone) -->
 				<div class="form-group wheres-wheres_where2">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="wheres_where2">Wheres2 (Sub Place)<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#wheres_where2-description"></i></label>
+					<label class="control-label col-lg-3" for="wheres_where2">Where2 (Zone)<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#wheres_where2-description"></i></label>
 					<div class="col-lg-9">
 						<span class="help-block bspacer-xs collapse" id="wheres_where2-description"><div class="alert alert-info bspacer-xs">Sub-Place</div></span>
 						<input maxlength="40" type="text" class="form-control" name="wheres_where2" id="wheres_where2" value="<%%VALUE(wheres_where2)%%>" required>
@@ -62,24 +57,6 @@
 					<label class="control-label col-lg-3" for="wheres_description">Description<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
 						<textarea maxlength="255" class="form-control" name="wheres_description" id="wheres_description" rows=" 5"><%%VALUE(wheres_description)%%></textarea>
-					</div>
-				</div>
-
-				<!-- Field: Created AT -->
-				<div class="form-group wheres-wheres_created">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Created AT</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="wheres_created"><%%VALUE(wheres_created)%%></div>
-					</div>
-				</div>
-
-				<!-- Field: Updated AT -->
-				<div class="form-group wheres-wheres_updated">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Updated AT</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="wheres_updated"><%%VALUE(wheres_updated)%%></div>
 					</div>
 				</div>
 
@@ -106,6 +83,16 @@
 	</div>
 
 
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="wheres-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
 </div><!-- /div class="panel-body" -->
 	<script>
 		$j(function() {
@@ -124,12 +111,59 @@
 			/* enable DV action buttons to float on scrolling down the form */
 			enable_dvab_floating();
 
-			$j('#wheres_dv_container-loading').addClass('hidden');
-			$j('#wheres_dv_container').removeClass('hidden');
-			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('wheres', 'wheres_where1');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) {
+				AppGini.once({
+					condition: function() {
+						return $j('.form-group.wheres-wheres_where1')
+									.find('.nicEdit-main, .select2-container, input[type=radio]')
+									.length > 0
+								// or read-only DV
+								|| (!$j('#update').length && !$j('#insert').length);
+					},
+					action: function() {
+						$j('#wheres_dv_container-loading').addClass('hidden');
+						$j('#wheres_dv_container').removeClass('hidden');
+						AppGini.focusFormElement('wheres', 'wheres_where1');
+					},
+					timeout:  5000,
+					doActionOnTimeout:  true
+				});
+			} else {
+				$j('#wheres_dv_container-loading').addClass('hidden');
+				$j('#wheres_dv_container').removeClass('hidden');
+			}
 
 			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
 
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"]):not([href$=".jpg"]):not([href$=".png"]):not([href$=".gif"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setInterval(append_embedded, 1000);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'wheres',
+						SelectedID: '<%%VALUE(wheres_id)%%>',
+						Operation: 'show-children'
+					},
+					'wheres-children'
+				);
+			}
 
 			if(true /* !embedded_mode */) {
 				$j('.add_new_parent').click(function() {

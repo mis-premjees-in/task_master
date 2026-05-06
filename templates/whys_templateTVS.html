@@ -12,3 +12,7 @@
 		<td id="whys-whys_description-<%%VALUE(whys_id)%%>" class="whys-whys_description text-bold"><%%VALUE(whys_description)%%></td>
 		<td id="whys-whys_created-<%%VALUE(whys_id)%%>" class="whys-whys_created text-bold"><%%VALUE(whys_created)%%></td>
 		<td id="whys-whys_updated-<%%VALUE(whys_id)%%>" class="whys-whys_updated text-bold"><%%VALUE(whys_updated)%%></td>
+		<td class="child-madb-madb_why1 child-records-info" data-id="<%%VALUE(whys_id)%%>" data-table="madb" data-lookup-field="madb_why1">
+			<a href="madb_view.php?filterer_madb_why1=<%%VALUE(whys_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Madb)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="madb_view.php?filterer_madb_why1=<%%VALUE(whys_id)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Madb)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

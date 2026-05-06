@@ -458,85 +458,22 @@ AppGini.ajaxCache = function() {
 	};
 };
 
-function whys_validateData(insertMode) {
+function madb_validateData(insertMode) {
 	$j('.has-error').removeClass('has-error');
 	var errors = false;
-
-	// check all required fields have values
-	const reqFields = [
-		// [field-type, field-name, field-caption], ...
-		['text', 'whys_why1', 'Why1 (Precinct)'],
-		['text', 'whys_why2', 'Why2 (Sub-Precinct)'],
-		['text', 'whys_description', 'Description'],
-	];
-
-	reqFields.map(function(rf) {
-		// avoid displaying more error messages and overwhelming users
-		if(rf.length != 3 || errors) return;
-
-		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
-	});
-
-	if(errors) return false;
 
 	return !errors;
 }
-function wheres_validateData(insertMode) {
+function whats_validateData(insertMode) {
 	$j('.has-error').removeClass('has-error');
 	var errors = false;
 
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'wheres_where1', 'Where1 (Main Place)'],
-		['text', 'wheres_where2', 'Wheres2 (Sub Place)'],
-		['text', 'wheres_description', 'Description'],
-	];
-
-	reqFields.map(function(rf) {
-		// avoid displaying more error messages and overwhelming users
-		if(rf.length != 3 || errors) return;
-
-		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
-	});
-
-	if(errors) return false;
-
-	return !errors;
-}
-function whichs_validateData(insertMode) {
-	$j('.has-error').removeClass('has-error');
-	var errors = false;
-
-	// check all required fields have values
-	const reqFields = [
-		// [field-type, field-name, field-caption], ...
-		['text', 'whichs_which1', 'Which1 (Main Thing)'],
-		['text', 'whichs_which2', 'Which2 (Sub Thing)'],
-		['text', 'whichs_description', 'Description'],
-	];
-
-	reqFields.map(function(rf) {
-		// avoid displaying more error messages and overwhelming users
-		if(rf.length != 3 || errors) return;
-
-		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
-	});
-
-	if(errors) return false;
-
-	return !errors;
-}
-function whens_validateData(insertMode) {
-	$j('.has-error').removeClass('has-error');
-	var errors = false;
-
-	// check all required fields have values
-	const reqFields = [
-		// [field-type, field-name, field-caption], ...
-		['text', 'whens_when1', 'When1 (Frequency)'],
-		['text', 'whens_when2', 'When2 (Sessions)'],
-		['text', 'whens_description', 'Description'],
+		['text', 'whats_what1', 'What1 (Task English)'],
+		['text', 'whats_what2', 'What2 (Task Hindi)'],
+		['text', 'whats_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -573,16 +510,86 @@ function whos_validateData(insertMode) {
 
 	return !errors;
 }
-function whats_validateData(insertMode) {
+function whens_validateData(insertMode) {
 	$j('.has-error').removeClass('has-error');
 	var errors = false;
 
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'whats_what1', 'What1 (Task English)'],
-		['text', 'whats_what2', 'What2 (Task Hindi)'],
-		['text', 'whats_description', 'Description'],
+		['list', 'whens_when1', 'When1 (Frequency)'],
+		['list', 'whens_when2', 'When2 (Sessions)'],
+		['text', 'whens_when3', 'When3 (Specific Time)'],
+		['text', 'whens_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function whichs_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['text', 'whichs_which1', 'Which1 (Main Thing)'],
+		['text', 'whichs_which2', 'Which2 (Sub Thing)'],
+		['text', 'whichs_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function wheres_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['list', 'wheres_where1', 'Where1 (Main Place)'],
+		['text', 'wheres_where2', 'Where2 (Zone)'],
+		['text', 'wheres_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function whys_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['text', 'whys_why1', 'Why1 (Precinct)'],
+		['text', 'whys_why2', 'Why2 (Sub-Precinct)'],
+		['text', 'whys_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {

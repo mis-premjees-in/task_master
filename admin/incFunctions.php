@@ -105,47 +105,54 @@
 
 		$all_tables = [
 			/* ['table_name' => [table props assoc array] */
-				'whys' => [
-					'Caption' => 'Whys',
+				'madb' => [
+					'Caption' => 'Master Anatomy DB',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
-				],
-				'wheres' => [
-					'Caption' => 'Wheres',
-					'Description' => '',
-					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
-					'homepageShowCount' => 0
-				],
-				'whichs' => [
-					'Caption' => 'Whichs',
-					'Description' => '',
-					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
-					'homepageShowCount' => 0
-				],
-				'whens' => [
-					'Caption' => 'Whens',
-					'Description' => '',
-					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
-					'homepageShowCount' => 0
-				],
-				'whos' => [
-					'Caption' => 'Whos',
-					'Description' => '',
-					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
 				],
 				'whats' => [
 					'Caption' => 'Whats',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
+				],
+				'whos' => [
+					'Caption' => 'Whos',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 1
+				],
+				'whens' => [
+					'Caption' => 'Whens',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 1
+				],
+				'whichs' => [
+					'Caption' => 'Whichs',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 1
+				],
+				'wheres' => [
+					'Caption' => 'Wheres',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 1
+				],
+				'whys' => [
+					'Caption' => 'Whys',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 1
 				],
 		];
 
@@ -163,12 +170,13 @@
 		$arrAccessTables = [];
 		$arrTables = [
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */
-			'whys' => ['Whys', '', 'table.gif', 'None'],
-			'wheres' => ['Wheres', '', 'table.gif', 'None'],
-			'whichs' => ['Whichs', '', 'table.gif', 'None'],
-			'whens' => ['Whens', '', 'table.gif', 'None'],
-			'whos' => ['Whos', '', 'table.gif', 'None'],
+			'madb' => ['Master Anatomy DB', '', 'table.gif', 'None'],
 			'whats' => ['Whats', '', 'table.gif', 'None'],
+			'whos' => ['Whos', '', 'table.gif', 'None'],
+			'whens' => ['Whens', '', 'table.gif', 'None'],
+			'whichs' => ['Whichs', '', 'table.gif', 'None'],
+			'wheres' => ['Wheres', '', 'table.gif', 'None'],
+			'whys' => ['Whys', '', 'table.gif', 'None'],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) {
@@ -923,50 +931,148 @@
 		if($schema === null) {
 			/* application schema as created in AppGini */
 			$schema = [
-				'whys' => [
-					'whys_id' => [
+				'madb' => [
+					'madb_id' => [
 						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
 						'info' => [
-							'caption' => 'Whys id',
+							'caption' => 'Id',
 							'description' => '',
 						],
 					],
-					'whys_why1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+					'madb_what1' => [
+						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Why1 (Precinct)',
-							'description' => 'Department',
-						],
-					],
-					'whys_why2' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
-						'info' => [
-							'caption' => 'Why2 (Sub-Precinct)',
-							'description' => 'Sub-Department',
-						],
-					],
-					'whys_why3' => [
-						'appgini' => "VARCHAR(40) NULL",
-						'info' => [
-							'caption' => 'Why3 (If Any)',
+							'caption' => 'What1',
 							'description' => '',
 						],
 					],
-					'whys_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
+					'madb_who1' => [
+						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Description',
+							'caption' => 'Who1',
 							'description' => '',
 						],
 					],
-					'whys_created' => [
+					'madb_when1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'When1',
+							'description' => '',
+						],
+					],
+					'madb_which1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Which1',
+							'description' => '',
+						],
+					],
+					'madb_where1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Where1',
+							'description' => '',
+						],
+					],
+					'madb_why1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Why1',
+							'description' => '',
+						],
+					],
+					'madb_why2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Why2',
+							'description' => '',
+						],
+					],
+					'madb_why3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Why3',
+							'description' => '',
+						],
+					],
+					'madb_where2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Where2',
+							'description' => '',
+						],
+					],
+					'madb_where3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Where3',
+							'description' => '',
+						],
+					],
+					'madb_which2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Which2',
+							'description' => '',
+						],
+					],
+					'madb_which3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Which3',
+							'description' => '',
+						],
+					],
+					'madb_when2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'When2',
+							'description' => '',
+						],
+					],
+					'madb_when3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'When3',
+							'description' => '',
+						],
+					],
+					'madb_who2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Who2',
+							'description' => '',
+						],
+					],
+					'madb_who3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Who3',
+							'description' => '',
+						],
+					],
+					'madb_what2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'What2',
+							'description' => '',
+						],
+					],
+					'madb_what3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'What3',
+							'description' => '',
+						],
+					],
+					'madb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],
-					'whys_updated' => [
+					'madb_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Updated AT',
@@ -974,50 +1080,152 @@
 						],
 					],
 				],
-				'wheres' => [
-					'wheres_id' => [
+				'whats' => [
+					'whats_id' => [
 						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
 						'info' => [
-							'caption' => 'Wheres id',
+							'caption' => 'Id',
 							'description' => '',
 						],
 					],
-					'wheres_where1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+					'whats_what1' => [
+						'appgini' => "TINYTEXT NOT NULL UNIQUE",
 						'info' => [
-							'caption' => 'Where1 (Main Place)',
-							'description' => 'Main Place',
+							'caption' => 'What1 (Task English)',
+							'description' => 'Task English',
 						],
 					],
-					'wheres_where2' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+					'whats_what2' => [
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
-							'caption' => 'Wheres2 (Sub Place)',
-							'description' => 'Sub-Place',
+							'caption' => 'What2 (Task Hindi)',
+							'description' => 'Task Hindi',
 						],
 					],
-					'wheres_where3' => [
-						'appgini' => "VARCHAR(40) NULL",
+					'whats_what3' => [
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
-							'caption' => 'Where3 (If Any)',
+							'caption' => 'What3 (If Any)',
 							'description' => '',
 						],
 					],
-					'wheres_description' => [
+					'whats_description' => [
 						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
 						],
 					],
-					'wheres_created' => [
+					'whats_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],
-					'wheres_updated' => [
+					'whats_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'whos' => [
+					'whos_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Id',
+							'description' => '',
+						],
+					],
+					'whos_who1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Who1 (Doer Role)',
+							'description' => 'Doer Role',
+						],
+					],
+					'whos_who2' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Who2 (Doer ID)',
+							'description' => 'Doer ID',
+						],
+					],
+					'whos_who3' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Who3 (Buddy ID)',
+							'description' => '',
+						],
+					],
+					'whos_description' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'whos_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'whos_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'whens' => [
+					'whens_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Id',
+							'description' => '',
+						],
+					],
+					'whens_when1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'When1 (Frequency)',
+							'description' => 'Frequency',
+						],
+					],
+					'whens_when2' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'When2 (Sessions)',
+							'description' => 'Sessions',
+						],
+					],
+					'whens_when3' => [
+						'appgini' => "TIME NOT NULL",
+						'info' => [
+							'caption' => 'When3 (Specific Time)',
+							'description' => 'Specific Time',
+						],
+					],
+					'whens_description' => [
+						'appgini' => "TINYTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'whens_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'whens_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Updated AT',
@@ -1029,7 +1237,7 @@
 					'whichs_id' => [
 						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
 						'info' => [
-							'caption' => 'Whichs id',
+							'caption' => 'Id',
 							'description' => '',
 						],
 					],
@@ -1076,50 +1284,50 @@
 						],
 					],
 				],
-				'whens' => [
-					'whens_id' => [
+				'wheres' => [
+					'wheres_id' => [
 						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
 						'info' => [
-							'caption' => 'Whens id',
+							'caption' => 'Id',
 							'description' => '',
 						],
 					],
-					'whens_when1' => [
+					'wheres_where1' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'When1 (Frequency)',
-							'description' => 'Frequency',
+							'caption' => 'Where1 (Main Place)',
+							'description' => 'Main Place',
 						],
 					],
-					'whens_when2' => [
+					'wheres_where2' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'When2 (Sessions)',
-							'description' => 'Sessions',
+							'caption' => 'Where2 (Zone)',
+							'description' => 'Sub-Place',
 						],
 					],
-					'whens_when3' => [
+					'wheres_where3' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'When3 (Specific Time)',
-							'description' => 'Specific Time',
+							'caption' => 'Where3 (If Any)',
+							'description' => '',
 						],
 					],
-					'whens_description' => [
+					'wheres_description' => [
 						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
 						],
 					],
-					'whens_created' => [
+					'wheres_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],
-					'whens_updated' => [
+					'wheres_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Updated AT',
@@ -1127,101 +1335,50 @@
 						],
 					],
 				],
-				'whos' => [
-					'whos_id' => [
+				'whys' => [
+					'whys_id' => [
 						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
 						'info' => [
-							'caption' => 'Whos id',
+							'caption' => 'Id',
 							'description' => '',
 						],
 					],
-					'whos_who1' => [
+					'whys_why1' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'Who1 (Doer Role)',
-							'description' => 'Doer Role',
+							'caption' => 'Why1 (Precinct)',
+							'description' => 'Department',
 						],
 					],
-					'whos_who2' => [
+					'whys_why2' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'Who2 (Doer ID)',
-							'description' => 'Doer ID',
+							'caption' => 'Why2 (Sub-Precinct)',
+							'description' => 'Sub-Department',
 						],
 					],
-					'whos_who3' => [
+					'whys_why3' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Who3 (Buddy)',
+							'caption' => 'Why3 (If Any)',
 							'description' => '',
 						],
 					],
-					'whos_description' => [
+					'whys_description' => [
 						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
 						],
 					],
-					'whos_created' => [
+					'whys_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],
-					'whos_updated' => [
-						'appgini' => "TIMESTAMP NULL",
-						'info' => [
-							'caption' => 'Updated AT',
-							'description' => '',
-						],
-					],
-				],
-				'whats' => [
-					'whats_id' => [
-						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
-						'info' => [
-							'caption' => 'Whats id',
-							'description' => '',
-						],
-					],
-					'whats_what1' => [
-						'appgini' => "TINYTEXT NOT NULL",
-						'info' => [
-							'caption' => 'What1 (Task English)',
-							'description' => 'Task English',
-						],
-					],
-					'whats_what2' => [
-						'appgini' => "TINYTEXT NOT NULL",
-						'info' => [
-							'caption' => 'What2 (Task Hindi)',
-							'description' => 'Task Hindi',
-						],
-					],
-					'whats_what3' => [
-						'appgini' => "TINYTEXT NULL",
-						'info' => [
-							'caption' => 'What3 (If Any)',
-							'description' => '',
-						],
-					],
-					'whats_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
-						'info' => [
-							'caption' => 'Description',
-							'description' => '',
-						],
-					],
-					'whats_created' => [
-						'appgini' => "TIMESTAMP NULL",
-						'info' => [
-							'caption' => 'Created AT',
-							'description' => '',
-						],
-					],
-					'whats_updated' => [
+					'whys_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Updated AT',
@@ -2397,6 +2554,14 @@
 		 *             'parent table' => [main lookup fields in child]
 		 */
 		$parents = [
+			'madb' => [
+				'whats' => ['madb_what1'],
+				'whos' => ['madb_who1'],
+				'whens' => ['madb_when1'],
+				'whichs' => ['madb_which1'],
+				'wheres' => ['madb_where1'],
+				'whys' => ['madb_why1'],
+			],
 		];
 
 		return isset($parents[$table]) ? $parents[$table] : [];
@@ -2422,12 +2587,13 @@
 		 *             field => query, ...
 		 */
 		return [
-			'whys' => [],
-			'wheres' => [],
-			'whichs' => [],
-			'whens' => [],
-			'whos' => [],
+			'madb' => [],
 			'whats' => [],
+			'whos' => [],
+			'whens' => [],
+			'whichs' => [],
+			'wheres' => [],
+			'whys' => [],
 		];
 	}
 	#########################################################
@@ -2551,17 +2717,37 @@
 			column is replaced by the caption of the auto-fill lookup field.
 		*/
 		$lookupQuery = [
-			'whys' => [
+			'madb' => [
+				'madb_what1' => 'SELECT `whats`.`whats_id`, IF(CHAR_LENGTH(`whats`.`whats_what1`) || CHAR_LENGTH(`whats`.`whats_what2`), CONCAT_WS(\'\', `whats`.`whats_what1`, \'-\', `whats`.`whats_what2`), \'\') FROM `whats` ORDER BY `whats`.`whats_id`',
+				'madb_who1' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_who3`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`, \'-\', `whos`.`whos_who3`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
+				'madb_when1' => 'SELECT `whens`.`whens_id`, IF(CHAR_LENGTH(`whens`.`whens_when1`) || CHAR_LENGTH(`whens`.`whens_when2`)|| CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when1`, \'-\', `whens`.`whens_when2`,\'-\', `whens`.`whens_when3`), \'\') FROM `whens` ORDER BY `whens`.`whens_id`',
+				'madb_which1' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_id`',
+				'madb_where1' => 'SELECT `wheres`.`wheres_id`, IF(CHAR_LENGTH(`wheres`.`wheres_where1`) || CHAR_LENGTH(`wheres`.`wheres_where2`)|| CHAR_LENGTH(`wheres`.`wheres_where3`), CONCAT_WS(\'\', `wheres`.`wheres_where1`, \'-\', `wheres`.`wheres_where2`, \'-\', `wheres`.`wheres_where3`), \'\') FROM `wheres` ORDER BY `wheres`.`wheres_id`',
+				'madb_why1' => 'SELECT `whys`.`whys_id`, IF(CHAR_LENGTH(`whys`.`whys_why1`) || CHAR_LENGTH(`whys`.`whys_why2`) || CHAR_LENGTH(`whys`.`whys_why3`), CONCAT_WS(\'\', `whys`.`whys_why1`, \'-\', `whys`.`whys_why2`,\'\', \'-\', `whys`.`whys_why3`), \'\') FROM `whys` ORDER BY `whys`.`whys_id`',
+				'madb_why2' => 'SELECT `whys`.`whys_id`, IF(CHAR_LENGTH(`whys`.`whys_why2`) || CHAR_LENGTH(`whys`.`whys_why3`), CONCAT_WS(\'\', `whys`.`whys_why2`, \'-\', `whys`.`whys_why3`), \'\') FROM `whys` ORDER BY `whys`.`whys_id`',
+				'madb_why3' => 'SELECT `whys`.`whys_id`, `whys`.`whys_why3` FROM `whys` ORDER BY 2',
+				'madb_where2' => 'SELECT `wheres`.`wheres_id`, IF(CHAR_LENGTH(`wheres`.`wheres_where2`) || CHAR_LENGTH(`wheres`.`wheres_where3`), CONCAT_WS(\'\', `wheres`.`wheres_where2`, \'-\', `wheres`.`wheres_where3`), \'\') FROM `wheres` ORDER BY `wheres`.`wheres_id`',
+				'madb_where3' => 'SELECT `wheres`.`wheres_id`, `wheres`.`wheres_where3` FROM `wheres` ORDER BY 2',
+				'madb_which2' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which2`) || CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_id`',
+				'madb_which3' => 'SELECT `whichs`.`whichs_id`, `whichs`.`whichs_which3` FROM `whichs` ORDER BY 2',
+				'madb_when2' => 'SELECT `whens`.`whens_id`, IF(CHAR_LENGTH(`whens`.`whens_when2`) || CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when2`, \'-\', `whens`.`whens_when3`), \'\') FROM `whens` ORDER BY `whens`.`whens_id`',
+				'madb_when3' => 'SELECT `whens`.`whens_id`, `whens`.`whens_when3` FROM `whens` ORDER BY 2',
+				'madb_who2' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_who3`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_who3`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
+				'madb_who3' => 'SELECT `whos`.`whos_id`, `whos`.`whos_who3` FROM `whos` ORDER BY 2',
+				'madb_what2' => 'SELECT `whats`.`whats_id`, IF(CHAR_LENGTH(`whats`.`whats_what2`) || CHAR_LENGTH(`whats`.`whats_what3`), CONCAT_WS(\'\', `whats`.`whats_what2`, \'-\', `whats`.`whats_what3`), \'\') FROM `whats` ORDER BY `whats`.`whats_id`',
+				'madb_what3' => 'SELECT `whats`.`whats_id`, `whats`.`whats_what3` FROM `whats` ORDER BY 2',
 			],
-			'wheres' => [
-			],
-			'whichs' => [
-			],
-			'whens' => [
+			'whats' => [
 			],
 			'whos' => [
 			],
-			'whats' => [
+			'whens' => [
+			],
+			'whichs' => [
+			],
+			'wheres' => [
+			],
+			'whys' => [
 			],
 		];
 

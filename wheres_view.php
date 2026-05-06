@@ -49,9 +49,9 @@
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
-		"`wheres`.`wheres_id`" => "Wheres id",
+		"`wheres`.`wheres_id`" => "Id",
 		"`wheres`.`wheres_where1`" => "Where1 (Main Place)",
-		"`wheres`.`wheres_where2`" => "Wheres2 (Sub Place)",
+		"`wheres`.`wheres_where2`" => "Where2 (Zone)",
 		"`wheres`.`wheres_where3`" => "Where3 (If Any)",
 		"`wheres`.`wheres_description`" => "Description",
 		"`wheres`.`wheres_created`" => "Created AT",
@@ -92,7 +92,7 @@
 	$x->AllowPrintingDV = 1;
 	$x->AllowCSV = 1;
 	$x->AllowAdminShowSQL = showSQL();
-	$x->RecordsPerPage = 10;
+	$x->RecordsPerPage = 100;
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'wheres_view.php';
@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`wheres`.`wheres_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Wheres id', 'Where1 (Main Place)', 'Wheres2 (Sub Place)', 'Where3 (If Any)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['wheres_id', 'wheres_where1', 'wheres_where2', 'wheres_where3', 'wheres_description', 'wheres_created', 'wheres_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Where1 (Main Place)', 'Where2 (Zone)', 'Where3 (If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['wheres_id', 'wheres_where1', 'wheres_where2', 'wheres_where3', 'wheres_description', 'wheres_created', 'wheres_updated', '%madb.madb_where1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/wheres_templateTV.html';

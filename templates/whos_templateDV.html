@@ -9,23 +9,18 @@
 	<!-- child links -->
 	<div class="row vspacer-md">
 		<div class="col-xs-12 children-links">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="madb_view.php?filterer_madb_who1=<%%URLVALUE(whos_id)%%>&<%%EMBEDDED%%>" id="madb_link"><img src="table.gif"> Master Anatomy DB</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="madb_view.php?filterer_madb_who1=<%%URLVALUE(whos_id)%%>&<%%EMBEDDED%%>" id="xs_madb_link"><img src="table.gif"> Master Anatomy DB</a>
+			<input type="hidden" id="madb_hclink" value="madb_view.php?filterer_madb_who1=<%%URLVALUE(whos_id)%%>&<%%EMBEDDED%%>">
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	<hr class="hidden-xs hidden-sm">
 
 	<div class="row">
 		<!-- form inputs -->
 		<div class="col-md-8 col-lg-10" id="whos_dv_form">
 			<fieldset class="form-horizontal">
-
-				<!-- Field: Whos id -->
-				<div class="form-group whos-whos_id">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="whos_id">Whos id</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="whos_id"><%%VALUE(whos_id)%%></div>
-					</div>
-				</div>
 
 				<!-- Field: Who1 (Doer Role) -->
 				<div class="form-group whos-whos_who1">
@@ -47,10 +42,10 @@
 					</div>
 				</div>
 
-				<!-- Field: Who3 (Buddy) -->
+				<!-- Field: Who3 (Buddy ID) -->
 				<div class="form-group whos-whos_who3">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="whos_who3">Who3 (Buddy)</label>
+					<label class="control-label col-lg-3" for="whos_who3">Who3 (Buddy ID)</label>
 					<div class="col-lg-9">
 						<input maxlength="40" type="text" class="form-control" name="whos_who3" id="whos_who3" value="<%%VALUE(whos_who3)%%>">
 					</div>
@@ -62,24 +57,6 @@
 					<label class="control-label col-lg-3" for="whos_description">Description<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
 						<textarea maxlength="255" class="form-control" name="whos_description" id="whos_description" rows=" 5"><%%VALUE(whos_description)%%></textarea>
-					</div>
-				</div>
-
-				<!-- Field: Created AT -->
-				<div class="form-group whos-whos_created">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Created AT</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="whos_created"><%%VALUE(whos_created)%%></div>
-					</div>
-				</div>
-
-				<!-- Field: Updated AT -->
-				<div class="form-group whos-whos_updated">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Updated AT</label>
-					<div class="col-lg-9">
-						<div class="form-control-static" id="whos_updated"><%%VALUE(whos_updated)%%></div>
 					</div>
 				</div>
 
@@ -106,6 +83,16 @@
 	</div>
 
 
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="whos-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
 </div><!-- /div class="panel-body" -->
 	<script>
 		$j(function() {
@@ -130,6 +117,35 @@
 
 			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
 
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"]):not([href$=".jpg"]):not([href$=".png"]):not([href$=".gif"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setInterval(append_embedded, 1000);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'whos',
+						SelectedID: '<%%VALUE(whos_id)%%>',
+						Operation: 'show-children'
+					},
+					'whos-children'
+				);
+			}
 
 			if(true /* !embedded_mode */) {
 				$j('.add_new_parent').click(function() {

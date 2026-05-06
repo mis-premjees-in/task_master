@@ -14,13 +14,6 @@
 
 <div class="panel-body">
 	<fieldset class="form-horizontal">
-		<!-- Field: Whys id -->
-		<div class="form-group whys-whys_id" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Whys id</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whys_id)%%></div>
-			</div>
-		</div>
 		<!-- Field: Why1 (Precinct) -->
 		<div class="form-group whys-whys_why1" style="border-bottom: dotted 1px #DDD;">
 			<label class="col-xs-3 control-label">Why1 (Precinct)</label>
@@ -49,20 +42,6 @@
 				<div class="form-control-static"><%%VALUE(whys_description)%%></div>
 			</div>
 		</div>
-		<!-- Field: Created AT -->
-		<div class="form-group whys-whys_created" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Created AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whys_created)%%></div>
-			</div>
-		</div>
-		<!-- Field: Updated AT -->
-		<div class="form-group whys-whys_updated" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Updated AT</label>
-			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(whys_updated)%%></div>
-			</div>
-		</div>
 	</fieldset>
 </div>
 <script>
@@ -76,3 +55,32 @@
 			.after('<i class="glyphicon glyphicon-unchecked"></i>')
 	})
 </script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="whys-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=whys-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'whys',
+				SelectedID: '<%%VALUE(whys_id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'whys-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

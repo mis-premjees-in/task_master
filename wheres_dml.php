@@ -43,6 +43,35 @@ function wheres_copy_children($destination_id, $source_id) {
 	$currentUsername = getLoggedMemberID();
 	$errorMessage = '';
 
+	// copy madb
+	$res = sql("SELECT * FROM `madb` WHERE `madb_where1`='{$safe_sid}'", $eo);
+	while($row = db_fetch_assoc($res)) {
+		$data = [
+			'SelectedID' => $row['madb_id'],
+			'madb_what1' => $row['madb_what1'],
+			'madb_who1' => $row['madb_who1'],
+			'madb_when1' => $row['madb_when1'],
+			'madb_which1' => $row['madb_which1'],
+			'madb_where1' => $destination_id,
+			'madb_why1' => $row['madb_why1'],
+			'madb_why2' => $row['madb_why2'],
+			'madb_why3' => $row['madb_why3'],
+			'madb_where2' => $row['madb_where2'],
+			'madb_where3' => $row['madb_where3'],
+			'madb_which2' => $row['madb_which2'],
+			'madb_which3' => $row['madb_which3'],
+			'madb_when2' => $row['madb_when2'],
+			'madb_when3' => $row['madb_when3'],
+			'madb_who2' => $row['madb_who2'],
+			'madb_who3' => $row['madb_who3'],
+			'madb_what2' => $row['madb_what2'],
+			'madb_what3' => $row['madb_what3'],
+		];
+
+		$ch = curl_insert_handler('madb', $data);
+		if($ch !== false) $requests[] = $ch;
+	}
+
 	// launch requests, asynchronously
 	curl_batch($requests);
 }
@@ -66,6 +95,26 @@ function wheres_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks 
 					'<div class="text-bold">' . strip_tags($args['error_message']) . '</div>'
 					: ''
 			);
+	}
+
+	// child table: madb
+	$res = sql("SELECT `wheres_id` FROM `wheres` WHERE `wheres_id`='{$selected_id}'", $eo);
+	$wheres_id = db_fetch_row($res);
+	$rires = sql("SELECT COUNT(1) FROM `madb` WHERE `madb_where1`='" . makeSafe($wheres_id[0]) . "'", $eo);
+	$rirow = db_fetch_row($rires);
+	$childrenATag = '<a class="alert-link" href="madb_view.php?filterer_madb_where1=' . urlencode($wheres_id[0]) . '">%s</a>';
+	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation["couldn't delete"];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'madb'), $RetMsg);
+		return $RetMsg;
+	} elseif($rirow[0] && $AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation['confirm delete'];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'madb'), $RetMsg);
+		$RetMsg = str_replace('<Delete>', '<input type="button" class="btn btn-danger" value="' . html_attr($Translation['yes']) . '" onClick="window.location = `wheres_view.php?SelectedID=' . urlencode($selected_id) . '&delete_x=1&confirmed=1&csrf_token=' . urlencode(csrf_token(false, true)) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		$RetMsg = str_replace('<Cancel>', '<input type="button" class="btn btn-success" value="' . html_attr($Translation[ 'no']) . '" onClick="window.location = `wheres_view.php?SelectedID=' . urlencode($selected_id) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		return $RetMsg;
 	}
 
 	sql("DELETE FROM `wheres` WHERE `wheres_id`='{$selected_id}'", $eo);
@@ -100,7 +149,7 @@ function wheres_update(&$selected_id, &$error_message = '') {
 		exit;
 	}
 	if($data['wheres_where2'] === '') {
-		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Wheres2 (Sub Place)': {$Translation['field not null']}<br><br>";
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Where2 (Zone)': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">' . $Translation['< back'] . '</a></div>';
 		exit;
 	}
@@ -199,18 +248,53 @@ function wheres_form($selectedId = '', $allowUpdate = true, $allowInsert = true,
 
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
+	// combobox: wheres_where1
+	$combo_wheres_where1 = new Combo;
+	$combo_wheres_where1->ListType = 0;
+	$combo_wheres_where1->MultipleSeparator = ', ';
+	$combo_wheres_where1->ListBoxHeight = 10;
+	$combo_wheres_where1->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/wheres.wheres_where1.csv')) {
+		$wheres_where1_data = addslashes(implode('', @file(__DIR__ . '/hooks/wheres.wheres_where1.csv')));
+		$combo_wheres_where1->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($wheres_where1_data))));
+		$combo_wheres_where1->ListData = $combo_wheres_where1->ListItem;
+	} else {
+		$combo_wheres_where1->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Shop;;Kitchen;;Bakery;;Cold Store;;Store;;Workshop"))));
+		$combo_wheres_where1->ListData = $combo_wheres_where1->ListItem;
+	}
+	$combo_wheres_where1->SelectName = 'wheres_where1';
+	$combo_wheres_where1->AllowNull = false;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('wheres', $selectedId))) {
 			return error_message($Translation['No records found'], 'wheres_view.php', false);
 		}
+		$combo_wheres_where1->SelectedData = $row['wheres_where1'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
 		$filterField = Request::val('FilterField');
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
+		$combo_wheres_where1->SelectedText = (isset($filterField[1]) && $filterField[1] == '2' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
+	$combo_wheres_where1->Render();
+
+	ob_start();
+	?>
+
+	<script>
+		// initial lookup values
+
+		$j(function() {
+			setTimeout(function() {
+			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
+		});
+	</script>
+	<?php
+
+	$lookups = str_replace('__RAND__', $rnd1, ob_get_clean());
+
 
 	// code for template based detail view forms
 
@@ -291,7 +375,7 @@ function wheres_form($selectedId = '', $allowUpdate = true, $allowInsert = true,
 	// set records to read only if user can't insert new records and can't edit current record
 	if(!$fieldsAreEditable) {
 		$jsReadOnly = '';
-		$jsReadOnly .= "\t\$j('#wheres_where1').replaceWith('<div class=\"form-control-static\" id=\"wheres_where1\">' + (\$j('#wheres_where1').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#wheres_where1').replaceWith('<div class=\"form-control-static\" id=\"wheres_where1\">' + (\$j('#wheres_where1').val() || '') + '</div>'); \$j('#wheres_where1-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#wheres_where2').replaceWith('<div class=\"form-control-static\" id=\"wheres_where2\">' + (\$j('#wheres_where2').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#wheres_where3').replaceWith('<div class=\"form-control-static\" id=\"wheres_where3\">' + (\$j('#wheres_where3').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#wheres_description').replaceWith('<div class=\"form-control-static\" id=\"wheres_description\">' + (\$j('#wheres_description').val() || '') + '</div>');\n";
@@ -305,6 +389,8 @@ function wheres_form($selectedId = '', $allowUpdate = true, $allowInsert = true,
 	}
 
 	// process combos
+	$templateCode = str_replace('<%%COMBO(wheres_where1)%%>', $combo_wheres_where1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(wheres_where1)%%>', $combo_wheres_where1->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = [];

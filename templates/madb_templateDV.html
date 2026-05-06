@@ -1,0 +1,355 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/madb-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="madb_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="madb_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="madb_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: What1 -->
+				<div class="form-group madb-madb_what1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="madb_what1" data-parent_link="view_parent_modal">What1</label>
+					<div class="col-lg-9">
+						<div class="lookup-flex"><%%COMBO(madb_what1)%%><%%PLINK(madb_what1)%%><%%ADDNEW(whats)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Who1 -->
+				<div class="form-group madb-madb_who1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="madb_who1" data-parent_link="view_parent_modal">Who1</label>
+					<div class="col-lg-9">
+						<div class="lookup-flex"><%%COMBO(madb_who1)%%><%%PLINK(madb_who1)%%><%%ADDNEW(whos)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: When1 -->
+				<div class="form-group madb-madb_when1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="madb_when1" data-parent_link="view_parent_modal">When1</label>
+					<div class="col-lg-9">
+						<div class="lookup-flex"><%%COMBO(madb_when1)%%><%%PLINK(madb_when1)%%><%%ADDNEW(whens)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Which1 -->
+				<div class="form-group madb-madb_which1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="madb_which1" data-parent_link="view_parent_modal">Which1</label>
+					<div class="col-lg-9">
+						<div class="lookup-flex"><%%COMBO(madb_which1)%%><%%PLINK(madb_which1)%%><%%ADDNEW(whichs)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Where1 -->
+				<div class="form-group madb-madb_where1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="madb_where1" data-parent_link="view_parent_modal">Where1</label>
+					<div class="col-lg-9">
+						<div class="lookup-flex"><%%COMBO(madb_where1)%%><%%PLINK(madb_where1)%%><%%ADDNEW(wheres)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Why1 -->
+				<div class="form-group madb-madb_why1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="madb_why1" data-parent_link="view_parent_modal">Why1</label>
+					<div class="col-lg-9">
+						<div class="lookup-flex"><%%COMBO(madb_why1)%%><%%PLINK(madb_why1)%%><%%ADDNEW(whys)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Why2 -->
+				<div class="form-group madb-madb_why2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Why2</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_why2"></div>
+					</div>
+				</div>
+
+				<!-- Field: Why3 -->
+				<div class="form-group madb-madb_why3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Why3</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_why3"></div>
+					</div>
+				</div>
+
+				<!-- Field: Where2 -->
+				<div class="form-group madb-madb_where2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Where2</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_where2"></div>
+					</div>
+				</div>
+
+				<!-- Field: Where3 -->
+				<div class="form-group madb-madb_where3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Where3</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_where3"></div>
+					</div>
+				</div>
+
+				<!-- Field: Which2 -->
+				<div class="form-group madb-madb_which2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Which2</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_which2"></div>
+					</div>
+				</div>
+
+				<!-- Field: Which3 -->
+				<div class="form-group madb-madb_which3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Which3</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_which3"></div>
+					</div>
+				</div>
+
+				<!-- Field: When2 -->
+				<div class="form-group madb-madb_when2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">When2</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_when2"></div>
+					</div>
+				</div>
+
+				<!-- Field: When3 -->
+				<div class="form-group madb-madb_when3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">When3</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_when3"></div>
+					</div>
+				</div>
+
+				<!-- Field: Who2 -->
+				<div class="form-group madb-madb_who2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Who2</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_who2"></div>
+					</div>
+				</div>
+
+				<!-- Field: Who3 -->
+				<div class="form-group madb-madb_who3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Who3</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_who3"></div>
+					</div>
+				</div>
+
+				<!-- Field: What2 -->
+				<div class="form-group madb-madb_what2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">What2</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_what2"></div>
+					</div>
+				</div>
+
+				<!-- Field: What3 -->
+				<div class="form-group madb-madb_what3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">What3</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="madb_what3"></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2 dv-action-buttons" id="madb_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) {
+				AppGini.once({
+					condition: function() {
+						return $j('.form-group.madb-madb_what1')
+									.find('.nicEdit-main, .select2-container, input[type=radio]')
+									.length > 0
+								// or read-only DV
+								|| (!$j('#update').length && !$j('#insert').length);
+					},
+					action: function() {
+						$j('#madb_dv_container-loading').addClass('hidden');
+						$j('#madb_dv_container').removeClass('hidden');
+						AppGini.focusFormElement('madb', 'madb_what1');
+					},
+					timeout:  5000,
+					doActionOnTimeout:  true
+				});
+			} else {
+				$j('#madb_dv_container-loading').addClass('hidden');
+				$j('#madb_dv_container').removeClass('hidden');
+			}
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+
+			if(true /* !embedded_mode */) {
+				$j('.add_new_parent').click(function() {
+					const fieldId = $j(this).prevAll('input:hidden').eq(0).attr('id');
+					const pt = $j(this).attr('id').replace(/_add_new$/, '');
+
+					modal_window({
+						url: `${pt}_view.php?addNew_x=1&Embedded=1`,
+						close: function() {
+							$j(`#${fieldId}-container`).select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = AppGini.localStorage.getItem(`${pt}_last_added_id`);
+							if(new_id === null) return;
+
+							AppGini.localStorage.removeItem(`${pt}_last_added_id`);
+							AppGini.lookupText({
+								id: new_id,
+								table: AppGini.currentTableName(),
+								field: fieldId,
+								callback: function(data) {
+									$j(`#${fieldId}-container`).select2('data', data, true);
+								}
+							});
+						},
+						beforeClose: AppGini.confirmBeforeClosingModal,
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				const pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				const fieldId = $j(this).prevAll('input:hidden').eq(0).attr('id');
+
+				let parent_id = '{empty_value}';
+				if(fieldId) {
+					parent_id = $j(`#${fieldId}`).val();
+				} else if($j(this).prevAll('[type=radio]').length) { /* handle radio lookups */
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				} else {
+					parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id !== undefined && parent_id !== '') {
+					const parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: `${pt}_view.php?Embedded=1&SelectedID=${encodeURIComponent(parent_id)}`,
+								close: function() {
+									$j(`#${fieldId}-container`).select2('focus').select2('focus');
+
+									// update lookup text in case the parent record was updated
+									AppGini.lookupText({
+										id: parent_id,
+										table: AppGini.currentTableName(),
+										field: fieldId,
+										cache: false,
+										callback: function(data) {
+											$j(`#${fieldId}-container`).select2('data', data, true);
+
+											// update auto-fills
+											const updaterName = `${fieldId}_update_autofills`;
+											if(typeof(window[updaterName]) == 'function')
+												window[updaterName]();
+										}
+									});
+								},
+								beforeClose: AppGini.confirmBeforeClosingModal,
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = `${pt}_view.php?Embedded=${embedded_mode ? '1' : ''}&SelectedID=${encodeURIComponent(parent_id)}`;
+							break;
+						case 'view_parent_new_window':
+							window.open(`${pt}_view.php?SelectedID=${encodeURIComponent(parent_id)}`);
+							break;
+					}
+
+				}
+			});
+
+			madbUniqueFields.forEach(fieldName => enforce_uniqueness('madb', fieldName));
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=madb&id=<%%URLVALUE(madb_id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=madb&id=<%%URLVALUE(madb_id)%%>');
+					}
+				);
+			}
+		});
+
+		var madbUniqueFields = [
+		];
+	</script>

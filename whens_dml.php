@@ -18,7 +18,7 @@ function whens_insert(&$error_message = '') {
 	$data = [
 		'whens_when1' => Request::val('whens_when1', ''),
 		'whens_when2' => Request::val('whens_when2', ''),
-		'whens_when3' => Request::val('whens_when3', ''),
+		'whens_when3' => time24(Request::val('whens_when3', '')),
 		'whens_description' => br2nl(Request::val('whens_description', '')),
 		'whens_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
@@ -42,6 +42,35 @@ function whens_copy_children($destination_id, $source_id) {
 	$safe_sid = makeSafe($source_id);
 	$currentUsername = getLoggedMemberID();
 	$errorMessage = '';
+
+	// copy madb
+	$res = sql("SELECT * FROM `madb` WHERE `madb_when1`='{$safe_sid}'", $eo);
+	while($row = db_fetch_assoc($res)) {
+		$data = [
+			'SelectedID' => $row['madb_id'],
+			'madb_what1' => $row['madb_what1'],
+			'madb_who1' => $row['madb_who1'],
+			'madb_when1' => $destination_id,
+			'madb_which1' => $row['madb_which1'],
+			'madb_where1' => $row['madb_where1'],
+			'madb_why1' => $row['madb_why1'],
+			'madb_why2' => $row['madb_why2'],
+			'madb_why3' => $row['madb_why3'],
+			'madb_where2' => $row['madb_where2'],
+			'madb_where3' => $row['madb_where3'],
+			'madb_which2' => $row['madb_which2'],
+			'madb_which3' => $row['madb_which3'],
+			'madb_when2' => $row['madb_when2'],
+			'madb_when3' => $row['madb_when3'],
+			'madb_who2' => $row['madb_who2'],
+			'madb_who3' => $row['madb_who3'],
+			'madb_what2' => $row['madb_what2'],
+			'madb_what3' => $row['madb_what3'],
+		];
+
+		$ch = curl_insert_handler('madb', $data);
+		if($ch !== false) $requests[] = $ch;
+	}
 
 	// launch requests, asynchronously
 	curl_batch($requests);
@@ -68,6 +97,26 @@ function whens_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks =
 			);
 	}
 
+	// child table: madb
+	$res = sql("SELECT `whens_id` FROM `whens` WHERE `whens_id`='{$selected_id}'", $eo);
+	$whens_id = db_fetch_row($res);
+	$rires = sql("SELECT COUNT(1) FROM `madb` WHERE `madb_when1`='" . makeSafe($whens_id[0]) . "'", $eo);
+	$rirow = db_fetch_row($rires);
+	$childrenATag = '<a class="alert-link" href="madb_view.php?filterer_madb_when1=' . urlencode($whens_id[0]) . '">%s</a>';
+	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation["couldn't delete"];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'madb'), $RetMsg);
+		return $RetMsg;
+	} elseif($rirow[0] && $AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation['confirm delete'];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'madb'), $RetMsg);
+		$RetMsg = str_replace('<Delete>', '<input type="button" class="btn btn-danger" value="' . html_attr($Translation['yes']) . '" onClick="window.location = `whens_view.php?SelectedID=' . urlencode($selected_id) . '&delete_x=1&confirmed=1&csrf_token=' . urlencode(csrf_token(false, true)) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		$RetMsg = str_replace('<Cancel>', '<input type="button" class="btn btn-success" value="' . html_attr($Translation[ 'no']) . '" onClick="window.location = `whens_view.php?SelectedID=' . urlencode($selected_id) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		return $RetMsg;
+	}
+
 	sql("DELETE FROM `whens` WHERE `whens_id`='{$selected_id}'", $eo);
 
 	// hook: whens_after_delete
@@ -89,7 +138,7 @@ function whens_update(&$selected_id, &$error_message = '') {
 	$data = [
 		'whens_when1' => Request::val('whens_when1', ''),
 		'whens_when2' => Request::val('whens_when2', ''),
-		'whens_when3' => Request::val('whens_when3', ''),
+		'whens_when3' => time24(Request::val('whens_when3', '')),
 		'whens_description' => br2nl(Request::val('whens_description', '')),
 		'whens_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
@@ -101,6 +150,11 @@ function whens_update(&$selected_id, &$error_message = '') {
 	}
 	if($data['whens_when2'] === '') {
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'When2 (Sessions)': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">' . $Translation['< back'] . '</a></div>';
+		exit;
+	}
+	if($data['whens_when3'] === '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'When3 (Specific Time)': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">' . $Translation['< back'] . '</a></div>';
 		exit;
 	}
@@ -199,18 +253,72 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
+	// combobox: whens_when1
+	$combo_whens_when1 = new Combo;
+	$combo_whens_when1->ListType = 0;
+	$combo_whens_when1->MultipleSeparator = ', ';
+	$combo_whens_when1->ListBoxHeight = 10;
+	$combo_whens_when1->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/whens.whens_when1.csv')) {
+		$whens_when1_data = addslashes(implode('', @file(__DIR__ . '/hooks/whens.whens_when1.csv')));
+		$combo_whens_when1->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($whens_when1_data))));
+		$combo_whens_when1->ListData = $combo_whens_when1->ListItem;
+	} else {
+		$combo_whens_when1->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Daily;;Weekly;;Bi-Weekly;;Monthly;;Bi-Monthly;;Yearly"))));
+		$combo_whens_when1->ListData = $combo_whens_when1->ListItem;
+	}
+	$combo_whens_when1->SelectName = 'whens_when1';
+	$combo_whens_when1->AllowNull = false;
+	// combobox: whens_when2
+	$combo_whens_when2 = new Combo;
+	$combo_whens_when2->ListType = 0;
+	$combo_whens_when2->MultipleSeparator = ', ';
+	$combo_whens_when2->ListBoxHeight = 10;
+	$combo_whens_when2->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/whens.whens_when2.csv')) {
+		$whens_when2_data = addslashes(implode('', @file(__DIR__ . '/hooks/whens.whens_when2.csv')));
+		$combo_whens_when2->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($whens_when2_data))));
+		$combo_whens_when2->ListData = $combo_whens_when2->ListItem;
+	} else {
+		$combo_whens_when2->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Opening;;Closing;;Morning;;Evening;;DayTime"))));
+		$combo_whens_when2->ListData = $combo_whens_when2->ListItem;
+	}
+	$combo_whens_when2->SelectName = 'whens_when2';
+	$combo_whens_when2->AllowNull = false;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('whens', $selectedId))) {
 			return error_message($Translation['No records found'], 'whens_view.php', false);
 		}
+		$combo_whens_when1->SelectedData = $row['whens_when1'];
+		$combo_whens_when2->SelectedData = $row['whens_when2'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
 		$filterField = Request::val('FilterField');
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
+		$combo_whens_when1->SelectedText = (isset($filterField[1]) && $filterField[1] == '2' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_whens_when2->SelectedText = (isset($filterField[1]) && $filterField[1] == '3' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
+	$combo_whens_when1->Render();
+	$combo_whens_when2->Render();
+
+	ob_start();
+	?>
+
+	<script>
+		// initial lookup values
+
+		$j(function() {
+			setTimeout(function() {
+			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
+		});
+	</script>
+	<?php
+
+	$lookups = str_replace('__RAND__', $rnd1, ob_get_clean());
+
 
 	// code for template based detail view forms
 
@@ -291,8 +399,8 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	// set records to read only if user can't insert new records and can't edit current record
 	if(!$fieldsAreEditable) {
 		$jsReadOnly = '';
-		$jsReadOnly .= "\t\$j('#whens_when1').replaceWith('<div class=\"form-control-static\" id=\"whens_when1\">' + (\$j('#whens_when1').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\t\$j('#whens_when2').replaceWith('<div class=\"form-control-static\" id=\"whens_when2\">' + (\$j('#whens_when2').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#whens_when1').replaceWith('<div class=\"form-control-static\" id=\"whens_when1\">' + (\$j('#whens_when1').val() || '') + '</div>'); \$j('#whens_when1-multi-selection-help').hide();\n";
+		$jsReadOnly .= "\t\$j('#whens_when2').replaceWith('<div class=\"form-control-static\" id=\"whens_when2\">' + (\$j('#whens_when2').val() || '') + '</div>'); \$j('#whens_when2-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#whens_when3').replaceWith('<div class=\"form-control-static\" id=\"whens_when3\">' + (\$j('#whens_when3').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whens_description').replaceWith('<div class=\"form-control-static\" id=\"whens_description\">' + (\$j('#whens_description').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
@@ -301,10 +409,15 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	} else {
 		// temporarily disable form change handler till time and datetime pickers are enabled
 		$jsEditable = "\t\$j('form').eq(0).data('already_changed', true);";
+		$jsEditable .= "\t\$j('#whens_when3').addClass('always_shown').timepicker({ defaultTime: false, showSeconds: true, showMeridian: true, showInputs: false, disableFocus: true, minuteStep: AppGini.config.timeFieldMinutesStep || 5 });";
 		$jsEditable .= "\t\$j('form').eq(0).data('already_changed', false);"; // re-enable form change handler
 	}
 
 	// process combos
+	$templateCode = str_replace('<%%COMBO(whens_when1)%%>', $combo_whens_when1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(whens_when1)%%>', $combo_whens_when1->SelectedData, $templateCode);
+	$templateCode = str_replace('<%%COMBO(whens_when2)%%>', $combo_whens_when2->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(whens_when2)%%>', $combo_whens_when2->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = [];
@@ -342,9 +455,8 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(whens_when2)%%>', safe_html($urow['whens_when2']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(whens_when2)%%>', html_attr($row['whens_when2']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whens_when2)%%>', urlencode($urow['whens_when2']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(whens_when3)%%>', safe_html($urow['whens_when3']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(whens_when3)%%>', html_attr($row['whens_when3']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(whens_when3)%%>', urlencode($urow['whens_when3']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whens_when3)%%>', time12(html_attr($row['whens_when3'])), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whens_when3)%%>', urlencode(time12($urow['whens_when3'])), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whens_description)%%>', safe_html($urow['whens_description'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whens_description)%%>', urlencode($urow['whens_description']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whens_created)%%>', safe_html($urow['whens_created']), $templateCode);
@@ -358,8 +470,8 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(whens_when1)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whens_when2)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whens_when2)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(whens_when3)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(whens_when3)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whens_when3)%%>', time12(''), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whens_when3)%%>', urlencode(time12('')), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whens_description)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whens_description)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whens_created)%%>', '<%%creationTimestamp%%>', $templateCode);

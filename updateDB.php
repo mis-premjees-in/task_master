@@ -9,17 +9,20 @@
 	// check if this setup file already run
 	if($thisMD5 != $prevMD5) {
 		// set up tables
-		setupTable('whys', []);
+		setupTable('madb', []);
+		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1',]);
 
-		setupTable('wheres', []);
-
-		setupTable('whichs', []);
-
-		setupTable('whens', []);
+		setupTable('whats', []);
 
 		setupTable('whos', []);
 
-		setupTable('whats', []);
+		setupTable('whens', []);
+
+		setupTable('whichs', []);
+
+		setupTable('wheres', []);
+
+		setupTable('whys', []);
 
 
 

@@ -49,7 +49,7 @@
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
-		"`whys`.`whys_id`" => "Whys id",
+		"`whys`.`whys_id`" => "Id",
 		"`whys`.`whys_why1`" => "Why1 (Precinct)",
 		"`whys`.`whys_why2`" => "Why2 (Sub-Precinct)",
 		"`whys`.`whys_why3`" => "Why3 (If Any)",
@@ -92,7 +92,7 @@
 	$x->AllowPrintingDV = 1;
 	$x->AllowCSV = 1;
 	$x->AllowAdminShowSQL = showSQL();
-	$x->RecordsPerPage = 10;
+	$x->RecordsPerPage = 100;
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whys_view.php';
@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whys`.`whys_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Whys id', 'Why1 (Precinct)', 'Why2 (Sub-Precinct)', 'Why3 (If Any)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['whys_id', 'whys_why1', 'whys_why2', 'whys_why3', 'whys_description', 'whys_created', 'whys_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Why1 (Precinct)', 'Why2 (Sub-Precinct)', 'Why3 (If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['whys_id', 'whys_why1', 'whys_why2', 'whys_why3', 'whys_description', 'whys_created', 'whys_updated', '%madb.madb_why1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/whys_templateTV.html';
