@@ -82,6 +82,26 @@ function madb_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks = 
 			);
 	}
 
+	// child table: utedb
+	$res = sql("SELECT `madb_id` FROM `madb` WHERE `madb_id`='{$selected_id}'", $eo);
+	$madb_id = db_fetch_row($res);
+	$rires = sql("SELECT COUNT(1) FROM `utedb` WHERE `utedb_madb`='" . makeSafe($madb_id[0]) . "'", $eo);
+	$rirow = db_fetch_row($rires);
+	$childrenATag = '<a class="alert-link" href="utedb_view.php?filterer_utedb_madb=' . urlencode($madb_id[0]) . '">%s</a>';
+	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation["couldn't delete"];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'utedb'), $RetMsg);
+		return $RetMsg;
+	} elseif($rirow[0] && $AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation['confirm delete'];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'utedb'), $RetMsg);
+		$RetMsg = str_replace('<Delete>', '<input type="button" class="btn btn-danger" value="' . html_attr($Translation['yes']) . '" onClick="window.location = `madb_view.php?SelectedID=' . urlencode($selected_id) . '&delete_x=1&confirmed=1&csrf_token=' . urlencode(csrf_token(false, true)) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		$RetMsg = str_replace('<Cancel>', '<input type="button" class="btn btn-success" value="' . html_attr($Translation[ 'no']) . '" onClick="window.location = `madb_view.php?SelectedID=' . urlencode($selected_id) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		return $RetMsg;
+	}
+
 	sql("DELETE FROM `madb` WHERE `madb_id`='{$selected_id}'", $eo);
 
 	// hook: madb_after_delete

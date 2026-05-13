@@ -112,6 +112,7 @@
 			'whichs' => "`whichs`.`whichs_id` as 'whichs_id', `whichs`.`whichs_which1` as 'whichs_which1', `whichs`.`whichs_which2` as 'whichs_which2', `whichs`.`whichs_which3` as 'whichs_which3', `whichs`.`whichs_description` as 'whichs_description', `whichs`.`whichs_created` as 'whichs_created', `whichs`.`whichs_updated` as 'whichs_updated'",
 			'wheres' => "`wheres`.`wheres_id` as 'wheres_id', `wheres`.`wheres_where1` as 'wheres_where1', `wheres`.`wheres_where2` as 'wheres_where2', `wheres`.`wheres_where3` as 'wheres_where3', `wheres`.`wheres_description` as 'wheres_description', `wheres`.`wheres_created` as 'wheres_created', `wheres`.`wheres_updated` as 'wheres_updated'",
 			'whys' => "`whys`.`whys_id` as 'whys_id', `whys`.`whys_why1` as 'whys_why1', `whys`.`whys_why2` as 'whys_why2', `whys`.`whys_why3` as 'whys_why3', `whys`.`whys_description` as 'whys_description', `whys`.`whys_created` as 'whys_created', `whys`.`whys_updated` as 'whys_updated'",
+			'utedb' => "`utedb`.`utedb_id` as 'utedb_id', IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') as 'utedb_madb', IF(    CHAR_LENGTH(`whats2`.`whats_what1`), CONCAT_WS('',   `whats2`.`whats_what1`), '') as 'utedb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'utedb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'utedb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'utedb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'utedb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'utedb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'utedb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'utedb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'utedb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'utedb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'utedb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'utedb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'utedb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'utedb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'utedb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'utedb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'utedb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'utedb_what3', `utedb`.`utedb_created` as 'utedb_created', `utedb`.`utedb_updated` as 'utedb_updated'",
 		];
 
 		if(isset($sql_fields[$table_name])) return $sql_fields[$table_name];
@@ -130,6 +131,7 @@
 			'whichs' => "`whichs` ",
 			'wheres' => "`wheres` ",
 			'whys' => "`whys` ",
+			'utedb' => "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` ",
 		];
 
 		$pkey = [
@@ -140,6 +142,7 @@
 			'whichs' => 'whichs_id',
 			'wheres' => 'wheres_id',
 			'whys' => 'whys_id',
+			'utedb' => 'utedb_id',
 		];
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -265,6 +268,30 @@
 				'whys_description' => '',
 				'whys_created' => '',
 				'whys_updated' => '',
+			],
+			'utedb' => [
+				'utedb_id' => '',
+				'utedb_madb' => '',
+				'utedb_what1' => '',
+				'utedb_who1' => '',
+				'utedb_when1' => '',
+				'utedb_which1' => '',
+				'utedb_where1' => '',
+				'utedb_why1' => '',
+				'utedb_why2' => '',
+				'utedb_why3' => '',
+				'utedb_where2' => '',
+				'utedb_where3' => '',
+				'utedb_which2' => '',
+				'utedb_which3' => '',
+				'utedb_when2' => '',
+				'utedb_when3' => '',
+				'utedb_who2' => '',
+				'utedb_who3' => '',
+				'utedb_what2' => '',
+				'utedb_what3' => '',
+				'utedb_created' => '',
+				'utedb_updated' => '',
 			],
 		];
 
@@ -1091,7 +1118,7 @@
 	#########################################################
 
 	function tablesWithAddNewInHomepage() {
-		return ['madb','whats','whos','whens','whichs','wheres','whys',];
+		return ['madb','whats','whos','whens','whichs','wheres','whys','utedb',];
 	}
 
 	#########################################################
@@ -1454,6 +1481,32 @@ EOT;
 			],
 			'whys' => [
 			],
+			'utedb' => [
+				'utedb_madb' => [
+					'parent-table' => 'madb',
+					'parent-primary-key' => 'madb_id',
+					'child-primary-key' => 'utedb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Master Anatomy DB <span class="hidden child-label-utedb child-field-caption">(MADb Id)</span>',
+					'auto-close' => false,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Utedb id', 1 => 'MADb Id', 2 => 'What1', 3 => 'Who1', 4 => 'When1', 5 => 'Which1', 6 => 'Where1', 7 => 'Why1', 8 => 'Why2', 9 => 'Why3', 10 => 'Where2', 11 => 'Where3', 12 => 'Which2', 13 => 'Which3', 14 => 'When2', 15 => 'When3', 16 => 'Who2', 17 => 'Who3', 18 => 'What2', 19 => 'What3', 20 => 'Created AT', 21 => 'Updated AT'],
+					'display-field-names' => [0 => 'utedb_id', 1 => 'utedb_madb', 2 => 'utedb_what1', 3 => 'utedb_who1', 4 => 'utedb_when1', 5 => 'utedb_which1', 6 => 'utedb_where1', 7 => 'utedb_why1', 8 => 'utedb_why2', 9 => 'utedb_why3', 10 => 'utedb_where2', 11 => 'utedb_where3', 12 => 'utedb_which2', 13 => 'utedb_which3', 14 => 'utedb_when2', 15 => 'utedb_when3', 16 => 'utedb_who2', 17 => 'utedb_who3', 18 => 'utedb_what2', 19 => 'utedb_what3', 20 => 'utedb_created', 21 => 'utedb_updated'],
+					'sortable-fields' => [0 => '`utedb`.`utedb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => 8, 8 => 9, 9 => 10, 10 => 11, 11 => 12, 12 => 13, 13 => 14, 14 => 15, 15 => 16, 16 => 17, 17 => 18, 18 => 19, 19 => 20, 20 => '`utedb`.`utedb_created`', 21 => '`utedb`.`utedb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-utedb',
+					'template-printable' => 'children-utedb-printable',
+					'query' => "SELECT `utedb`.`utedb_id` as 'utedb_id', IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') as 'utedb_madb', IF(    CHAR_LENGTH(`whats2`.`whats_what1`), CONCAT_WS('',   `whats2`.`whats_what1`), '') as 'utedb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'utedb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'utedb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'utedb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'utedb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'utedb_why1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'utedb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'utedb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'utedb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'utedb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'utedb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'utedb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'utedb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'utedb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'utedb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'utedb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'utedb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'utedb_what3', `utedb`.`utedb_created` as 'utedb_created', `utedb`.`utedb_updated` as 'utedb_updated' FROM `utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` "
+				],
+			],
 		];
 
 		if($skipPermissions) return $pcConfig;
@@ -1499,7 +1552,7 @@ EOT;
 	#########################################################
 
 	function isDetailViewEnabled($tn) {
-		$tables = ['madb', 'whats', 'whos', 'whens', 'whichs', 'wheres', 'whys', ];
+		$tables = ['madb', 'whats', 'whos', 'whens', 'whichs', 'wheres', 'whys', 'utedb', ];
 		return in_array($tn, $tables);
 	}
 

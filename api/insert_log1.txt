@@ -1,1 +1,0 @@
-INSERT INTO whys (Whys_why1,Whys_why2,Whys_description,whys_created,whys_updated) VALUES ('Flight','Biller','Frontline doers who do biiling.','2026-04-10 13:23:06','2026-04-10 13:23:06')

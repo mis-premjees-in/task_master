@@ -24,6 +24,9 @@
 
 		setupTable('whys', []);
 
+		setupTable('utedb', []);
+		setupIndexes('utedb', ['utedb_madb',]);
+
 
 
 		// set up internal tables
