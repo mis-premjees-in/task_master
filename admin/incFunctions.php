@@ -113,42 +113,42 @@
 					'homepageShowCount' => 1
 				],
 				'whats' => [
-					'Caption' => 'Whats',
+					'Caption' => 'Whats (Tasks)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
 				'whos' => [
-					'Caption' => 'Whos',
+					'Caption' => 'Whos (Doers)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
 				'whens' => [
-					'Caption' => 'Whens',
+					'Caption' => 'Whens (Frequency)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
 				'whichs' => [
-					'Caption' => 'Whichs',
+					'Caption' => 'Whichs (Things)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
 				'wheres' => [
-					'Caption' => 'Wheres',
+					'Caption' => 'Wheres (Area/Zone)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
 				'whys' => [
-					'Caption' => 'Whys',
+					'Caption' => 'Whys (Precinct/Department)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
@@ -160,6 +160,34 @@
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
+				],
+				'howrs' => [
+					'Caption' => 'Howrs (Method)',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'howss' => [
+					'Caption' => 'Howss (Steps)',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'howqs' => [
+					'Caption' => 'Howts (Quantify)',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'howts' => [
+					'Caption' => 'Howts (Timespan)',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
 				],
 		];
 
@@ -178,13 +206,17 @@
 		$arrTables = [
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */
 			'madb' => ['Master Anatomy DB', '', 'table.gif', 'None'],
-			'whats' => ['Whats', '', 'table.gif', 'None'],
-			'whos' => ['Whos', '', 'table.gif', 'None'],
-			'whens' => ['Whens', '', 'table.gif', 'None'],
-			'whichs' => ['Whichs', '', 'table.gif', 'None'],
-			'wheres' => ['Wheres', '', 'table.gif', 'None'],
-			'whys' => ['Whys', '', 'table.gif', 'None'],
+			'whats' => ['Whats (Tasks)', '', 'table.gif', 'None'],
+			'whos' => ['Whos (Doers)', '', 'table.gif', 'None'],
+			'whens' => ['Whens (Frequency)', '', 'table.gif', 'None'],
+			'whichs' => ['Whichs (Things)', '', 'table.gif', 'None'],
+			'wheres' => ['Wheres (Area/Zone)', '', 'table.gif', 'None'],
+			'whys' => ['Whys (Precinct/Department)', '', 'table.gif', 'None'],
 			'utedb' => ['Universal TEDB', '', 'table.gif', 'None'],
+			'howrs' => ['Howrs (Method)', '', 'table.gif', 'None'],
+			'howss' => ['Howss (Steps)', '', 'table.gif', 'None'],
+			'howqs' => ['Howts (Quantify)', '', 'table.gif', 'None'],
+			'howts' => ['Howts (Timespan)', '', 'table.gif', 'None'],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) {
@@ -989,6 +1021,34 @@
 							'description' => '',
 						],
 					],
+					'madb_howr1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howr1',
+							'description' => '',
+						],
+					],
+					'madb_hows1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Hows1',
+							'description' => '',
+						],
+					],
+					'madb_howq1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howq1',
+							'description' => '',
+						],
+					],
+					'madb_howt1' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Madb howt1',
+							'description' => '',
+						],
+					],
 					'madb_why2' => [
 						'appgini' => "INT NULL",
 						'info' => [
@@ -1070,6 +1130,62 @@
 						'appgini' => "INT NULL",
 						'info' => [
 							'caption' => 'What3',
+							'description' => '',
+						],
+					],
+					'madb_howr2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howr2',
+							'description' => '',
+						],
+					],
+					'madb_howr3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howr3',
+							'description' => '',
+						],
+					],
+					'madb_hows2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Hows2',
+							'description' => '',
+						],
+					],
+					'madb_hows3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Hows3',
+							'description' => '',
+						],
+					],
+					'madb_howq2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howq2',
+							'description' => '',
+						],
+					],
+					'madb_howq3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howq3',
+							'description' => '',
+						],
+					],
+					'madb_howt2' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howt2',
+							'description' => '',
+						],
+					],
+					'madb_howt3' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Howt3',
 							'description' => '',
 						],
 					],
@@ -1543,6 +1659,210 @@
 						],
 					],
 					'utedb_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'howrs' => [
+					'howrs_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Id',
+							'description' => '',
+						],
+					],
+					'howrs_howr1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Howr1 (Method)',
+							'description' => '',
+						],
+					],
+					'howrs_howr2' => [
+						'appgini' => "VARCHAR(255) NOT NULL",
+						'info' => [
+							'caption' => 'Howr2 (Type)',
+							'description' => '',
+						],
+					],
+					'howrs_howr3' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'Howr3 (Url If Any)',
+							'description' => '',
+						],
+					],
+					'howrs_description' => [
+						'appgini' => "LONGTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'howrs_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'howrs_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'howss' => [
+					'howss_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Id',
+							'description' => '',
+						],
+					],
+					'howss_hows1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Hows1 (Medium)',
+							'description' => '',
+						],
+					],
+					'howss_hows2' => [
+						'appgini' => "VARCHAR(255) NOT NULL",
+						'info' => [
+							'caption' => 'Hows2 (Format)',
+							'description' => '',
+						],
+					],
+					'howss_hows3' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'Hows3 (Url If Any)',
+							'description' => '',
+						],
+					],
+					'howss_description' => [
+						'appgini' => "LONGTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'howss_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'howss_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'howqs' => [
+					'howqs_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Id',
+							'description' => '',
+						],
+					],
+					'howqs_howq1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Howq1 (Type)',
+							'description' => '',
+						],
+					],
+					'howqs_howq2' => [
+						'appgini' => "DECIMAL(10,2) NOT NULL",
+						'info' => [
+							'caption' => 'Howq2 (Measure)',
+							'description' => '',
+						],
+					],
+					'howqs_howq3' => [
+						'appgini' => "DECIMAL(10,2) NULL",
+						'info' => [
+							'caption' => 'Howq3 (Target)',
+							'description' => '',
+						],
+					],
+					'howqs_description' => [
+						'appgini' => "LONGTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'howqs_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'howqs_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+				],
+				'howts' => [
+					'howts_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Id',
+							'description' => '',
+						],
+					],
+					'howts_howt1' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Howt1 (Type)',
+							'description' => '',
+						],
+					],
+					'howts_howt2' => [
+						'appgini' => "DECIMAL(10,2) NOT NULL",
+						'info' => [
+							'caption' => 'Howt2 (Span)',
+							'description' => '',
+						],
+					],
+					'howts_howt3' => [
+						'appgini' => "DECIMAL(10,2) NULL",
+						'info' => [
+							'caption' => 'Howt3 (Target - if any)',
+							'description' => '',
+						],
+					],
+					'howrs_description' => [
+						'appgini' => "LONGTEXT NOT NULL",
+						'info' => [
+							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'howrs_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
+							'description' => '',
+						],
+					],
+					'howrs_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Updated AT',
@@ -2725,6 +3045,10 @@
 				'whichs' => ['madb_which1'],
 				'wheres' => ['madb_where1'],
 				'whys' => ['madb_why1'],
+				'howrs' => ['madb_howr1'],
+				'howss' => ['madb_hows1'],
+				'howqs' => ['madb_howq1'],
+				'howts' => ['madb_howt1'],
 			],
 			'utedb' => [
 				'madb' => ['utedb_madb'],
@@ -2762,6 +3086,10 @@
 			'wheres' => [],
 			'whys' => [],
 			'utedb' => [],
+			'howrs' => [],
+			'howss' => [],
+			'howqs' => [],
+			'howts' => [],
 		];
 	}
 	#########################################################
@@ -2892,6 +3220,10 @@
 				'madb_which1' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_id`',
 				'madb_where1' => 'SELECT `wheres`.`wheres_id`, IF(CHAR_LENGTH(`wheres`.`wheres_where1`) || CHAR_LENGTH(`wheres`.`wheres_where2`)|| CHAR_LENGTH(`wheres`.`wheres_where3`), CONCAT_WS(\'\', `wheres`.`wheres_where1`, \'-\', `wheres`.`wheres_where2`, \'-\', `wheres`.`wheres_where3`), \'\') FROM `wheres` ORDER BY `wheres`.`wheres_id`',
 				'madb_why1' => 'SELECT `whys`.`whys_id`, IF(CHAR_LENGTH(`whys`.`whys_why1`) || CHAR_LENGTH(`whys`.`whys_why2`) || CHAR_LENGTH(`whys`.`whys_why3`), CONCAT_WS(\'\', `whys`.`whys_why1`, \'-\', `whys`.`whys_why2`,\'\', \'-\', `whys`.`whys_why3`), \'\') FROM `whys` ORDER BY `whys`.`whys_id`',
+				'madb_howr1' => 'SELECT `howrs`.`howrs_id`, IF(CHAR_LENGTH(`howrs`.`howrs_howr1`) || CHAR_LENGTH(`howrs`.`howrs_howr2`)|| CHAR_LENGTH(`howrs`.`howrs_howr3`), CONCAT_WS(\'\', `howrs`.`howrs_howr1`, \'-\', `howrs`.`howrs_howr2`, \'-\', `howrs`.`howrs_howr3`), \'\') FROM `howrs` ORDER BY `howrs`.`howrs_id`',
+				'madb_hows1' => 'SELECT `howss`.`howss_id`, IF(CHAR_LENGTH(`howss`.`howss_hows1`) || CHAR_LENGTH(`howss`.`howss_hows2`)|| CHAR_LENGTH(`howss`.`howss_hows3`), CONCAT_WS(\'\', `howss`.`howss_hows1`, \'-\', `howss`.`howss_hows2`, \'-\', `howss`.`howss_hows3`), \'\') FROM `howss` ORDER BY `howss`.`howss_id`',
+				'madb_howq1' => 'SELECT `howqs`.`howqs_id`, IF(CHAR_LENGTH(`howqs`.`howqs_howq1`) || CHAR_LENGTH(`howqs`.`howqs_howq2`)|| CHAR_LENGTH(`howqs`.`howqs_howq3`), CONCAT_WS(\'\', `howqs`.`howqs_howq1`, \'-\', `howqs`.`howqs_howq2`, \'-\', `howqs`.`howqs_howq3`), \'\') FROM `howqs` ORDER BY `howqs`.`howqs_id`',
+				'madb_howt1' => 'SELECT `howts`.`howts_id`, IF(CHAR_LENGTH(`howts`.`howts_howt1`) || CHAR_LENGTH(`howts`.`howts_howt2`)|| CHAR_LENGTH(`howts`.`howts_howt3`), CONCAT_WS(\'\', `howts`.`howts_howt1`, \'-\', `howts`.`howts_howt2`, \'-\', `howts`.`howts_howt3`), \'\') FROM `howts` ORDER BY `howts`.`howts_id`',
 				'madb_why2' => 'SELECT `whys`.`whys_id`, IF(CHAR_LENGTH(`whys`.`whys_why2`) || CHAR_LENGTH(`whys`.`whys_why3`), CONCAT_WS(\'\', `whys`.`whys_why2`, \'-\', `whys`.`whys_why3`), \'\') FROM `whys` ORDER BY `whys`.`whys_id`',
 				'madb_why3' => 'SELECT `whys`.`whys_id`, `whys`.`whys_why3` FROM `whys` ORDER BY 2',
 				'madb_where2' => 'SELECT `wheres`.`wheres_id`, IF(CHAR_LENGTH(`wheres`.`wheres_where2`) || CHAR_LENGTH(`wheres`.`wheres_where3`), CONCAT_WS(\'\', `wheres`.`wheres_where2`, \'-\', `wheres`.`wheres_where3`), \'\') FROM `wheres` ORDER BY `wheres`.`wheres_id`',
@@ -2904,6 +3236,14 @@
 				'madb_who3' => 'SELECT `whos`.`whos_id`, `whos`.`whos_who3` FROM `whos` ORDER BY 2',
 				'madb_what2' => 'SELECT `whats`.`whats_id`, IF(CHAR_LENGTH(`whats`.`whats_what2`) || CHAR_LENGTH(`whats`.`whats_what3`), CONCAT_WS(\'\', `whats`.`whats_what2`, \'-\', `whats`.`whats_what3`), \'\') FROM `whats` ORDER BY `whats`.`whats_id`',
 				'madb_what3' => 'SELECT `whats`.`whats_id`, `whats`.`whats_what3` FROM `whats` ORDER BY 2',
+				'madb_howr2' => 'SELECT `howrs`.`howrs_id`, `howrs`.`howrs_howr2` FROM `howrs` ORDER BY 2',
+				'madb_howr3' => 'SELECT `howrs`.`howrs_id`, `howrs`.`howrs_howr3` FROM `howrs` ORDER BY 2',
+				'madb_hows2' => 'SELECT `howss`.`howss_id`, `howss`.`howss_hows2` FROM `howss` ORDER BY 2',
+				'madb_hows3' => 'SELECT `howss`.`howss_id`, `howss`.`howss_hows3` FROM `howss` ORDER BY 2',
+				'madb_howq2' => 'SELECT `howqs`.`howqs_id`, `howqs`.`howqs_howq3` FROM `howqs` ORDER BY 2',
+				'madb_howq3' => 'SELECT `howqs`.`howqs_id`, `howqs`.`howqs_howq3` FROM `howqs` ORDER BY 2',
+				'madb_howt2' => 'SELECT `howts`.`howts_id`, `howts`.`howts_howt2` FROM `howts` ORDER BY 2',
+				'madb_howt3' => 'SELECT `howts`.`howts_id`, `howts`.`howts_howt3` FROM `howts` ORDER BY 2',
 			],
 			'whats' => [
 			],
@@ -2918,25 +3258,33 @@
 			'whys' => [
 			],
 			'utedb' => [
-				'utedb_madb' => 'SELECT `madb`.`madb_id`, IF(CHAR_LENGTH(`madb`.`madb_id`) || CHAR_LENGTH(`madb`.`madb_what1`), CONCAT_WS(\'\', `madb`.`madb_id`, \'-\', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS(\'\',   `whats1`.`whats_what1`), \'\')), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_what1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS(\'\',   `whats1`.`whats_what1`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_who1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS(\'\',   `whos1`.`whos_who1`, \'-\', `whos1`.`whos_who2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_when1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS(\'\',   `whens1`.`whens_when1`, \'-\', `whens1`.`whens_when2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_which1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS(\'\',   `whichs1`.`whichs_which1`, \'-\', `whichs1`.`whichs_which2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_where1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS(\'\',   `wheres1`.`wheres_where1`, \'-\', `wheres1`.`wheres_where2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_why1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS(\'\',   `whys1`.`whys_why1`, \'-\', `whys1`.`whys_why2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_why2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS(\'\',   `whys1`.`whys_why2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_why3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS(\'\',   `whys1`.`whys_why3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_where2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS(\'\',   `wheres1`.`wheres_where2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_where3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS(\'\',   `wheres1`.`wheres_where3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_which2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS(\'\',   `whichs1`.`whichs_which2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_which3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS(\'\',   `whichs1`.`whichs_which3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_when2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS(\'\',   `whens1`.`whens_when2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_when3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,\'%r\'),\'\')), CONCAT_WS(\'\',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,\'%r\'),\'\')), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_who2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS(\'\',   `whos1`.`whos_who2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_who3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS(\'\',   `whos1`.`whos_who3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_what2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS(\'\',   `whats1`.`whats_what2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
-				'utedb_what3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS(\'\',   `whats1`.`whats_what3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` ORDER BY 2',
+				'utedb_madb' => 'SELECT `madb`.`madb_id`, IF(CHAR_LENGTH(`madb`.`madb_id`) || CHAR_LENGTH(`madb`.`madb_what1`), CONCAT_WS(\'\', `madb`.`madb_id`, \'-\', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS(\'\',   `whats1`.`whats_what1`), \'\')), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_what1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS(\'\',   `whats1`.`whats_what1`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_who1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS(\'\',   `whos1`.`whos_who1`, \'-\', `whos1`.`whos_who2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_when1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS(\'\',   `whens1`.`whens_when1`, \'-\', `whens1`.`whens_when2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_which1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS(\'\',   `whichs1`.`whichs_which1`, \'-\', `whichs1`.`whichs_which2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_where1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS(\'\',   `wheres1`.`wheres_where1`, \'-\', `wheres1`.`wheres_where2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_why1' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS(\'\',   `whys1`.`whys_why1`, \'-\', `whys1`.`whys_why2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_why2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS(\'\',   `whys1`.`whys_why2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_why3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS(\'\',   `whys1`.`whys_why3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_where2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS(\'\',   `wheres1`.`wheres_where2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_where3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS(\'\',   `wheres1`.`wheres_where3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_which2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS(\'\',   `whichs1`.`whichs_which2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_which3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS(\'\',   `whichs1`.`whichs_which3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_when2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS(\'\',   `whens1`.`whens_when2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_when3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,\'%r\'),\'\')), CONCAT_WS(\'\',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,\'%r\'),\'\')), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_who2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS(\'\',   `whos1`.`whos_who2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_who3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS(\'\',   `whos1`.`whos_who3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_what2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS(\'\',   `whats1`.`whats_what2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+				'utedb_what3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS(\'\',   `whats1`.`whats_what3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+			],
+			'howrs' => [
+			],
+			'howss' => [
+			],
+			'howqs' => [
+			],
+			'howts' => [
 			],
 		];
 

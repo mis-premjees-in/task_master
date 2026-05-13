@@ -1,0 +1,93 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Howr1 (Method) -->
+		<div class="form-group howrs-howrs_howr1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Howr1 (Method)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(howrs_howr1)%%></div>
+			</div>
+		</div>
+		<!-- Field: Howr2 (Type) -->
+		<div class="form-group howrs-howrs_howr2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Howr2 (Type)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(howrs_howr2)%%></div>
+			</div>
+		</div>
+		<!-- Field: Howr3 (Url If Any) -->
+		<div class="form-group howrs-howrs_howr3" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Howr3 (Url If Any)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(howrs_howr3)%%></div>
+			</div>
+		</div>
+		<!-- Field: Description -->
+		<div class="form-group howrs-howrs_description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(howrs_description)%%></div>
+			</div>
+		</div>
+		<!-- Field: Created AT -->
+		<div class="form-group howrs-howrs_created" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Created AT</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(howrs_created)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="howrs-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=howrs-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'howrs',
+				SelectedID: '<%%VALUE(howrs_id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'howrs-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

@@ -9,8 +9,35 @@
 	// check if this setup file already run
 	if($thisMD5 != $prevMD5) {
 		// set up tables
-		setupTable('madb', []);
-		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1',]);
+		setupTable('madb', [
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_howr2` VARCHAR(40) NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_howr3` VARCHAR(40) NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_hows1` VARCHAR(40) NULL ",
+				"ALTER TABLE `madb` ADD `madb_hows1_1` INT NULL ",
+				"ALTER TABLE `madb` ADD INDEX `madb_hows1_1`",
+				"ALTER TABLE `madb` ADD `madb_hows1_2` INT NULL ",
+				"ALTER TABLE `madb` ADD INDEX `madb_hows1_2`",
+				"ALTER TABLE `madb` CHANGE `madb_hows1_1` `madb_howq` INT NULL ",
+				"ALTER TABLE `madb` CHANGE `madb_hows1_2` `madb_howt` INT NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_hows2` VARCHAR(40) NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_hows3` VARCHAR(40) NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_howq2` VARCHAR(40) NULL ",
+				"ALTER TABLE `madb` CHANGE `madb_howq` `madb_howq1` INT NULL ",
+				"ALTER TABLE `madb` CHANGE `madb_howt` `madb_howt1` INT NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_howq3` VARCHAR(40) NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_howt2` VARCHAR(40) NULL ",
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_howt3` VARCHAR(40) NULL ",
+			]);
+		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1','madb_howr1','madb_hows1','madb_howq1','madb_howt1',]);
 
 		setupTable('whats', []);
 
@@ -26,6 +53,14 @@
 
 		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb',]);
+
+		setupTable('howrs', []);
+
+		setupTable('howss', []);
+
+		setupTable('howqs', []);
+
+		setupTable('howts', []);
 
 
 

@@ -624,6 +624,98 @@ function utedb_validateData(insertMode) {
 
 	return !errors;
 }
+function howrs_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['text', 'howrs_howr1', 'Howr1 (Method)'],
+		['text', 'howrs_howr2', 'Howr2 (Type)'],
+		['text', 'howrs_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function howss_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['text', 'howss_hows1', 'Hows1 (Medium)'],
+		['text', 'howss_hows2', 'Hows2 (Format)'],
+		['text', 'howss_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function howqs_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['text', 'howqs_howq1', 'Howq1 (Type)'],
+		['text', 'howqs_howq2', 'Howq2 (Measure)'],
+		['text', 'howqs_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function howts_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['text', 'howts_howt1', 'Howt1 (Type)'],
+		['text', 'howts_howt2', 'Howt2 (Span)'],
+		['text', 'howrs_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
 
 function post(url, params, update, disable, loading, success_callback) {
 	$j.ajax({

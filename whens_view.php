@@ -96,7 +96,7 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whens_view.php';
-	$x->TableTitle = 'Whens';
+	$x->TableTitle = 'Whens (Frequency)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whens`.`whens_id`';
 

@@ -96,7 +96,7 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whos_view.php';
-	$x->TableTitle = 'Whos';
+	$x->TableTitle = 'Whos (Doers)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whos`.`whos_id`';
 

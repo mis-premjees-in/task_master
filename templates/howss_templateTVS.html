@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the howss_init() hook (in hooks/howss.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="howss-howss_id-<%%VALUE(howss_id)%%>" class="howss-howss_id text-right text-bold"><%%VALUE(howss_id)%%></td>
+		<td id="howss-howss_hows1-<%%VALUE(howss_id)%%>" class="howss-howss_hows1 text-bold"><%%VALUE(howss_hows1)%%></td>
+		<td id="howss-howss_hows2-<%%VALUE(howss_id)%%>" class="howss-howss_hows2 text-bold"><%%VALUE(howss_hows2)%%></td>
+		<td id="howss-howss_hows3-<%%VALUE(howss_id)%%>" class="howss-howss_hows3 text-bold"><%%VALUE(howss_hows3)%%></td>
+		<td id="howss-howss_description-<%%VALUE(howss_id)%%>" class="howss-howss_description text-bold"><%%VALUE(howss_description)%%></td>
+		<td id="howss-howss_created-<%%VALUE(howss_id)%%>" class="howss-howss_created text-bold"><%%VALUE(howss_created)%%></td>
+		<td id="howss-howss_updated-<%%VALUE(howss_id)%%>" class="howss-howss_updated text-bold"><%%VALUE(howss_updated)%%></td>

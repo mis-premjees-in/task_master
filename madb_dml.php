@@ -22,6 +22,10 @@ function madb_insert(&$error_message = '') {
 		'madb_which1' => Request::lookup('madb_which1', ''),
 		'madb_where1' => Request::lookup('madb_where1', ''),
 		'madb_why1' => Request::lookup('madb_why1', ''),
+		'madb_howr1' => Request::lookup('madb_howr1', ''),
+		'madb_hows1' => Request::lookup('madb_hows1', ''),
+		'madb_howq1' => Request::lookup('madb_howq1', ''),
+		'madb_howt1' => Request::lookup('madb_howt1', ''),
 		'madb_why2' => Request::lookup('madb_why1'),
 		'madb_why3' => Request::lookup('madb_why1'),
 		'madb_where2' => Request::lookup('madb_where1'),
@@ -34,6 +38,14 @@ function madb_insert(&$error_message = '') {
 		'madb_who3' => Request::lookup('madb_who1'),
 		'madb_what2' => Request::lookup('madb_what1'),
 		'madb_what3' => Request::lookup('madb_what1'),
+		'madb_howr2' => Request::lookup('madb_howr1'),
+		'madb_howr3' => Request::lookup('madb_howr1'),
+		'madb_hows2' => Request::lookup('madb_hows1'),
+		'madb_hows3' => Request::lookup('madb_hows1'),
+		'madb_howq2' => Request::lookup('madb_howq1'),
+		'madb_howq3' => Request::lookup('madb_howq1'),
+		'madb_howt2' => Request::lookup('madb_howt1'),
+		'madb_howt3' => Request::lookup('madb_howt1'),
 		'madb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -127,6 +139,10 @@ function madb_update(&$selected_id, &$error_message = '') {
 		'madb_which1' => Request::lookup('madb_which1', ''),
 		'madb_where1' => Request::lookup('madb_where1', ''),
 		'madb_why1' => Request::lookup('madb_why1', ''),
+		'madb_howr1' => Request::lookup('madb_howr1', ''),
+		'madb_hows1' => Request::lookup('madb_hows1', ''),
+		'madb_howq1' => Request::lookup('madb_howq1', ''),
+		'madb_howt1' => Request::lookup('madb_howt1', ''),
 		'madb_why2' => Request::lookup('madb_why1'),
 		'madb_why3' => Request::lookup('madb_why1'),
 		'madb_where2' => Request::lookup('madb_where1'),
@@ -139,6 +155,14 @@ function madb_update(&$selected_id, &$error_message = '') {
 		'madb_who3' => Request::lookup('madb_who1'),
 		'madb_what2' => Request::lookup('madb_what1'),
 		'madb_what3' => Request::lookup('madb_what1'),
+		'madb_howr2' => Request::lookup('madb_howr1'),
+		'madb_howr3' => Request::lookup('madb_howr1'),
+		'madb_hows2' => Request::lookup('madb_hows1'),
+		'madb_hows3' => Request::lookup('madb_hows1'),
+		'madb_howq2' => Request::lookup('madb_howq1'),
+		'madb_howq3' => Request::lookup('madb_howq1'),
+		'madb_howt2' => Request::lookup('madb_howt1'),
+		'madb_howt3' => Request::lookup('madb_howt1'),
 		'madb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -233,6 +257,10 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$filterer_madb_which1 = Request::val('filterer_madb_which1');
 	$filterer_madb_where1 = Request::val('filterer_madb_where1');
 	$filterer_madb_why1 = Request::val('filterer_madb_why1');
+	$filterer_madb_howr1 = Request::val('filterer_madb_howr1');
+	$filterer_madb_hows1 = Request::val('filterer_madb_hows1');
+	$filterer_madb_howq1 = Request::val('filterer_madb_howq1');
+	$filterer_madb_howt1 = Request::val('filterer_madb_howt1');
 
 	// populate filterers, starting from children to grand-parents
 
@@ -250,6 +278,14 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$combo_madb_where1 = new DataCombo;
 	// combobox: madb_why1
 	$combo_madb_why1 = new DataCombo;
+	// combobox: madb_howr1
+	$combo_madb_howr1 = new DataCombo;
+	// combobox: madb_hows1
+	$combo_madb_hows1 = new DataCombo;
+	// combobox: madb_howq1
+	$combo_madb_howq1 = new DataCombo;
+	// combobox: madb_howt1
+	$combo_madb_howt1 = new DataCombo;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('madb', $selectedId))) {
@@ -261,6 +297,10 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$combo_madb_which1->SelectedData = $row['madb_which1'];
 		$combo_madb_where1->SelectedData = $row['madb_where1'];
 		$combo_madb_why1->SelectedData = $row['madb_why1'];
+		$combo_madb_howr1->SelectedData = $row['madb_howr1'];
+		$combo_madb_hows1->SelectedData = $row['madb_hows1'];
+		$combo_madb_howq1->SelectedData = $row['madb_howq1'];
+		$combo_madb_howt1->SelectedData = $row['madb_howt1'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -273,6 +313,10 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$combo_madb_which1->SelectedData = $filterer_madb_which1;
 		$combo_madb_where1->SelectedData = $filterer_madb_where1;
 		$combo_madb_why1->SelectedData = $filterer_madb_why1;
+		$combo_madb_howr1->SelectedData = $filterer_madb_howr1;
+		$combo_madb_hows1->SelectedData = $filterer_madb_hows1;
+		$combo_madb_howq1->SelectedData = $filterer_madb_howq1;
+		$combo_madb_howt1->SelectedData = $filterer_madb_howt1;
 	}
 	$combo_madb_what1->HTML = '<span id="madb_what1-container' . $rnd1 . '"></span><input type="hidden" name="madb_what1" id="madb_what1' . $rnd1 . '" value="' . html_attr($combo_madb_what1->SelectedData) . '">';
 	$combo_madb_what1->MatchText = '<span id="madb_what1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_what1" id="madb_what1' . $rnd1 . '" value="' . html_attr($combo_madb_what1->SelectedData) . '">';
@@ -286,6 +330,14 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$combo_madb_where1->MatchText = '<span id="madb_where1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_where1" id="madb_where1' . $rnd1 . '" value="' . html_attr($combo_madb_where1->SelectedData) . '">';
 	$combo_madb_why1->HTML = '<span id="madb_why1-container' . $rnd1 . '"></span><input type="hidden" name="madb_why1" id="madb_why1' . $rnd1 . '" value="' . html_attr($combo_madb_why1->SelectedData) . '">';
 	$combo_madb_why1->MatchText = '<span id="madb_why1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_why1" id="madb_why1' . $rnd1 . '" value="' . html_attr($combo_madb_why1->SelectedData) . '">';
+	$combo_madb_howr1->HTML = '<span id="madb_howr1-container' . $rnd1 . '"></span><input type="hidden" name="madb_howr1" id="madb_howr1' . $rnd1 . '" value="' . html_attr($combo_madb_howr1->SelectedData) . '">';
+	$combo_madb_howr1->MatchText = '<span id="madb_howr1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_howr1" id="madb_howr1' . $rnd1 . '" value="' . html_attr($combo_madb_howr1->SelectedData) . '">';
+	$combo_madb_hows1->HTML = '<span id="madb_hows1-container' . $rnd1 . '"></span><input type="hidden" name="madb_hows1" id="madb_hows1' . $rnd1 . '" value="' . html_attr($combo_madb_hows1->SelectedData) . '">';
+	$combo_madb_hows1->MatchText = '<span id="madb_hows1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_hows1" id="madb_hows1' . $rnd1 . '" value="' . html_attr($combo_madb_hows1->SelectedData) . '">';
+	$combo_madb_howq1->HTML = '<span id="madb_howq1-container' . $rnd1 . '"></span><input type="hidden" name="madb_howq1" id="madb_howq1' . $rnd1 . '" value="' . html_attr($combo_madb_howq1->SelectedData) . '">';
+	$combo_madb_howq1->MatchText = '<span id="madb_howq1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_howq1" id="madb_howq1' . $rnd1 . '" value="' . html_attr($combo_madb_howq1->SelectedData) . '">';
+	$combo_madb_howt1->HTML = '<span id="madb_howt1-container' . $rnd1 . '"></span><input type="hidden" name="madb_howt1" id="madb_howt1' . $rnd1 . '" value="' . html_attr($combo_madb_howt1->SelectedData) . '">';
+	$combo_madb_howt1->MatchText = '<span id="madb_howt1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_howt1" id="madb_howt1' . $rnd1 . '" value="' . html_attr($combo_madb_howt1->SelectedData) . '">';
 
 	ob_start();
 	?>
@@ -298,6 +350,10 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		AppGini.current_madb_which1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['madb_which1'] : htmlspecialchars($filterer_madb_which1, ENT_QUOTES)); ?>"};
 		AppGini.current_madb_where1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['madb_where1'] : htmlspecialchars($filterer_madb_where1, ENT_QUOTES)); ?>"};
 		AppGini.current_madb_why1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['madb_why1'] : htmlspecialchars($filterer_madb_why1, ENT_QUOTES)); ?>"};
+		AppGini.current_madb_howr1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['madb_howr1'] : htmlspecialchars($filterer_madb_howr1, ENT_QUOTES)); ?>"};
+		AppGini.current_madb_hows1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['madb_hows1'] : htmlspecialchars($filterer_madb_hows1, ENT_QUOTES)); ?>"};
+		AppGini.current_madb_howq1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['madb_howq1'] : htmlspecialchars($filterer_madb_howq1, ENT_QUOTES)); ?>"};
+		AppGini.current_madb_howt1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['madb_howt1'] : htmlspecialchars($filterer_madb_howt1, ENT_QUOTES)); ?>"};
 
 		$j(function() {
 			setTimeout(function() {
@@ -307,6 +363,10 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 				if(typeof(madb_which1_reload__RAND__) == 'function') madb_which1_reload__RAND__();
 				if(typeof(madb_where1_reload__RAND__) == 'function') madb_where1_reload__RAND__();
 				if(typeof(madb_why1_reload__RAND__) == 'function') madb_why1_reload__RAND__();
+				if(typeof(madb_howr1_reload__RAND__) == 'function') madb_howr1_reload__RAND__();
+				if(typeof(madb_hows1_reload__RAND__) == 'function') madb_hows1_reload__RAND__();
+				if(typeof(madb_howq1_reload__RAND__) == 'function') madb_howq1_reload__RAND__();
+				if(typeof(madb_howt1_reload__RAND__) == 'function') madb_howt1_reload__RAND__();
 			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
 		function madb_what1_reload__RAND__() {
@@ -783,6 +843,322 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		<?php } ?>
 
 		}
+		function madb_howr1_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#madb_howr1-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_madb_howr1__RAND__.value, t: 'madb', f: 'madb_howr1' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="madb_howr1"]').val(resp.results[0].id);
+							$j('[id=madb_howr1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howr1-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howrs_view_parent]').hide(); } else { $j('.btn[id=howrs_view_parent]').show(); }
+
+
+							if(typeof(madb_howr1_update_autofills__RAND__) == 'function') madb_howr1_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'madb', f: 'madb_howr1' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_madb_howr1__RAND__.value = e.added.id;
+				AppGini.current_madb_howr1__RAND__.text = e.added.text;
+				$j('[name="madb_howr1"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=howrs_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(madb_howr1_update_autofills__RAND__) == 'function') madb_howr1_update_autofills__RAND__();
+			});
+
+			if(!$j("#madb_howr1-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_madb_howr1__RAND__.value, t: 'madb', f: 'madb_howr1' },
+					success: function(resp) {
+						$j('[name="madb_howr1"]').val(resp.results[0].id);
+						$j('[id=madb_howr1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howr1-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howrs_view_parent]').hide(); } else { $j('.btn[id=howrs_view_parent]').show(); }
+
+						if(typeof(madb_howr1_update_autofills__RAND__) == 'function') madb_howr1_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_madb_howr1__RAND__.value, t: 'madb', f: 'madb_howr1' },
+				success: function(resp) {
+					$j('[id=madb_howr1-container__RAND__], [id=madb_howr1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howr1-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howrs_view_parent]').hide(); } else { $j('.btn[id=howrs_view_parent]').show(); }
+
+					if(typeof(madb_howr1_update_autofills__RAND__) == 'function') madb_howr1_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
+		function madb_hows1_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#madb_hows1-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_madb_hows1__RAND__.value, t: 'madb', f: 'madb_hows1' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="madb_hows1"]').val(resp.results[0].id);
+							$j('[id=madb_hows1-container-readonly__RAND__]').html('<span class="match-text" id="madb_hows1-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howss_view_parent]').hide(); } else { $j('.btn[id=howss_view_parent]').show(); }
+
+
+							if(typeof(madb_hows1_update_autofills__RAND__) == 'function') madb_hows1_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'madb', f: 'madb_hows1' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_madb_hows1__RAND__.value = e.added.id;
+				AppGini.current_madb_hows1__RAND__.text = e.added.text;
+				$j('[name="madb_hows1"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=howss_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(madb_hows1_update_autofills__RAND__) == 'function') madb_hows1_update_autofills__RAND__();
+			});
+
+			if(!$j("#madb_hows1-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_madb_hows1__RAND__.value, t: 'madb', f: 'madb_hows1' },
+					success: function(resp) {
+						$j('[name="madb_hows1"]').val(resp.results[0].id);
+						$j('[id=madb_hows1-container-readonly__RAND__]').html('<span class="match-text" id="madb_hows1-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howss_view_parent]').hide(); } else { $j('.btn[id=howss_view_parent]').show(); }
+
+						if(typeof(madb_hows1_update_autofills__RAND__) == 'function') madb_hows1_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_madb_hows1__RAND__.value, t: 'madb', f: 'madb_hows1' },
+				success: function(resp) {
+					$j('[id=madb_hows1-container__RAND__], [id=madb_hows1-container-readonly__RAND__]').html('<span class="match-text" id="madb_hows1-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howss_view_parent]').hide(); } else { $j('.btn[id=howss_view_parent]').show(); }
+
+					if(typeof(madb_hows1_update_autofills__RAND__) == 'function') madb_hows1_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
+		function madb_howq1_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#madb_howq1-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_madb_howq1__RAND__.value, t: 'madb', f: 'madb_howq1' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="madb_howq1"]').val(resp.results[0].id);
+							$j('[id=madb_howq1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howq1-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howqs_view_parent]').hide(); } else { $j('.btn[id=howqs_view_parent]').show(); }
+
+
+							if(typeof(madb_howq1_update_autofills__RAND__) == 'function') madb_howq1_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'madb', f: 'madb_howq1' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_madb_howq1__RAND__.value = e.added.id;
+				AppGini.current_madb_howq1__RAND__.text = e.added.text;
+				$j('[name="madb_howq1"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=howqs_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(madb_howq1_update_autofills__RAND__) == 'function') madb_howq1_update_autofills__RAND__();
+			});
+
+			if(!$j("#madb_howq1-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_madb_howq1__RAND__.value, t: 'madb', f: 'madb_howq1' },
+					success: function(resp) {
+						$j('[name="madb_howq1"]').val(resp.results[0].id);
+						$j('[id=madb_howq1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howq1-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howqs_view_parent]').hide(); } else { $j('.btn[id=howqs_view_parent]').show(); }
+
+						if(typeof(madb_howq1_update_autofills__RAND__) == 'function') madb_howq1_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_madb_howq1__RAND__.value, t: 'madb', f: 'madb_howq1' },
+				success: function(resp) {
+					$j('[id=madb_howq1-container__RAND__], [id=madb_howq1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howq1-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howqs_view_parent]').hide(); } else { $j('.btn[id=howqs_view_parent]').show(); }
+
+					if(typeof(madb_howq1_update_autofills__RAND__) == 'function') madb_howq1_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
+		function madb_howt1_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#madb_howt1-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_madb_howt1__RAND__.value, t: 'madb', f: 'madb_howt1' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="madb_howt1"]').val(resp.results[0].id);
+							$j('[id=madb_howt1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howt1-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howts_view_parent]').hide(); } else { $j('.btn[id=howts_view_parent]').show(); }
+
+
+							if(typeof(madb_howt1_update_autofills__RAND__) == 'function') madb_howt1_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'madb', f: 'madb_howt1' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_madb_howt1__RAND__.value = e.added.id;
+				AppGini.current_madb_howt1__RAND__.text = e.added.text;
+				$j('[name="madb_howt1"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=howts_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(madb_howt1_update_autofills__RAND__) == 'function') madb_howt1_update_autofills__RAND__();
+			});
+
+			if(!$j("#madb_howt1-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_madb_howt1__RAND__.value, t: 'madb', f: 'madb_howt1' },
+					success: function(resp) {
+						$j('[name="madb_howt1"]').val(resp.results[0].id);
+						$j('[id=madb_howt1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howt1-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howts_view_parent]').hide(); } else { $j('.btn[id=howts_view_parent]').show(); }
+
+						if(typeof(madb_howt1_update_autofills__RAND__) == 'function') madb_howt1_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_madb_howt1__RAND__.value, t: 'madb', f: 'madb_howt1' },
+				success: function(resp) {
+					$j('[id=madb_howt1-container__RAND__], [id=madb_howt1-container-readonly__RAND__]').html('<span class="match-text" id="madb_howt1-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=howts_view_parent]').hide(); } else { $j('.btn[id=howts_view_parent]').show(); }
+
+					if(typeof(madb_howt1_update_autofills__RAND__) == 'function') madb_howt1_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
 	</script>
 	<?php
 
@@ -880,6 +1256,14 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$jsReadOnly .= "\t\$j('#madb_where1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('#madb_why1').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#madb_why1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#madb_howr1').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#madb_howr1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#madb_hows1').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#madb_hows1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#madb_howq1').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#madb_howq1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#madb_howt1').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#madb_howt1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -908,9 +1292,21 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%COMBO(madb_why1)%%>', $combo_madb_why1->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(madb_why1)%%>', $combo_madb_why1->MatchText, $templateCode);
 	$templateCode = str_replace('<%%URLCOMBOTEXT(madb_why1)%%>', urlencode($combo_madb_why1->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(madb_howr1)%%>', $combo_madb_howr1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(madb_howr1)%%>', $combo_madb_howr1->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(madb_howr1)%%>', urlencode($combo_madb_howr1->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(madb_hows1)%%>', $combo_madb_hows1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(madb_hows1)%%>', $combo_madb_hows1->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(madb_hows1)%%>', urlencode($combo_madb_hows1->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(madb_howq1)%%>', $combo_madb_howq1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(madb_howq1)%%>', $combo_madb_howq1->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(madb_howq1)%%>', urlencode($combo_madb_howq1->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(madb_howt1)%%>', $combo_madb_howt1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(madb_howt1)%%>', $combo_madb_howt1->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(madb_howt1)%%>', urlencode($combo_madb_howt1->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['madb_what1' => ['whats', 'What1'], 'madb_who1' => ['whos', 'Who1'], 'madb_when1' => ['whens', 'When1'], 'madb_which1' => ['whichs', 'Which1'], 'madb_where1' => ['wheres', 'Where1'], 'madb_why1' => ['whys', 'Why1'], ];
+	$lookup_fields = ['madb_what1' => ['whats', 'What1'], 'madb_who1' => ['whos', 'Who1'], 'madb_when1' => ['whens', 'When1'], 'madb_which1' => ['whichs', 'Which1'], 'madb_where1' => ['wheres', 'Where1'], 'madb_why1' => ['whys', 'Why1'], 'madb_howr1' => ['howrs', 'Howr1'], 'madb_hows1' => ['howss', 'Hows1'], 'madb_howq1' => ['howqs', 'Howq1'], 'madb_howt1' => ['howts', 'Madb howt1'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -933,6 +1329,10 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%UPLOADFILE(madb_which1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_where1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_why1)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(madb_howr1)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(madb_hows1)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(madb_howq1)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(madb_howt1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_updated)%%>', '', $templateCode);
 
@@ -959,6 +1359,18 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(madb_why1)%%>', safe_html($urow['madb_why1']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(madb_why1)%%>', html_attr($row['madb_why1']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_why1)%%>', urlencode($urow['madb_why1']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(madb_howr1)%%>', safe_html($urow['madb_howr1']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(madb_howr1)%%>', html_attr($row['madb_howr1']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_howr1)%%>', urlencode($urow['madb_howr1']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(madb_hows1)%%>', safe_html($urow['madb_hows1']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(madb_hows1)%%>', html_attr($row['madb_hows1']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_hows1)%%>', urlencode($urow['madb_hows1']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(madb_howq1)%%>', safe_html($urow['madb_howq1']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(madb_howq1)%%>', html_attr($row['madb_howq1']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_howq1)%%>', urlencode($urow['madb_howq1']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(madb_howt1)%%>', safe_html($urow['madb_howt1']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(madb_howt1)%%>', html_attr($row['madb_howt1']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_howt1)%%>', urlencode($urow['madb_howt1']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_created)%%>', safe_html($urow['madb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_created)%%>', urlencode($urow['madb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_updated)%%>', safe_html($urow['madb_updated']), $templateCode);
@@ -978,6 +1390,14 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(madb_where1)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_why1)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_why1)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(madb_howr1)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_howr1)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(madb_hows1)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_hows1)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(madb_howq1)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_howq1)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(madb_howt1)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_howt1)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);
@@ -1114,6 +1534,74 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode .= "\t\t});\n";
 	$templateCode .= "\t};\n";
 	if(!$dvprint) $templateCode .= "\tif(\$j('#madb_why1_caption').length) \$j('#madb_why1_caption').click(function() { madb_why1_update_autofills$rnd1(); });\n";
+
+	$templateCode .= "\tmadb_howr1_update_autofills$rnd1 = function() {\n";
+	$templateCode .= "\t\t\$j.ajax({\n";
+	if($dvprint) {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_howr1&id=' + encodeURIComponent('".addslashes($row['madb_howr1'])."'),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET'\n";
+	} else {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_howr1&id=' + encodeURIComponent(AppGini.current_madb_howr1{$rnd1}.value),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET',\n";
+		$templateCode .= "\t\t\tbeforeSend: function() { \$j('#madb_howr1$rnd1').prop('disabled', true); },\n";
+		$templateCode .= "\t\t\tcomplete: function() { " . (($allowInsert || $allowUpdate) ? "\$j('#madb_howr1$rnd1').prop('disabled', false); " : "\$j('#madb_howr1$rnd1').prop('disabled', true); ")." \$j(window).resize(); }\n";
+	}
+	$templateCode .= "\t\t});\n";
+	$templateCode .= "\t};\n";
+	if(!$dvprint) $templateCode .= "\tif(\$j('#madb_howr1_caption').length) \$j('#madb_howr1_caption').click(function() { madb_howr1_update_autofills$rnd1(); });\n";
+
+	$templateCode .= "\tmadb_hows1_update_autofills$rnd1 = function() {\n";
+	$templateCode .= "\t\t\$j.ajax({\n";
+	if($dvprint) {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_hows1&id=' + encodeURIComponent('".addslashes($row['madb_hows1'])."'),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET'\n";
+	} else {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_hows1&id=' + encodeURIComponent(AppGini.current_madb_hows1{$rnd1}.value),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET',\n";
+		$templateCode .= "\t\t\tbeforeSend: function() { \$j('#madb_hows1$rnd1').prop('disabled', true); },\n";
+		$templateCode .= "\t\t\tcomplete: function() { " . (($allowInsert || $allowUpdate) ? "\$j('#madb_hows1$rnd1').prop('disabled', false); " : "\$j('#madb_hows1$rnd1').prop('disabled', true); ")." \$j(window).resize(); }\n";
+	}
+	$templateCode .= "\t\t});\n";
+	$templateCode .= "\t};\n";
+	if(!$dvprint) $templateCode .= "\tif(\$j('#madb_hows1_caption').length) \$j('#madb_hows1_caption').click(function() { madb_hows1_update_autofills$rnd1(); });\n";
+
+	$templateCode .= "\tmadb_howq1_update_autofills$rnd1 = function() {\n";
+	$templateCode .= "\t\t\$j.ajax({\n";
+	if($dvprint) {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_howq1&id=' + encodeURIComponent('".addslashes($row['madb_howq1'])."'),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET'\n";
+	} else {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_howq1&id=' + encodeURIComponent(AppGini.current_madb_howq1{$rnd1}.value),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET',\n";
+		$templateCode .= "\t\t\tbeforeSend: function() { \$j('#madb_howq1$rnd1').prop('disabled', true); },\n";
+		$templateCode .= "\t\t\tcomplete: function() { " . (($allowInsert || $allowUpdate) ? "\$j('#madb_howq1$rnd1').prop('disabled', false); " : "\$j('#madb_howq1$rnd1').prop('disabled', true); ")." \$j(window).resize(); }\n";
+	}
+	$templateCode .= "\t\t});\n";
+	$templateCode .= "\t};\n";
+	if(!$dvprint) $templateCode .= "\tif(\$j('#madb_howq1_caption').length) \$j('#madb_howq1_caption').click(function() { madb_howq1_update_autofills$rnd1(); });\n";
+
+	$templateCode .= "\tmadb_howt1_update_autofills$rnd1 = function() {\n";
+	$templateCode .= "\t\t\$j.ajax({\n";
+	if($dvprint) {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_howt1&id=' + encodeURIComponent('".addslashes($row['madb_howt1'])."'),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET'\n";
+	} else {
+		$templateCode .= "\t\t\turl: 'madb_autofill.php?rnd1=$rnd1&mfk=madb_howt1&id=' + encodeURIComponent(AppGini.current_madb_howt1{$rnd1}.value),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET',\n";
+		$templateCode .= "\t\t\tbeforeSend: function() { \$j('#madb_howt1$rnd1').prop('disabled', true); },\n";
+		$templateCode .= "\t\t\tcomplete: function() { " . (($allowInsert || $allowUpdate) ? "\$j('#madb_howt1$rnd1').prop('disabled', false); " : "\$j('#madb_howt1$rnd1').prop('disabled', true); ")." \$j(window).resize(); }\n";
+	}
+	$templateCode .= "\t\t});\n";
+	$templateCode .= "\t};\n";
+	if(!$dvprint) $templateCode .= "\tif(\$j('#madb_howt1_caption').length) \$j('#madb_howt1_caption').click(function() { madb_howt1_update_autofills$rnd1(); });\n";
 
 
 	$templateCode.="});";

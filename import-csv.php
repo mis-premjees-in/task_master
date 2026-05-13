@@ -11,6 +11,10 @@
 			if(isset($data['madb_which1'])) $data['madb_which1'] = pkGivenLookupText($data['madb_which1'], 'madb', 'madb_which1');
 			if(isset($data['madb_where1'])) $data['madb_where1'] = pkGivenLookupText($data['madb_where1'], 'madb', 'madb_where1');
 			if(isset($data['madb_why1'])) $data['madb_why1'] = pkGivenLookupText($data['madb_why1'], 'madb', 'madb_why1');
+			if(isset($data['madb_howr1'])) $data['madb_howr1'] = pkGivenLookupText($data['madb_howr1'], 'madb', 'madb_howr1');
+			if(isset($data['madb_hows1'])) $data['madb_hows1'] = pkGivenLookupText($data['madb_hows1'], 'madb', 'madb_hows1');
+			if(isset($data['madb_howq1'])) $data['madb_howq1'] = pkGivenLookupText($data['madb_howq1'], 'madb', 'madb_howq1');
+			if(isset($data['madb_howt1'])) $data['madb_howt1'] = pkGivenLookupText($data['madb_howt1'], 'madb', 'madb_howt1');
 			if(isset($data['madb_created'])) $data['madb_created'] = guessMySQLDateTime($data['madb_created']);
 			if(isset($data['madb_updated'])) $data['madb_updated'] = guessMySQLDateTime($data['madb_updated']);
 			if(isset($data['madb_why2'])) $data['madb_why2'] = thisOr($data['madb_why1'], pkGivenLookupText($data['madb_why2'], 'madb', 'madb_why2'));
@@ -25,6 +29,14 @@
 			if(isset($data['madb_who3'])) $data['madb_who3'] = thisOr($data['madb_who1'], pkGivenLookupText($data['madb_who3'], 'madb', 'madb_who3'));
 			if(isset($data['madb_what2'])) $data['madb_what2'] = thisOr($data['madb_what1'], pkGivenLookupText($data['madb_what2'], 'madb', 'madb_what2'));
 			if(isset($data['madb_what3'])) $data['madb_what3'] = thisOr($data['madb_what1'], pkGivenLookupText($data['madb_what3'], 'madb', 'madb_what3'));
+			if(isset($data['madb_howr2'])) $data['madb_howr2'] = thisOr($data['madb_howr1'], pkGivenLookupText($data['madb_howr2'], 'madb', 'madb_howr2'));
+			if(isset($data['madb_howr3'])) $data['madb_howr3'] = thisOr($data['madb_howr1'], pkGivenLookupText($data['madb_howr3'], 'madb', 'madb_howr3'));
+			if(isset($data['madb_hows2'])) $data['madb_hows2'] = thisOr($data['madb_hows1'], pkGivenLookupText($data['madb_hows2'], 'madb', 'madb_hows2'));
+			if(isset($data['madb_hows3'])) $data['madb_hows3'] = thisOr($data['madb_hows1'], pkGivenLookupText($data['madb_hows3'], 'madb', 'madb_hows3'));
+			if(isset($data['madb_howq2'])) $data['madb_howq2'] = thisOr($data['madb_howq1'], pkGivenLookupText($data['madb_howq2'], 'madb', 'madb_howq2'));
+			if(isset($data['madb_howq3'])) $data['madb_howq3'] = thisOr($data['madb_howq1'], pkGivenLookupText($data['madb_howq3'], 'madb', 'madb_howq3'));
+			if(isset($data['madb_howt2'])) $data['madb_howt2'] = thisOr($data['madb_howt1'], pkGivenLookupText($data['madb_howt2'], 'madb', 'madb_howt2'));
+			if(isset($data['madb_howt3'])) $data['madb_howt3'] = thisOr($data['madb_howt1'], pkGivenLookupText($data['madb_howt3'], 'madb', 'madb_howt3'));
 
 			return $data;
 		},
@@ -89,6 +101,30 @@
 
 			return $data;
 		},
+		'howrs' => function($data, $options = []) {
+			if(isset($data['howrs_created'])) $data['howrs_created'] = guessMySQLDateTime($data['howrs_created']);
+			if(isset($data['howrs_updated'])) $data['howrs_updated'] = guessMySQLDateTime($data['howrs_updated']);
+
+			return $data;
+		},
+		'howss' => function($data, $options = []) {
+			if(isset($data['howss_created'])) $data['howss_created'] = guessMySQLDateTime($data['howss_created']);
+			if(isset($data['howss_updated'])) $data['howss_updated'] = guessMySQLDateTime($data['howss_updated']);
+
+			return $data;
+		},
+		'howqs' => function($data, $options = []) {
+			if(isset($data['howqs_created'])) $data['howqs_created'] = guessMySQLDateTime($data['howqs_created']);
+			if(isset($data['howqs_updated'])) $data['howqs_updated'] = guessMySQLDateTime($data['howqs_updated']);
+
+			return $data;
+		},
+		'howts' => function($data, $options = []) {
+			if(isset($data['howrs_created'])) $data['howrs_created'] = guessMySQLDateTime($data['howrs_created']);
+			if(isset($data['howrs_updated'])) $data['howrs_updated'] = guessMySQLDateTime($data['howrs_updated']);
+
+			return $data;
+		},
 	];
 
 	// accept a record as an assoc array, return a boolean indicating whether to import or skip record
@@ -101,6 +137,10 @@
 		'wheres' => function($data, $options = []) { return true; },
 		'whys' => function($data, $options = []) { return true; },
 		'utedb' => function($data, $options = []) { return true; },
+		'howrs' => function($data, $options = []) { return true; },
+		'howss' => function($data, $options = []) { return true; },
+		'howqs' => function($data, $options = []) { return true; },
+		'howts' => function($data, $options = []) { return true; },
 	];
 
 	/*

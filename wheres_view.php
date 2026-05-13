@@ -96,7 +96,7 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'wheres_view.php';
-	$x->TableTitle = 'Wheres';
+	$x->TableTitle = 'Wheres (Area/Zone)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`wheres`.`wheres_id`';
 

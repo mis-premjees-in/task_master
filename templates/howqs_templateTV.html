@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the howqs_init() hook (in hooks/howqs.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="howqs-howqs_id-<%%VALUE(howqs_id)%%>" class="howqs-howqs_id text-right"><%%SELECT%%><%%VALUE(howqs_id)%%><%%ENDSELECT%%></td>
+		<td id="howqs-howqs_howq1-<%%VALUE(howqs_id)%%>" class="howqs-howqs_howq1"><%%SELECT%%><%%VALUE(howqs_howq1)%%><%%ENDSELECT%%></td>
+		<td id="howqs-howqs_howq2-<%%VALUE(howqs_id)%%>" class="howqs-howqs_howq2 text-right"><%%SELECT%%><%%VALUE(howqs_howq2)%%><%%ENDSELECT%%></td>
+		<td id="howqs-howqs_howq3-<%%VALUE(howqs_id)%%>" class="howqs-howqs_howq3"><%%SELECT%%><%%VALUE(howqs_howq3)%%><%%ENDSELECT%%></td>
+		<td id="howqs-howqs_description-<%%VALUE(howqs_id)%%>" class="howqs-howqs_description"><%%SELECT%%><%%VALUE(howqs_description)%%><%%ENDSELECT%%></td>
+		<td id="howqs-howqs_created-<%%VALUE(howqs_id)%%>" class="howqs-howqs_created"><%%SELECT%%><%%VALUE(howqs_created)%%><%%ENDSELECT%%></td>
+		<td id="howqs-howqs_updated-<%%VALUE(howqs_id)%%>" class="howqs-howqs_updated"><%%SELECT%%><%%VALUE(howqs_updated)%%><%%ENDSELECT%%></td>

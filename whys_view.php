@@ -96,7 +96,7 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whys_view.php';
-	$x->TableTitle = 'Whys';
+	$x->TableTitle = 'Whys (Precinct/Department)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whys`.`whys_id`';
 

@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the howrs_init() hook (in hooks/howrs.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="howrs-howrs_id-<%%VALUE(howrs_id)%%>" class="howrs-howrs_id text-right"><%%SELECT%%><%%VALUE(howrs_id)%%><%%ENDSELECT%%></td>
+		<td id="howrs-howrs_howr1-<%%VALUE(howrs_id)%%>" class="howrs-howrs_howr1"><%%SELECT%%><%%VALUE(howrs_howr1)%%><%%ENDSELECT%%></td>
+		<td id="howrs-howrs_howr2-<%%VALUE(howrs_id)%%>" class="howrs-howrs_howr2"><%%SELECT%%><%%VALUE(howrs_howr2)%%><%%ENDSELECT%%></td>
+		<td id="howrs-howrs_howr3-<%%VALUE(howrs_id)%%>" class="howrs-howrs_howr3"><%%SELECT%%><%%VALUE(howrs_howr3)%%><%%ENDSELECT%%></td>
+		<td id="howrs-howrs_description-<%%VALUE(howrs_id)%%>" class="howrs-howrs_description"><%%SELECT%%><%%VALUE(howrs_description)%%><%%ENDSELECT%%></td>
+		<td id="howrs-howrs_created-<%%VALUE(howrs_id)%%>" class="howrs-howrs_created"><%%SELECT%%><%%VALUE(howrs_created)%%><%%ENDSELECT%%></td>
+		<td id="howrs-howrs_updated-<%%VALUE(howrs_id)%%>" class="howrs-howrs_updated"><%%SELECT%%><%%VALUE(howrs_updated)%%><%%ENDSELECT%%></td>

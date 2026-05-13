@@ -96,7 +96,7 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'whichs_view.php';
-	$x->TableTitle = 'Whichs';
+	$x->TableTitle = 'Whichs (Things)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whichs`.`whichs_id`';
 

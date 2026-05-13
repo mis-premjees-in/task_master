@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the howts_init() hook (in hooks/howts.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="howts-howts_id-<%%VALUE(howts_id)%%>" class="howts-howts_id text-right"><%%SELECT%%><%%VALUE(howts_id)%%><%%ENDSELECT%%></td>
+		<td id="howts-howts_howt1-<%%VALUE(howts_id)%%>" class="howts-howts_howt1"><%%SELECT%%><%%VALUE(howts_howt1)%%><%%ENDSELECT%%></td>
+		<td id="howts-howts_howt2-<%%VALUE(howts_id)%%>" class="howts-howts_howt2 text-right"><%%SELECT%%><%%VALUE(howts_howt2)%%><%%ENDSELECT%%></td>
+		<td id="howts-howts_howt3-<%%VALUE(howts_id)%%>" class="howts-howts_howt3"><%%SELECT%%><%%VALUE(howts_howt3)%%><%%ENDSELECT%%></td>
+		<td id="howts-howrs_description-<%%VALUE(howts_id)%%>" class="howts-howrs_description"><%%SELECT%%><%%VALUE(howrs_description)%%><%%ENDSELECT%%></td>
+		<td id="howts-howrs_created-<%%VALUE(howts_id)%%>" class="howts-howrs_created"><%%SELECT%%><%%VALUE(howrs_created)%%><%%ENDSELECT%%></td>
+		<td id="howts-howrs_updated-<%%VALUE(howts_id)%%>" class="howts-howrs_updated"><%%SELECT%%><%%VALUE(howrs_updated)%%><%%ENDSELECT%%></td>

@@ -14,6 +14,10 @@
 			madb_which1: <?php echo json_encode(['id' => $rdata['madb_which1'], 'value' => $rdata['madb_which1'], 'text' => $jdata['madb_which1']]); ?>,
 			madb_where1: <?php echo json_encode(['id' => $rdata['madb_where1'], 'value' => $rdata['madb_where1'], 'text' => $jdata['madb_where1']]); ?>,
 			madb_why1: <?php echo json_encode(['id' => $rdata['madb_why1'], 'value' => $rdata['madb_why1'], 'text' => $jdata['madb_why1']]); ?>,
+			madb_howr1: <?php echo json_encode(['id' => $rdata['madb_howr1'], 'value' => $rdata['madb_howr1'], 'text' => $jdata['madb_howr1']]); ?>,
+			madb_hows1: <?php echo json_encode(['id' => $rdata['madb_hows1'], 'value' => $rdata['madb_hows1'], 'text' => $jdata['madb_hows1']]); ?>,
+			madb_howq1: <?php echo json_encode(['id' => $rdata['madb_howq1'], 'value' => $rdata['madb_howq1'], 'text' => $jdata['madb_howq1']]); ?>,
+			madb_howt1: <?php echo json_encode(['id' => $rdata['madb_howt1'], 'value' => $rdata['madb_howt1'], 'text' => $jdata['madb_howt1']]); ?>,
 			madb_why2: <?php echo json_encode($jdata['madb_why2']); ?>,
 			madb_why3: <?php echo json_encode($jdata['madb_why3']); ?>,
 			madb_where2: <?php echo json_encode($jdata['madb_where2']); ?>,
@@ -25,7 +29,15 @@
 			madb_who2: <?php echo json_encode($jdata['madb_who2']); ?>,
 			madb_who3: <?php echo json_encode($jdata['madb_who3']); ?>,
 			madb_what2: <?php echo json_encode($jdata['madb_what2']); ?>,
-			madb_what3: <?php echo json_encode($jdata['madb_what3']); ?>
+			madb_what3: <?php echo json_encode($jdata['madb_what3']); ?>,
+			madb_howr2: <?php echo json_encode($jdata['madb_howr2']); ?>,
+			madb_howr3: <?php echo json_encode($jdata['madb_howr3']); ?>,
+			madb_hows2: <?php echo json_encode($jdata['madb_hows2']); ?>,
+			madb_hows3: <?php echo json_encode($jdata['madb_hows3']); ?>,
+			madb_howq2: <?php echo json_encode($jdata['madb_howq2']); ?>,
+			madb_howq3: <?php echo json_encode($jdata['madb_howq3']); ?>,
+			madb_howt2: <?php echo json_encode($jdata['madb_howt2']); ?>,
+			madb_howt3: <?php echo json_encode($jdata['madb_howt3']); ?>
 		};
 
 		/* initialize or continue using AppGini.cache for the current table */
@@ -165,6 +177,98 @@
 			if(d.mfk == 'madb_why1' && d.id == data.madb_why1.id) {
 				$j('#madb_why2' + d[rnd]).html(data.madb_why2);
 				$j('#madb_why3' + d[rnd]).html(data.madb_why3);
+				return true;
+			}
+
+			return false;
+		});
+
+		/* saved value for madb_howr1 */
+		cache.addCheck(function(u, d) {
+			if(u != 'ajax_combo.php') return false;
+			if(d.t == tn && d.f == 'madb_howr1' && d.id == data.madb_howr1.id)
+				return { results: [ data.madb_howr1 ], more: false, elapsed: 0.01 };
+			return false;
+		});
+
+		/* saved value for madb_howr1 autofills */
+		cache.addCheck(function(u, d) {
+			if(u != tn + '_autofill.php') return false;
+
+			for(var rnd in d) if(rnd.match(/^rnd/)) break;
+
+			if(d.mfk == 'madb_howr1' && d.id == data.madb_howr1.id) {
+				$j('#madb_howr2' + d[rnd]).html(data.madb_howr2);
+				$j('#madb_howr3' + d[rnd]).html(data.madb_howr3);
+				return true;
+			}
+
+			return false;
+		});
+
+		/* saved value for madb_hows1 */
+		cache.addCheck(function(u, d) {
+			if(u != 'ajax_combo.php') return false;
+			if(d.t == tn && d.f == 'madb_hows1' && d.id == data.madb_hows1.id)
+				return { results: [ data.madb_hows1 ], more: false, elapsed: 0.01 };
+			return false;
+		});
+
+		/* saved value for madb_hows1 autofills */
+		cache.addCheck(function(u, d) {
+			if(u != tn + '_autofill.php') return false;
+
+			for(var rnd in d) if(rnd.match(/^rnd/)) break;
+
+			if(d.mfk == 'madb_hows1' && d.id == data.madb_hows1.id) {
+				$j('#madb_hows2' + d[rnd]).html(data.madb_hows2);
+				$j('#madb_hows3' + d[rnd]).html(data.madb_hows3);
+				return true;
+			}
+
+			return false;
+		});
+
+		/* saved value for madb_howq1 */
+		cache.addCheck(function(u, d) {
+			if(u != 'ajax_combo.php') return false;
+			if(d.t == tn && d.f == 'madb_howq1' && d.id == data.madb_howq1.id)
+				return { results: [ data.madb_howq1 ], more: false, elapsed: 0.01 };
+			return false;
+		});
+
+		/* saved value for madb_howq1 autofills */
+		cache.addCheck(function(u, d) {
+			if(u != tn + '_autofill.php') return false;
+
+			for(var rnd in d) if(rnd.match(/^rnd/)) break;
+
+			if(d.mfk == 'madb_howq1' && d.id == data.madb_howq1.id) {
+				$j('#madb_howq2' + d[rnd]).html(data.madb_howq2);
+				$j('#madb_howq3' + d[rnd]).html(data.madb_howq3);
+				return true;
+			}
+
+			return false;
+		});
+
+		/* saved value for madb_howt1 */
+		cache.addCheck(function(u, d) {
+			if(u != 'ajax_combo.php') return false;
+			if(d.t == tn && d.f == 'madb_howt1' && d.id == data.madb_howt1.id)
+				return { results: [ data.madb_howt1 ], more: false, elapsed: 0.01 };
+			return false;
+		});
+
+		/* saved value for madb_howt1 autofills */
+		cache.addCheck(function(u, d) {
+			if(u != tn + '_autofill.php') return false;
+
+			for(var rnd in d) if(rnd.match(/^rnd/)) break;
+
+			if(d.mfk == 'madb_howt1' && d.id == data.madb_howt1.id) {
+				$j('#madb_howt2' + d[rnd]).html(data.madb_howt2);
+				$j('#madb_howt3' + d[rnd]).html(data.madb_howt3);
 				return true;
 			}
 

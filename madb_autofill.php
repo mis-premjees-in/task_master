@@ -117,6 +117,70 @@
 			<?php
 			break;
 
+		case 'madb_howr1':
+			if(!$id) {
+				?>
+				$j('#madb_howr2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#madb_howr3<?php echo $rnd1; ?>').html('&nbsp;');
+				<?php
+				break;
+			}
+			$res = sql("SELECT `howrs`.`howrs_id` as 'howrs_id', `howrs`.`howrs_howr1` as 'howrs_howr1', `howrs`.`howrs_howr2` as 'howrs_howr2', `howrs`.`howrs_howr3` as 'howrs_howr3', `howrs`.`howrs_description` as 'howrs_description', `howrs`.`howrs_created` as 'howrs_created', `howrs`.`howrs_updated` as 'howrs_updated' FROM `howrs`  WHERE `howrs`.`howrs_id`='{$id}' limit 1", $eo);
+			$row = db_fetch_assoc($res);
+			?>
+			$j('#madb_howr2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howrs_howr2']))); ?>&nbsp;');
+			$j('#madb_howr3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howrs_howr3']))); ?>&nbsp;');
+			<?php
+			break;
+
+		case 'madb_hows1':
+			if(!$id) {
+				?>
+				$j('#madb_hows2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#madb_hows3<?php echo $rnd1; ?>').html('&nbsp;');
+				<?php
+				break;
+			}
+			$res = sql("SELECT `howss`.`howss_id` as 'howss_id', `howss`.`howss_hows1` as 'howss_hows1', `howss`.`howss_hows2` as 'howss_hows2', `howss`.`howss_hows3` as 'howss_hows3', `howss`.`howss_description` as 'howss_description', `howss`.`howss_created` as 'howss_created', `howss`.`howss_updated` as 'howss_updated' FROM `howss`  WHERE `howss`.`howss_id`='{$id}' limit 1", $eo);
+			$row = db_fetch_assoc($res);
+			?>
+			$j('#madb_hows2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howss_hows2']))); ?>&nbsp;');
+			$j('#madb_hows3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howss_hows3']))); ?>&nbsp;');
+			<?php
+			break;
+
+		case 'madb_howq1':
+			if(!$id) {
+				?>
+				$j('#madb_howq2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#madb_howq3<?php echo $rnd1; ?>').html('&nbsp;');
+				<?php
+				break;
+			}
+			$res = sql("SELECT `howqs`.`howqs_id` as 'howqs_id', `howqs`.`howqs_howq1` as 'howqs_howq1', `howqs`.`howqs_howq2` as 'howqs_howq2', `howqs`.`howqs_howq3` as 'howqs_howq3', `howqs`.`howqs_description` as 'howqs_description', `howqs`.`howqs_created` as 'howqs_created', `howqs`.`howqs_updated` as 'howqs_updated' FROM `howqs`  WHERE `howqs`.`howqs_id`='{$id}' limit 1", $eo);
+			$row = db_fetch_assoc($res);
+			?>
+			$j('#madb_howq2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howqs_howq3']))); ?>&nbsp;');
+			$j('#madb_howq3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howqs_howq3']))); ?>&nbsp;');
+			<?php
+			break;
+
+		case 'madb_howt1':
+			if(!$id) {
+				?>
+				$j('#madb_howt2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#madb_howt3<?php echo $rnd1; ?>').html('&nbsp;');
+				<?php
+				break;
+			}
+			$res = sql("SELECT `howts`.`howts_id` as 'howts_id', `howts`.`howts_howt1` as 'howts_howt1', `howts`.`howts_howt2` as 'howts_howt2', `howts`.`howts_howt3` as 'howts_howt3', `howts`.`howrs_description` as 'howrs_description', `howts`.`howrs_created` as 'howrs_created', `howts`.`howrs_updated` as 'howrs_updated' FROM `howts`  WHERE `howts`.`howts_id`='{$id}' limit 1", $eo);
+			$row = db_fetch_assoc($res);
+			?>
+			$j('#madb_howt2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howts_howt2']))); ?>&nbsp;');
+			$j('#madb_howt3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howts_howt3']))); ?>&nbsp;');
+			<?php
+			break;
+
 
 	}
 
