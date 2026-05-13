@@ -27,7 +27,7 @@
 					<hr class="hidden-md hidden-lg">
 					<label class="control-label col-lg-3" for="howrs_howr1">Howr1 (Method)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
-						<input maxlength="40" type="text" class="form-control" name="howrs_howr1" id="howrs_howr1" value="<%%VALUE(howrs_howr1)%%>" required>
+						<%%COMBO(howrs_howr1)%%>
 					</div>
 				</div>
 
@@ -36,7 +36,7 @@
 					<hr class="hidden-md hidden-lg">
 					<label class="control-label col-lg-3" for="howrs_howr2">Howr2 (Type)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
-						<input maxlength="255" type="text" class="form-control" name="howrs_howr2" id="howrs_howr2" value="<%%VALUE(howrs_howr2)%%>" required>
+						<%%COMBO(howrs_howr2)%%>
 					</div>
 				</div>
 
@@ -118,9 +118,27 @@
 			/* enable DV action buttons to float on scrolling down the form */
 			enable_dvab_floating();
 
-			$j('#howrs_dv_container-loading').addClass('hidden');
-			$j('#howrs_dv_container').removeClass('hidden');
-			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('howrs', 'howrs_howr1');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) {
+				AppGini.once({
+					condition: function() {
+						return $j('.form-group.howrs-howrs_howr1')
+									.find('.nicEdit-main, .select2-container, input[type=radio]')
+									.length > 0
+								// or read-only DV
+								|| (!$j('#update').length && !$j('#insert').length);
+					},
+					action: function() {
+						$j('#howrs_dv_container-loading').addClass('hidden');
+						$j('#howrs_dv_container').removeClass('hidden');
+						AppGini.focusFormElement('howrs', 'howrs_howr1');
+					},
+					timeout:  5000,
+					doActionOnTimeout:  true
+				});
+			} else {
+				$j('#howrs_dv_container-loading').addClass('hidden');
+				$j('#howrs_dv_container').removeClass('hidden');
+			}
 
 			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
 

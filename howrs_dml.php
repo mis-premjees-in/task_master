@@ -219,18 +219,56 @@ function howrs_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
+	// combobox: howrs_howr1
+	$combo_howrs_howr1 = new Combo;
+	$combo_howrs_howr1->ListType = 0;
+	$combo_howrs_howr1->MultipleSeparator = ', ';
+	$combo_howrs_howr1->ListBoxHeight = 10;
+	$combo_howrs_howr1->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/howrs.howrs_howr1.csv')) {
+		$howrs_howr1_data = addslashes(implode('', @file(__DIR__ . '/hooks/howrs.howrs_howr1.csv')));
+		$combo_howrs_howr1->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($howrs_howr1_data))));
+		$combo_howrs_howr1->ListData = $combo_howrs_howr1->ListItem;
+	} else {
+		$combo_howrs_howr1->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Check;;Upload;;Fill"))));
+		$combo_howrs_howr1->ListData = $combo_howrs_howr1->ListItem;
+	}
+	$combo_howrs_howr1->SelectName = 'howrs_howr1';
+	$combo_howrs_howr1->AllowNull = false;
+	// combobox: howrs_howr2
+	$combo_howrs_howr2 = new Combo;
+	$combo_howrs_howr2->ListType = 0;
+	$combo_howrs_howr2->MultipleSeparator = ', ';
+	$combo_howrs_howr2->ListBoxHeight = 10;
+	$combo_howrs_howr2->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/howrs.howrs_howr2.csv')) {
+		$howrs_howr2_data = addslashes(implode('', @file(__DIR__ . '/hooks/howrs.howrs_howr2.csv')));
+		$combo_howrs_howr2->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($howrs_howr2_data))));
+		$combo_howrs_howr2->ListData = $combo_howrs_howr2->ListItem;
+	} else {
+		$combo_howrs_howr2->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Box;;Proof;;Form"))));
+		$combo_howrs_howr2->ListData = $combo_howrs_howr2->ListItem;
+	}
+	$combo_howrs_howr2->SelectName = 'howrs_howr2';
+	$combo_howrs_howr2->AllowNull = false;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('howrs', $selectedId))) {
 			return error_message($Translation['No records found'], 'howrs_view.php', false);
 		}
+		$combo_howrs_howr1->SelectedData = $row['howrs_howr1'];
+		$combo_howrs_howr2->SelectedData = $row['howrs_howr2'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
 		$filterField = Request::val('FilterField');
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
+		$combo_howrs_howr1->SelectedText = (isset($filterField[1]) && $filterField[1] == '2' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_howrs_howr2->SelectedText = (isset($filterField[1]) && $filterField[1] == '3' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
+	$combo_howrs_howr1->Render();
+	$combo_howrs_howr2->Render();
 
 	ob_start();
 	?>
@@ -327,8 +365,8 @@ function howrs_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	// set records to read only if user can't insert new records and can't edit current record
 	if(!$fieldsAreEditable) {
 		$jsReadOnly = '';
-		$jsReadOnly .= "\t\$j('#howrs_howr1').replaceWith('<div class=\"form-control-static\" id=\"howrs_howr1\">' + (\$j('#howrs_howr1').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\t\$j('#howrs_howr2').replaceWith('<div class=\"form-control-static\" id=\"howrs_howr2\">' + (\$j('#howrs_howr2').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#howrs_howr1').replaceWith('<div class=\"form-control-static\" id=\"howrs_howr1\">' + (\$j('#howrs_howr1').val() || '') + '</div>'); \$j('#howrs_howr1-multi-selection-help').hide();\n";
+		$jsReadOnly .= "\t\$j('#howrs_howr2').replaceWith('<div class=\"form-control-static\" id=\"howrs_howr2\">' + (\$j('#howrs_howr2').val() || '') + '</div>'); \$j('#howrs_howr2-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#howrs_howr3').replaceWith('<div class=\"form-control-static\" id=\"howrs_howr3\">' + (\$j('#howrs_howr3').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#howrs_description').replaceWith('<div class=\"form-control-static\" id=\"howrs_description\">' + (\$j('#howrs_description').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
@@ -341,6 +379,10 @@ function howrs_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	}
 
 	// process combos
+	$templateCode = str_replace('<%%COMBO(howrs_howr1)%%>', $combo_howrs_howr1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(howrs_howr1)%%>', $combo_howrs_howr1->SelectedData, $templateCode);
+	$templateCode = str_replace('<%%COMBO(howrs_howr2)%%>', $combo_howrs_howr2->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(howrs_howr2)%%>', $combo_howrs_howr2->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = [];

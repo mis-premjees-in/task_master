@@ -137,24 +137,6 @@ whys_delete1Tip=["",spacer+"This option allows each member of the group to delet
 whys_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Whys (Precinct/Department)' table."];
 whys_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Whys (Precinct/Department)' table."];
 
-// utedb table
-utedb_addTip=["",spacer+"This option allows all members of the group to add records to the 'Universal TEDB' table. A member who adds a record to the table becomes the 'owner' of that record."];
-
-utedb_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Universal TEDB' table."];
-utedb_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Universal TEDB' table."];
-utedb_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Universal TEDB' table."];
-utedb_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Universal TEDB' table."];
-
-utedb_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Universal TEDB' table."];
-utedb_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Universal TEDB' table."];
-utedb_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Universal TEDB' table."];
-utedb_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Universal TEDB' table, regardless of their owner."];
-
-utedb_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Universal TEDB' table."];
-utedb_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Universal TEDB' table."];
-utedb_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Universal TEDB' table."];
-utedb_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Universal TEDB' table."];
-
 // howrs table
 howrs_addTip=["",spacer+"This option allows all members of the group to add records to the 'Howrs (Method)' table. A member who adds a record to the table becomes the 'owner' of that record."];
 
@@ -226,6 +208,24 @@ howts_delete0Tip=["",spacer+"This option prohibits all members of the group from
 howts_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Howts (Timespan)' table."];
 howts_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Howts (Timespan)' table."];
 howts_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Howts (Timespan)' table."];
+
+// utedb table
+utedb_addTip=["",spacer+"This option allows all members of the group to add records to the 'Universal TEDB' table. A member who adds a record to the table becomes the 'owner' of that record."];
+
+utedb_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Universal TEDB' table."];
+utedb_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Universal TEDB' table."];
+utedb_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Universal TEDB' table."];
+utedb_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Universal TEDB' table."];
+
+utedb_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Universal TEDB' table."];
+utedb_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Universal TEDB' table."];
+utedb_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Universal TEDB' table."];
+utedb_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Universal TEDB' table, regardless of their owner."];
+
+utedb_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Universal TEDB' table."];
+utedb_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Universal TEDB' table."];
+utedb_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Universal TEDB' table."];
+utedb_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Universal TEDB' table."];
 
 /*
 	Style syntax:

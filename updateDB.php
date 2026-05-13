@@ -9,34 +9,7 @@
 	// check if this setup file already run
 	if($thisMD5 != $prevMD5) {
 		// set up tables
-		setupTable('madb', [
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_howr2` VARCHAR(40) NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_howr3` VARCHAR(40) NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_hows1` VARCHAR(40) NULL ",
-				"ALTER TABLE `madb` ADD `madb_hows1_1` INT NULL ",
-				"ALTER TABLE `madb` ADD INDEX `madb_hows1_1`",
-				"ALTER TABLE `madb` ADD `madb_hows1_2` INT NULL ",
-				"ALTER TABLE `madb` ADD INDEX `madb_hows1_2`",
-				"ALTER TABLE `madb` CHANGE `madb_hows1_1` `madb_howq` INT NULL ",
-				"ALTER TABLE `madb` CHANGE `madb_hows1_2` `madb_howt` INT NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_hows2` VARCHAR(40) NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_hows3` VARCHAR(40) NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_howq2` VARCHAR(40) NULL ",
-				"ALTER TABLE `madb` CHANGE `madb_howq` `madb_howq1` INT NULL ",
-				"ALTER TABLE `madb` CHANGE `madb_howt` `madb_howt1` INT NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_howq3` VARCHAR(40) NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_howt2` VARCHAR(40) NULL ",
-				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `madb` CHANGE `field1` `madb_howt3` VARCHAR(40) NULL ",
-			]);
+		setupTable('madb', []);
 		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1','madb_howr1','madb_hows1','madb_howq1','madb_howt1',]);
 
 		setupTable('whats', []);
@@ -51,16 +24,54 @@
 
 		setupTable('whys', []);
 
-		setupTable('utedb', []);
-		setupIndexes('utedb', ['utedb_madb',]);
-
 		setupTable('howrs', []);
 
-		setupTable('howss', []);
+		setupTable('howss', [
+				" ALTER TABLE `howss` CHANGE `howss_hows1` `howss_hows1` TINYTEXT NOT NULL ",
+				" ALTER TABLE `howss` CHANGE `howss_hows2` `howss_hows2` TINYTEXT NOT NULL ",
+			]);
 
 		setupTable('howqs', []);
 
 		setupTable('howts', []);
+
+		setupTable('utedb', [
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `field1` `utedb_howr1` VARCHAR(40) NULL ",
+				"ALTER TABLE `utedb` ADD `utedb_howr1_1` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_howr1_1`",
+				"ALTER TABLE `utedb` ADD `utedb_howr1_2` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_howr1_2`",
+				"ALTER TABLE `utedb` CHANGE `utedb_howr1_1` `utedb_howr2` INT NULL ",
+				"ALTER TABLE `utedb` CHANGE `utedb_howr1_2` `utedb_howr3` INT NULL ",
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `field1` `utedb_hows1` VARCHAR(40) NULL ",
+				"ALTER TABLE `utedb` ADD `utedb_hows1_1` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_hows1_1`",
+				"ALTER TABLE `utedb` ADD `utedb_hows1_2` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_hows1_2`",
+				"ALTER TABLE `utedb` CHANGE `utedb_hows1_1` `utedb_hows2` INT NULL ",
+				"ALTER TABLE `utedb` CHANGE `utedb_hows1_2` `utedb_hows3` INT NULL ",
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `field1` `uteb_howt1` VARCHAR(40) NULL ",
+				"ALTER TABLE `utedb` CHANGE `uteb_howt1` `uteb_howq1` INT NULL ",
+				"ALTER TABLE `utedb` CHANGE `uteb_howq1` `utedb_howq1` INT NULL ",
+				"ALTER TABLE `utedb` ADD `utedb_howq1_1` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_howq1_1`",
+				"ALTER TABLE `utedb` ADD `utedb_howq1_2` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_howq1_2`",
+				"ALTER TABLE `utedb` CHANGE `utedb_howq1_1` `utedb_howq2` INT NULL ",
+				"ALTER TABLE `utedb` CHANGE `utedb_howq1_2` `utedb_howq3` INT NULL ",
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `field1` `utedb_howt1` VARCHAR(40) NULL ",
+				"ALTER TABLE `utedb` ADD `utedb_howt1_1` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_howt1_1`",
+				"ALTER TABLE `utedb` ADD `utedb_howt1_2` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `utedb_howt1_2`",
+				"ALTER TABLE `utedb` CHANGE `utedb_howt1_1` `utedb_howt2` INT NULL ",
+				"ALTER TABLE `utedb` CHANGE `utedb_howt1_2` `utedb_howt3` INT NULL ",
+			]);
+		setupIndexes('utedb', ['utedb_madb',]);
 
 
 

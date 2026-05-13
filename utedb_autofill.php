@@ -30,6 +30,10 @@
 				$j('#utedb_which1<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_where1<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_why1<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howr1<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_hows1<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howq1<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howt1<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_why2<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_why3<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_where2<?php echo $rnd1; ?>').html('&nbsp;');
@@ -42,6 +46,14 @@
 				$j('#utedb_who3<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_what2<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_what3<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howr2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howr3<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_hows2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_hows3<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howq2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howq3<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howt2<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_howt3<?php echo $rnd1; ?>').html('&nbsp;');
 				<?php
 				break;
 			}
@@ -54,6 +66,10 @@
 			$j('#utedb_which1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_which1']))); ?>&nbsp;');
 			$j('#utedb_where1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_where1']))); ?>&nbsp;');
 			$j('#utedb_why1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_why1']))); ?>&nbsp;');
+			$j('#utedb_howr1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howr1']))); ?>&nbsp;');
+			$j('#utedb_hows1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_hows1']))); ?>&nbsp;');
+			$j('#utedb_howq1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howq1']))); ?>&nbsp;');
+			$j('#utedb_howt1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt1']))); ?>&nbsp;');
 			$j('#utedb_why2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_why2']))); ?>&nbsp;');
 			$j('#utedb_why3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_why3']))); ?>&nbsp;');
 			$j('#utedb_where2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_where2']))); ?>&nbsp;');
@@ -66,6 +82,14 @@
 			$j('#utedb_who3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_who3']))); ?>&nbsp;');
 			$j('#utedb_what2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_what2']))); ?>&nbsp;');
 			$j('#utedb_what3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_what3']))); ?>&nbsp;');
+			$j('#utedb_howr2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howr2']))); ?>&nbsp;');
+			$j('#utedb_howr3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howr3']))); ?>&nbsp;');
+			$j('#utedb_hows2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt2']))); ?>&nbsp;');
+			$j('#utedb_hows3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_hows3']))); ?>&nbsp;');
+			$j('#utedb_howq2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howq2']))); ?>&nbsp;');
+			$j('#utedb_howq3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howq1']))); ?>&nbsp;');
+			$j('#utedb_howt2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt2']))); ?>&nbsp;');
+			$j('#utedb_howt3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt3']))); ?>&nbsp;');
 			<?php
 			break;
 

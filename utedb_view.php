@@ -26,6 +26,10 @@
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which1 */" => "utedb_which1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where1 */" => "utedb_where1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') /* Why1 */" => "utedb_why1",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr1`) || CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr1`, '-', `howrs1`.`howrs_howr2`), '') /* Howr1 */" => "utedb_howr1",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows1`) || CHAR_LENGTH(`howss1`.`howss_hows2`), CONCAT_WS('',   `howss1`.`howss_hows1`, '-', `howss1`.`howss_hows2`), '') /* Hows1 */" => "utedb_hows1",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq1`) || CHAR_LENGTH(`howqs1`.`howqs_howq2`), CONCAT_WS('',   `howqs1`.`howqs_howq1`, '-', `howqs1`.`howqs_howq2`), '') /* Howq1 */" => "utedb_howq1",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt1`) || CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt1`, '-', `howts1`.`howts_howt2`), '') /* Howt1 */" => "utedb_howt1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') /* Why2 */" => "utedb_why2",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') /* Why3 */" => "utedb_why3",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') /* Where2 */" => "utedb_where2",
@@ -38,6 +42,14 @@
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') /* Who3 */" => "utedb_who3",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') /* What2 */" => "utedb_what2",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') /* What3 */" => "utedb_what3",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr2`), '') /* Howr2 */" => "utedb_howr2",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr3`), CONCAT_WS('',   `howrs1`.`howrs_howr3`), '') /* Howr3 */" => "utedb_howr3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Hows2 */" => "utedb_hows2",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows3`), CONCAT_WS('',   `howss1`.`howss_hows3`), '') /* Hows3 */" => "utedb_hows3",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq2 */" => "utedb_howq2",
+		"IF(    CHAR_LENGTH(`howqs3`.`howqs_howq1`) || CHAR_LENGTH(`howqs3`.`howqs_howq2`), CONCAT_WS('',   `howqs3`.`howqs_howq1`, '-', `howqs3`.`howqs_howq2`), '') /* Howq3 */" => "utedb_howq3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "utedb_howt2",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "utedb_howt3",
 		"`utedb`.`utedb_created`" => "utedb_created",
 		"`utedb`.`utedb_updated`" => "utedb_updated",
 	];
@@ -63,8 +75,20 @@
 		18 => 18,
 		19 => 19,
 		20 => 20,
-		21 => '`utedb`.`utedb_created`',
-		22 => '`utedb`.`utedb_updated`',
+		21 => 21,
+		22 => 22,
+		23 => 23,
+		24 => 24,
+		25 => 25,
+		26 => 26,
+		27 => 27,
+		28 => 28,
+		29 => 29,
+		30 => 30,
+		31 => 31,
+		32 => 32,
+		33 => '`utedb`.`utedb_created`',
+		34 => '`utedb`.`utedb_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -77,6 +101,10 @@
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which1 */" => "utedb_which1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where1 */" => "utedb_where1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') /* Why1 */" => "utedb_why1",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr1`) || CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr1`, '-', `howrs1`.`howrs_howr2`), '') /* Howr1 */" => "utedb_howr1",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows1`) || CHAR_LENGTH(`howss1`.`howss_hows2`), CONCAT_WS('',   `howss1`.`howss_hows1`, '-', `howss1`.`howss_hows2`), '') /* Hows1 */" => "utedb_hows1",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq1`) || CHAR_LENGTH(`howqs1`.`howqs_howq2`), CONCAT_WS('',   `howqs1`.`howqs_howq1`, '-', `howqs1`.`howqs_howq2`), '') /* Howq1 */" => "utedb_howq1",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt1`) || CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt1`, '-', `howts1`.`howts_howt2`), '') /* Howt1 */" => "utedb_howt1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') /* Why2 */" => "utedb_why2",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') /* Why3 */" => "utedb_why3",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') /* Where2 */" => "utedb_where2",
@@ -89,6 +117,14 @@
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') /* Who3 */" => "utedb_who3",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') /* What2 */" => "utedb_what2",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') /* What3 */" => "utedb_what3",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr2`), '') /* Howr2 */" => "utedb_howr2",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr3`), CONCAT_WS('',   `howrs1`.`howrs_howr3`), '') /* Howr3 */" => "utedb_howr3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Hows2 */" => "utedb_hows2",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows3`), CONCAT_WS('',   `howss1`.`howss_hows3`), '') /* Hows3 */" => "utedb_hows3",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq2 */" => "utedb_howq2",
+		"IF(    CHAR_LENGTH(`howqs3`.`howqs_howq1`) || CHAR_LENGTH(`howqs3`.`howqs_howq2`), CONCAT_WS('',   `howqs3`.`howqs_howq1`, '-', `howqs3`.`howqs_howq2`), '') /* Howq3 */" => "utedb_howq3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "utedb_howt2",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "utedb_howt3",
 		"`utedb`.`utedb_created`" => "utedb_created",
 		"`utedb`.`utedb_updated`" => "utedb_updated",
 	];
@@ -102,6 +138,10 @@
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which1 */" => "Which1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where1 */" => "Where1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') /* Why1 */" => "Why1",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr1`) || CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr1`, '-', `howrs1`.`howrs_howr2`), '') /* Howr1 */" => "Howr1",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows1`) || CHAR_LENGTH(`howss1`.`howss_hows2`), CONCAT_WS('',   `howss1`.`howss_hows1`, '-', `howss1`.`howss_hows2`), '') /* Hows1 */" => "Hows1",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq1`) || CHAR_LENGTH(`howqs1`.`howqs_howq2`), CONCAT_WS('',   `howqs1`.`howqs_howq1`, '-', `howqs1`.`howqs_howq2`), '') /* Howq1 */" => "Howq1",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt1`) || CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt1`, '-', `howts1`.`howts_howt2`), '') /* Howt1 */" => "Howt1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') /* Why2 */" => "Why2",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') /* Why3 */" => "Why3",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') /* Where2 */" => "Where2",
@@ -114,6 +154,14 @@
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') /* Who3 */" => "Who3",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') /* What2 */" => "What2",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') /* What3 */" => "What3",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr2`), '') /* Howr2 */" => "Howr2",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr3`), CONCAT_WS('',   `howrs1`.`howrs_howr3`), '') /* Howr3 */" => "Howr3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Hows2 */" => "Hows2",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows3`), CONCAT_WS('',   `howss1`.`howss_hows3`), '') /* Hows3 */" => "Hows3",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq2 */" => "Howq2",
+		"IF(    CHAR_LENGTH(`howqs3`.`howqs_howq1`) || CHAR_LENGTH(`howqs3`.`howqs_howq2`), CONCAT_WS('',   `howqs3`.`howqs_howq1`, '-', `howqs3`.`howqs_howq2`), '') /* Howq3 */" => "Howq3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "Howt2",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "Howt3",
 		"`utedb`.`utedb_created`" => "Created AT",
 		"`utedb`.`utedb_updated`" => "Updated AT",
 	];
@@ -128,6 +176,10 @@
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which1 */" => "utedb_which1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where1 */" => "utedb_where1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') /* Why1 */" => "utedb_why1",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr1`) || CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr1`, '-', `howrs1`.`howrs_howr2`), '') /* Howr1 */" => "utedb_howr1",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows1`) || CHAR_LENGTH(`howss1`.`howss_hows2`), CONCAT_WS('',   `howss1`.`howss_hows1`, '-', `howss1`.`howss_hows2`), '') /* Hows1 */" => "utedb_hows1",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq1`) || CHAR_LENGTH(`howqs1`.`howqs_howq2`), CONCAT_WS('',   `howqs1`.`howqs_howq1`, '-', `howqs1`.`howqs_howq2`), '') /* Howq1 */" => "utedb_howq1",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt1`) || CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt1`, '-', `howts1`.`howts_howt2`), '') /* Howt1 */" => "utedb_howt1",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') /* Why2 */" => "utedb_why2",
 		"IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') /* Why3 */" => "utedb_why3",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') /* Where2 */" => "utedb_where2",
@@ -140,6 +192,14 @@
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') /* Who3 */" => "utedb_who3",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') /* What2 */" => "utedb_what2",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') /* What3 */" => "utedb_what3",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr2`), '') /* Howr2 */" => "utedb_howr2",
+		"IF(    CHAR_LENGTH(`howrs1`.`howrs_howr3`), CONCAT_WS('',   `howrs1`.`howrs_howr3`), '') /* Howr3 */" => "utedb_howr3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Hows2 */" => "utedb_hows2",
+		"IF(    CHAR_LENGTH(`howss1`.`howss_hows3`), CONCAT_WS('',   `howss1`.`howss_hows3`), '') /* Hows3 */" => "utedb_hows3",
+		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq2 */" => "utedb_howq2",
+		"IF(    CHAR_LENGTH(`howqs3`.`howqs_howq1`) || CHAR_LENGTH(`howqs3`.`howqs_howq2`), CONCAT_WS('',   `howqs3`.`howqs_howq1`, '-', `howqs3`.`howqs_howq2`), '') /* Howq3 */" => "utedb_howq3",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "utedb_howt2",
+		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "utedb_howt3",
 		"`utedb`.`utedb_created`" => "utedb_created",
 		"`utedb`.`utedb_updated`" => "utedb_updated",
 	];
@@ -147,7 +207,7 @@
 	// Lookup fields that can be used as filterers
 	$x->filterers = ['utedb_madb' => 'MADb Id', ];
 
-	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` ";
+	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb1`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb1`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb1`.`madb_howt1` LEFT JOIN `howqs` as howqs3 ON `howqs3`.`howqs_id`=`madb1`.`madb_howq1` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -175,10 +235,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`utedb`.`utedb_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Utedb id', 'MADb Id', 'What1', 'Who1', 'When1', 'Which1', 'Where1', 'Why1', 'Why2', 'Why3', 'Where2', 'Where3', 'Which2', 'Which3', 'When2', 'When3', 'Who2', 'Who3', 'What2', 'What3', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['utedb_id', 'utedb_madb', 'utedb_what1', 'utedb_who1', 'utedb_when1', 'utedb_which1', 'utedb_where1', 'utedb_why1', 'utedb_why2', 'utedb_why3', 'utedb_where2', 'utedb_where3', 'utedb_which2', 'utedb_which3', 'utedb_when2', 'utedb_when3', 'utedb_who2', 'utedb_who3', 'utedb_what2', 'utedb_what3', 'utedb_created', 'utedb_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
+	$x->ColCaption = ['Utedb id', 'MADb Id', 'What1', 'Who1', 'When1', 'Which1', 'Where1', 'Why1', 'Howr1', 'Hows1', 'Howq1', 'Howt1', 'Why2', 'Why3', 'Where2', 'Where3', 'Which2', 'Which3', 'When2', 'When3', 'Who2', 'Who3', 'What2', 'What3', 'Howr2', 'Howr3', 'Hows2', 'Hows3', 'Howq2', 'Howq3', 'Howt2', 'Howt3', 'Created AT', 'Updated AT', ];
+	$x->ColFieldName = ['utedb_id', 'utedb_madb', 'utedb_what1', 'utedb_who1', 'utedb_when1', 'utedb_which1', 'utedb_where1', 'utedb_why1', 'utedb_howr1', 'utedb_hows1', 'utedb_howq1', 'utedb_howt1', 'utedb_why2', 'utedb_why3', 'utedb_where2', 'utedb_where3', 'utedb_which2', 'utedb_which3', 'utedb_when2', 'utedb_when3', 'utedb_who2', 'utedb_who3', 'utedb_what2', 'utedb_what3', 'utedb_howr2', 'utedb_howr3', 'utedb_hows2', 'utedb_hows3', 'utedb_howq2', 'utedb_howq3', 'utedb_howt2', 'utedb_howt3', 'utedb_created', 'utedb_updated', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/utedb_templateTV.html';

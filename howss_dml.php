@@ -16,8 +16,8 @@ function howss_insert(&$error_message = '') {
 	}
 
 	$data = [
-		'howss_hows1' => Request::val('howss_hows1', ''),
-		'howss_hows2' => Request::val('howss_hows2', ''),
+		'howss_hows1' => br2nl(Request::val('howss_hows1', '')),
+		'howss_hows2' => br2nl(Request::val('howss_hows2', '')),
 		'howss_hows3' => br2nl(Request::val('howss_hows3', '')),
 		'howss_description' => br2nl(Request::val('howss_description', '')),
 		'howss_created' => parseCode('<%%creationTimestamp%%>', true, true),
@@ -107,8 +107,8 @@ function howss_update(&$selected_id, &$error_message = '') {
 	if(!check_record_permission('howss', $selected_id, 'edit')) return false;
 
 	$data = [
-		'howss_hows1' => Request::val('howss_hows1', ''),
-		'howss_hows2' => Request::val('howss_hows2', ''),
+		'howss_hows1' => br2nl(Request::val('howss_hows1', '')),
+		'howss_hows2' => br2nl(Request::val('howss_hows2', '')),
 		'howss_hows3' => br2nl(Request::val('howss_hows3', '')),
 		'howss_description' => br2nl(Request::val('howss_description', '')),
 		'howss_updated' => parseCode('<%%editingTimestamp%%>', false, true),
@@ -372,11 +372,9 @@ function howss_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(howss_id)%%>', safe_html($urow['howss_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howss_id)%%>', html_attr($row['howss_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_id)%%>', urlencode($urow['howss_id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(howss_hows1)%%>', safe_html($urow['howss_hows1']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howss_hows1)%%>', html_attr($row['howss_hows1']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(howss_hows1)%%>', safe_html($urow['howss_hows1'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_hows1)%%>', urlencode($urow['howss_hows1']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(howss_hows2)%%>', safe_html($urow['howss_hows2']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howss_hows2)%%>', html_attr($row['howss_hows2']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(howss_hows2)%%>', safe_html($urow['howss_hows2'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_hows2)%%>', urlencode($urow['howss_hows2']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howss_hows3)%%>', safe_html($urow['howss_hows3'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_hows3)%%>', urlencode($urow['howss_hows3']), $templateCode);

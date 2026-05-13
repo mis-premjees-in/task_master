@@ -603,27 +603,6 @@ function whys_validateData(insertMode) {
 
 	return !errors;
 }
-function utedb_validateData(insertMode) {
-	$j('.has-error').removeClass('has-error');
-	var errors = false;
-
-	// check all required fields have values
-	const reqFields = [
-		// [field-type, field-name, field-caption], ...
-		['lookup', 'utedb_madb', 'MADb Id'],
-	];
-
-	reqFields.map(function(rf) {
-		// avoid displaying more error messages and overwhelming users
-		if(rf.length != 3 || errors) return;
-
-		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
-	});
-
-	if(errors) return false;
-
-	return !errors;
-}
 function howrs_validateData(insertMode) {
 	$j('.has-error').removeClass('has-error');
 	var errors = false;
@@ -631,8 +610,8 @@ function howrs_validateData(insertMode) {
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'howrs_howr1', 'Howr1 (Method)'],
-		['text', 'howrs_howr2', 'Howr2 (Type)'],
+		['list', 'howrs_howr1', 'Howr1 (Method)'],
+		['list', 'howrs_howr2', 'Howr2 (Type)'],
 		['text', 'howrs_description', 'Description'],
 	];
 
@@ -703,6 +682,27 @@ function howts_validateData(insertMode) {
 		['text', 'howts_howt1', 'Howt1 (Type)'],
 		['text', 'howts_howt2', 'Howt2 (Span)'],
 		['text', 'howrs_description', 'Description'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function utedb_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['lookup', 'utedb_madb', 'MADb Id'],
 	];
 
 	reqFields.map(function(rf) {
