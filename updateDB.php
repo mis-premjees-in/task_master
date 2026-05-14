@@ -26,51 +26,13 @@
 
 		setupTable('howrs', []);
 
-		setupTable('howss', [
-				" ALTER TABLE `howss` CHANGE `howss_hows1` `howss_hows1` TINYTEXT NOT NULL ",
-				" ALTER TABLE `howss` CHANGE `howss_hows2` `howss_hows2` TINYTEXT NOT NULL ",
-			]);
+		setupTable('howss', []);
 
 		setupTable('howqs', []);
 
 		setupTable('howts', []);
 
-		setupTable('utedb', [
-				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `utedb` CHANGE `field1` `utedb_howr1` VARCHAR(40) NULL ",
-				"ALTER TABLE `utedb` ADD `utedb_howr1_1` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_howr1_1`",
-				"ALTER TABLE `utedb` ADD `utedb_howr1_2` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_howr1_2`",
-				"ALTER TABLE `utedb` CHANGE `utedb_howr1_1` `utedb_howr2` INT NULL ",
-				"ALTER TABLE `utedb` CHANGE `utedb_howr1_2` `utedb_howr3` INT NULL ",
-				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `utedb` CHANGE `field1` `utedb_hows1` VARCHAR(40) NULL ",
-				"ALTER TABLE `utedb` ADD `utedb_hows1_1` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_hows1_1`",
-				"ALTER TABLE `utedb` ADD `utedb_hows1_2` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_hows1_2`",
-				"ALTER TABLE `utedb` CHANGE `utedb_hows1_1` `utedb_hows2` INT NULL ",
-				"ALTER TABLE `utedb` CHANGE `utedb_hows1_2` `utedb_hows3` INT NULL ",
-				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `utedb` CHANGE `field1` `uteb_howt1` VARCHAR(40) NULL ",
-				"ALTER TABLE `utedb` CHANGE `uteb_howt1` `uteb_howq1` INT NULL ",
-				"ALTER TABLE `utedb` CHANGE `uteb_howq1` `utedb_howq1` INT NULL ",
-				"ALTER TABLE `utedb` ADD `utedb_howq1_1` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_howq1_1`",
-				"ALTER TABLE `utedb` ADD `utedb_howq1_2` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_howq1_2`",
-				"ALTER TABLE `utedb` CHANGE `utedb_howq1_1` `utedb_howq2` INT NULL ",
-				"ALTER TABLE `utedb` CHANGE `utedb_howq1_2` `utedb_howq3` INT NULL ",
-				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `utedb` CHANGE `field1` `utedb_howt1` VARCHAR(40) NULL ",
-				"ALTER TABLE `utedb` ADD `utedb_howt1_1` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_howt1_1`",
-				"ALTER TABLE `utedb` ADD `utedb_howt1_2` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `utedb_howt1_2`",
-				"ALTER TABLE `utedb` CHANGE `utedb_howt1_1` `utedb_howt2` INT NULL ",
-				"ALTER TABLE `utedb` CHANGE `utedb_howt1_2` `utedb_howt3` INT NULL ",
-			]);
+		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb',]);
 
 

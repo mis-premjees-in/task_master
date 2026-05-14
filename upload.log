@@ -1,5 +1,5 @@
-13-05-2026 03:22:18:
-Started uploading files from: C:\Users\MacWin\Desktop\task_manager
+14-May-26 12:04:31:
+Started uploading files from: D:\tm.premjees.in\task_master
                           to: https://tm.premjees.in
 
 Secret upload key configured in AppGini Preferences: Ok
@@ -7,7 +7,4987 @@ Application URL specified in project properties > Security settings: Ok
 curl is installed: Ok
 Application URL is valid: Ok
 'file-uploader.php' uploaded to your server: Ok
-'file-uploader.php' is configured with the correct secret upload key: FAILED
+'file-uploader.php' is configured with the correct secret upload key: Ok
 curl command (upload key stripped): 
-curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Connection: keep-alive" -H "Priority: u=0, i" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -X POST -F "UPLOAD_KEY=******************" https://tm.premjees.in/file-uploader.php --compressed -o "C:\Users\MacWin\AppData\Local\Temp\appgini.curl.op.12140.82.txt" -D "C:\Users\MacWin\AppData\Local\Temp\appgini.curl.hd.12140.82.txt"
-Uploading aborted due to failed check(s)
+curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Connection: keep-alive" -H "Priority: u=0, i" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -X POST -F "UPLOAD_KEY=******************" https://tm.premjees.in/file-uploader.php --compressed -o "C:\Users\focus\AppData\Local\Temp\appgini.curl.op.43471.76.txt" -D "C:\Users\focus\AppData\Local\Temp\appgini.curl.hd.43471.76.txt"
+
+Retrieving md5 hashes of local files ...
+14-May-26 12:04:32: Storing md5 hashes of local files to d:\tm.premjees.in\task_master\md5s.972943.tmp
+Executing cmd /c ""C:\Program Files (x86)\AppGini\md5sum.exe"  "d:\tm.premjees.in\task_master\*.*" > "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\admin" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\hooks" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\images" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\resources" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\templates" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && copy "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" "d:\tm.premjees.in\task_master\md5s.972943.tmp""
+14-May-26 12:04:38: Finished storing hashes. File contains 411 lines.
+Parsing local md5 hashes temp file: d:\tm.premjees.in\task_master\md5s.972943.tmp
+Done parsing d:\tm.premjees.in\task_master\md5s.972943.tmp
+
+Checking remote file md5 hashes ...
+Lines in remote response: 442
+
+	.ftpquota: 30e99cc054e462c1941f82a38dc999c3
+	admin: dir
+	ajax-update-calculated-fields.php: d5ae9ee921f16efe53128aa1b92d9f10
+	ajax_admin_tools.php: 306666323435a8f9d5d78f69c5b9b692
+	ajax_check_login.php: efce51be62bce57a4a2797c28912c7cb
+	ajax_check_unique.php: af8ada3163769b9d77a6f939538d85c8
+	ajax_combo.php: c30806a61a1e9c4db4216b757a97a7c5
+	api: dir
+	api.zip: d57a0ef21e8fc14d445f7565d89a76b5
+	blank.gif: d3e941fe204d0a9cc5b92782bbf882c8
+	checkMemberID.php: 0bde799cb6b7edae02e2fc6ab0dc7193
+	cli-update-calculated-fields.php: fad167fd4365e568e79e3200c2455017
+	common.js: 3b19b8970de031a31f2667c6d9350799
+	datalist.php: 2474753a0b344d75db9f4d0dedf2b466
+	db.php: 65effae76abd1d29e00694bf30e0b15e
+	defaultFilters.php: a64dd96dc678bb06a9c3b3a1b2623e28
+	defaultLang.php: b7639f7d161cdb2b2b82c7ef0af14b98
+	definitions.php: ed31f60e5b1b16ebfbeb1e67cfddf307
+	dynamic.css: 8ecd71fdc776a0b33d0c6be99ada261d
+	footer.php: 79fbcf037c8bb0b49a900f574d7e8ce4
+	handshake.svg: 9ab8389fa77ffa0568fd7117a491c44f
+	header.php: deba81e4f606ec47c373ed449e6e9885
+	home.php: 6c8b2bb93c784fc975b8ec27b4d7613f
+	hooks: dir
+	howqs_autofill.php: 13292faf0bfd6494e80ec9c8123b1498
+	howqs_dml.php: 3f198f140f4de314c48adf856c6064db
+	howqs_view.php: d12e84ee9bc4d9f32282c7b43a3ea718
+	howrs_autofill.php: ee7771063db1fdb9e12d324eb7b17166
+	howrs_dml.php: 6df26ba24d594e2fd19b808cb3ed3fbe
+	howrs_view.php: 0e5e7554936bd47869303f5d5f64b463
+	howss_autofill.php: f1ab1965e15b50e9e42551db3ef18272
+	howss_dml.php: 575c5ce69e7136ce4a29fbd944856d0d
+	howss_view.php: 9d4f1535988fb7314496f9c90a878e15
+	howts_autofill.php: e4bb3de3b40cb668f1d6051e10aed27b
+	howts_dml.php: ddf5ff9ce3ea60a7af8b57f7b833445e
+	howts_view.php: 4d7371218dcf83fac224b41ad79f2c7e
+	images: dir
+	import-csv.php: 2d80993269ba43225cd698a4e4832730
+	incCommon.php: 05739528bb588b1f98bd7a89c5045726
+	index.html: 777ab29e0fc5b92fea635deb7ecedfc1
+	index.php: ff6b39d9e94c97f1ce97f33f4cae4837
+	lang.js.php: e0cf7f63628eddac19524890e5b2a52f
+	language.php: 8f305b9e0cf441cece166ce084ed212e
+	lib.php: aa80f5a6e197f38ce097cfa9d53343fb
+	link.php: e12ee5ad083a78dd6184dcb2f134bf03
+	loading.gif: cb081508c32b52bccacc59781ebbbb36
+	login.php: a3fb245d8ad5cfd98dfd5be49b2decc6
+	logo.png: 09caee6e2337a676ef3d810c2b0d6e27
+	madb_autofill.php: f37c377e36586e428574b1982bce8171
+	madb_dml.php: 36e7c73807cdbca6fe8be9816c084e70
+	madb_view.php: db4371d4c1f873d1fae2945e80ef0178
+	manifest.json.php: c51cb19d54b6299797ffea7eaa82fba3
+	membership_passwordReset.php: e09cb450bf4798ae0205d587863093dc
+	membership_profile.php: 1cbe26d17ae700a3b943d2526beb9a20
+	membership_signup.php: 9ab9339c2294a7967f8551d355403e89
+	membership_thankyou.php: 4bf3d1b7b1eee0b3774722c2bbdc1cb9
+	nicEdit.js: e82d141af511b8fd032a4b9be8bbdb3b
+	nicEditorIcons.gif: 64ff70454349f64643a87a6a5bc3538e
+	parent-children.php: cf013560e1c29d6f8f7dcd11951313f1
+	photo.gif: 96cd050a452e39801b4096745693161c
+	pwa-offline.php: 64f76a4ead56f469eaa7f950f3db582e
+	resources: dir
+	service-worker.js: 585114879dd76a80e71c7863a84a5fcf
+	settings-manager.php: fa77b0c423547f6ab94cbf5313e34a60
+	setup.php: 16936224e96cdb2767f7f03b3799d260
+	shortcuts.js: 50f259fe3b42b2123d92b212a089ffe6
+	table.gif: 742bde42c832e3bf64f1a2abfa122f49
+	task_master.axp: a872bbed7257234276ce37c4733cda68
+	templates: dir
+	thumbnail.php: d57aefbc16ad2e4ca6b189a35246e570
+	updateDB.php: 9fad0ba58065522ce1189189a7df4957
+	upload.log: 306e1a419317eadd0422489778428e07
+	utedb_autofill.php: 5d3dedb94c19a47819ddc26696501b74
+	utedb_dml.php: 6ffd1908c6c76a9ce432ac7f3d62628e
+	utedb_view.php: 21bb78af839fd0b456d4bed4a679eccd
+	whats_autofill.php: 3d9accd707f9fec9823b6e42349e6882
+	whats_dml.php: 93b124a5051ed10ea3a059b9d49e7207
+	whats_view.php: 476e4861c0de4a36b60fb7a808e7be3b
+	whens_autofill.php: ee1e3688da7c900f0807f73b21fc2350
+	whens_dml.php: f6def014ece461449de8152528f83ebe
+	whens_view.php: 3ff46322dfddbd3fc0b4c0923e1f8063
+	wheres_autofill.php: 9b819c61be07bc470cc0efb0c59b4206
+	wheres_dml.php: 6a10b1a33fce2244b5de25fbb7d52b48
+	wheres_view.php: f7eeb2eb8b998b6ac163cc6cc7e758ce
+	whichs_autofill.php: 63825073f525ceeb894ad4b51f64b6ec
+	whichs_dml.php: 123a904a6138d71ad692b65b8514e641
+	whichs_view.php: fad8b46c6395f6a110e145f7b15f28fe
+	whos_autofill.php: e525da0711718d98b5c1c2fb92631aea
+	whos_dml.php: 3f8ac493b601dd24ebf61603f0bda916
+	whos_view.php: df9061377ffad2325182ca7cdd15657d
+	whys_autofill.php: e8ef740dd662156abb0b36c8c94918b1
+	whys_dml.php: 58315c1924802cb5e6529fc0ded6cbcc
+	whys_view.php: 0a0afe9f7071e3c3f73f6bbc58f24799
+	admin\ajax-maintenance-mode.php: 5cf5c8340d52a36ce3cd13c6462785a5
+	admin\ajax-saved-sql.php: 7a052138f0a047e7ba9a1d3dbac233c4
+	admin\ajax-sql.php: a944e035a5415bb9afdf6f591d9dca70
+	admin\app-documentation.php: 057c241bf5757808f0ac8546f4e545e4
+	admin\getUsers.php: 86f25cba03345c4b3b0692fab05b7dbd
+	admin\images: dir
+	admin\incCommon.php: 43d45ad61a13bc85036a313ce69ded33
+	admin\incFooter.php: 59baf9303498754c063d4945a5cbeed1
+	admin\incFunctions.php: 3b41143bd7dc71b1feb6dfa984c2f027
+	admin\incFunctions1.php: 3953dbf1f5902e22cf6aac752daa971f
+	admin\incHeader.php: 604f1990b3109d2b33ecc643bceecb47
+	admin\index.php: f127341fccd0dfb0b1aa4d345cd29941
+	admin\pageAssignOwners.php: e0616f9daaf5e6cde7760d1cee2033a4
+	admin\pageBackupRestore.php: 813e04ffd698413035c1b613cf425718
+	admin\pageChangeMemberStatus.php: 87e1ab50db00ed9523149b9a18653cf3
+	admin\pageDeleteGroup.php: 8953490a26e031e5ec77b89a61ff2779
+	admin\pageDeleteMember.php: a12215f839ed3926217676e437e08fae
+	admin\pageDeleteRecord.php: b878a30725e4c2a1e961b3aa2d83225c
+	admin\pageEditGroup.php: c67ac8042c154d2a9ac797f72dfd596b
+	admin\pageEditMember.php: 186f07e77df7053dc3c9a07306eeee08
+	admin\pageEditMemberPermissions.php: 9edd768708be67bdc78ce72948d30865
+	admin\pageEditOwnership.php: 1314513aed35d18d10907bcba19804ec
+	admin\pageFixRecordOwners.php: 1279cf224d5acec8e92676065a89c376
+	admin\pageHome.php: 9effe8fc340aacecbef50adef1d4381f
+	admin\pageInstallPlugin.php: a15a9aafd39d9dcad3c3ad0eff928775
+	admin\pageMail.php: c3ca9f32ba080777b853014e82cea0b8
+	admin\pagePrintRecord.php: c4446594c00b4f99768e1775b9c909f5
+	admin\pageQueryLogs.php: 02797a193604650f8832c7ca077f11f4
+	admin\pageRebuildFields.php: 2ef1c3113e11ab0377594e211e01edd3
+	admin\pageRebuildThumbnails.php: 1fc69f41759390a74d13f4566aa17b60
+	admin\pageSQL.js: 93a9d602b2a351f0c883252c5e4af3bf
+	admin\pageSQL.php: f16c0f8709fccbcdcddc59ac6afc73d1
+	admin\pageSender.php: cb254d0d8851324e1c30d6a44cf35c5e
+	admin\pageServerStatus.php: a91b18f788da90529806f58e2a864f9a
+	admin\pageSettings.php: dd043a8400cbd3a45e7fb229a5d15fff
+	admin\pageTransferOwnership.php: 68e3c612f10c7cb993062295d45171d2
+	admin\pageTranslation.php: b49d6994146b5db1f3af953afeb315fb
+	admin\pageUpdateCalculatedFields.php: 6a3d8bac283280c7f4d5eb52bd733f55
+	admin\pageViewGroups.php: bef0da04a45a5c4e0f3a3cf2d2b3e01b
+	admin\pageViewMembers.php: e0ac27bd0f5c5a4f509fc6dc7ab81f5d
+	admin\pageViewRecords.php: 7072562fcfa062d47370b736969a27c0
+	admin\toolTipData.js: e20cb6a9cf230d7892307e63860433db
+	admin\toolTips.js: ded19949517fe88f53a75ed7571b577f
+	admin\images\approve_icon.gif: c037df4dedd61b4b5d77517d05de2020
+	admin\images\data_icon.gif: fb700fe8af24c94f8f917a4402e9b303
+	admin\images\helpBg.gif: fa5cbc278f7c8073f2066364748516ed
+	admin\images\index.html: 888ceb5cb76adba60e7c4a255964143e
+	admin\images\member_icon.gif: bab78591fa8cb08bd1ae2cc900d2dda2
+	admin\images\members_icon.gif: ebe15480f259b61c5d4efb99d1a8302d
+	admin\images\stop_icon.gif: 419471d9837f2c66e9c5d2d805c7b910
+	hooks\README.html: 48fb04656b90b799bbffd8dc01f8dc62
+	hooks\__global.php: 4aa0fdf04d01ab52d1c25121931b47e5
+	hooks\footer-extras.php: d41d8cd98f00b204e9800998ecf8427e
+	hooks\header-extras.php: d41d8cd98f00b204e9800998ecf8427e
+	hooks\howqs.php: 8ac935ed4d05aa4357c484cc1962b318
+	hooks\howrs.php: ee0de1ce75dc0b345249a6cb9d8950df
+	hooks\howss.php: 71dec143681dfdcede9ef2ca61d87de9
+	hooks\howts.php: 7011c645f9ebd4bb466d2450e8127f2b
+	hooks\index.html: 888ceb5cb76adba60e7c4a255964143e
+	hooks\links-home.php: 79d617c44861d891938e582c75aacd6f
+	hooks\links-navmenu.php: d2a75467ff524ba810d8d72ba931bd8e
+	hooks\madb.php: 9719a81f53e28f6be1cf1ea0f57f32cb
+	hooks\utedb.php: 371ae3ab8b805a72643039a1c1c24e0c
+	hooks\whats.php: 029b53d14619f471f40d352c0bf17bc3
+	hooks\whens.php: 53476754055f12cf5ba5ae358d39087d
+	hooks\wheres.php: f1bacdcc74f4ee5400e04ad373670dc7
+	hooks\whichs.php: e8043b65977e7ebe56b7dac453f42c0d
+	hooks\whos.php: 36aa1939d42ddddebd0f01a8751e119b
+	hooks\whys.php: 78847258bfa9409977738cb28485060e
+	images\blank.gif: d3e941fe204d0a9cc5b92782bbf882c8
+	images\index.html: 888ceb5cb76adba60e7c4a255964143e
+	templates\children-howqs-printable.php: fde934dfabe438d6c2e9b1cdc35500ca
+	templates\children-howqs.php: b66712e8f647616b09c9cc1097544e3a
+	templates\children-howrs-printable.php: 2fd4a46a3cab8bacd04015c8c93649ea
+	templates\children-howrs.php: a887d9984742e70ad25f5ad8febfcde1
+	templates\children-howss-printable.php: 1ff404ac4043c5a5ee1463965c841234
+	templates\children-howss.php: b4f6c6c48bf2ecf9aa3a775bb49ccc02
+	templates\children-howts-printable.php: 2bf6cf080976ef6a9d6cc1c0a68c0fa1
+	templates\children-howts.php: 9188b5ae64002a38f3c56b73c23b692c
+	templates\children-madb-printable.php: 690245d9ac6596ee3df43c62cd52e09a
+	templates\children-madb.php: ccbdadaae882d2737c8fa8b045b5f911
+	templates\children-utedb-printable.php: 5f3b588afdf0c708f61d33dc0d3f6539
+	templates\children-utedb.php: 56d6e4959e757716dd7d389a99fe071c
+	templates\children-whats-printable.php: c496f5626223dbbc4193525c533d03c3
+	templates\children-whats.php: 65c9aa33bb22f34ab2a5f1fef28a4279
+	templates\children-whens-printable.php: 8315ed0ce3391749b42ee315300b7a1e
+	templates\children-whens.php: 2b616ecd1a3e6f554e9269d4d02c097d
+	templates\children-wheres-printable.php: bd4cfc304614a3764d3db18ea016b481
+	templates\children-wheres.php: 2576dc87d8dab792666f8777551a5dd4
+	templates\children-whichs-printable.php: 6dccacf32265170c6d73f4ba72be5d6e
+	templates\children-whichs.php: 937fa6254c376791ebb4637cc61d437b
+	templates\children-whos-printable.php: 6f2608529a0a58f66aa60e9aa7eae13f
+	templates\children-whos.php: 695e9a9adb2dd6d1cf014f8ddd162fd5
+	templates\children-whys-printable.php: baa162feb91a3e61571740c0fd170ce0
+	templates\children-whys.php: b0e00f6dfff4a9af13f0e81444fbd983
+	templates\howqs-ajax-cache.php: 18334efa6ca3bfea1d225dd7ef32f45d
+	templates\howqs_templateDV.html: 30bc83cb1b456f4183d44adbc85cc4d1
+	templates\howqs_templateDVP.html: 1cd600cbab9ad1e430c6ebf4596ac69d
+	templates\howqs_templateTV.html: 553f197ee7f03bf3e156605a755563c3
+	templates\howqs_templateTVS.html: 705571ebf23438b2054fea12b359c967
+	templates\howrs-ajax-cache.php: 1d34065e4297ede296cc0ac6ce979418
+	templates\howrs_templateDV.html: d1a62c5a407621bc18eb93a2ba4b4f11
+	templates\howrs_templateDVP.html: 7e745379f1e4ceeaed2e6ee0fe4702ba
+	templates\howrs_templateTV.html: 8478cc5d5c4669e7e70083cd1a81b32d
+	templates\howrs_templateTVS.html: c17d988564ff4a6f5cabee7c7fa0d7ef
+	templates\howss-ajax-cache.php: 7afa0fcc92cb51fe27d963b1c4fe45e6
+	templates\howss_templateDV.html: fefc5b70cddd86c38e9a0ecda7a34ae8
+	templates\howss_templateDVP.html: 21dfc5096b711e5b361720166ea9fd65
+	templates\howss_templateTV.html: 7e89a28b71efc291bcc08ddeedb47a34
+	templates\howss_templateTVS.html: 1382c32ba79854507c68893bd2f363c2
+	templates\howts-ajax-cache.php: 0ebf385fdd5f925925736708e9a73769
+	templates\howts_templateDV.html: 0a756586f1d94af98fdd7e3406c06271
+	templates\howts_templateDVP.html: 9f3558d8155037fe421ac74d19fb8058
+	templates\howts_templateTV.html: 62efe709d9cff0a0630572d2cfac2fab
+	templates\howts_templateTVS.html: da4e1de94df0f52065b7e424a61021d4
+	templates\index.html: 888ceb5cb76adba60e7c4a255964143e
+	templates\madb-ajax-cache.php: ff520321442a0fe98a7ae8c91e566180
+	templates\madb_templateDV.html: f7446f7cbab0d3e19354675a31bfc06f
+	templates\madb_templateDVP.html: 73516c403d365f46940571202fe22ca2
+	templates\madb_templateTV.html: 6b42bbfb436e65a77196782bcb724086
+	templates\madb_templateTVS.html: b64f062ac5103064065dc4eaa5f61c23
+	templates\utedb-ajax-cache.php: b419c8dde988747b71bdac7623f94bce
+	templates\utedb_templateDV.html: c5d61b78a1351a17aaba392b086d4a6b
+	templates\utedb_templateDVP.html: 328ea9b7ae35ce1ec5bb29471067fdce
+	templates\utedb_templateTV.html: 42f59078875d64996948d35de78e228d
+	templates\utedb_templateTVS.html: c70fa389f5994bbec49ec56d811e009c
+	templates\whats-ajax-cache.php: c086fb753eece92b407ab5e258bec479
+	templates\whats_templateDV.html: 56aa3774a32098853488b5fb7b915903
+	templates\whats_templateDVP.html: 90bf8d78c1cf446a016e8030008f5b27
+	templates\whats_templateTV.html: 7059e74375fad14159710ed67a9a2716
+	templates\whats_templateTVS.html: 627108984de7a8f27d57ed0d058493a0
+	templates\whens-ajax-cache.php: d71209fbabeddf269e2ab18b8ba94a40
+	templates\whens_templateDV.html: 62667637b640ab30ff8c8274add26a8e
+	templates\whens_templateDVP.html: e6d3453c0a17438e93bbb8e2ea94956e
+	templates\whens_templateTV.html: 8d7a8eff68cd012a21696c58b9a41b30
+	templates\whens_templateTVS.html: 90c95ab85ed95bb0c44db4209794ca50
+	templates\wheres-ajax-cache.php: 3f2d02a9d68c3b99f5cec127112fe301
+	templates\wheres_templateDV.html: 7020fc1fc20c8ae50e0c80b0ffd4792c
+	templates\wheres_templateDVP.html: eddaa96b781c3fb5fbb7ca9be8857b1d
+	templates\wheres_templateTV.html: 1b8f320a06262fd8fb5672cf23e5d7a1
+	templates\wheres_templateTVS.html: 5829d061046c5422c2dabd2154f55cbc
+	templates\whichs-ajax-cache.php: 6acb829cc3a40a6948401a428a5b5741
+	templates\whichs_templateDV.html: 27062221af2281e89dd313280a2ac4f4
+	templates\whichs_templateDVP.html: 647ad50e588cecd1070247a847c13355
+	templates\whichs_templateTV.html: 185daafb3be7d754d5a83c4dbd8217d8
+	templates\whichs_templateTVS.html: 25f1c4a0c434cb5be17512fd8d0e942f
+	templates\whos-ajax-cache.php: 21f97ec920977ff22b4f609530e9a1aa
+	templates\whos_templateDV.html: 9d441c1c090b007685c9efa72893437f
+	templates\whos_templateDVP.html: 3ddbc24190e711610954582e8ae66c10
+	templates\whos_templateTV.html: f78a76fc9967be62b915760545c61c21
+	templates\whos_templateTVS.html: 876f611e7285b9ef8650d4205a93e557
+	templates\whys-ajax-cache.php: b08859d15566ca925ff4c33a5b22d728
+	templates\whys_templateDV.html: 651da6c9a4d171ddf2a2c6b746394f9c
+	templates\whys_templateDVP.html: 1e77666c384e50c4e04557ae36cd9ba3
+	templates\whys_templateTV.html: 2020c481028f64e2fb1638062d4b1d9d
+	templates\whys_templateTVS.html: bec059600bb3dbbccc57f6667c77ce6a
+	resources\bootstrap-datetimepicker: dir
+	resources\csv: dir
+	resources\datepicker: dir
+	resources\hotkeys: dir
+	resources\images: dir
+	resources\initializr: dir
+	resources\jquery: dir
+	resources\lib: dir
+	resources\moment: dir
+	resources\select2: dir
+	resources\table_icons: dir
+	resources\timepicker: dir
+	resources\bootstrap-datetimepicker\bootstrap-datetimepicker.css: 0bca3d16b29eb93ae45901d13b5130f4
+	resources\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js: 8a36160a466cad1a9e414321f4784baf
+	resources\bootstrap-datetimepicker\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\csv\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\csv\jquery.csv.min.js: dfd58e85f15f20d0a4e53a857bc4060e
+	resources\datepicker\css: dir
+	resources\datepicker\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\datepicker\js: dir
+	resources\datepicker\media: dir
+	resources\datepicker\css\datepicker.css: 7a3aa7c7c36c391f15a0763f899f74d4
+	resources\datepicker\css\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\datepicker\js\datepicker.js: 95dea9e2d2b2c723d3c33de7ca5d743f
+	resources\datepicker\js\datepicker.packed.js: 96c8cd7d7dc253087a9ac8bec25193dc
+	resources\datepicker\js\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\datepicker\js\lang: dir
+	resources\datepicker\js\lang\af.js: 559d40fc4e761d6bc41c8682aeb5107c
+	resources\datepicker\js\lang\ar.js: 605c8bc295f00f62c1f9cf6afa94e52f
+	resources\datepicker\js\lang\de.js: d917cbba67446b88643637c6f87ba16c
+	resources\datepicker\js\lang\du.js: 80d08803ae95fcd2cf7d5b290e2b0f9d
+	resources\datepicker\js\lang\en.js: f96ed29b4236db324af1533ccb8a6c97
+	resources\datepicker\js\lang\es.js: c74cf3d1579bdba12d9c0a03fe118e5b
+	resources\datepicker\js\lang\fi.js: 5bc6ab37f38a28d612bed354da312e34
+	resources\datepicker\js\lang\fr.js: c7d6aee5725839e09b15c8e303ddbbc7
+	resources\datepicker\js\lang\gr.js: d39f15da7c7b970293e0e190f3d9a75d
+	resources\datepicker\js\lang\he.js: ae07aead091dd0aee2cebc930e550e26
+	resources\datepicker\js\lang\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\datepicker\js\lang\it.js: 7ada47f4a79ad925bea751e46e3b2fa3
+	resources\datepicker\js\lang\nl.js: 80d08803ae95fcd2cf7d5b290e2b0f9d
+	resources\datepicker\js\lang\no.js: 5138c2ac7faf91dd37271a64cee394f6
+	resources\datepicker\js\lang\pt.js: 46246d5add4efea0ce5792260befeda0
+	resources\datepicker\js\lang\ro.js: e891f2b386606eb8ff8bf747d3058431
+	resources\datepicker\js\lang\ru.js: 23c87c2b8d08bf908c301c991e92aa75
+	resources\datepicker\js\lang\sp.js: d52ea78fa123353614b6866ce92c3d75
+	resources\datepicker\js\lang\sv.js: 15e7c43edb040207ab8d3b4a08d895f1
+	resources\datepicker\js\lang\ua.js: a391f1f9fcee88bed92bfddb00c9bbce
+	resources\datepicker\media\backstripes.gif: 783e240ebc3c6733c924c3e8aa8ae26c
+	resources\datepicker\media\bg_header.jpg: 76958714b002451273f5b43752d67f77
+	resources\datepicker\media\bullet1.gif: bc222c095355c7750dd797a7b9b35245
+	resources\datepicker\media\bullet2.gif: 12d034edb1f29bb9abb4383fa2a56889
+	resources\datepicker\media\cal.gif: e05d8b00f8595743d3326c92cd6f2365
+	resources\datepicker\media\gradient-e5e5e5-ffffff.gif: c2d770c748dd4c367904adb485ebb0f0
+	resources\datepicker\media\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\hotkeys\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\hotkeys\jquery.hotkeys.js: fe222f0705e9d97ef3106c5f5b4ea89a
+	resources\hotkeys\jquery.hotkeys.min.js: 1d389968f1ba79fdc4837b4d60c18f28
+	resources\images\app-icon-144.png: 8d2c91c6e9df2aa5706995c96f312e62
+	resources\images\app-icon-192.png: ae9732c3b6941864cc041bcf385dc9e1
+	resources\images\app-icon-384.png: 14bfdf4078b13a52306529d0ce5de7fb
+	resources\images\app-icon-512.png: 0505d64f8cdb132d9050e35a6a502859
+	resources\images\app-icon-72.png: df6f9b0636a8ee7cde8e160558f88f60
+	resources\images\app-icon-96.png: 05b93abc04ae569e546670a61bf69458
+	resources\images\appgini-icon.png: 01735b896f79c2e101ff985ed08dbaeb
+	resources\images\database.png: d227409c3d519b276945219da01a343e
+	resources\images\double-column-layout.png: e2b6acb2c8fa366a3cd719053e840ad5
+	resources\images\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\images\keyboard-disabled.png: 50a9b05524e3d382f7869ee1a5efcb21
+	resources\images\keyboard.png: b0869e3fe02ddbe61cb4b3ca8db3d3be
+	resources\images\single-column-layout.png: a8b93f671ca94e852cd3059e56bc7bc1
+	resources\images\table_go.png: cf43d3939f613169c76318b1c41a5906
+	resources\images\triple-column-layout.png: b403bd52e911fa1ea20bbcd0a1c597b4
+	resources\images\user-secret-solid.svg: 501f664a48143a77e70be87559d720b5
+	resources\images\user-solid.svg: 64a41c14e4e6ef7677be64f6efc0370c
+	resources\images\users-solid.svg: 62aaa5605771461424ec64053a3fd45c
+	resources\initializr\css: dir
+	resources\initializr\fonts: dir
+	resources\initializr\img: dir
+	resources\initializr\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\initializr\js: dir
+	resources\initializr\css\bootstrap-desktop.png: c384bd6463f573fd6a87d262877c3587
+	resources\initializr\css\bootstrap-mobile.png: 6f25835e6483ab1e1c14c466d805bb33
+	resources\initializr\css\bootstrap-theme.css: 657abdbdf9f097a761efe7fda1e44884
+	resources\initializr\css\bootstrap.css: 2183d05f5a0a9a3b2e8cb0509ca363e3
+	resources\initializr\css\cerulean-desktop.png: 3c04688c07d33fdd89e69e0c0007abfe
+	resources\initializr\css\cerulean-mobile.png: bf9bf09ab3d73714dbdff6d3b3b0b4fb
+	resources\initializr\css\cerulean.css: 95793619ddb2ca54e8ade20f41dc52cf
+	resources\initializr\css\cosmo-desktop.png: d6421f80c6ff3c11f5f00240797cb88d
+	resources\initializr\css\cosmo-mobile.png: e34cd35c80e70e535215e99dfb3cceba
+	resources\initializr\css\cosmo.css: e079716efbedba9da5c793b5e8943361
+	resources\initializr\css\cyborg-desktop.png: 9b112614cd468faa5a7b4dd1ddf3c3f6
+	resources\initializr\css\cyborg-mobile.png: 9550f64d561437fb7db85f25462e8e0a
+	resources\initializr\css\cyborg.css: 364c2487418343cd9a2c02d8a6a1a9d8
+	resources\initializr\css\darkly-desktop.png: a62850f926ac2a4e7c9bf45645a6602a
+	resources\initializr\css\darkly-mobile.png: 91e609c9a18703a1d233495751c2b6d0
+	resources\initializr\css\darkly.css: 1b5b2af6b9ac1082e272b7c7a5aa58de
+	resources\initializr\css\flatly-desktop.png: 359162d0cc47d7c782ba0cc77b783842
+	resources\initializr\css\flatly-mobile.png: 19ce1bc6cc130ca0b8a0c17d3eef7c4b
+	resources\initializr\css\flatly.css: 5e597c21878a1b0376397cb145254bef
+	resources\initializr\css\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\initializr\css\journal-desktop.png: c0566d5e76a2f67bc247adee634a54c9
+	resources\initializr\css\journal-mobile.png: c68dfe1e02667b0c3c97acfca6ea6654
+	resources\initializr\css\journal.css: d6475f162b3c6d14b09ccd13ba161b85
+	resources\initializr\css\paper-desktop.png: 30a2973760da8d0c439be43a2c48f720
+	resources\initializr\css\paper-mobile.png: 84c8a22db86f5299079d9c0614298073
+	resources\initializr\css\paper.css: ab6104d76a712db9a01254c9884c8b15
+	resources\initializr\css\readable-desktop.png: 7c38f5030173893454bc7d9b8df14dd0
+	resources\initializr\css\readable-mobile.png: 438b12c15988a3ee5f19159c248d7261
+	resources\initializr\css\readable.css: a52a70634ed73ee6d5c47b89fbd7295e
+	resources\initializr\css\rtl.css: 2937487f63d5cb5c80e97c8aa2b454ec
+	resources\initializr\css\sandstone-desktop.png: 142c965585b278e85e5a8f874631d587
+	resources\initializr\css\sandstone-mobile.png: a49e8565c28664d368cc7c77b8b59177
+	resources\initializr\css\sandstone.css: 45a32f6f53ce2b2f4f4d006b90494118
+	resources\initializr\css\simplex-desktop.png: fe0dba9698965530becee77226e092d3
+	resources\initializr\css\simplex-mobile.png: 48167808203dbec71e18f836e972d92d
+	resources\initializr\css\simplex.css: df877cc1633df1b831158ae31470a874
+	resources\initializr\css\slate-desktop.png: 853c4732d49245083934516f8ca4ec2f
+	resources\initializr\css\slate-mobile.png: 47e9f76d551288cfdbe0c2f8bb7e22c4
+	resources\initializr\css\slate.css: 8835a5d5aebf00b39cb2d0826399e9e4
+	resources\initializr\css\spacelab-desktop.png: cc7f465fefc39093c123488a89044846
+	resources\initializr\css\spacelab-mobile.png: 55817502d17bb0739e5e363b6e3da52b
+	resources\initializr\css\spacelab.css: 29c007996754ec0901e3220f5fdaaffe
+	resources\initializr\css\superhero-desktop.png: d35a5a8dea2111a812158239cb2f333c
+	resources\initializr\css\superhero-mobile.png: 63740199e72bc394a667489cf696cd04
+	resources\initializr\css\superhero.css: 41250e64ef34b749fdd93e216f0d2e68
+	resources\initializr\css\united-desktop.png: fc46adf97f7dfb2e388236d4648c2774
+	resources\initializr\css\united-mobile.png: 4bf11332cd8db5c88747e7add35125ed
+	resources\initializr\css\united.css: 5dc470451f09412465a51a3c8d251076
+	resources\initializr\css\yeti-desktop.png: 2dab019965c5b45c240be16caf8d2c30
+	resources\initializr\css\yeti-mobile.png: 317c0ad9f2c5f1e8176f819e86ce1ea1
+	resources\initializr\css\yeti.css: 7deb8f8c913bb502ee45a741d63e5ba8
+	resources\initializr\fonts\DroidKufi-Bold.eot: da270dfc6adae884d4c9ac77766720ce
+	resources\initializr\fonts\DroidKufi-Bold.svg: a97379177e4a8bdc7ade997aa63f7d4f
+	resources\initializr\fonts\DroidKufi-Bold.ttf: 1b89eb34f74a02c0681727faadf48466
+	resources\initializr\fonts\DroidKufi-Bold.woff: 1040258be731ef7842224457a9294231
+	resources\initializr\fonts\DroidKufi-Bold.woff2: 8e4049672ca48fe19b60f931faab7924
+	resources\initializr\fonts\DroidKufi-Regular.eot: fd8d5b98b9874e5acc6de2d2cbf1931b
+	resources\initializr\fonts\DroidKufi-Regular.svg: d88b763664bd15ece1f1b4ce7493d653
+	resources\initializr\fonts\DroidKufi-Regular.ttf: a9b030e29a35f523a137ee0175be419f
+	resources\initializr\fonts\DroidKufi-Regular.woff: e22da300d90905754b7a097046d629bb
+	resources\initializr\fonts\DroidKufi-Regular.woff2: 795e980df24d1bc634b265e18809535c
+	resources\initializr\fonts\glyphicons-halflings-regular.eot: f4769f9bdb7466be65088239c12046d1
+	resources\initializr\fonts\glyphicons-halflings-regular.svg: 89889688147bd7575d6327160d64e760
+	resources\initializr\fonts\glyphicons-halflings-regular.ttf: e18bbf611f2a2e43afc071aa2f4e1512
+	resources\initializr\fonts\glyphicons-halflings-regular.woff: fa2772327f55d8198301fdb8bcfc8158
+	resources\initializr\fonts\glyphicons-halflings-regular.woff2: 448c34a56d699c29117adc64c43affeb
+	resources\initializr\fonts\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\initializr\img\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\initializr\js\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\initializr\js\vendor: dir
+	resources\initializr\js\vendor\bootstrap.min.js: 8c237312864d2e4c4f03544cd4f9b195
+	resources\initializr\js\vendor\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\jquery\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\jquery\js: dir
+	resources\jquery\js\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\jquery\js\jquery-3.5.1.min.js: dc5e7f18c8d36ac1d3d4753a87c98d0a
+	resources\jquery\js\jquery.mark.min.js: 9bcdc7691fed8d06fdeabb2cd24736aa
+	resources\lib\Authentication.php: 427e6062a38d56ebd790d051d58e46a4
+	resources\lib\CI_Input.php: f52a42967594b793e21bd35df096bd11
+	resources\lib\CSVImport.php: fb38f68cde6d67669388bc9acf3669ab
+	resources\lib\CSVImportUI.php: 0b6f5400b36af8322070d12b681a0b04
+	resources\lib\Captcha.php: fa1b63a60a2d9aefb103ef62619fd712
+	resources\lib\Combo.php: c574480d18ab4da58fdef8f0c1ad4df5
+	resources\lib\DataCombo.php: 0ee48cd56ebad9678b8c3a03196609a4
+	resources\lib\DateCombo.php: 728e168ebff960d1b4e724bc20d2b470
+	resources\lib\JWT.php: 7461bd5609145bcd1ed2ca43fbe586fb
+	resources\lib\LDAP.php: 1a42823601d913b2b5e15d92afd823cb
+	resources\lib\PHPMailer: dir
+	resources\lib\RSS.php: f05ce9d7d2f2572dea3623208331dfa0
+	resources\lib\RememberMe.php: b5b4f826f4d69926aab059a79f0bf417
+	resources\lib\Request.php: 060a27a35fb72cf375eb9c10ebb8d11f
+	resources\lib\Thumbnail.php: 443d32a1fa7a24f1341c4135610346ad
+	resources\lib\UserFlags.php: eeed875b0bb660d6ed887667b7e4fe19
+	resources\lib\VerticalNav.php: b5e19d10fb382684fc5f09e5ea5f7909
+	resources\lib\WindowMessages.php: f0f01e62783ba8fea6cb890d165b62a5
+	resources\lib\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\lib\PHPMailer\PHPMailer: dir
+	resources\lib\PHPMailer\PHPMailer\Exception.php: 93ffca756944cd37c78d85804300ec2c
+	resources\lib\PHPMailer\PHPMailer\PHPMailer.php: 1148d1086fc5276e50db15ebce405ac6
+	resources\lib\PHPMailer\PHPMailer\SMTP.php: 39ef3a4a88a641cb5e81637204e8c41e
+	resources\moment\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\moment\moment-with-locales.min.js: d458b68730a7330653700489333a7837
+	resources\select2\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\select2\select2-spinner.gif: 7b9776076d5fceef4993b55c9383dedd
+	resources\select2\select2.css: 5a771359ac11c6b7f24fe0492b94de5a
+	resources\select2\select2.min.js: 4def06ec51f3977106a00c71f14f21db
+	resources\select2\select2.png: 37e9da90ccfc8db81639250831de46c1
+	resources\select2\select2x2.png: 49e3f006018662f60f1db2aec0b2cca9
+	resources\table_icons\administrator.png: bd8d3c7816d797093cff4288457919b4
+	resources\table_icons\index.html: 888ceb5cb76adba60e7c4a255964143e
+	resources\table_icons\license.txt: 43404f2e9a2a955a32f09bfd9cd9d249
+	resources\timepicker\bootstrap-timepicker.min.css: 3787a0b1d4b3ea86842ca16ecbb6159c
+	resources\timepicker\bootstrap-timepicker.min.js: fc69c5083b8b23da8d5c2116e5527e4a
+	resources\timepicker\index.html: 888ceb5cb76adba60e7c4a255964143e
+
+Listing local files ...
+
+FilePath: ajax-update-calculated-fields.php
+FolderName: 
+FileName: ajax-update-calculated-fields.php
+LocalMd5Sum: da1a28e80783722319c8639d9a2cd45f
+RemoteMd5Sum: d5ae9ee921f16efe53128aa1b92d9f10
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: ajax_admin_tools.php
+FolderName: 
+FileName: ajax_admin_tools.php
+LocalMd5Sum: ca4ef20e9415ebc50788f1e716d1a492
+RemoteMd5Sum: 306666323435a8f9d5d78f69c5b9b692
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: ajax_check_login.php
+FolderName: 
+FileName: ajax_check_login.php
+LocalMd5Sum: 88f0ef238c003ce30e84017a9904cbb8
+RemoteMd5Sum: efce51be62bce57a4a2797c28912c7cb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: ajax_check_unique.php
+FolderName: 
+FileName: ajax_check_unique.php
+LocalMd5Sum: 37347cfbc0f2e23291d9d672194f8070
+RemoteMd5Sum: af8ada3163769b9d77a6f939538d85c8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: ajax_combo.php
+FolderName: 
+FileName: ajax_combo.php
+LocalMd5Sum: 99f9f1d3c68b9aea1fd1081ead737f4c
+RemoteMd5Sum: c30806a61a1e9c4db4216b757a97a7c5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: blank.gif
+FolderName: 
+FileName: blank.gif
+LocalMd5Sum: d3e941fe204d0a9cc5b92782bbf882c8
+RemoteMd5Sum: d3e941fe204d0a9cc5b92782bbf882c8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: checkMemberID.php
+FolderName: 
+FileName: checkMemberID.php
+LocalMd5Sum: 1595bac4ee58cd0e624313b15ecdea96
+RemoteMd5Sum: 0bde799cb6b7edae02e2fc6ab0dc7193
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: cli-update-calculated-fields.php
+FolderName: 
+FileName: cli-update-calculated-fields.php
+LocalMd5Sum: f24bc2b50169cab1a0b49cee4bf4b2f0
+RemoteMd5Sum: fad167fd4365e568e79e3200c2455017
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: common.js
+FolderName: 
+FileName: common.js
+LocalMd5Sum: d374c183ebe70944f25f994d85227fb0
+RemoteMd5Sum: 3b19b8970de031a31f2667c6d9350799
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: datalist.php
+FolderName: 
+FileName: datalist.php
+LocalMd5Sum: 1c957465da0a63843404ea8a9d27a776
+RemoteMd5Sum: 2474753a0b344d75db9f4d0dedf2b466
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: db.php
+FolderName: 
+FileName: db.php
+LocalMd5Sum: 761772669b3d9a008aa8de24faedf230
+RemoteMd5Sum: 65effae76abd1d29e00694bf30e0b15e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: defaultFilters.php
+FolderName: 
+FileName: defaultFilters.php
+LocalMd5Sum: 5fb93f18547cd235a49e5ca9feb2d45d
+RemoteMd5Sum: a64dd96dc678bb06a9c3b3a1b2623e28
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: defaultLang.php
+FolderName: 
+FileName: defaultLang.php
+LocalMd5Sum: b5aab355b1533425c58e615a9898957b
+RemoteMd5Sum: b7639f7d161cdb2b2b82c7ef0af14b98
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: definitions.php
+FolderName: 
+FileName: definitions.php
+LocalMd5Sum: 0b67e9dfcbb5d38e090fbb8189756fde
+RemoteMd5Sum: ed31f60e5b1b16ebfbeb1e67cfddf307
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: dynamic.css
+FolderName: 
+FileName: dynamic.css
+LocalMd5Sum: 4262e4789cf1cc62979c7b4154ea3cc3
+RemoteMd5Sum: 8ecd71fdc776a0b33d0c6be99ada261d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: footer.php
+FolderName: 
+FileName: footer.php
+LocalMd5Sum: cb3529bb0a02e7e3071261576af65aba
+RemoteMd5Sum: 79fbcf037c8bb0b49a900f574d7e8ce4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: handshake.svg
+FolderName: 
+FileName: handshake.svg
+LocalMd5Sum: 9ab8389fa77ffa0568fd7117a491c44f
+RemoteMd5Sum: 9ab8389fa77ffa0568fd7117a491c44f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: header.php
+FolderName: 
+FileName: header.php
+LocalMd5Sum: ea9e192b1e655e086df018a5e17133e1
+RemoteMd5Sum: deba81e4f606ec47c373ed449e6e9885
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: home.php
+FolderName: 
+FileName: home.php
+LocalMd5Sum: 10c181f84b04e08d031140cf9c641d42
+RemoteMd5Sum: 6c8b2bb93c784fc975b8ec27b4d7613f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howqs_autofill.php
+FolderName: 
+FileName: howqs_autofill.php
+LocalMd5Sum: 29376013bc3a15c12dc3d954b73f4574
+RemoteMd5Sum: 13292faf0bfd6494e80ec9c8123b1498
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howqs_dml.php
+FolderName: 
+FileName: howqs_dml.php
+LocalMd5Sum: 98e2b55e4c593b70bc4adea05343cc1a
+RemoteMd5Sum: 3f198f140f4de314c48adf856c6064db
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howqs_view.php
+FolderName: 
+FileName: howqs_view.php
+LocalMd5Sum: a353bbb281eea33f4ff08824488401ec
+RemoteMd5Sum: d12e84ee9bc4d9f32282c7b43a3ea718
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howrs_autofill.php
+FolderName: 
+FileName: howrs_autofill.php
+LocalMd5Sum: c8d785a8e8570f27fe4ef8233a0c7be5
+RemoteMd5Sum: ee7771063db1fdb9e12d324eb7b17166
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howrs_dml.php
+FolderName: 
+FileName: howrs_dml.php
+LocalMd5Sum: 9124b3d5afd1e2bff566d2e00bdba596
+RemoteMd5Sum: 6df26ba24d594e2fd19b808cb3ed3fbe
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howrs_view.php
+FolderName: 
+FileName: howrs_view.php
+LocalMd5Sum: e5289ac6283e6e0a88737f30906a54cf
+RemoteMd5Sum: 0e5e7554936bd47869303f5d5f64b463
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howss_autofill.php
+FolderName: 
+FileName: howss_autofill.php
+LocalMd5Sum: b8bb9ba40d5e8bd25c02e717c8944abe
+RemoteMd5Sum: f1ab1965e15b50e9e42551db3ef18272
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howss_dml.php
+FolderName: 
+FileName: howss_dml.php
+LocalMd5Sum: 9a67aeba8a27d204ff6af5df5b84bdcf
+RemoteMd5Sum: 575c5ce69e7136ce4a29fbd944856d0d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howss_view.php
+FolderName: 
+FileName: howss_view.php
+LocalMd5Sum: 479aa5c63aa30cea5280d897461dfb81
+RemoteMd5Sum: 9d4f1535988fb7314496f9c90a878e15
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howts_autofill.php
+FolderName: 
+FileName: howts_autofill.php
+LocalMd5Sum: 5f45584e4ef88b2c5c8c370599a0a1c8
+RemoteMd5Sum: e4bb3de3b40cb668f1d6051e10aed27b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howts_dml.php
+FolderName: 
+FileName: howts_dml.php
+LocalMd5Sum: 5cbdd4faf067533dcab1976cea9e5ada
+RemoteMd5Sum: ddf5ff9ce3ea60a7af8b57f7b833445e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: howts_view.php
+FolderName: 
+FileName: howts_view.php
+LocalMd5Sum: a825c5c1d2810794f260d4c71fd55fd6
+RemoteMd5Sum: 4d7371218dcf83fac224b41ad79f2c7e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: import-csv.php
+FolderName: 
+FileName: import-csv.php
+LocalMd5Sum: c502c6908527abea51d023ae5089756f
+RemoteMd5Sum: 2d80993269ba43225cd698a4e4832730
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: incCommon.php
+FolderName: 
+FileName: incCommon.php
+LocalMd5Sum: 9923d911ca519817a3dba5c4d60085ac
+RemoteMd5Sum: 05739528bb588b1f98bd7a89c5045726
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: index.html
+FolderName: 
+FileName: index.html
+LocalMd5Sum: 985335b37876878a106f93c83496a128
+RemoteMd5Sum: 777ab29e0fc5b92fea635deb7ecedfc1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: index.php
+FolderName: 
+FileName: index.php
+LocalMd5Sum: 0bb3606a756095bcafa1cd227a7405b6
+RemoteMd5Sum: ff6b39d9e94c97f1ce97f33f4cae4837
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: lang.js.php
+FolderName: 
+FileName: lang.js.php
+LocalMd5Sum: defb29cbc49aa328090ee7dccefcdc7a
+RemoteMd5Sum: e0cf7f63628eddac19524890e5b2a52f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: language.php
+FolderName: 
+FileName: language.php
+LocalMd5Sum: a893539485789bb8f6974af186123f3f
+RemoteMd5Sum: 8f305b9e0cf441cece166ce084ed212e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: lib.php
+FolderName: 
+FileName: lib.php
+LocalMd5Sum: 12eef9162335f58a87cafc5ff9c6e628
+RemoteMd5Sum: aa80f5a6e197f38ce097cfa9d53343fb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: link.php
+FolderName: 
+FileName: link.php
+LocalMd5Sum: 8e7476a31eac2de7f448457c598c2dcb
+RemoteMd5Sum: e12ee5ad083a78dd6184dcb2f134bf03
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: loading.gif
+FolderName: 
+FileName: loading.gif
+LocalMd5Sum: cb081508c32b52bccacc59781ebbbb36
+RemoteMd5Sum: cb081508c32b52bccacc59781ebbbb36
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: login.php
+FolderName: 
+FileName: login.php
+LocalMd5Sum: f2692727d3ce963263f079075b8004c8
+RemoteMd5Sum: a3fb245d8ad5cfd98dfd5be49b2decc6
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: logo.png
+FolderName: 
+FileName: logo.png
+LocalMd5Sum: 09caee6e2337a676ef3d810c2b0d6e27
+RemoteMd5Sum: 09caee6e2337a676ef3d810c2b0d6e27
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: madb_autofill.php
+FolderName: 
+FileName: madb_autofill.php
+LocalMd5Sum: 275f737ca1e6e1257c290e3816918aca
+RemoteMd5Sum: f37c377e36586e428574b1982bce8171
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: madb_dml.php
+FolderName: 
+FileName: madb_dml.php
+LocalMd5Sum: 82d197df2d9ebe044604e8d9fa45fc4c
+RemoteMd5Sum: 36e7c73807cdbca6fe8be9816c084e70
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: madb_view.php
+FolderName: 
+FileName: madb_view.php
+LocalMd5Sum: 32edce773d37fb4c14a2e1189f14da90
+RemoteMd5Sum: db4371d4c1f873d1fae2945e80ef0178
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: manifest.json.php
+FolderName: 
+FileName: manifest.json.php
+LocalMd5Sum: 5d6bfc4592fe7fefc7729663c92e289d
+RemoteMd5Sum: c51cb19d54b6299797ffea7eaa82fba3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: md5s.972943.tmp.tmp
+FolderName: 
+FileName: md5s.972943.tmp.tmp
+LocalMd5Sum: d41d8cd98f00b204e9800998ecf8427e
+RemoteMd5Sum: 
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? Yes
+Excluded from uploads? Yes, excluded file type
+Queued for uploading? No
+
+FilePath: membership_passwordReset.php
+FolderName: 
+FileName: membership_passwordReset.php
+LocalMd5Sum: c368859813ba837c36da7cad7067ad4e
+RemoteMd5Sum: e09cb450bf4798ae0205d587863093dc
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: membership_profile.php
+FolderName: 
+FileName: membership_profile.php
+LocalMd5Sum: 113f07dc04d04c0d61dc12959e17d9b9
+RemoteMd5Sum: 1cbe26d17ae700a3b943d2526beb9a20
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: membership_signup.php
+FolderName: 
+FileName: membership_signup.php
+LocalMd5Sum: 389075a367723f1057f1165133292e8d
+RemoteMd5Sum: 9ab9339c2294a7967f8551d355403e89
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: membership_thankyou.php
+FolderName: 
+FileName: membership_thankyou.php
+LocalMd5Sum: b24c10ac0d64af7a9ee418adef68cbb8
+RemoteMd5Sum: 4bf3d1b7b1eee0b3774722c2bbdc1cb9
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: nicEdit.js
+FolderName: 
+FileName: nicEdit.js
+LocalMd5Sum: e82d141af511b8fd032a4b9be8bbdb3b
+RemoteMd5Sum: e82d141af511b8fd032a4b9be8bbdb3b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: nicEditorIcons.gif
+FolderName: 
+FileName: nicEditorIcons.gif
+LocalMd5Sum: 64ff70454349f64643a87a6a5bc3538e
+RemoteMd5Sum: 64ff70454349f64643a87a6a5bc3538e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: parent-children.php
+FolderName: 
+FileName: parent-children.php
+LocalMd5Sum: 295fd6a75e9ec9e19667f918caa9b1a8
+RemoteMd5Sum: cf013560e1c29d6f8f7dcd11951313f1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: photo.gif
+FolderName: 
+FileName: photo.gif
+LocalMd5Sum: 96cd050a452e39801b4096745693161c
+RemoteMd5Sum: 96cd050a452e39801b4096745693161c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: pwa-offline.php
+FolderName: 
+FileName: pwa-offline.php
+LocalMd5Sum: 0adc583447246e2a6225b5224ccc9848
+RemoteMd5Sum: 64f76a4ead56f469eaa7f950f3db582e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: service-worker.js
+FolderName: 
+FileName: service-worker.js
+LocalMd5Sum: bcc8be26213db4a70fae4ed26a494906
+RemoteMd5Sum: 585114879dd76a80e71c7863a84a5fcf
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: settings-manager.php
+FolderName: 
+FileName: settings-manager.php
+LocalMd5Sum: 7e5e0ef6841a571383b1f81e872f9a12
+RemoteMd5Sum: fa77b0c423547f6ab94cbf5313e34a60
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: setup.php
+FolderName: 
+FileName: setup.php
+LocalMd5Sum: 50fed8ae6621e7600f3da9f4b2c44ccb
+RemoteMd5Sum: 16936224e96cdb2767f7f03b3799d260
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: shortcuts.js
+FolderName: 
+FileName: shortcuts.js
+LocalMd5Sum: 50f259fe3b42b2123d92b212a089ffe6
+RemoteMd5Sum: 50f259fe3b42b2123d92b212a089ffe6
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: table.gif
+FolderName: 
+FileName: table.gif
+LocalMd5Sum: 742bde42c832e3bf64f1a2abfa122f49
+RemoteMd5Sum: 742bde42c832e3bf64f1a2abfa122f49
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: task_master.axp
+FolderName: 
+FileName: task_master.axp
+LocalMd5Sum: 3e92d905475a831869e1318bbc85d855
+RemoteMd5Sum: a872bbed7257234276ce37c4733cda68
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: thumbnail.php
+FolderName: 
+FileName: thumbnail.php
+LocalMd5Sum: aeaedb7bf7364982f1c83fc13dc18899
+RemoteMd5Sum: d57aefbc16ad2e4ca6b189a35246e570
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: updateDB.php
+FolderName: 
+FileName: updateDB.php
+LocalMd5Sum: 94a96c2e40a3a1a878f3fe365f2af722
+RemoteMd5Sum: 9fad0ba58065522ce1189189a7df4957
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: upload.log
+FolderName: 
+FileName: upload.log
+LocalMd5Sum: c8b76bca0b1ecb9412789f6ead58a46a
+RemoteMd5Sum: 306e1a419317eadd0422489778428e07
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? Yes
+Excluded from uploads? Yes, excluded file type
+Queued for uploading? No
+
+FilePath: utedb_autofill.php
+FolderName: 
+FileName: utedb_autofill.php
+LocalMd5Sum: 63ea849d209da70eee053e3a30da1ba3
+RemoteMd5Sum: 5d3dedb94c19a47819ddc26696501b74
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: utedb_dml.php
+FolderName: 
+FileName: utedb_dml.php
+LocalMd5Sum: 2c4b671e89402792c56657553b6273d5
+RemoteMd5Sum: 6ffd1908c6c76a9ce432ac7f3d62628e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: utedb_view.php
+FolderName: 
+FileName: utedb_view.php
+LocalMd5Sum: c8d2546201d7b8d90c59d9cbd78650c3
+RemoteMd5Sum: 21bb78af839fd0b456d4bed4a679eccd
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whats_autofill.php
+FolderName: 
+FileName: whats_autofill.php
+LocalMd5Sum: a1fcf250f2cb1c9822c16d84c8446d20
+RemoteMd5Sum: 3d9accd707f9fec9823b6e42349e6882
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whats_dml.php
+FolderName: 
+FileName: whats_dml.php
+LocalMd5Sum: 64e3501caa065f7d3913a836fbeb39b3
+RemoteMd5Sum: 93b124a5051ed10ea3a059b9d49e7207
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whats_view.php
+FolderName: 
+FileName: whats_view.php
+LocalMd5Sum: c497d0323b14d8ffb767d692fd6c8dd4
+RemoteMd5Sum: 476e4861c0de4a36b60fb7a808e7be3b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whens_autofill.php
+FolderName: 
+FileName: whens_autofill.php
+LocalMd5Sum: c5234239d18c832ec7d3c1bb9411792d
+RemoteMd5Sum: ee1e3688da7c900f0807f73b21fc2350
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whens_dml.php
+FolderName: 
+FileName: whens_dml.php
+LocalMd5Sum: 8c00fec4f380b343973498a016274bb8
+RemoteMd5Sum: f6def014ece461449de8152528f83ebe
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whens_view.php
+FolderName: 
+FileName: whens_view.php
+LocalMd5Sum: 1031425dfd95b7956672ad00cfc4bb45
+RemoteMd5Sum: 3ff46322dfddbd3fc0b4c0923e1f8063
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: wheres_autofill.php
+FolderName: 
+FileName: wheres_autofill.php
+LocalMd5Sum: a5c3a4b7c1a3fc1f25961e9c3822e64f
+RemoteMd5Sum: 9b819c61be07bc470cc0efb0c59b4206
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: wheres_dml.php
+FolderName: 
+FileName: wheres_dml.php
+LocalMd5Sum: 5f94c0dba4bf19e37dfdf9cd6ce717c3
+RemoteMd5Sum: 6a10b1a33fce2244b5de25fbb7d52b48
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: wheres_view.php
+FolderName: 
+FileName: wheres_view.php
+LocalMd5Sum: 42bc9ba87ccb2c57482639efed1fb91a
+RemoteMd5Sum: f7eeb2eb8b998b6ac163cc6cc7e758ce
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whichs_autofill.php
+FolderName: 
+FileName: whichs_autofill.php
+LocalMd5Sum: 416fef3b33f4710a8b3fca75c7bf92ba
+RemoteMd5Sum: 63825073f525ceeb894ad4b51f64b6ec
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whichs_dml.php
+FolderName: 
+FileName: whichs_dml.php
+LocalMd5Sum: 124883cf0c99722bd948c48acebbce5b
+RemoteMd5Sum: 123a904a6138d71ad692b65b8514e641
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whichs_view.php
+FolderName: 
+FileName: whichs_view.php
+LocalMd5Sum: 8a4d9c8072372b5489e2772a393d9bfd
+RemoteMd5Sum: fad8b46c6395f6a110e145f7b15f28fe
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whos_autofill.php
+FolderName: 
+FileName: whos_autofill.php
+LocalMd5Sum: 2a0cf1df5840cfc263596f12bc95d6d3
+RemoteMd5Sum: e525da0711718d98b5c1c2fb92631aea
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whos_dml.php
+FolderName: 
+FileName: whos_dml.php
+LocalMd5Sum: 7d0be2e4e2a197e01bff3e3f848cfa91
+RemoteMd5Sum: 3f8ac493b601dd24ebf61603f0bda916
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whos_view.php
+FolderName: 
+FileName: whos_view.php
+LocalMd5Sum: 907f8c1fa3d3e6151151eb67e48458f6
+RemoteMd5Sum: df9061377ffad2325182ca7cdd15657d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whys_autofill.php
+FolderName: 
+FileName: whys_autofill.php
+LocalMd5Sum: 01ada119a265dd0b03a55cac360979f3
+RemoteMd5Sum: e8ef740dd662156abb0b36c8c94918b1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whys_dml.php
+FolderName: 
+FileName: whys_dml.php
+LocalMd5Sum: 8fe516681e147448930231852669b1db
+RemoteMd5Sum: 58315c1924802cb5e6529fc0ded6cbcc
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: whys_view.php
+FolderName: 
+FileName: whys_view.php
+LocalMd5Sum: 5a3a1dc1c6431538b66a6b40b1508344
+RemoteMd5Sum: 0a0afe9f7071e3c3f73f6bbc58f24799
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\ajax-maintenance-mode.php
+FolderName: admin\
+FileName: ajax-maintenance-mode.php
+LocalMd5Sum: 7df587f51acb055d5e670c3ed131c56f
+RemoteMd5Sum: 5cf5c8340d52a36ce3cd13c6462785a5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\ajax-saved-sql.php
+FolderName: admin\
+FileName: ajax-saved-sql.php
+LocalMd5Sum: 76123d627897eaf552a3da94ca43b7b6
+RemoteMd5Sum: 7a052138f0a047e7ba9a1d3dbac233c4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\ajax-sql.php
+FolderName: admin\
+FileName: ajax-sql.php
+LocalMd5Sum: a7696d1695c257096db3447f7dcf07e0
+RemoteMd5Sum: a944e035a5415bb9afdf6f591d9dca70
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\app-documentation.php
+FolderName: admin\
+FileName: app-documentation.php
+LocalMd5Sum: 8260c13eecff79b7ababaca6f11882a3
+RemoteMd5Sum: 057c241bf5757808f0ac8546f4e545e4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\getUsers.php
+FolderName: admin\
+FileName: getUsers.php
+LocalMd5Sum: 54732bdab3b67b832f47c2ccbed32d5c
+RemoteMd5Sum: 86f25cba03345c4b3b0692fab05b7dbd
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\images\approve_icon.gif
+FolderName: admin\images\
+FileName: approve_icon.gif
+LocalMd5Sum: c037df4dedd61b4b5d77517d05de2020
+RemoteMd5Sum: c037df4dedd61b4b5d77517d05de2020
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: admin\images\data_icon.gif
+FolderName: admin\images\
+FileName: data_icon.gif
+LocalMd5Sum: fb700fe8af24c94f8f917a4402e9b303
+RemoteMd5Sum: fb700fe8af24c94f8f917a4402e9b303
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: admin\images\helpBg.gif
+FolderName: admin\images\
+FileName: helpBg.gif
+LocalMd5Sum: fa5cbc278f7c8073f2066364748516ed
+RemoteMd5Sum: fa5cbc278f7c8073f2066364748516ed
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: admin\images\index.html
+FolderName: admin\images\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: admin\images\members_icon.gif
+FolderName: admin\images\
+FileName: members_icon.gif
+LocalMd5Sum: ebe15480f259b61c5d4efb99d1a8302d
+RemoteMd5Sum: ebe15480f259b61c5d4efb99d1a8302d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: admin\images\member_icon.gif
+FolderName: admin\images\
+FileName: member_icon.gif
+LocalMd5Sum: bab78591fa8cb08bd1ae2cc900d2dda2
+RemoteMd5Sum: bab78591fa8cb08bd1ae2cc900d2dda2
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: admin\images\stop_icon.gif
+FolderName: admin\images\
+FileName: stop_icon.gif
+LocalMd5Sum: 419471d9837f2c66e9c5d2d805c7b910
+RemoteMd5Sum: 419471d9837f2c66e9c5d2d805c7b910
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: admin\incCommon.php
+FolderName: admin\
+FileName: incCommon.php
+LocalMd5Sum: 192171dcbba3419d1f4470dc92cdbadc
+RemoteMd5Sum: 43d45ad61a13bc85036a313ce69ded33
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\incFooter.php
+FolderName: admin\
+FileName: incFooter.php
+LocalMd5Sum: 91e01a0119fea165f11e98667ed70477
+RemoteMd5Sum: 59baf9303498754c063d4945a5cbeed1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\incFunctions.php
+FolderName: admin\
+FileName: incFunctions.php
+LocalMd5Sum: 044611896eeeb9b76badbdf2df629e6a
+RemoteMd5Sum: 3b41143bd7dc71b1feb6dfa984c2f027
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\incHeader.php
+FolderName: admin\
+FileName: incHeader.php
+LocalMd5Sum: cfaf080766c6751b31d8a11ed98209ee
+RemoteMd5Sum: 604f1990b3109d2b33ecc643bceecb47
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\index.php
+FolderName: admin\
+FileName: index.php
+LocalMd5Sum: 68ef39cd512ed1f59c5207e60522a23d
+RemoteMd5Sum: f127341fccd0dfb0b1aa4d345cd29941
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageAssignOwners.php
+FolderName: admin\
+FileName: pageAssignOwners.php
+LocalMd5Sum: cfdb78b798cccf633719a9dc99ec2bf4
+RemoteMd5Sum: e0616f9daaf5e6cde7760d1cee2033a4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageBackupRestore.php
+FolderName: admin\
+FileName: pageBackupRestore.php
+LocalMd5Sum: 9037b6a146dc1f9c7cdd8cda3f309f98
+RemoteMd5Sum: 813e04ffd698413035c1b613cf425718
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageChangeMemberStatus.php
+FolderName: admin\
+FileName: pageChangeMemberStatus.php
+LocalMd5Sum: 4045d91effb5e6ed23be892492c1f102
+RemoteMd5Sum: 87e1ab50db00ed9523149b9a18653cf3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageDeleteGroup.php
+FolderName: admin\
+FileName: pageDeleteGroup.php
+LocalMd5Sum: 1f5d1408e71a15413aa11657363a08e8
+RemoteMd5Sum: 8953490a26e031e5ec77b89a61ff2779
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageDeleteMember.php
+FolderName: admin\
+FileName: pageDeleteMember.php
+LocalMd5Sum: d6eaeb2eb7fc18472d8b857d4c6e9462
+RemoteMd5Sum: a12215f839ed3926217676e437e08fae
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageDeleteRecord.php
+FolderName: admin\
+FileName: pageDeleteRecord.php
+LocalMd5Sum: 817cf7e6f5d4ea82c446393f62942362
+RemoteMd5Sum: b878a30725e4c2a1e961b3aa2d83225c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageEditGroup.php
+FolderName: admin\
+FileName: pageEditGroup.php
+LocalMd5Sum: ac919bf2e744fe3cda01a94129480d0d
+RemoteMd5Sum: c67ac8042c154d2a9ac797f72dfd596b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageEditMember.php
+FolderName: admin\
+FileName: pageEditMember.php
+LocalMd5Sum: 4ca4b02e3090a6d2aa5edc34af661301
+RemoteMd5Sum: 186f07e77df7053dc3c9a07306eeee08
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageEditMemberPermissions.php
+FolderName: admin\
+FileName: pageEditMemberPermissions.php
+LocalMd5Sum: ed6f3d6f4c0d6022c15d603c3bb96ea1
+RemoteMd5Sum: 9edd768708be67bdc78ce72948d30865
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageEditOwnership.php
+FolderName: admin\
+FileName: pageEditOwnership.php
+LocalMd5Sum: bb710dc1fc3bc7d0c099126922cb7571
+RemoteMd5Sum: 1314513aed35d18d10907bcba19804ec
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageFixRecordOwners.php
+FolderName: admin\
+FileName: pageFixRecordOwners.php
+LocalMd5Sum: bb64499cda215b5916e5e4a04619242c
+RemoteMd5Sum: 1279cf224d5acec8e92676065a89c376
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageHome.php
+FolderName: admin\
+FileName: pageHome.php
+LocalMd5Sum: 2fd4434f38c9679e6dd3323d9896a03c
+RemoteMd5Sum: 9effe8fc340aacecbef50adef1d4381f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageInstallPlugin.php
+FolderName: admin\
+FileName: pageInstallPlugin.php
+LocalMd5Sum: 180ab6c336be9ed38950fb7392df0f8e
+RemoteMd5Sum: a15a9aafd39d9dcad3c3ad0eff928775
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageMail.php
+FolderName: admin\
+FileName: pageMail.php
+LocalMd5Sum: fe1c6ff1969c303669d67f238b420818
+RemoteMd5Sum: c3ca9f32ba080777b853014e82cea0b8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pagePrintRecord.php
+FolderName: admin\
+FileName: pagePrintRecord.php
+LocalMd5Sum: 90e10c487a9e3ca4e91e8cd9b0dafb0c
+RemoteMd5Sum: c4446594c00b4f99768e1775b9c909f5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageQueryLogs.php
+FolderName: admin\
+FileName: pageQueryLogs.php
+LocalMd5Sum: dec0ddda1849930a93421f38c908dda6
+RemoteMd5Sum: 02797a193604650f8832c7ca077f11f4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageRebuildFields.php
+FolderName: admin\
+FileName: pageRebuildFields.php
+LocalMd5Sum: 9199410db290be81a8f10c87f85f5b91
+RemoteMd5Sum: 2ef1c3113e11ab0377594e211e01edd3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageRebuildThumbnails.php
+FolderName: admin\
+FileName: pageRebuildThumbnails.php
+LocalMd5Sum: d4db3a5c532e2aa2764374251b027fca
+RemoteMd5Sum: 1fc69f41759390a74d13f4566aa17b60
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageSender.php
+FolderName: admin\
+FileName: pageSender.php
+LocalMd5Sum: 46495fbcabb966ca1dae931a6f194206
+RemoteMd5Sum: cb254d0d8851324e1c30d6a44cf35c5e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageServerStatus.php
+FolderName: admin\
+FileName: pageServerStatus.php
+LocalMd5Sum: 6f02d1b500d756be0adb38d01adc8125
+RemoteMd5Sum: a91b18f788da90529806f58e2a864f9a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageSettings.php
+FolderName: admin\
+FileName: pageSettings.php
+LocalMd5Sum: 0562d255e487d1d663b6ad62022d9409
+RemoteMd5Sum: dd043a8400cbd3a45e7fb229a5d15fff
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageSQL.js
+FolderName: admin\
+FileName: pageSQL.js
+LocalMd5Sum: 346b6b1c38bb938492c5110cead478d2
+RemoteMd5Sum: 93a9d602b2a351f0c883252c5e4af3bf
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageSQL.php
+FolderName: admin\
+FileName: pageSQL.php
+LocalMd5Sum: 51236186f6c6b48818052823deeacdff
+RemoteMd5Sum: f16c0f8709fccbcdcddc59ac6afc73d1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageTransferOwnership.php
+FolderName: admin\
+FileName: pageTransferOwnership.php
+LocalMd5Sum: 33f1ae7cd9f3763f8a9310cb67c3583e
+RemoteMd5Sum: 68e3c612f10c7cb993062295d45171d2
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageTranslation.php
+FolderName: admin\
+FileName: pageTranslation.php
+LocalMd5Sum: 3eca0d7dbbe567154281974ace1324df
+RemoteMd5Sum: b49d6994146b5db1f3af953afeb315fb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageUpdateCalculatedFields.php
+FolderName: admin\
+FileName: pageUpdateCalculatedFields.php
+LocalMd5Sum: 73e6aec6f25f118b790a509945e0d3bb
+RemoteMd5Sum: 6a3d8bac283280c7f4d5eb52bd733f55
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageViewGroups.php
+FolderName: admin\
+FileName: pageViewGroups.php
+LocalMd5Sum: e6171a4e99d102fd1eb25288cf5c08fe
+RemoteMd5Sum: bef0da04a45a5c4e0f3a3cf2d2b3e01b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageViewMembers.php
+FolderName: admin\
+FileName: pageViewMembers.php
+LocalMd5Sum: ea4b948d30f2b89c45e59357eb630b0d
+RemoteMd5Sum: e0ac27bd0f5c5a4f509fc6dc7ab81f5d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\pageViewRecords.php
+FolderName: admin\
+FileName: pageViewRecords.php
+LocalMd5Sum: a078adb43208f1584d80aba8e1ac5696
+RemoteMd5Sum: 7072562fcfa062d47370b736969a27c0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\toolTipData.js
+FolderName: admin\
+FileName: toolTipData.js
+LocalMd5Sum: 38d44c1e40b4b6ab501cd3d80e92f07d
+RemoteMd5Sum: e20cb6a9cf230d7892307e63860433db
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: admin\toolTips.js
+FolderName: admin\
+FileName: toolTips.js
+LocalMd5Sum: 472554a9d175c12018e3a1d5343f60e5
+RemoteMd5Sum: ded19949517fe88f53a75ed7571b577f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\footer-extras.php
+FolderName: hooks\
+FileName: footer-extras.php
+LocalMd5Sum: d41d8cd98f00b204e9800998ecf8427e
+RemoteMd5Sum: d41d8cd98f00b204e9800998ecf8427e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: hooks\header-extras.php
+FolderName: hooks\
+FileName: header-extras.php
+LocalMd5Sum: d41d8cd98f00b204e9800998ecf8427e
+RemoteMd5Sum: d41d8cd98f00b204e9800998ecf8427e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: hooks\howqs.php
+FolderName: hooks\
+FileName: howqs.php
+LocalMd5Sum: dc6eef8ae1ab9b62861408b7dda849dd
+RemoteMd5Sum: 8ac935ed4d05aa4357c484cc1962b318
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\howrs.php
+FolderName: hooks\
+FileName: howrs.php
+LocalMd5Sum: 8cb7e701fb9cb5cebcc4bfe37211d9f5
+RemoteMd5Sum: ee0de1ce75dc0b345249a6cb9d8950df
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\howss.php
+FolderName: hooks\
+FileName: howss.php
+LocalMd5Sum: 4c523e510dba99c9459aeb75f8a3fa21
+RemoteMd5Sum: 71dec143681dfdcede9ef2ca61d87de9
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\howts.php
+FolderName: hooks\
+FileName: howts.php
+LocalMd5Sum: 8d8bbd5883fad4771948f685e5a60e7a
+RemoteMd5Sum: 7011c645f9ebd4bb466d2450e8127f2b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\index.html
+FolderName: hooks\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: hooks\links-home.php
+FolderName: hooks\
+FileName: links-home.php
+LocalMd5Sum: 3ddb7edea127844607a48e4dcd8c4bcf
+RemoteMd5Sum: 79d617c44861d891938e582c75aacd6f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\links-navmenu.php
+FolderName: hooks\
+FileName: links-navmenu.php
+LocalMd5Sum: 3b8ec4c4fa0410f39e667c481817386f
+RemoteMd5Sum: d2a75467ff524ba810d8d72ba931bd8e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\madb.php
+FolderName: hooks\
+FileName: madb.php
+LocalMd5Sum: 6c6dffde18908b38f890655746fba6d5
+RemoteMd5Sum: 9719a81f53e28f6be1cf1ea0f57f32cb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\README.html
+FolderName: hooks\
+FileName: README.html
+LocalMd5Sum: 7bc6bcbb9225544e0b679c111a118cab
+RemoteMd5Sum: 48fb04656b90b799bbffd8dc01f8dc62
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\utedb.php
+FolderName: hooks\
+FileName: utedb.php
+LocalMd5Sum: 400b64ee17609e05f2f79ca24fffb6d8
+RemoteMd5Sum: 371ae3ab8b805a72643039a1c1c24e0c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\whats.php
+FolderName: hooks\
+FileName: whats.php
+LocalMd5Sum: 0e8d61916cd56bc9c0d8254bfa85ac74
+RemoteMd5Sum: 029b53d14619f471f40d352c0bf17bc3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\whens.php
+FolderName: hooks\
+FileName: whens.php
+LocalMd5Sum: fb093995d7308a25faeaec1be48d5e66
+RemoteMd5Sum: 53476754055f12cf5ba5ae358d39087d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\wheres.php
+FolderName: hooks\
+FileName: wheres.php
+LocalMd5Sum: c82f59d01a44aa6152ba140489fa1bf6
+RemoteMd5Sum: f1bacdcc74f4ee5400e04ad373670dc7
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\whichs.php
+FolderName: hooks\
+FileName: whichs.php
+LocalMd5Sum: f5d06716b330c031de7522383ba6a772
+RemoteMd5Sum: e8043b65977e7ebe56b7dac453f42c0d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\whos.php
+FolderName: hooks\
+FileName: whos.php
+LocalMd5Sum: 7cf8c1fbb721044a9f7c040dcee07e9a
+RemoteMd5Sum: 36aa1939d42ddddebd0f01a8751e119b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\whys.php
+FolderName: hooks\
+FileName: whys.php
+LocalMd5Sum: 6a9a394267b537ded3dd879692930b23
+RemoteMd5Sum: 78847258bfa9409977738cb28485060e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: hooks\__global.php
+FolderName: hooks\
+FileName: __global.php
+LocalMd5Sum: cef14acb034e258aae589193050447e9
+RemoteMd5Sum: 4aa0fdf04d01ab52d1c25121931b47e5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: images\blank.gif
+FolderName: images\
+FileName: blank.gif
+LocalMd5Sum: d3e941fe204d0a9cc5b92782bbf882c8
+RemoteMd5Sum: d3e941fe204d0a9cc5b92782bbf882c8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: images\index.html
+FolderName: images\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\bootstrap-datetimepicker\bootstrap-datetimepicker.css
+FolderName: resources\bootstrap-datetimepicker\
+FileName: bootstrap-datetimepicker.css
+LocalMd5Sum: 0bca3d16b29eb93ae45901d13b5130f4
+RemoteMd5Sum: 0bca3d16b29eb93ae45901d13b5130f4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js
+FolderName: resources\bootstrap-datetimepicker\
+FileName: bootstrap-datetimepicker.min.js
+LocalMd5Sum: 8a36160a466cad1a9e414321f4784baf
+RemoteMd5Sum: 8a36160a466cad1a9e414321f4784baf
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\bootstrap-datetimepicker\index.html
+FolderName: resources\bootstrap-datetimepicker\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\csv\index.html
+FolderName: resources\csv\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\csv\jquery.csv.min.js
+FolderName: resources\csv\
+FileName: jquery.csv.min.js
+LocalMd5Sum: 425763df11a2b603645d60e7f83485aa
+RemoteMd5Sum: dfd58e85f15f20d0a4e53a857bc4060e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\css\datepicker.css
+FolderName: resources\datepicker\css\
+FileName: datepicker.css
+LocalMd5Sum: 928859e82098ae38ac1fea4c4de8415d
+RemoteMd5Sum: 7a3aa7c7c36c391f15a0763f899f74d4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\css\index.html
+FolderName: resources\datepicker\css\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\index.html
+FolderName: resources\datepicker\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\js\datepicker.js
+FolderName: resources\datepicker\js\
+FileName: datepicker.js
+LocalMd5Sum: 9cd38ce613c61d49a8cca51568b39c61
+RemoteMd5Sum: 95dea9e2d2b2c723d3c33de7ca5d743f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\datepicker.packed.js
+FolderName: resources\datepicker\js\
+FileName: datepicker.packed.js
+LocalMd5Sum: 96c8cd7d7dc253087a9ac8bec25193dc
+RemoteMd5Sum: 96c8cd7d7dc253087a9ac8bec25193dc
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\js\index.html
+FolderName: resources\datepicker\js\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\js\lang\af.js
+FolderName: resources\datepicker\js\lang\
+FileName: af.js
+LocalMd5Sum: 3001de0dd0991f5d83621b48876ef15c
+RemoteMd5Sum: 559d40fc4e761d6bc41c8682aeb5107c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\ar.js
+FolderName: resources\datepicker\js\lang\
+FileName: ar.js
+LocalMd5Sum: 567c0600fd7b4226aa6c153c7cb3ca7b
+RemoteMd5Sum: 605c8bc295f00f62c1f9cf6afa94e52f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\de.js
+FolderName: resources\datepicker\js\lang\
+FileName: de.js
+LocalMd5Sum: 49d090d7fe282c81c1d91cecb94931b2
+RemoteMd5Sum: d917cbba67446b88643637c6f87ba16c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\du.js
+FolderName: resources\datepicker\js\lang\
+FileName: du.js
+LocalMd5Sum: 4528c1bde81c669f8ddf00891373940d
+RemoteMd5Sum: 80d08803ae95fcd2cf7d5b290e2b0f9d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\en.js
+FolderName: resources\datepicker\js\lang\
+FileName: en.js
+LocalMd5Sum: 57c0709bfc476683317e2113e4d85710
+RemoteMd5Sum: f96ed29b4236db324af1533ccb8a6c97
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\es.js
+FolderName: resources\datepicker\js\lang\
+FileName: es.js
+LocalMd5Sum: 264821fa95beea33cc6b970cad31da97
+RemoteMd5Sum: c74cf3d1579bdba12d9c0a03fe118e5b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\fi.js
+FolderName: resources\datepicker\js\lang\
+FileName: fi.js
+LocalMd5Sum: 270da8c56ea4d2ad4513341977e115bf
+RemoteMd5Sum: 5bc6ab37f38a28d612bed354da312e34
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\fr.js
+FolderName: resources\datepicker\js\lang\
+FileName: fr.js
+LocalMd5Sum: be4f5c4a754334dad094c7cbab9afe52
+RemoteMd5Sum: c7d6aee5725839e09b15c8e303ddbbc7
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\gr.js
+FolderName: resources\datepicker\js\lang\
+FileName: gr.js
+LocalMd5Sum: f8609a863e3ee1947e3c630145cf90e6
+RemoteMd5Sum: d39f15da7c7b970293e0e190f3d9a75d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\he.js
+FolderName: resources\datepicker\js\lang\
+FileName: he.js
+LocalMd5Sum: 0d3c58f7e1b188508173ac94192bd895
+RemoteMd5Sum: ae07aead091dd0aee2cebc930e550e26
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\index.html
+FolderName: resources\datepicker\js\lang\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\js\lang\it.js
+FolderName: resources\datepicker\js\lang\
+FileName: it.js
+LocalMd5Sum: e5b1fcc10899f7b54aeb3d722b73cea5
+RemoteMd5Sum: 7ada47f4a79ad925bea751e46e3b2fa3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\nl.js
+FolderName: resources\datepicker\js\lang\
+FileName: nl.js
+LocalMd5Sum: 4528c1bde81c669f8ddf00891373940d
+RemoteMd5Sum: 80d08803ae95fcd2cf7d5b290e2b0f9d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\no.js
+FolderName: resources\datepicker\js\lang\
+FileName: no.js
+LocalMd5Sum: 23d69a0a6b3dc3604cfbffce34cce6c4
+RemoteMd5Sum: 5138c2ac7faf91dd37271a64cee394f6
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\pt.js
+FolderName: resources\datepicker\js\lang\
+FileName: pt.js
+LocalMd5Sum: 4f29746cd4059a6e765601956bb9b019
+RemoteMd5Sum: 46246d5add4efea0ce5792260befeda0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\ro.js
+FolderName: resources\datepicker\js\lang\
+FileName: ro.js
+LocalMd5Sum: 4963885416611d0a37f34335851f7558
+RemoteMd5Sum: e891f2b386606eb8ff8bf747d3058431
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\ru.js
+FolderName: resources\datepicker\js\lang\
+FileName: ru.js
+LocalMd5Sum: 127672d1c4fb915eb16c3c958d19be41
+RemoteMd5Sum: 23c87c2b8d08bf908c301c991e92aa75
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\sp.js
+FolderName: resources\datepicker\js\lang\
+FileName: sp.js
+LocalMd5Sum: ace1cbeb12fb73bfaaf3e255add60940
+RemoteMd5Sum: d52ea78fa123353614b6866ce92c3d75
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\sv.js
+FolderName: resources\datepicker\js\lang\
+FileName: sv.js
+LocalMd5Sum: c4b294dca2aabc2b8bf6564cc97b9ecb
+RemoteMd5Sum: 15e7c43edb040207ab8d3b4a08d895f1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\js\lang\ua.js
+FolderName: resources\datepicker\js\lang\
+FileName: ua.js
+LocalMd5Sum: d15659d9fea90e39ccdcf1b6c55eef4b
+RemoteMd5Sum: a391f1f9fcee88bed92bfddb00c9bbce
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\datepicker\media\backstripes.gif
+FolderName: resources\datepicker\media\
+FileName: backstripes.gif
+LocalMd5Sum: 783e240ebc3c6733c924c3e8aa8ae26c
+RemoteMd5Sum: 783e240ebc3c6733c924c3e8aa8ae26c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\media\bg_header.jpg
+FolderName: resources\datepicker\media\
+FileName: bg_header.jpg
+LocalMd5Sum: 76958714b002451273f5b43752d67f77
+RemoteMd5Sum: 76958714b002451273f5b43752d67f77
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\media\bullet1.gif
+FolderName: resources\datepicker\media\
+FileName: bullet1.gif
+LocalMd5Sum: bc222c095355c7750dd797a7b9b35245
+RemoteMd5Sum: bc222c095355c7750dd797a7b9b35245
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\media\bullet2.gif
+FolderName: resources\datepicker\media\
+FileName: bullet2.gif
+LocalMd5Sum: 12d034edb1f29bb9abb4383fa2a56889
+RemoteMd5Sum: 12d034edb1f29bb9abb4383fa2a56889
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\media\cal.gif
+FolderName: resources\datepicker\media\
+FileName: cal.gif
+LocalMd5Sum: e05d8b00f8595743d3326c92cd6f2365
+RemoteMd5Sum: e05d8b00f8595743d3326c92cd6f2365
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\media\gradient-e5e5e5-ffffff.gif
+FolderName: resources\datepicker\media\
+FileName: gradient-e5e5e5-ffffff.gif
+LocalMd5Sum: c2d770c748dd4c367904adb485ebb0f0
+RemoteMd5Sum: c2d770c748dd4c367904adb485ebb0f0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\datepicker\media\index.html
+FolderName: resources\datepicker\media\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\hotkeys\index.html
+FolderName: resources\hotkeys\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\hotkeys\jquery.hotkeys.js
+FolderName: resources\hotkeys\
+FileName: jquery.hotkeys.js
+LocalMd5Sum: fe222f0705e9d97ef3106c5f5b4ea89a
+RemoteMd5Sum: fe222f0705e9d97ef3106c5f5b4ea89a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\hotkeys\jquery.hotkeys.min.js
+FolderName: resources\hotkeys\
+FileName: jquery.hotkeys.min.js
+LocalMd5Sum: 1d389968f1ba79fdc4837b4d60c18f28
+RemoteMd5Sum: 1d389968f1ba79fdc4837b4d60c18f28
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\app-icon-144.png
+FolderName: resources\images\
+FileName: app-icon-144.png
+LocalMd5Sum: 8d2c91c6e9df2aa5706995c96f312e62
+RemoteMd5Sum: 8d2c91c6e9df2aa5706995c96f312e62
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\app-icon-192.png
+FolderName: resources\images\
+FileName: app-icon-192.png
+LocalMd5Sum: ae9732c3b6941864cc041bcf385dc9e1
+RemoteMd5Sum: ae9732c3b6941864cc041bcf385dc9e1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\app-icon-384.png
+FolderName: resources\images\
+FileName: app-icon-384.png
+LocalMd5Sum: 14bfdf4078b13a52306529d0ce5de7fb
+RemoteMd5Sum: 14bfdf4078b13a52306529d0ce5de7fb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\app-icon-512.png
+FolderName: resources\images\
+FileName: app-icon-512.png
+LocalMd5Sum: 0505d64f8cdb132d9050e35a6a502859
+RemoteMd5Sum: 0505d64f8cdb132d9050e35a6a502859
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\app-icon-72.png
+FolderName: resources\images\
+FileName: app-icon-72.png
+LocalMd5Sum: df6f9b0636a8ee7cde8e160558f88f60
+RemoteMd5Sum: df6f9b0636a8ee7cde8e160558f88f60
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\app-icon-96.png
+FolderName: resources\images\
+FileName: app-icon-96.png
+LocalMd5Sum: 05b93abc04ae569e546670a61bf69458
+RemoteMd5Sum: 05b93abc04ae569e546670a61bf69458
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\appgini-icon.png
+FolderName: resources\images\
+FileName: appgini-icon.png
+LocalMd5Sum: 01735b896f79c2e101ff985ed08dbaeb
+RemoteMd5Sum: 01735b896f79c2e101ff985ed08dbaeb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\database.png
+FolderName: resources\images\
+FileName: database.png
+LocalMd5Sum: d227409c3d519b276945219da01a343e
+RemoteMd5Sum: d227409c3d519b276945219da01a343e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\double-column-layout.png
+FolderName: resources\images\
+FileName: double-column-layout.png
+LocalMd5Sum: e2b6acb2c8fa366a3cd719053e840ad5
+RemoteMd5Sum: e2b6acb2c8fa366a3cd719053e840ad5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\index.html
+FolderName: resources\images\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\keyboard-disabled.png
+FolderName: resources\images\
+FileName: keyboard-disabled.png
+LocalMd5Sum: 50a9b05524e3d382f7869ee1a5efcb21
+RemoteMd5Sum: 50a9b05524e3d382f7869ee1a5efcb21
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\keyboard.png
+FolderName: resources\images\
+FileName: keyboard.png
+LocalMd5Sum: b0869e3fe02ddbe61cb4b3ca8db3d3be
+RemoteMd5Sum: b0869e3fe02ddbe61cb4b3ca8db3d3be
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\single-column-layout.png
+FolderName: resources\images\
+FileName: single-column-layout.png
+LocalMd5Sum: a8b93f671ca94e852cd3059e56bc7bc1
+RemoteMd5Sum: a8b93f671ca94e852cd3059e56bc7bc1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\table_go.png
+FolderName: resources\images\
+FileName: table_go.png
+LocalMd5Sum: cf43d3939f613169c76318b1c41a5906
+RemoteMd5Sum: cf43d3939f613169c76318b1c41a5906
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\triple-column-layout.png
+FolderName: resources\images\
+FileName: triple-column-layout.png
+LocalMd5Sum: b403bd52e911fa1ea20bbcd0a1c597b4
+RemoteMd5Sum: b403bd52e911fa1ea20bbcd0a1c597b4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\user-secret-solid.svg
+FolderName: resources\images\
+FileName: user-secret-solid.svg
+LocalMd5Sum: 501f664a48143a77e70be87559d720b5
+RemoteMd5Sum: 501f664a48143a77e70be87559d720b5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\user-solid.svg
+FolderName: resources\images\
+FileName: user-solid.svg
+LocalMd5Sum: 64a41c14e4e6ef7677be64f6efc0370c
+RemoteMd5Sum: 64a41c14e4e6ef7677be64f6efc0370c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\images\users-solid.svg
+FolderName: resources\images\
+FileName: users-solid.svg
+LocalMd5Sum: 62aaa5605771461424ec64053a3fd45c
+RemoteMd5Sum: 62aaa5605771461424ec64053a3fd45c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\bootstrap-desktop.png
+FolderName: resources\initializr\css\
+FileName: bootstrap-desktop.png
+LocalMd5Sum: c384bd6463f573fd6a87d262877c3587
+RemoteMd5Sum: c384bd6463f573fd6a87d262877c3587
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\bootstrap-mobile.png
+FolderName: resources\initializr\css\
+FileName: bootstrap-mobile.png
+LocalMd5Sum: 6f25835e6483ab1e1c14c466d805bb33
+RemoteMd5Sum: 6f25835e6483ab1e1c14c466d805bb33
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\bootstrap-theme.css
+FolderName: resources\initializr\css\
+FileName: bootstrap-theme.css
+LocalMd5Sum: 657abdbdf9f097a761efe7fda1e44884
+RemoteMd5Sum: 657abdbdf9f097a761efe7fda1e44884
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\bootstrap.css
+FolderName: resources\initializr\css\
+FileName: bootstrap.css
+LocalMd5Sum: 2183d05f5a0a9a3b2e8cb0509ca363e3
+RemoteMd5Sum: 2183d05f5a0a9a3b2e8cb0509ca363e3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cerulean-desktop.png
+FolderName: resources\initializr\css\
+FileName: cerulean-desktop.png
+LocalMd5Sum: 3c04688c07d33fdd89e69e0c0007abfe
+RemoteMd5Sum: 3c04688c07d33fdd89e69e0c0007abfe
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cerulean-mobile.png
+FolderName: resources\initializr\css\
+FileName: cerulean-mobile.png
+LocalMd5Sum: bf9bf09ab3d73714dbdff6d3b3b0b4fb
+RemoteMd5Sum: bf9bf09ab3d73714dbdff6d3b3b0b4fb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cerulean.css
+FolderName: resources\initializr\css\
+FileName: cerulean.css
+LocalMd5Sum: 95793619ddb2ca54e8ade20f41dc52cf
+RemoteMd5Sum: 95793619ddb2ca54e8ade20f41dc52cf
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cosmo-desktop.png
+FolderName: resources\initializr\css\
+FileName: cosmo-desktop.png
+LocalMd5Sum: d6421f80c6ff3c11f5f00240797cb88d
+RemoteMd5Sum: d6421f80c6ff3c11f5f00240797cb88d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cosmo-mobile.png
+FolderName: resources\initializr\css\
+FileName: cosmo-mobile.png
+LocalMd5Sum: e34cd35c80e70e535215e99dfb3cceba
+RemoteMd5Sum: e34cd35c80e70e535215e99dfb3cceba
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cosmo.css
+FolderName: resources\initializr\css\
+FileName: cosmo.css
+LocalMd5Sum: e079716efbedba9da5c793b5e8943361
+RemoteMd5Sum: e079716efbedba9da5c793b5e8943361
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cyborg-desktop.png
+FolderName: resources\initializr\css\
+FileName: cyborg-desktop.png
+LocalMd5Sum: 9b112614cd468faa5a7b4dd1ddf3c3f6
+RemoteMd5Sum: 9b112614cd468faa5a7b4dd1ddf3c3f6
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cyborg-mobile.png
+FolderName: resources\initializr\css\
+FileName: cyborg-mobile.png
+LocalMd5Sum: 9550f64d561437fb7db85f25462e8e0a
+RemoteMd5Sum: 9550f64d561437fb7db85f25462e8e0a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\cyborg.css
+FolderName: resources\initializr\css\
+FileName: cyborg.css
+LocalMd5Sum: 364c2487418343cd9a2c02d8a6a1a9d8
+RemoteMd5Sum: 364c2487418343cd9a2c02d8a6a1a9d8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\darkly-desktop.png
+FolderName: resources\initializr\css\
+FileName: darkly-desktop.png
+LocalMd5Sum: a62850f926ac2a4e7c9bf45645a6602a
+RemoteMd5Sum: a62850f926ac2a4e7c9bf45645a6602a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\darkly-mobile.png
+FolderName: resources\initializr\css\
+FileName: darkly-mobile.png
+LocalMd5Sum: 91e609c9a18703a1d233495751c2b6d0
+RemoteMd5Sum: 91e609c9a18703a1d233495751c2b6d0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\darkly.css
+FolderName: resources\initializr\css\
+FileName: darkly.css
+LocalMd5Sum: c2e782c41822619348833b728e13e10b
+RemoteMd5Sum: 1b5b2af6b9ac1082e272b7c7a5aa58de
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\initializr\css\flatly-desktop.png
+FolderName: resources\initializr\css\
+FileName: flatly-desktop.png
+LocalMd5Sum: 359162d0cc47d7c782ba0cc77b783842
+RemoteMd5Sum: 359162d0cc47d7c782ba0cc77b783842
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\flatly-mobile.png
+FolderName: resources\initializr\css\
+FileName: flatly-mobile.png
+LocalMd5Sum: 19ce1bc6cc130ca0b8a0c17d3eef7c4b
+RemoteMd5Sum: 19ce1bc6cc130ca0b8a0c17d3eef7c4b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\flatly.css
+FolderName: resources\initializr\css\
+FileName: flatly.css
+LocalMd5Sum: 5e597c21878a1b0376397cb145254bef
+RemoteMd5Sum: 5e597c21878a1b0376397cb145254bef
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\index.html
+FolderName: resources\initializr\css\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\journal-desktop.png
+FolderName: resources\initializr\css\
+FileName: journal-desktop.png
+LocalMd5Sum: c0566d5e76a2f67bc247adee634a54c9
+RemoteMd5Sum: c0566d5e76a2f67bc247adee634a54c9
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\journal-mobile.png
+FolderName: resources\initializr\css\
+FileName: journal-mobile.png
+LocalMd5Sum: c68dfe1e02667b0c3c97acfca6ea6654
+RemoteMd5Sum: c68dfe1e02667b0c3c97acfca6ea6654
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\journal.css
+FolderName: resources\initializr\css\
+FileName: journal.css
+LocalMd5Sum: d6475f162b3c6d14b09ccd13ba161b85
+RemoteMd5Sum: d6475f162b3c6d14b09ccd13ba161b85
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\paper-desktop.png
+FolderName: resources\initializr\css\
+FileName: paper-desktop.png
+LocalMd5Sum: 30a2973760da8d0c439be43a2c48f720
+RemoteMd5Sum: 30a2973760da8d0c439be43a2c48f720
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\paper-mobile.png
+FolderName: resources\initializr\css\
+FileName: paper-mobile.png
+LocalMd5Sum: 84c8a22db86f5299079d9c0614298073
+RemoteMd5Sum: 84c8a22db86f5299079d9c0614298073
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\paper.css
+FolderName: resources\initializr\css\
+FileName: paper.css
+LocalMd5Sum: ab6104d76a712db9a01254c9884c8b15
+RemoteMd5Sum: ab6104d76a712db9a01254c9884c8b15
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\readable-desktop.png
+FolderName: resources\initializr\css\
+FileName: readable-desktop.png
+LocalMd5Sum: 7c38f5030173893454bc7d9b8df14dd0
+RemoteMd5Sum: 7c38f5030173893454bc7d9b8df14dd0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\readable-mobile.png
+FolderName: resources\initializr\css\
+FileName: readable-mobile.png
+LocalMd5Sum: 438b12c15988a3ee5f19159c248d7261
+RemoteMd5Sum: 438b12c15988a3ee5f19159c248d7261
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\readable.css
+FolderName: resources\initializr\css\
+FileName: readable.css
+LocalMd5Sum: a52a70634ed73ee6d5c47b89fbd7295e
+RemoteMd5Sum: a52a70634ed73ee6d5c47b89fbd7295e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\rtl.css
+FolderName: resources\initializr\css\
+FileName: rtl.css
+LocalMd5Sum: af5acb5809400947890a7a14c9648527
+RemoteMd5Sum: 2937487f63d5cb5c80e97c8aa2b454ec
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\initializr\css\sandstone-desktop.png
+FolderName: resources\initializr\css\
+FileName: sandstone-desktop.png
+LocalMd5Sum: 142c965585b278e85e5a8f874631d587
+RemoteMd5Sum: 142c965585b278e85e5a8f874631d587
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\sandstone-mobile.png
+FolderName: resources\initializr\css\
+FileName: sandstone-mobile.png
+LocalMd5Sum: a49e8565c28664d368cc7c77b8b59177
+RemoteMd5Sum: a49e8565c28664d368cc7c77b8b59177
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\sandstone.css
+FolderName: resources\initializr\css\
+FileName: sandstone.css
+LocalMd5Sum: 45a32f6f53ce2b2f4f4d006b90494118
+RemoteMd5Sum: 45a32f6f53ce2b2f4f4d006b90494118
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\simplex-desktop.png
+FolderName: resources\initializr\css\
+FileName: simplex-desktop.png
+LocalMd5Sum: fe0dba9698965530becee77226e092d3
+RemoteMd5Sum: fe0dba9698965530becee77226e092d3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\simplex-mobile.png
+FolderName: resources\initializr\css\
+FileName: simplex-mobile.png
+LocalMd5Sum: 48167808203dbec71e18f836e972d92d
+RemoteMd5Sum: 48167808203dbec71e18f836e972d92d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\simplex.css
+FolderName: resources\initializr\css\
+FileName: simplex.css
+LocalMd5Sum: df877cc1633df1b831158ae31470a874
+RemoteMd5Sum: df877cc1633df1b831158ae31470a874
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\slate-desktop.png
+FolderName: resources\initializr\css\
+FileName: slate-desktop.png
+LocalMd5Sum: 853c4732d49245083934516f8ca4ec2f
+RemoteMd5Sum: 853c4732d49245083934516f8ca4ec2f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\slate-mobile.png
+FolderName: resources\initializr\css\
+FileName: slate-mobile.png
+LocalMd5Sum: 47e9f76d551288cfdbe0c2f8bb7e22c4
+RemoteMd5Sum: 47e9f76d551288cfdbe0c2f8bb7e22c4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\slate.css
+FolderName: resources\initializr\css\
+FileName: slate.css
+LocalMd5Sum: 8835a5d5aebf00b39cb2d0826399e9e4
+RemoteMd5Sum: 8835a5d5aebf00b39cb2d0826399e9e4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\spacelab-desktop.png
+FolderName: resources\initializr\css\
+FileName: spacelab-desktop.png
+LocalMd5Sum: cc7f465fefc39093c123488a89044846
+RemoteMd5Sum: cc7f465fefc39093c123488a89044846
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\spacelab-mobile.png
+FolderName: resources\initializr\css\
+FileName: spacelab-mobile.png
+LocalMd5Sum: 55817502d17bb0739e5e363b6e3da52b
+RemoteMd5Sum: 55817502d17bb0739e5e363b6e3da52b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\spacelab.css
+FolderName: resources\initializr\css\
+FileName: spacelab.css
+LocalMd5Sum: 29c007996754ec0901e3220f5fdaaffe
+RemoteMd5Sum: 29c007996754ec0901e3220f5fdaaffe
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\superhero-desktop.png
+FolderName: resources\initializr\css\
+FileName: superhero-desktop.png
+LocalMd5Sum: d35a5a8dea2111a812158239cb2f333c
+RemoteMd5Sum: d35a5a8dea2111a812158239cb2f333c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\superhero-mobile.png
+FolderName: resources\initializr\css\
+FileName: superhero-mobile.png
+LocalMd5Sum: 63740199e72bc394a667489cf696cd04
+RemoteMd5Sum: 63740199e72bc394a667489cf696cd04
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\superhero.css
+FolderName: resources\initializr\css\
+FileName: superhero.css
+LocalMd5Sum: 41250e64ef34b749fdd93e216f0d2e68
+RemoteMd5Sum: 41250e64ef34b749fdd93e216f0d2e68
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\united-desktop.png
+FolderName: resources\initializr\css\
+FileName: united-desktop.png
+LocalMd5Sum: fc46adf97f7dfb2e388236d4648c2774
+RemoteMd5Sum: fc46adf97f7dfb2e388236d4648c2774
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\united-mobile.png
+FolderName: resources\initializr\css\
+FileName: united-mobile.png
+LocalMd5Sum: 4bf11332cd8db5c88747e7add35125ed
+RemoteMd5Sum: 4bf11332cd8db5c88747e7add35125ed
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\united.css
+FolderName: resources\initializr\css\
+FileName: united.css
+LocalMd5Sum: 5dc470451f09412465a51a3c8d251076
+RemoteMd5Sum: 5dc470451f09412465a51a3c8d251076
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\yeti-desktop.png
+FolderName: resources\initializr\css\
+FileName: yeti-desktop.png
+LocalMd5Sum: 2dab019965c5b45c240be16caf8d2c30
+RemoteMd5Sum: 2dab019965c5b45c240be16caf8d2c30
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\yeti-mobile.png
+FolderName: resources\initializr\css\
+FileName: yeti-mobile.png
+LocalMd5Sum: 317c0ad9f2c5f1e8176f819e86ce1ea1
+RemoteMd5Sum: 317c0ad9f2c5f1e8176f819e86ce1ea1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\css\yeti.css
+FolderName: resources\initializr\css\
+FileName: yeti.css
+LocalMd5Sum: 7deb8f8c913bb502ee45a741d63e5ba8
+RemoteMd5Sum: 7deb8f8c913bb502ee45a741d63e5ba8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Bold.eot
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Bold.eot
+LocalMd5Sum: da270dfc6adae884d4c9ac77766720ce
+RemoteMd5Sum: da270dfc6adae884d4c9ac77766720ce
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Bold.svg
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Bold.svg
+LocalMd5Sum: a97379177e4a8bdc7ade997aa63f7d4f
+RemoteMd5Sum: a97379177e4a8bdc7ade997aa63f7d4f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Bold.ttf
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Bold.ttf
+LocalMd5Sum: 1b89eb34f74a02c0681727faadf48466
+RemoteMd5Sum: 1b89eb34f74a02c0681727faadf48466
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Bold.woff
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Bold.woff
+LocalMd5Sum: 1040258be731ef7842224457a9294231
+RemoteMd5Sum: 1040258be731ef7842224457a9294231
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Bold.woff2
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Bold.woff2
+LocalMd5Sum: 8e4049672ca48fe19b60f931faab7924
+RemoteMd5Sum: 8e4049672ca48fe19b60f931faab7924
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Regular.eot
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Regular.eot
+LocalMd5Sum: fd8d5b98b9874e5acc6de2d2cbf1931b
+RemoteMd5Sum: fd8d5b98b9874e5acc6de2d2cbf1931b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Regular.svg
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Regular.svg
+LocalMd5Sum: d88b763664bd15ece1f1b4ce7493d653
+RemoteMd5Sum: d88b763664bd15ece1f1b4ce7493d653
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Regular.ttf
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Regular.ttf
+LocalMd5Sum: a9b030e29a35f523a137ee0175be419f
+RemoteMd5Sum: a9b030e29a35f523a137ee0175be419f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Regular.woff
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Regular.woff
+LocalMd5Sum: e22da300d90905754b7a097046d629bb
+RemoteMd5Sum: e22da300d90905754b7a097046d629bb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\DroidKufi-Regular.woff2
+FolderName: resources\initializr\fonts\
+FileName: DroidKufi-Regular.woff2
+LocalMd5Sum: 795e980df24d1bc634b265e18809535c
+RemoteMd5Sum: 795e980df24d1bc634b265e18809535c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\glyphicons-halflings-regular.eot
+FolderName: resources\initializr\fonts\
+FileName: glyphicons-halflings-regular.eot
+LocalMd5Sum: f4769f9bdb7466be65088239c12046d1
+RemoteMd5Sum: f4769f9bdb7466be65088239c12046d1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\glyphicons-halflings-regular.svg
+FolderName: resources\initializr\fonts\
+FileName: glyphicons-halflings-regular.svg
+LocalMd5Sum: 89889688147bd7575d6327160d64e760
+RemoteMd5Sum: 89889688147bd7575d6327160d64e760
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\glyphicons-halflings-regular.ttf
+FolderName: resources\initializr\fonts\
+FileName: glyphicons-halflings-regular.ttf
+LocalMd5Sum: e18bbf611f2a2e43afc071aa2f4e1512
+RemoteMd5Sum: e18bbf611f2a2e43afc071aa2f4e1512
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\glyphicons-halflings-regular.woff
+FolderName: resources\initializr\fonts\
+FileName: glyphicons-halflings-regular.woff
+LocalMd5Sum: fa2772327f55d8198301fdb8bcfc8158
+RemoteMd5Sum: fa2772327f55d8198301fdb8bcfc8158
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\glyphicons-halflings-regular.woff2
+FolderName: resources\initializr\fonts\
+FileName: glyphicons-halflings-regular.woff2
+LocalMd5Sum: 448c34a56d699c29117adc64c43affeb
+RemoteMd5Sum: 448c34a56d699c29117adc64c43affeb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\fonts\index.html
+FolderName: resources\initializr\fonts\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\img\index.html
+FolderName: resources\initializr\img\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\index.html
+FolderName: resources\initializr\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\js\index.html
+FolderName: resources\initializr\js\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\js\vendor\bootstrap.min.js
+FolderName: resources\initializr\js\vendor\
+FileName: bootstrap.min.js
+LocalMd5Sum: 8c237312864d2e4c4f03544cd4f9b195
+RemoteMd5Sum: 8c237312864d2e4c4f03544cd4f9b195
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\initializr\js\vendor\index.html
+FolderName: resources\initializr\js\vendor\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\jquery\index.html
+FolderName: resources\jquery\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\jquery\js\index.html
+FolderName: resources\jquery\js\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\jquery\js\jquery-3.5.1.min.js
+FolderName: resources\jquery\js\
+FileName: jquery-3.5.1.min.js
+LocalMd5Sum: dc5e7f18c8d36ac1d3d4753a87c98d0a
+RemoteMd5Sum: dc5e7f18c8d36ac1d3d4753a87c98d0a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\jquery\js\jquery.mark.min.js
+FolderName: resources\jquery\js\
+FileName: jquery.mark.min.js
+LocalMd5Sum: 9bcdc7691fed8d06fdeabb2cd24736aa
+RemoteMd5Sum: 9bcdc7691fed8d06fdeabb2cd24736aa
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\Authentication.php
+FolderName: resources\lib\
+FileName: Authentication.php
+LocalMd5Sum: 427e6062a38d56ebd790d051d58e46a4
+RemoteMd5Sum: 427e6062a38d56ebd790d051d58e46a4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\Captcha.php
+FolderName: resources\lib\
+FileName: Captcha.php
+LocalMd5Sum: fa1b63a60a2d9aefb103ef62619fd712
+RemoteMd5Sum: fa1b63a60a2d9aefb103ef62619fd712
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\CI_Input.php
+FolderName: resources\lib\
+FileName: CI_Input.php
+LocalMd5Sum: f52a42967594b793e21bd35df096bd11
+RemoteMd5Sum: f52a42967594b793e21bd35df096bd11
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\Combo.php
+FolderName: resources\lib\
+FileName: Combo.php
+LocalMd5Sum: 82fca84ce416a08df5a0febe01efb8ca
+RemoteMd5Sum: c574480d18ab4da58fdef8f0c1ad4df5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\lib\CSVImport.php
+FolderName: resources\lib\
+FileName: CSVImport.php
+LocalMd5Sum: fb38f68cde6d67669388bc9acf3669ab
+RemoteMd5Sum: fb38f68cde6d67669388bc9acf3669ab
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\CSVImportUI.php
+FolderName: resources\lib\
+FileName: CSVImportUI.php
+LocalMd5Sum: 0b6f5400b36af8322070d12b681a0b04
+RemoteMd5Sum: 0b6f5400b36af8322070d12b681a0b04
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\DataCombo.php
+FolderName: resources\lib\
+FileName: DataCombo.php
+LocalMd5Sum: 10a8884c1db003129da50306047bd582
+RemoteMd5Sum: 0ee48cd56ebad9678b8c3a03196609a4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\lib\DateCombo.php
+FolderName: resources\lib\
+FileName: DateCombo.php
+LocalMd5Sum: 5617547c21b7b956b3b45eb3bfa4c241
+RemoteMd5Sum: 728e168ebff960d1b4e724bc20d2b470
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\lib\index.html
+FolderName: resources\lib\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\JWT.php
+FolderName: resources\lib\
+FileName: JWT.php
+LocalMd5Sum: 7461bd5609145bcd1ed2ca43fbe586fb
+RemoteMd5Sum: 7461bd5609145bcd1ed2ca43fbe586fb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\LDAP.php
+FolderName: resources\lib\
+FileName: LDAP.php
+LocalMd5Sum: 1a42823601d913b2b5e15d92afd823cb
+RemoteMd5Sum: 1a42823601d913b2b5e15d92afd823cb
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\PHPMailer\PHPMailer\Exception.php
+FolderName: resources\lib\PHPMailer\PHPMailer\
+FileName: Exception.php
+LocalMd5Sum: 38af48cfdcb5cd1c28e4b7ac63ee7999
+RemoteMd5Sum: 93ffca756944cd37c78d85804300ec2c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\lib\PHPMailer\PHPMailer\PHPMailer.php
+FolderName: resources\lib\PHPMailer\PHPMailer\
+FileName: PHPMailer.php
+LocalMd5Sum: 61d1b822d46d00db56eff3a91dd4194d
+RemoteMd5Sum: 1148d1086fc5276e50db15ebce405ac6
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\lib\PHPMailer\PHPMailer\SMTP.php
+FolderName: resources\lib\PHPMailer\PHPMailer\
+FileName: SMTP.php
+LocalMd5Sum: 56afb172eeb4227d5db562b875533bc7
+RemoteMd5Sum: 39ef3a4a88a641cb5e81637204e8c41e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\lib\RememberMe.php
+FolderName: resources\lib\
+FileName: RememberMe.php
+LocalMd5Sum: b5b4f826f4d69926aab059a79f0bf417
+RemoteMd5Sum: b5b4f826f4d69926aab059a79f0bf417
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\Request.php
+FolderName: resources\lib\
+FileName: Request.php
+LocalMd5Sum: 060a27a35fb72cf375eb9c10ebb8d11f
+RemoteMd5Sum: 060a27a35fb72cf375eb9c10ebb8d11f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\RSS.php
+FolderName: resources\lib\
+FileName: RSS.php
+LocalMd5Sum: f05ce9d7d2f2572dea3623208331dfa0
+RemoteMd5Sum: f05ce9d7d2f2572dea3623208331dfa0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\Thumbnail.php
+FolderName: resources\lib\
+FileName: Thumbnail.php
+LocalMd5Sum: 443d32a1fa7a24f1341c4135610346ad
+RemoteMd5Sum: 443d32a1fa7a24f1341c4135610346ad
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\UserFlags.php
+FolderName: resources\lib\
+FileName: UserFlags.php
+LocalMd5Sum: eeed875b0bb660d6ed887667b7e4fe19
+RemoteMd5Sum: eeed875b0bb660d6ed887667b7e4fe19
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\VerticalNav.php
+FolderName: resources\lib\
+FileName: VerticalNav.php
+LocalMd5Sum: b5e19d10fb382684fc5f09e5ea5f7909
+RemoteMd5Sum: b5e19d10fb382684fc5f09e5ea5f7909
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\lib\WindowMessages.php
+FolderName: resources\lib\
+FileName: WindowMessages.php
+LocalMd5Sum: f0f01e62783ba8fea6cb890d165b62a5
+RemoteMd5Sum: f0f01e62783ba8fea6cb890d165b62a5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\moment\index.html
+FolderName: resources\moment\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\moment\moment-with-locales.min.js
+FolderName: resources\moment\
+FileName: moment-with-locales.min.js
+LocalMd5Sum: d458b68730a7330653700489333a7837
+RemoteMd5Sum: d458b68730a7330653700489333a7837
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\select2\index.html
+FolderName: resources\select2\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\select2\select2-spinner.gif
+FolderName: resources\select2\
+FileName: select2-spinner.gif
+LocalMd5Sum: 7b9776076d5fceef4993b55c9383dedd
+RemoteMd5Sum: 7b9776076d5fceef4993b55c9383dedd
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\select2\select2.css
+FolderName: resources\select2\
+FileName: select2.css
+LocalMd5Sum: 5a771359ac11c6b7f24fe0492b94de5a
+RemoteMd5Sum: 5a771359ac11c6b7f24fe0492b94de5a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\select2\select2.min.js
+FolderName: resources\select2\
+FileName: select2.min.js
+LocalMd5Sum: 4def06ec51f3977106a00c71f14f21db
+RemoteMd5Sum: 4def06ec51f3977106a00c71f14f21db
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\select2\select2.png
+FolderName: resources\select2\
+FileName: select2.png
+LocalMd5Sum: 37e9da90ccfc8db81639250831de46c1
+RemoteMd5Sum: 37e9da90ccfc8db81639250831de46c1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\select2\select2x2.png
+FolderName: resources\select2\
+FileName: select2x2.png
+LocalMd5Sum: 49e3f006018662f60f1db2aec0b2cca9
+RemoteMd5Sum: 49e3f006018662f60f1db2aec0b2cca9
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\table_icons\administrator.png
+FolderName: resources\table_icons\
+FileName: administrator.png
+LocalMd5Sum: bd8d3c7816d797093cff4288457919b4
+RemoteMd5Sum: bd8d3c7816d797093cff4288457919b4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\table_icons\index.html
+FolderName: resources\table_icons\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\table_icons\license.txt
+FolderName: resources\table_icons\
+FileName: license.txt
+LocalMd5Sum: d399560d00746d7b1017d476b17c90e1
+RemoteMd5Sum: 43404f2e9a2a955a32f09bfd9cd9d249
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: resources\timepicker\bootstrap-timepicker.min.css
+FolderName: resources\timepicker\
+FileName: bootstrap-timepicker.min.css
+LocalMd5Sum: 3787a0b1d4b3ea86842ca16ecbb6159c
+RemoteMd5Sum: 3787a0b1d4b3ea86842ca16ecbb6159c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\timepicker\bootstrap-timepicker.min.js
+FolderName: resources\timepicker\
+FileName: bootstrap-timepicker.min.js
+LocalMd5Sum: fc69c5083b8b23da8d5c2116e5527e4a
+RemoteMd5Sum: fc69c5083b8b23da8d5c2116e5527e4a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: resources\timepicker\index.html
+FolderName: resources\timepicker\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: templates\children-howqs-printable.php
+FolderName: templates\
+FileName: children-howqs-printable.php
+LocalMd5Sum: c712df0f0ccd5843db11c56bf282ed6f
+RemoteMd5Sum: fde934dfabe438d6c2e9b1cdc35500ca
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-howqs.php
+FolderName: templates\
+FileName: children-howqs.php
+LocalMd5Sum: a66f139e0d3cdac22040f11109605635
+RemoteMd5Sum: b66712e8f647616b09c9cc1097544e3a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-howrs-printable.php
+FolderName: templates\
+FileName: children-howrs-printable.php
+LocalMd5Sum: 087e4dd9d91ed732a4eb4be56aa4a7e5
+RemoteMd5Sum: 2fd4a46a3cab8bacd04015c8c93649ea
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-howrs.php
+FolderName: templates\
+FileName: children-howrs.php
+LocalMd5Sum: 14be57ce28ed9a4056b1acce96ddd6e9
+RemoteMd5Sum: a887d9984742e70ad25f5ad8febfcde1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-howss-printable.php
+FolderName: templates\
+FileName: children-howss-printable.php
+LocalMd5Sum: a0b155c75a5a8c0d1e24b9c2c28ff553
+RemoteMd5Sum: 1ff404ac4043c5a5ee1463965c841234
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-howss.php
+FolderName: templates\
+FileName: children-howss.php
+LocalMd5Sum: ff447bd5f400824125f1bacd7b8a24c9
+RemoteMd5Sum: b4f6c6c48bf2ecf9aa3a775bb49ccc02
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-howts-printable.php
+FolderName: templates\
+FileName: children-howts-printable.php
+LocalMd5Sum: cab84adc6fb9344cc8b600a149c74cdf
+RemoteMd5Sum: 2bf6cf080976ef6a9d6cc1c0a68c0fa1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-howts.php
+FolderName: templates\
+FileName: children-howts.php
+LocalMd5Sum: 8ff37dd446ba39535a69782a0b714853
+RemoteMd5Sum: 9188b5ae64002a38f3c56b73c23b692c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-madb-printable.php
+FolderName: templates\
+FileName: children-madb-printable.php
+LocalMd5Sum: c03282d0198b0e1a892fd699d0c76c7b
+RemoteMd5Sum: 690245d9ac6596ee3df43c62cd52e09a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-madb.php
+FolderName: templates\
+FileName: children-madb.php
+LocalMd5Sum: 75fb2cecaaddfbebdaf0ff07646cf2ca
+RemoteMd5Sum: ccbdadaae882d2737c8fa8b045b5f911
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-utedb-printable.php
+FolderName: templates\
+FileName: children-utedb-printable.php
+LocalMd5Sum: 9026593b23ca2e358fb0353b5f4a6724
+RemoteMd5Sum: 5f3b588afdf0c708f61d33dc0d3f6539
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-utedb.php
+FolderName: templates\
+FileName: children-utedb.php
+LocalMd5Sum: 43e44d70f00f7df128db9bc8ae6d904b
+RemoteMd5Sum: 56d6e4959e757716dd7d389a99fe071c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whats-printable.php
+FolderName: templates\
+FileName: children-whats-printable.php
+LocalMd5Sum: bc7e3e79563ab16cee6f0c64f315336e
+RemoteMd5Sum: c496f5626223dbbc4193525c533d03c3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whats.php
+FolderName: templates\
+FileName: children-whats.php
+LocalMd5Sum: 5adc10e351454c6878599e1ee544ae03
+RemoteMd5Sum: 65c9aa33bb22f34ab2a5f1fef28a4279
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whens-printable.php
+FolderName: templates\
+FileName: children-whens-printable.php
+LocalMd5Sum: 84cef1a11d871bc04063ed150f0a9f47
+RemoteMd5Sum: 8315ed0ce3391749b42ee315300b7a1e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whens.php
+FolderName: templates\
+FileName: children-whens.php
+LocalMd5Sum: a91add93e42245e8b94a0f2bfac66686
+RemoteMd5Sum: 2b616ecd1a3e6f554e9269d4d02c097d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-wheres-printable.php
+FolderName: templates\
+FileName: children-wheres-printable.php
+LocalMd5Sum: 368564e8427cd53ad365c0574113c4a9
+RemoteMd5Sum: bd4cfc304614a3764d3db18ea016b481
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-wheres.php
+FolderName: templates\
+FileName: children-wheres.php
+LocalMd5Sum: 2d689f2696deb20a33cbdea7e5e38594
+RemoteMd5Sum: 2576dc87d8dab792666f8777551a5dd4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whichs-printable.php
+FolderName: templates\
+FileName: children-whichs-printable.php
+LocalMd5Sum: c7f3535c78e57484e6f71be6abef1675
+RemoteMd5Sum: 6dccacf32265170c6d73f4ba72be5d6e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whichs.php
+FolderName: templates\
+FileName: children-whichs.php
+LocalMd5Sum: b3e7d530783a2b14653c16efea4f87e4
+RemoteMd5Sum: 937fa6254c376791ebb4637cc61d437b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whos-printable.php
+FolderName: templates\
+FileName: children-whos-printable.php
+LocalMd5Sum: a73da7eb21fa7cce0387a564d7e6c074
+RemoteMd5Sum: 6f2608529a0a58f66aa60e9aa7eae13f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whos.php
+FolderName: templates\
+FileName: children-whos.php
+LocalMd5Sum: b4755eae31e822390bb1e259216cf706
+RemoteMd5Sum: 695e9a9adb2dd6d1cf014f8ddd162fd5
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whys-printable.php
+FolderName: templates\
+FileName: children-whys-printable.php
+LocalMd5Sum: 944b1522a6d0a75d422ac7417bcc4f20
+RemoteMd5Sum: baa162feb91a3e61571740c0fd170ce0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\children-whys.php
+FolderName: templates\
+FileName: children-whys.php
+LocalMd5Sum: 6af1f33082ea69a624c3582bfe225227
+RemoteMd5Sum: b0e00f6dfff4a9af13f0e81444fbd983
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howqs-ajax-cache.php
+FolderName: templates\
+FileName: howqs-ajax-cache.php
+LocalMd5Sum: ea81fb233f8e8d9e9b680609f2d69311
+RemoteMd5Sum: 18334efa6ca3bfea1d225dd7ef32f45d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howqs_templateDV.html
+FolderName: templates\
+FileName: howqs_templateDV.html
+LocalMd5Sum: fdb381d2f11bc27efd716633b65c3eb1
+RemoteMd5Sum: 30bc83cb1b456f4183d44adbc85cc4d1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howqs_templateDVP.html
+FolderName: templates\
+FileName: howqs_templateDVP.html
+LocalMd5Sum: 3bd8e588b52a96601c6a7ceef72ba75b
+RemoteMd5Sum: 1cd600cbab9ad1e430c6ebf4596ac69d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howqs_templateTV.html
+FolderName: templates\
+FileName: howqs_templateTV.html
+LocalMd5Sum: 676f6f00fa7c9799928c4c4469c62c3f
+RemoteMd5Sum: 553f197ee7f03bf3e156605a755563c3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howqs_templateTVS.html
+FolderName: templates\
+FileName: howqs_templateTVS.html
+LocalMd5Sum: fe823660ae02eed1c6b96865ff91a780
+RemoteMd5Sum: 705571ebf23438b2054fea12b359c967
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howrs-ajax-cache.php
+FolderName: templates\
+FileName: howrs-ajax-cache.php
+LocalMd5Sum: b4e8c9309e31ab251d21e6529ccc6bb9
+RemoteMd5Sum: 1d34065e4297ede296cc0ac6ce979418
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howrs_templateDV.html
+FolderName: templates\
+FileName: howrs_templateDV.html
+LocalMd5Sum: 4f317e0ed20feb64e7ea28fd194ffc52
+RemoteMd5Sum: d1a62c5a407621bc18eb93a2ba4b4f11
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howrs_templateDVP.html
+FolderName: templates\
+FileName: howrs_templateDVP.html
+LocalMd5Sum: d1aa2a999008b3bcdbd596871e663323
+RemoteMd5Sum: 7e745379f1e4ceeaed2e6ee0fe4702ba
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howrs_templateTV.html
+FolderName: templates\
+FileName: howrs_templateTV.html
+LocalMd5Sum: 8f855396ba38e09a09e2e9099e5f4f16
+RemoteMd5Sum: 8478cc5d5c4669e7e70083cd1a81b32d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howrs_templateTVS.html
+FolderName: templates\
+FileName: howrs_templateTVS.html
+LocalMd5Sum: ad5580052f3a208dd754ccf3d9575ef2
+RemoteMd5Sum: c17d988564ff4a6f5cabee7c7fa0d7ef
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howss-ajax-cache.php
+FolderName: templates\
+FileName: howss-ajax-cache.php
+LocalMd5Sum: b0f2ccdac3c25be0d833606d0b553d58
+RemoteMd5Sum: 7afa0fcc92cb51fe27d963b1c4fe45e6
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howss_templateDV.html
+FolderName: templates\
+FileName: howss_templateDV.html
+LocalMd5Sum: c26b7d7dbd76ee720236a3c76ec151fe
+RemoteMd5Sum: fefc5b70cddd86c38e9a0ecda7a34ae8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howss_templateDVP.html
+FolderName: templates\
+FileName: howss_templateDVP.html
+LocalMd5Sum: 475613c21b9db5e10f896d98036ca31d
+RemoteMd5Sum: 21dfc5096b711e5b361720166ea9fd65
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howss_templateTV.html
+FolderName: templates\
+FileName: howss_templateTV.html
+LocalMd5Sum: 349f0169ca0d685055546de7b839f234
+RemoteMd5Sum: 7e89a28b71efc291bcc08ddeedb47a34
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howss_templateTVS.html
+FolderName: templates\
+FileName: howss_templateTVS.html
+LocalMd5Sum: e6291bdf2c996d46b008f49d25ec0bdf
+RemoteMd5Sum: 1382c32ba79854507c68893bd2f363c2
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howts-ajax-cache.php
+FolderName: templates\
+FileName: howts-ajax-cache.php
+LocalMd5Sum: fefdb623996b7fc59f11463c7c89dcf8
+RemoteMd5Sum: 0ebf385fdd5f925925736708e9a73769
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howts_templateDV.html
+FolderName: templates\
+FileName: howts_templateDV.html
+LocalMd5Sum: c51441f4d61ebd34ce4ef00330a7cdfa
+RemoteMd5Sum: 0a756586f1d94af98fdd7e3406c06271
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howts_templateDVP.html
+FolderName: templates\
+FileName: howts_templateDVP.html
+LocalMd5Sum: e9a1e7972db89c252345fac7e0559def
+RemoteMd5Sum: 9f3558d8155037fe421ac74d19fb8058
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howts_templateTV.html
+FolderName: templates\
+FileName: howts_templateTV.html
+LocalMd5Sum: 4a269398b783aee05bf51f19004be8cb
+RemoteMd5Sum: 62efe709d9cff0a0630572d2cfac2fab
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\howts_templateTVS.html
+FolderName: templates\
+FileName: howts_templateTVS.html
+LocalMd5Sum: 7bcfd9e1b9de647d9449ee790d1e82d4
+RemoteMd5Sum: da4e1de94df0f52065b7e424a61021d4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\index.html
+FolderName: templates\
+FileName: index.html
+LocalMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+RemoteMd5Sum: 888ceb5cb76adba60e7c4a255964143e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? No
+
+FilePath: templates\madb-ajax-cache.php
+FolderName: templates\
+FileName: madb-ajax-cache.php
+LocalMd5Sum: fbfc5b10081d3f054075428e5579e969
+RemoteMd5Sum: ff520321442a0fe98a7ae8c91e566180
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\madb_templateDV.html
+FolderName: templates\
+FileName: madb_templateDV.html
+LocalMd5Sum: 6c7d5750eec386d3b689a5ea3c8ab5c6
+RemoteMd5Sum: f7446f7cbab0d3e19354675a31bfc06f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\madb_templateDVP.html
+FolderName: templates\
+FileName: madb_templateDVP.html
+LocalMd5Sum: 14d2727c17ae3ec3deba92f5a3b5567a
+RemoteMd5Sum: 73516c403d365f46940571202fe22ca2
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\madb_templateTV.html
+FolderName: templates\
+FileName: madb_templateTV.html
+LocalMd5Sum: 991bc145cf6e1aed1637f1a48c496c7c
+RemoteMd5Sum: 6b42bbfb436e65a77196782bcb724086
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\madb_templateTVS.html
+FolderName: templates\
+FileName: madb_templateTVS.html
+LocalMd5Sum: 7916627b7b48a8b6539fea1bb9435a3f
+RemoteMd5Sum: b64f062ac5103064065dc4eaa5f61c23
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\utedb-ajax-cache.php
+FolderName: templates\
+FileName: utedb-ajax-cache.php
+LocalMd5Sum: 9744494889b566ec67c53a27d575a99e
+RemoteMd5Sum: b419c8dde988747b71bdac7623f94bce
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\utedb_templateDV.html
+FolderName: templates\
+FileName: utedb_templateDV.html
+LocalMd5Sum: 1b4b72c644a968b3ccd574505e1a57d6
+RemoteMd5Sum: c5d61b78a1351a17aaba392b086d4a6b
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\utedb_templateDVP.html
+FolderName: templates\
+FileName: utedb_templateDVP.html
+LocalMd5Sum: 3e00fd50ad143620c7873c7eaba3791c
+RemoteMd5Sum: 328ea9b7ae35ce1ec5bb29471067fdce
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\utedb_templateTV.html
+FolderName: templates\
+FileName: utedb_templateTV.html
+LocalMd5Sum: 64e3201fc18e10d3cad60d6cc507e7d0
+RemoteMd5Sum: 42f59078875d64996948d35de78e228d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\utedb_templateTVS.html
+FolderName: templates\
+FileName: utedb_templateTVS.html
+LocalMd5Sum: f81360fb627b2fc028a755ccdef47463
+RemoteMd5Sum: c70fa389f5994bbec49ec56d811e009c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whats-ajax-cache.php
+FolderName: templates\
+FileName: whats-ajax-cache.php
+LocalMd5Sum: a3b1502903d5f2728ca2227fea6b0b7c
+RemoteMd5Sum: c086fb753eece92b407ab5e258bec479
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whats_templateDV.html
+FolderName: templates\
+FileName: whats_templateDV.html
+LocalMd5Sum: 4ffca276a543b079d06850333e12aff4
+RemoteMd5Sum: 56aa3774a32098853488b5fb7b915903
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whats_templateDVP.html
+FolderName: templates\
+FileName: whats_templateDVP.html
+LocalMd5Sum: 1e09be9a804c5643f41db77a19713250
+RemoteMd5Sum: 90bf8d78c1cf446a016e8030008f5b27
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whats_templateTV.html
+FolderName: templates\
+FileName: whats_templateTV.html
+LocalMd5Sum: 44e9f41144b7210f2c2388489c96d92a
+RemoteMd5Sum: 7059e74375fad14159710ed67a9a2716
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whats_templateTVS.html
+FolderName: templates\
+FileName: whats_templateTVS.html
+LocalMd5Sum: 6038c0c9cd89b42c54dc9610ab17b160
+RemoteMd5Sum: 627108984de7a8f27d57ed0d058493a0
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whens-ajax-cache.php
+FolderName: templates\
+FileName: whens-ajax-cache.php
+LocalMd5Sum: fbbcb3e378b5d87bc2acbb1ef21c44af
+RemoteMd5Sum: d71209fbabeddf269e2ab18b8ba94a40
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whens_templateDV.html
+FolderName: templates\
+FileName: whens_templateDV.html
+LocalMd5Sum: 3256b78aabdfc4aff3e49c07d24a5e7f
+RemoteMd5Sum: 62667637b640ab30ff8c8274add26a8e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whens_templateDVP.html
+FolderName: templates\
+FileName: whens_templateDVP.html
+LocalMd5Sum: 831a5398b879782d26aa33dfa78af10a
+RemoteMd5Sum: e6d3453c0a17438e93bbb8e2ea94956e
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whens_templateTV.html
+FolderName: templates\
+FileName: whens_templateTV.html
+LocalMd5Sum: a8701173df62110aa477f0977c2fac1d
+RemoteMd5Sum: 8d7a8eff68cd012a21696c58b9a41b30
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whens_templateTVS.html
+FolderName: templates\
+FileName: whens_templateTVS.html
+LocalMd5Sum: 7c9ac82ddca82de83ba2853898e68c31
+RemoteMd5Sum: 90c95ab85ed95bb0c44db4209794ca50
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\wheres-ajax-cache.php
+FolderName: templates\
+FileName: wheres-ajax-cache.php
+LocalMd5Sum: a967c26a9d1d1130b47d8af677f44f8c
+RemoteMd5Sum: 3f2d02a9d68c3b99f5cec127112fe301
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\wheres_templateDV.html
+FolderName: templates\
+FileName: wheres_templateDV.html
+LocalMd5Sum: 21deb3fbd002a16b9edee1657a9f31bc
+RemoteMd5Sum: 7020fc1fc20c8ae50e0c80b0ffd4792c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\wheres_templateDVP.html
+FolderName: templates\
+FileName: wheres_templateDVP.html
+LocalMd5Sum: 896c2c60454283641693cf0aedc195ef
+RemoteMd5Sum: eddaa96b781c3fb5fbb7ca9be8857b1d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\wheres_templateTV.html
+FolderName: templates\
+FileName: wheres_templateTV.html
+LocalMd5Sum: 1c8a5e66c2db3daf2f1b55a4892d03f9
+RemoteMd5Sum: 1b8f320a06262fd8fb5672cf23e5d7a1
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\wheres_templateTVS.html
+FolderName: templates\
+FileName: wheres_templateTVS.html
+LocalMd5Sum: 4e83c64913eccf5b6f5234097f720bc0
+RemoteMd5Sum: 5829d061046c5422c2dabd2154f55cbc
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whichs-ajax-cache.php
+FolderName: templates\
+FileName: whichs-ajax-cache.php
+LocalMd5Sum: 92a0722cffd3b98e2ffe6b1a63d65a34
+RemoteMd5Sum: 6acb829cc3a40a6948401a428a5b5741
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whichs_templateDV.html
+FolderName: templates\
+FileName: whichs_templateDV.html
+LocalMd5Sum: d339a3a3cb07ed8d14480aa37d402819
+RemoteMd5Sum: 27062221af2281e89dd313280a2ac4f4
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whichs_templateDVP.html
+FolderName: templates\
+FileName: whichs_templateDVP.html
+LocalMd5Sum: 406c7842642564ffd761e30e1fb17e85
+RemoteMd5Sum: 647ad50e588cecd1070247a847c13355
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whichs_templateTV.html
+FolderName: templates\
+FileName: whichs_templateTV.html
+LocalMd5Sum: f2b02a82c86e51437b42058a79350428
+RemoteMd5Sum: 185daafb3be7d754d5a83c4dbd8217d8
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whichs_templateTVS.html
+FolderName: templates\
+FileName: whichs_templateTVS.html
+LocalMd5Sum: 586860f3643c2ef1cdfac560590a5123
+RemoteMd5Sum: 25f1c4a0c434cb5be17512fd8d0e942f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whos-ajax-cache.php
+FolderName: templates\
+FileName: whos-ajax-cache.php
+LocalMd5Sum: b2c6d43f003b9809fb4d30c7c972084f
+RemoteMd5Sum: 21f97ec920977ff22b4f609530e9a1aa
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whos_templateDV.html
+FolderName: templates\
+FileName: whos_templateDV.html
+LocalMd5Sum: 5b0e2b4eb7bd1eee8df5aa29e2b41ad2
+RemoteMd5Sum: 9d441c1c090b007685c9efa72893437f
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whos_templateDVP.html
+FolderName: templates\
+FileName: whos_templateDVP.html
+LocalMd5Sum: ae6d93595feacb1e278af572e6159703
+RemoteMd5Sum: 3ddbc24190e711610954582e8ae66c10
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whos_templateTV.html
+FolderName: templates\
+FileName: whos_templateTV.html
+LocalMd5Sum: 3a6f7d4df40a6945cd6e40f1d215c29a
+RemoteMd5Sum: f78a76fc9967be62b915760545c61c21
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whos_templateTVS.html
+FolderName: templates\
+FileName: whos_templateTVS.html
+LocalMd5Sum: fafcf09538cc284c8e109f3d729cea09
+RemoteMd5Sum: 876f611e7285b9ef8650d4205a93e557
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whys-ajax-cache.php
+FolderName: templates\
+FileName: whys-ajax-cache.php
+LocalMd5Sum: ec53f6a281587d530ae84a228ee7af22
+RemoteMd5Sum: b08859d15566ca925ff4c33a5b22d728
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whys_templateDV.html
+FolderName: templates\
+FileName: whys_templateDV.html
+LocalMd5Sum: af9f9265e2f2110e0f67eb22dd47d3b1
+RemoteMd5Sum: 651da6c9a4d171ddf2a2c6b746394f9c
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whys_templateDVP.html
+FolderName: templates\
+FileName: whys_templateDVP.html
+LocalMd5Sum: 5288ae267ffb4b46cc20de1bbcfa1c53
+RemoteMd5Sum: 1e77666c384e50c4e04557ae36cd9ba3
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whys_templateTV.html
+FolderName: templates\
+FileName: whys_templateTV.html
+LocalMd5Sum: 96d4785669ca4aab40b2d01f57a90f6f
+RemoteMd5Sum: 2020c481028f64e2fb1638062d4b1d9d
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+FilePath: templates\whys_templateTVS.html
+FolderName: templates\
+FileName: whys_templateTVS.html
+LocalMd5Sum: 56c4903c0916b3a4e2eb50e80bcd891c
+RemoteMd5Sum: bec059600bb3dbbccc57f6667c77ce6a
+IsExcludedFolder? No
+IsExcludedFilePath? No
+IsExcludedFileType? No
+Excluded from uploads? No
+Queued for uploading? Yes
+
+
+Uploading changed files ...
+Maintenance mode: On
+ajax-update-calculated-fields.php (FAILED)
+    
+ajax_admin_tools.php (FAILED)
+    
+ajax_check_login.php (FAILED)
+    
+ajax_check_unique.php (FAILED)
+    
+ajax_combo.php (updated)
+checkMemberID.php (FAILED)
+    
