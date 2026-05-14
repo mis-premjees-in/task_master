@@ -26,11 +26,19 @@
 
 		setupTable('howrs', []);
 
-		setupTable('howss', []);
+		setupTable('howss', [
+				" ALTER TABLE `howss` CHANGE `howss_hows2` `howss_hows2` TINYTEXT NULL ",
+				"ALTER TABLE `howss` ADD `howss_hows3_1` TINYTEXT NULL ",
+				"ALTER TABLE `howss` CHANGE `howss_hows3_1` `howss_hows4` TINYTEXT NULL ",
+			]);
 
-		setupTable('howqs', []);
+		setupTable('howqs', [
+				" ALTER TABLE `howqs` CHANGE `howqs_howq3` `howqs_howq3` VARCHAR(40) NULL ",
+			]);
 
-		setupTable('howts', []);
+		setupTable('howts', [
+				" ALTER TABLE `howts` CHANGE `howts_howt3` `howts_howt3` VARCHAR(40) NULL ",
+			]);
 
 		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb',]);

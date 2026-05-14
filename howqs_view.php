@@ -31,7 +31,7 @@
 		1 => '`howqs`.`howqs_id`',
 		2 => 2,
 		3 => '`howqs`.`howqs_howq2`',
-		4 => '`howqs`.`howqs_howq3`',
+		4 => 4,
 		5 => 5,
 		6 => '`howqs`.`howqs_created`',
 		7 => '`howqs`.`howqs_updated`',

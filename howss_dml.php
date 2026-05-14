@@ -19,6 +19,7 @@ function howss_insert(&$error_message = '') {
 		'howss_hows1' => br2nl(Request::val('howss_hows1', '')),
 		'howss_hows2' => br2nl(Request::val('howss_hows2', '')),
 		'howss_hows3' => br2nl(Request::val('howss_hows3', '')),
+		'howss_hows4' => br2nl(Request::val('howss_hows4', '')),
 		'howss_description' => br2nl(Request::val('howss_description', '')),
 		'howss_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
@@ -110,17 +111,13 @@ function howss_update(&$selected_id, &$error_message = '') {
 		'howss_hows1' => br2nl(Request::val('howss_hows1', '')),
 		'howss_hows2' => br2nl(Request::val('howss_hows2', '')),
 		'howss_hows3' => br2nl(Request::val('howss_hows3', '')),
+		'howss_hows4' => br2nl(Request::val('howss_hows4', '')),
 		'howss_description' => br2nl(Request::val('howss_description', '')),
 		'howss_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
 	if($data['howss_hows1'] === '') {
-		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Hows1 (Medium)': {$Translation['field not null']}<br><br>";
-		echo '<a href="" onclick="history.go(-1); return false;">' . $Translation['< back'] . '</a></div>';
-		exit;
-	}
-	if($data['howss_hows2'] === '') {
-		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Hows2 (Format)': {$Translation['field not null']}<br><br>";
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Hows1 (Flowchart)': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">' . $Translation['< back'] . '</a></div>';
 		exit;
 	}
@@ -330,6 +327,7 @@ function howss_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly .= "\t\$j('#howss_hows1').replaceWith('<div class=\"form-control-static\" id=\"howss_hows1\">' + (\$j('#howss_hows1').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#howss_hows2').replaceWith('<div class=\"form-control-static\" id=\"howss_hows2\">' + (\$j('#howss_hows2').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#howss_hows3').replaceWith('<div class=\"form-control-static\" id=\"howss_hows3\">' + (\$j('#howss_hows3').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#howss_hows4').replaceWith('<div class=\"form-control-static\" id=\"howss_hows4\">' + (\$j('#howss_hows4').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#howss_description').replaceWith('<div class=\"form-control-static\" id=\"howss_description\">' + (\$j('#howss_description').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
@@ -363,6 +361,7 @@ function howss_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%UPLOADFILE(howss_hows1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(howss_hows2)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(howss_hows3)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(howss_hows4)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(howss_description)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(howss_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(howss_updated)%%>', '', $templateCode);
@@ -378,6 +377,8 @@ function howss_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(howss_hows2)%%>', urlencode($urow['howss_hows2']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howss_hows3)%%>', safe_html($urow['howss_hows3'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_hows3)%%>', urlencode($urow['howss_hows3']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(howss_hows4)%%>', safe_html($urow['howss_hows4'], $fieldsAreEditable), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(howss_hows4)%%>', urlencode($urow['howss_hows4']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howss_description)%%>', safe_html($urow['howss_description'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_description)%%>', urlencode($urow['howss_description']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howss_created)%%>', safe_html($urow['howss_created']), $templateCode);
@@ -393,6 +394,8 @@ function howss_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(howss_hows2)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howss_hows3)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_hows3)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(howss_hows4)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(howss_hows4)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howss_description)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howss_description)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howss_created)%%>', '<%%creationTimestamp%%>', $templateCode);

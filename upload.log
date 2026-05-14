@@ -1,4 +1,4 @@
-14-May-26 12:04:31:
+14-May-26 12:07:41:
 Started uploading files from: D:\tm.premjees.in\task_master
                           to: https://tm.premjees.in
 
@@ -9,30 +9,30 @@ Application URL is valid: Ok
 'file-uploader.php' uploaded to your server: Ok
 'file-uploader.php' is configured with the correct secret upload key: Ok
 curl command (upload key stripped): 
-curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Connection: keep-alive" -H "Priority: u=0, i" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -X POST -F "UPLOAD_KEY=******************" https://tm.premjees.in/file-uploader.php --compressed -o "C:\Users\focus\AppData\Local\Temp\appgini.curl.op.43471.76.txt" -D "C:\Users\focus\AppData\Local\Temp\appgini.curl.hd.43471.76.txt"
+curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Connection: keep-alive" -H "Priority: u=0, i" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -X POST -F "UPLOAD_KEY=******************" https://tm.premjees.in/file-uploader.php --compressed -o "C:\Users\focus\AppData\Local\Temp\appgini.curl.op.43661.89.txt" -D "C:\Users\focus\AppData\Local\Temp\appgini.curl.hd.43661.89.txt"
 
 Retrieving md5 hashes of local files ...
-14-May-26 12:04:32: Storing md5 hashes of local files to d:\tm.premjees.in\task_master\md5s.972943.tmp
-Executing cmd /c ""C:\Program Files (x86)\AppGini\md5sum.exe"  "d:\tm.premjees.in\task_master\*.*" > "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\admin" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\hooks" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\images" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\resources" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\templates" >> "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" && copy "d:\tm.premjees.in\task_master\md5s.972943.tmp.tmp" "d:\tm.premjees.in\task_master\md5s.972943.tmp""
-14-May-26 12:04:38: Finished storing hashes. File contains 411 lines.
-Parsing local md5 hashes temp file: d:\tm.premjees.in\task_master\md5s.972943.tmp
-Done parsing d:\tm.premjees.in\task_master\md5s.972943.tmp
+14-May-26 12:07:42: Storing md5 hashes of local files to d:\tm.premjees.in\task_master\md5s.889660.tmp
+Executing cmd /c ""C:\Program Files (x86)\AppGini\md5sum.exe"  "d:\tm.premjees.in\task_master\*.*" > "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\admin" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\hooks" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\images" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\resources" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\templates" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && copy "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" "d:\tm.premjees.in\task_master\md5s.889660.tmp""
+14-May-26 12:07:43: Finished storing hashes. File contains 411 lines.
+Parsing local md5 hashes temp file: d:\tm.premjees.in\task_master\md5s.889660.tmp
+Done parsing d:\tm.premjees.in\task_master\md5s.889660.tmp
 
 Checking remote file md5 hashes ...
 Lines in remote response: 442
 
 	.ftpquota: 30e99cc054e462c1941f82a38dc999c3
 	admin: dir
-	ajax-update-calculated-fields.php: d5ae9ee921f16efe53128aa1b92d9f10
-	ajax_admin_tools.php: 306666323435a8f9d5d78f69c5b9b692
-	ajax_check_login.php: efce51be62bce57a4a2797c28912c7cb
-	ajax_check_unique.php: af8ada3163769b9d77a6f939538d85c8
-	ajax_combo.php: c30806a61a1e9c4db4216b757a97a7c5
+	ajax-update-calculated-fields.php: da1a28e80783722319c8639d9a2cd45f
+	ajax_admin_tools.php: ca4ef20e9415ebc50788f1e716d1a492
+	ajax_check_login.php: 88f0ef238c003ce30e84017a9904cbb8
+	ajax_check_unique.php: 37347cfbc0f2e23291d9d672194f8070
+	ajax_combo.php: 99f9f1d3c68b9aea1fd1081ead737f4c
 	api: dir
 	api.zip: d57a0ef21e8fc14d445f7565d89a76b5
 	blank.gif: d3e941fe204d0a9cc5b92782bbf882c8
-	checkMemberID.php: 0bde799cb6b7edae02e2fc6ab0dc7193
-	cli-update-calculated-fields.php: fad167fd4365e568e79e3200c2455017
+	checkMemberID.php: 1595bac4ee58cd0e624313b15ecdea96
+	cli-update-calculated-fields.php: f24bc2b50169cab1a0b49cee4bf4b2f0
 	common.js: 3b19b8970de031a31f2667c6d9350799
 	datalist.php: 2474753a0b344d75db9f4d0dedf2b466
 	db.php: 65effae76abd1d29e00694bf30e0b15e
@@ -471,56 +471,56 @@ FilePath: ajax-update-calculated-fields.php
 FolderName: 
 FileName: ajax-update-calculated-fields.php
 LocalMd5Sum: da1a28e80783722319c8639d9a2cd45f
-RemoteMd5Sum: d5ae9ee921f16efe53128aa1b92d9f10
+RemoteMd5Sum: da1a28e80783722319c8639d9a2cd45f
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: ajax_admin_tools.php
 FolderName: 
 FileName: ajax_admin_tools.php
 LocalMd5Sum: ca4ef20e9415ebc50788f1e716d1a492
-RemoteMd5Sum: 306666323435a8f9d5d78f69c5b9b692
+RemoteMd5Sum: ca4ef20e9415ebc50788f1e716d1a492
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: ajax_check_login.php
 FolderName: 
 FileName: ajax_check_login.php
 LocalMd5Sum: 88f0ef238c003ce30e84017a9904cbb8
-RemoteMd5Sum: efce51be62bce57a4a2797c28912c7cb
+RemoteMd5Sum: 88f0ef238c003ce30e84017a9904cbb8
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: ajax_check_unique.php
 FolderName: 
 FileName: ajax_check_unique.php
 LocalMd5Sum: 37347cfbc0f2e23291d9d672194f8070
-RemoteMd5Sum: af8ada3163769b9d77a6f939538d85c8
+RemoteMd5Sum: 37347cfbc0f2e23291d9d672194f8070
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: ajax_combo.php
 FolderName: 
 FileName: ajax_combo.php
 LocalMd5Sum: 99f9f1d3c68b9aea1fd1081ead737f4c
-RemoteMd5Sum: c30806a61a1e9c4db4216b757a97a7c5
+RemoteMd5Sum: 99f9f1d3c68b9aea1fd1081ead737f4c
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: blank.gif
 FolderName: 
@@ -537,23 +537,23 @@ FilePath: checkMemberID.php
 FolderName: 
 FileName: checkMemberID.php
 LocalMd5Sum: 1595bac4ee58cd0e624313b15ecdea96
-RemoteMd5Sum: 0bde799cb6b7edae02e2fc6ab0dc7193
+RemoteMd5Sum: 1595bac4ee58cd0e624313b15ecdea96
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: cli-update-calculated-fields.php
 FolderName: 
 FileName: cli-update-calculated-fields.php
 LocalMd5Sum: f24bc2b50169cab1a0b49cee4bf4b2f0
-RemoteMd5Sum: fad167fd4365e568e79e3200c2455017
+RemoteMd5Sum: f24bc2b50169cab1a0b49cee4bf4b2f0
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: common.js
 FolderName: 
@@ -973,9 +973,9 @@ IsExcludedFileType? No
 Excluded from uploads? No
 Queued for uploading? Yes
 
-FilePath: md5s.972943.tmp.tmp
+FilePath: md5s.889660.tmp.tmp
 FolderName: 
-FileName: md5s.972943.tmp.tmp
+FileName: md5s.889660.tmp.tmp
 LocalMd5Sum: d41d8cd98f00b204e9800998ecf8427e
 RemoteMd5Sum: 
 IsExcludedFolder? No
@@ -1141,7 +1141,7 @@ Queued for uploading? No
 FilePath: task_master.axp
 FolderName: 
 FileName: task_master.axp
-LocalMd5Sum: 3e92d905475a831869e1318bbc85d855
+LocalMd5Sum: 7cab89d3ec43d71d01fb1306d23dace6
 RemoteMd5Sum: a872bbed7257234276ce37c4733cda68
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -1174,7 +1174,7 @@ Queued for uploading? Yes
 FilePath: upload.log
 FolderName: 
 FileName: upload.log
-LocalMd5Sum: c8b76bca0b1ecb9412789f6ead58a46a
+LocalMd5Sum: 3c6bb807266679575db75c94b2a9b395
 RemoteMd5Sum: 306e1a419317eadd0422489778428e07
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4980,14 +4980,36 @@ Queued for uploading? Yes
 
 Uploading changed files ...
 Maintenance mode: On
-ajax-update-calculated-fields.php (FAILED)
+common.js (updated)
+datalist.php (updated)
+db.php (FAILED)
     
-ajax_admin_tools.php (FAILED)
+defaultFilters.php (updated)
+defaultLang.php (updated)
+definitions.php (FAILED)
     
-ajax_check_login.php (FAILED)
+dynamic.css (updated)
+footer.php (FAILED)
     
-ajax_check_unique.php (FAILED)
+header.php (FAILED)
     
-ajax_combo.php (updated)
-checkMemberID.php (FAILED)
+home.php (FAILED)
+    
+howqs_autofill.php (FAILED)
+    
+howqs_dml.php (FAILED)
+    
+howqs_view.php (FAILED)
+    
+howrs_autofill.php (FAILED)
+    
+howrs_dml.php (updated)
+howrs_view.php (FAILED)
+    
+howss_autofill.php (FAILED)
+    
+howss_dml.php (updated)
+howss_view.php (FAILED)
+    
+howts_autofill.php (FAILED)
     

@@ -1572,21 +1572,28 @@
 					'howss_hows1' => [
 						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
-							'caption' => 'Hows1 (Medium)',
+							'caption' => 'Hows1 (Flowchart)',
 							'description' => '',
 						],
 					],
 					'howss_hows2' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
-							'caption' => 'Hows2 (Format)',
+							'caption' => 'Hows2 (SOP)',
 							'description' => '',
 						],
 					],
 					'howss_hows3' => [
 						'appgini' => "TINYTEXT NULL",
 						'info' => [
-							'caption' => 'Hows3 (Url If Any)',
+							'caption' => 'Hows3 (TV Url If Any)',
+							'description' => '',
+						],
+					],
+					'howss_hows4' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'Hows4 (PT Url If Any)',
 							'description' => '',
 						],
 					],
@@ -1635,7 +1642,7 @@
 						],
 					],
 					'howqs_howq3' => [
-						'appgini' => "DECIMAL(10,2) NULL",
+						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
 							'caption' => 'Howq3 (Target)',
 							'description' => '',
@@ -1686,7 +1693,7 @@
 						],
 					],
 					'howts_howt3' => [
-						'appgini' => "DECIMAL(10,2) NULL",
+						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
 							'caption' => 'Howt3 (Target - if any)',
 							'description' => '',

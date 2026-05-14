@@ -141,7 +141,7 @@
 				<?php
 				break;
 			}
-			$res = sql("SELECT `howss`.`howss_id` as 'howss_id', `howss`.`howss_hows1` as 'howss_hows1', `howss`.`howss_hows2` as 'howss_hows2', `howss`.`howss_hows3` as 'howss_hows3', `howss`.`howss_description` as 'howss_description', `howss`.`howss_created` as 'howss_created', `howss`.`howss_updated` as 'howss_updated' FROM `howss`  WHERE `howss`.`howss_id`='{$id}' limit 1", $eo);
+			$res = sql("SELECT `howss`.`howss_id` as 'howss_id', `howss`.`howss_hows1` as 'howss_hows1', `howss`.`howss_hows2` as 'howss_hows2', `howss`.`howss_hows3` as 'howss_hows3', `howss`.`howss_hows4` as 'howss_hows4', `howss`.`howss_description` as 'howss_description', `howss`.`howss_created` as 'howss_created', `howss`.`howss_updated` as 'howss_updated' FROM `howss`  WHERE `howss`.`howss_id`='{$id}' limit 1", $eo);
 			$row = db_fetch_assoc($res);
 			?>
 			$j('#madb_hows2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['howss_hows2']))); ?>&nbsp;');

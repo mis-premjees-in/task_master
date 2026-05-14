@@ -31,7 +31,7 @@
 		1 => '`howts`.`howts_id`',
 		2 => 2,
 		3 => '`howts`.`howts_howt2`',
-		4 => '`howts`.`howts_howt3`',
+		4 => 4,
 		5 => 5,
 		6 => '`howts`.`howrs_created`',
 		7 => '`howts`.`howrs_updated`',

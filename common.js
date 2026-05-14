@@ -611,7 +611,7 @@ function howrs_validateData(insertMode) {
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
 		['list', 'howrs_howr1', 'Howr1 (Method)'],
-		['list', 'howrs_howr2', 'Howr2 (Type)'],
+		['text', 'howrs_howr2', 'Howr2 (Type)'],
 		['text', 'howrs_description', 'Description'],
 	];
 
@@ -633,8 +633,7 @@ function howss_validateData(insertMode) {
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'howss_hows1', 'Hows1 (Medium)'],
-		['text', 'howss_hows2', 'Hows2 (Format)'],
+		['text', 'howss_hows1', 'Hows1 (Flowchart)'],
 		['text', 'howss_description', 'Description'],
 	];
 
