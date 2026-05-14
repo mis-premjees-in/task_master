@@ -715,6 +715,36 @@ function utedb_validateData(insertMode) {
 
 	return !errors;
 }
+function premises_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['text', 'premises_name', 'Premise Name'],
+		['text', 'premises_latitude', 'Latitude'],
+		['text', 'premises_longitude', 'Longitude'],
+		['text', 'premises_radius', 'Premises radius'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
+	return !errors;
+}
+function pnb_validateData(insertMode) {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	return !errors;
+}
 
 function post(url, params, update, disable, loading, success_callback) {
 	$j.ajax({

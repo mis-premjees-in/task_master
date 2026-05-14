@@ -1,4 +1,4 @@
-14-May-26 12:07:41:
+14-May-26 17:34:44:
 Started uploading files from: D:\tm.premjees.in\task_master
                           to: https://tm.premjees.in
 
@@ -9,14 +9,14 @@ Application URL is valid: Ok
 'file-uploader.php' uploaded to your server: Ok
 'file-uploader.php' is configured with the correct secret upload key: Ok
 curl command (upload key stripped): 
-curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Connection: keep-alive" -H "Priority: u=0, i" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -X POST -F "UPLOAD_KEY=******************" https://tm.premjees.in/file-uploader.php --compressed -o "C:\Users\focus\AppData\Local\Temp\appgini.curl.op.43661.89.txt" -D "C:\Users\focus\AppData\Local\Temp\appgini.curl.hd.43661.89.txt"
+curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Connection: keep-alive" -H "Priority: u=0, i" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -X POST -F "UPLOAD_KEY=******************" https://tm.premjees.in/file-uploader.php --compressed -o "C:\Users\focus\AppData\Local\Temp\appgini.curl.op.63286.12.txt" -D "C:\Users\focus\AppData\Local\Temp\appgini.curl.hd.63286.12.txt"
 
 Retrieving md5 hashes of local files ...
-14-May-26 12:07:42: Storing md5 hashes of local files to d:\tm.premjees.in\task_master\md5s.889660.tmp
-Executing cmd /c ""C:\Program Files (x86)\AppGini\md5sum.exe"  "d:\tm.premjees.in\task_master\*.*" > "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\admin" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\hooks" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\images" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\resources" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\templates" >> "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" && copy "d:\tm.premjees.in\task_master\md5s.889660.tmp.tmp" "d:\tm.premjees.in\task_master\md5s.889660.tmp""
-14-May-26 12:07:43: Finished storing hashes. File contains 411 lines.
-Parsing local md5 hashes temp file: d:\tm.premjees.in\task_master\md5s.889660.tmp
-Done parsing d:\tm.premjees.in\task_master\md5s.889660.tmp
+14-May-26 17:34:46: Storing md5 hashes of local files to d:\tm.premjees.in\task_master\md5s.673945.tmp
+Executing cmd /c ""C:\Program Files (x86)\AppGini\md5sum.exe"  "d:\tm.premjees.in\task_master\*.*" > "d:\tm.premjees.in\task_master\md5s.673945.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\admin" >> "d:\tm.premjees.in\task_master\md5s.673945.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\hooks" >> "d:\tm.premjees.in\task_master\md5s.673945.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\images" >> "d:\tm.premjees.in\task_master\md5s.673945.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\resources" >> "d:\tm.premjees.in\task_master\md5s.673945.tmp.tmp" && "C:\Program Files (x86)\AppGini\md5sum.exe" -r "d:\tm.premjees.in\task_master\templates" >> "d:\tm.premjees.in\task_master\md5s.673945.tmp.tmp" && copy "d:\tm.premjees.in\task_master\md5s.673945.tmp.tmp" "d:\tm.premjees.in\task_master\md5s.673945.tmp""
+14-May-26 17:34:52: Finished storing hashes. File contains 411 lines.
+Parsing local md5 hashes temp file: d:\tm.premjees.in\task_master\md5s.673945.tmp
+Done parsing d:\tm.premjees.in\task_master\md5s.673945.tmp
 
 Checking remote file md5 hashes ...
 Lines in remote response: 442
@@ -33,67 +33,67 @@ Lines in remote response: 442
 	blank.gif: d3e941fe204d0a9cc5b92782bbf882c8
 	checkMemberID.php: 1595bac4ee58cd0e624313b15ecdea96
 	cli-update-calculated-fields.php: f24bc2b50169cab1a0b49cee4bf4b2f0
-	common.js: 3b19b8970de031a31f2667c6d9350799
-	datalist.php: 2474753a0b344d75db9f4d0dedf2b466
-	db.php: 65effae76abd1d29e00694bf30e0b15e
-	defaultFilters.php: a64dd96dc678bb06a9c3b3a1b2623e28
-	defaultLang.php: b7639f7d161cdb2b2b82c7ef0af14b98
-	definitions.php: ed31f60e5b1b16ebfbeb1e67cfddf307
-	dynamic.css: 8ecd71fdc776a0b33d0c6be99ada261d
-	footer.php: 79fbcf037c8bb0b49a900f574d7e8ce4
+	common.js: d8925a20caed1955bba99f4eff24b0f5
+	datalist.php: 1c957465da0a63843404ea8a9d27a776
+	db.php: 761772669b3d9a008aa8de24faedf230
+	defaultFilters.php: 5fb93f18547cd235a49e5ca9feb2d45d
+	defaultLang.php: b5aab355b1533425c58e615a9898957b
+	definitions.php: 0b67e9dfcbb5d38e090fbb8189756fde
+	dynamic.css: 4262e4789cf1cc62979c7b4154ea3cc3
+	footer.php: cb3529bb0a02e7e3071261576af65aba
 	handshake.svg: 9ab8389fa77ffa0568fd7117a491c44f
-	header.php: deba81e4f606ec47c373ed449e6e9885
-	home.php: 6c8b2bb93c784fc975b8ec27b4d7613f
+	header.php: ea9e192b1e655e086df018a5e17133e1
+	home.php: 10c181f84b04e08d031140cf9c641d42
 	hooks: dir
-	howqs_autofill.php: 13292faf0bfd6494e80ec9c8123b1498
-	howqs_dml.php: 3f198f140f4de314c48adf856c6064db
-	howqs_view.php: d12e84ee9bc4d9f32282c7b43a3ea718
-	howrs_autofill.php: ee7771063db1fdb9e12d324eb7b17166
-	howrs_dml.php: 6df26ba24d594e2fd19b808cb3ed3fbe
-	howrs_view.php: 0e5e7554936bd47869303f5d5f64b463
-	howss_autofill.php: f1ab1965e15b50e9e42551db3ef18272
-	howss_dml.php: 575c5ce69e7136ce4a29fbd944856d0d
-	howss_view.php: 9d4f1535988fb7314496f9c90a878e15
-	howts_autofill.php: e4bb3de3b40cb668f1d6051e10aed27b
-	howts_dml.php: ddf5ff9ce3ea60a7af8b57f7b833445e
-	howts_view.php: 4d7371218dcf83fac224b41ad79f2c7e
+	howqs_autofill.php: 29376013bc3a15c12dc3d954b73f4574
+	howqs_dml.php: 98e2b55e4c593b70bc4adea05343cc1a
+	howqs_view.php: 98758fe5a4a97a5586af17e1f608d9a2
+	howrs_autofill.php: c8d785a8e8570f27fe4ef8233a0c7be5
+	howrs_dml.php: 5bb941e27a604b7de1c6a89867e22d76
+	howrs_view.php: e5289ac6283e6e0a88737f30906a54cf
+	howss_autofill.php: b8bb9ba40d5e8bd25c02e717c8944abe
+	howss_dml.php: ba99bc4ce9d84f96bc48e0f46f226757
+	howss_view.php: db8179b6ae3cc176ef133ec4e118b8fe
+	howts_autofill.php: 5f45584e4ef88b2c5c8c370599a0a1c8
+	howts_dml.php: 5cbdd4faf067533dcab1976cea9e5ada
+	howts_view.php: af13eeffc4855a561345711f1edf274e
 	images: dir
-	import-csv.php: 2d80993269ba43225cd698a4e4832730
-	incCommon.php: 05739528bb588b1f98bd7a89c5045726
-	index.html: 777ab29e0fc5b92fea635deb7ecedfc1
-	index.php: ff6b39d9e94c97f1ce97f33f4cae4837
-	lang.js.php: e0cf7f63628eddac19524890e5b2a52f
-	language.php: 8f305b9e0cf441cece166ce084ed212e
-	lib.php: aa80f5a6e197f38ce097cfa9d53343fb
-	link.php: e12ee5ad083a78dd6184dcb2f134bf03
+	import-csv.php: c502c6908527abea51d023ae5089756f
+	incCommon.php: 863f12721d806826376c38f3f62e1c58
+	index.html: 985335b37876878a106f93c83496a128
+	index.php: 0bb3606a756095bcafa1cd227a7405b6
+	lang.js.php: defb29cbc49aa328090ee7dccefcdc7a
+	language.php: a893539485789bb8f6974af186123f3f
+	lib.php: 12eef9162335f58a87cafc5ff9c6e628
+	link.php: 8e7476a31eac2de7f448457c598c2dcb
 	loading.gif: cb081508c32b52bccacc59781ebbbb36
-	login.php: a3fb245d8ad5cfd98dfd5be49b2decc6
+	login.php: f2692727d3ce963263f079075b8004c8
 	logo.png: 09caee6e2337a676ef3d810c2b0d6e27
-	madb_autofill.php: f37c377e36586e428574b1982bce8171
-	madb_dml.php: 36e7c73807cdbca6fe8be9816c084e70
-	madb_view.php: db4371d4c1f873d1fae2945e80ef0178
-	manifest.json.php: c51cb19d54b6299797ffea7eaa82fba3
-	membership_passwordReset.php: e09cb450bf4798ae0205d587863093dc
-	membership_profile.php: 1cbe26d17ae700a3b943d2526beb9a20
-	membership_signup.php: 9ab9339c2294a7967f8551d355403e89
-	membership_thankyou.php: 4bf3d1b7b1eee0b3774722c2bbdc1cb9
+	madb_autofill.php: ea9e6700dca588ae0eef7f9388531dab
+	madb_dml.php: 82d197df2d9ebe044604e8d9fa45fc4c
+	madb_view.php: 32edce773d37fb4c14a2e1189f14da90
+	manifest.json.php: 5d6bfc4592fe7fefc7729663c92e289d
+	membership_passwordReset.php: c368859813ba837c36da7cad7067ad4e
+	membership_profile.php: 113f07dc04d04c0d61dc12959e17d9b9
+	membership_signup.php: 389075a367723f1057f1165133292e8d
+	membership_thankyou.php: b24c10ac0d64af7a9ee418adef68cbb8
 	nicEdit.js: e82d141af511b8fd032a4b9be8bbdb3b
 	nicEditorIcons.gif: 64ff70454349f64643a87a6a5bc3538e
-	parent-children.php: cf013560e1c29d6f8f7dcd11951313f1
+	parent-children.php: 295fd6a75e9ec9e19667f918caa9b1a8
 	photo.gif: 96cd050a452e39801b4096745693161c
-	pwa-offline.php: 64f76a4ead56f469eaa7f950f3db582e
+	pwa-offline.php: 0adc583447246e2a6225b5224ccc9848
 	resources: dir
-	service-worker.js: 585114879dd76a80e71c7863a84a5fcf
-	settings-manager.php: fa77b0c423547f6ab94cbf5313e34a60
-	setup.php: 16936224e96cdb2767f7f03b3799d260
+	service-worker.js: ad2b61f7892b2c0cb0f7d25432a1364a
+	settings-manager.php: 7e5e0ef6841a571383b1f81e872f9a12
+	setup.php: 50fed8ae6621e7600f3da9f4b2c44ccb
 	shortcuts.js: 50f259fe3b42b2123d92b212a089ffe6
 	table.gif: 742bde42c832e3bf64f1a2abfa122f49
-	task_master.axp: a872bbed7257234276ce37c4733cda68
+	task_master.axp: 9529dc44e54711fe6e99821b97ce7e53
 	templates: dir
-	thumbnail.php: d57aefbc16ad2e4ca6b189a35246e570
-	updateDB.php: 9fad0ba58065522ce1189189a7df4957
-	upload.log: 306e1a419317eadd0422489778428e07
-	utedb_autofill.php: 5d3dedb94c19a47819ddc26696501b74
+	thumbnail.php: aeaedb7bf7364982f1c83fc13dc18899
+	updateDB.php: 3cbc7f287dd392eb3bdae14b9efeadfa
+	upload.log: a17c20d60a89dce3ffbed519b58d49ec
+	utedb_autofill.php: 63ea849d209da70eee053e3a30da1ba3
 	utedb_dml.php: 6ffd1908c6c76a9ce432ac7f3d62628e
 	utedb_view.php: 21bb78af839fd0b456d4bed4a679eccd
 	whats_autofill.php: 3d9accd707f9fec9823b6e42349e6882
@@ -147,7 +147,7 @@ Lines in remote response: 442
 	admin\pageSQL.js: 93a9d602b2a351f0c883252c5e4af3bf
 	admin\pageSQL.php: f16c0f8709fccbcdcddc59ac6afc73d1
 	admin\pageSender.php: cb254d0d8851324e1c30d6a44cf35c5e
-	admin\pageServerStatus.php: a91b18f788da90529806f58e2a864f9a
+	admin\pageServerStatus.php: bdfc41040bf66b2a46a0c0abb5f25726
 	admin\pageSettings.php: dd043a8400cbd3a45e7fb229a5d15fff
 	admin\pageTransferOwnership.php: 68e3c612f10c7cb993062295d45171d2
 	admin\pageTranslation.php: b49d6994146b5db1f3af953afeb315fb
@@ -558,90 +558,90 @@ Queued for uploading? No
 FilePath: common.js
 FolderName: 
 FileName: common.js
-LocalMd5Sum: d374c183ebe70944f25f994d85227fb0
-RemoteMd5Sum: 3b19b8970de031a31f2667c6d9350799
+LocalMd5Sum: d8925a20caed1955bba99f4eff24b0f5
+RemoteMd5Sum: d8925a20caed1955bba99f4eff24b0f5
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: datalist.php
 FolderName: 
 FileName: datalist.php
 LocalMd5Sum: 1c957465da0a63843404ea8a9d27a776
-RemoteMd5Sum: 2474753a0b344d75db9f4d0dedf2b466
+RemoteMd5Sum: 1c957465da0a63843404ea8a9d27a776
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: db.php
 FolderName: 
 FileName: db.php
 LocalMd5Sum: 761772669b3d9a008aa8de24faedf230
-RemoteMd5Sum: 65effae76abd1d29e00694bf30e0b15e
+RemoteMd5Sum: 761772669b3d9a008aa8de24faedf230
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: defaultFilters.php
 FolderName: 
 FileName: defaultFilters.php
 LocalMd5Sum: 5fb93f18547cd235a49e5ca9feb2d45d
-RemoteMd5Sum: a64dd96dc678bb06a9c3b3a1b2623e28
+RemoteMd5Sum: 5fb93f18547cd235a49e5ca9feb2d45d
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: defaultLang.php
 FolderName: 
 FileName: defaultLang.php
 LocalMd5Sum: b5aab355b1533425c58e615a9898957b
-RemoteMd5Sum: b7639f7d161cdb2b2b82c7ef0af14b98
+RemoteMd5Sum: b5aab355b1533425c58e615a9898957b
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: definitions.php
 FolderName: 
 FileName: definitions.php
 LocalMd5Sum: 0b67e9dfcbb5d38e090fbb8189756fde
-RemoteMd5Sum: ed31f60e5b1b16ebfbeb1e67cfddf307
+RemoteMd5Sum: 0b67e9dfcbb5d38e090fbb8189756fde
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: dynamic.css
 FolderName: 
 FileName: dynamic.css
 LocalMd5Sum: 4262e4789cf1cc62979c7b4154ea3cc3
-RemoteMd5Sum: 8ecd71fdc776a0b33d0c6be99ada261d
+RemoteMd5Sum: 4262e4789cf1cc62979c7b4154ea3cc3
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: footer.php
 FolderName: 
 FileName: footer.php
 LocalMd5Sum: cb3529bb0a02e7e3071261576af65aba
-RemoteMd5Sum: 79fbcf037c8bb0b49a900f574d7e8ce4
+RemoteMd5Sum: cb3529bb0a02e7e3071261576af65aba
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: handshake.svg
 FolderName: 
@@ -658,243 +658,243 @@ FilePath: header.php
 FolderName: 
 FileName: header.php
 LocalMd5Sum: ea9e192b1e655e086df018a5e17133e1
-RemoteMd5Sum: deba81e4f606ec47c373ed449e6e9885
+RemoteMd5Sum: ea9e192b1e655e086df018a5e17133e1
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: home.php
 FolderName: 
 FileName: home.php
 LocalMd5Sum: 10c181f84b04e08d031140cf9c641d42
-RemoteMd5Sum: 6c8b2bb93c784fc975b8ec27b4d7613f
+RemoteMd5Sum: 10c181f84b04e08d031140cf9c641d42
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howqs_autofill.php
 FolderName: 
 FileName: howqs_autofill.php
 LocalMd5Sum: 29376013bc3a15c12dc3d954b73f4574
-RemoteMd5Sum: 13292faf0bfd6494e80ec9c8123b1498
+RemoteMd5Sum: 29376013bc3a15c12dc3d954b73f4574
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howqs_dml.php
 FolderName: 
 FileName: howqs_dml.php
 LocalMd5Sum: 98e2b55e4c593b70bc4adea05343cc1a
-RemoteMd5Sum: 3f198f140f4de314c48adf856c6064db
+RemoteMd5Sum: 98e2b55e4c593b70bc4adea05343cc1a
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howqs_view.php
 FolderName: 
 FileName: howqs_view.php
-LocalMd5Sum: a353bbb281eea33f4ff08824488401ec
-RemoteMd5Sum: d12e84ee9bc4d9f32282c7b43a3ea718
+LocalMd5Sum: 98758fe5a4a97a5586af17e1f608d9a2
+RemoteMd5Sum: 98758fe5a4a97a5586af17e1f608d9a2
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howrs_autofill.php
 FolderName: 
 FileName: howrs_autofill.php
 LocalMd5Sum: c8d785a8e8570f27fe4ef8233a0c7be5
-RemoteMd5Sum: ee7771063db1fdb9e12d324eb7b17166
+RemoteMd5Sum: c8d785a8e8570f27fe4ef8233a0c7be5
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howrs_dml.php
 FolderName: 
 FileName: howrs_dml.php
-LocalMd5Sum: 9124b3d5afd1e2bff566d2e00bdba596
-RemoteMd5Sum: 6df26ba24d594e2fd19b808cb3ed3fbe
+LocalMd5Sum: 5bb941e27a604b7de1c6a89867e22d76
+RemoteMd5Sum: 5bb941e27a604b7de1c6a89867e22d76
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howrs_view.php
 FolderName: 
 FileName: howrs_view.php
 LocalMd5Sum: e5289ac6283e6e0a88737f30906a54cf
-RemoteMd5Sum: 0e5e7554936bd47869303f5d5f64b463
+RemoteMd5Sum: e5289ac6283e6e0a88737f30906a54cf
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howss_autofill.php
 FolderName: 
 FileName: howss_autofill.php
 LocalMd5Sum: b8bb9ba40d5e8bd25c02e717c8944abe
-RemoteMd5Sum: f1ab1965e15b50e9e42551db3ef18272
+RemoteMd5Sum: b8bb9ba40d5e8bd25c02e717c8944abe
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howss_dml.php
 FolderName: 
 FileName: howss_dml.php
-LocalMd5Sum: 9a67aeba8a27d204ff6af5df5b84bdcf
-RemoteMd5Sum: 575c5ce69e7136ce4a29fbd944856d0d
+LocalMd5Sum: ba99bc4ce9d84f96bc48e0f46f226757
+RemoteMd5Sum: ba99bc4ce9d84f96bc48e0f46f226757
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howss_view.php
 FolderName: 
 FileName: howss_view.php
-LocalMd5Sum: 479aa5c63aa30cea5280d897461dfb81
-RemoteMd5Sum: 9d4f1535988fb7314496f9c90a878e15
+LocalMd5Sum: db8179b6ae3cc176ef133ec4e118b8fe
+RemoteMd5Sum: db8179b6ae3cc176ef133ec4e118b8fe
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howts_autofill.php
 FolderName: 
 FileName: howts_autofill.php
 LocalMd5Sum: 5f45584e4ef88b2c5c8c370599a0a1c8
-RemoteMd5Sum: e4bb3de3b40cb668f1d6051e10aed27b
+RemoteMd5Sum: 5f45584e4ef88b2c5c8c370599a0a1c8
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howts_dml.php
 FolderName: 
 FileName: howts_dml.php
 LocalMd5Sum: 5cbdd4faf067533dcab1976cea9e5ada
-RemoteMd5Sum: ddf5ff9ce3ea60a7af8b57f7b833445e
+RemoteMd5Sum: 5cbdd4faf067533dcab1976cea9e5ada
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: howts_view.php
 FolderName: 
 FileName: howts_view.php
-LocalMd5Sum: a825c5c1d2810794f260d4c71fd55fd6
-RemoteMd5Sum: 4d7371218dcf83fac224b41ad79f2c7e
+LocalMd5Sum: af13eeffc4855a561345711f1edf274e
+RemoteMd5Sum: af13eeffc4855a561345711f1edf274e
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: import-csv.php
 FolderName: 
 FileName: import-csv.php
 LocalMd5Sum: c502c6908527abea51d023ae5089756f
-RemoteMd5Sum: 2d80993269ba43225cd698a4e4832730
+RemoteMd5Sum: c502c6908527abea51d023ae5089756f
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: incCommon.php
 FolderName: 
 FileName: incCommon.php
-LocalMd5Sum: 9923d911ca519817a3dba5c4d60085ac
-RemoteMd5Sum: 05739528bb588b1f98bd7a89c5045726
+LocalMd5Sum: 863f12721d806826376c38f3f62e1c58
+RemoteMd5Sum: 863f12721d806826376c38f3f62e1c58
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: index.html
 FolderName: 
 FileName: index.html
 LocalMd5Sum: 985335b37876878a106f93c83496a128
-RemoteMd5Sum: 777ab29e0fc5b92fea635deb7ecedfc1
+RemoteMd5Sum: 985335b37876878a106f93c83496a128
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: index.php
 FolderName: 
 FileName: index.php
 LocalMd5Sum: 0bb3606a756095bcafa1cd227a7405b6
-RemoteMd5Sum: ff6b39d9e94c97f1ce97f33f4cae4837
+RemoteMd5Sum: 0bb3606a756095bcafa1cd227a7405b6
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: lang.js.php
 FolderName: 
 FileName: lang.js.php
 LocalMd5Sum: defb29cbc49aa328090ee7dccefcdc7a
-RemoteMd5Sum: e0cf7f63628eddac19524890e5b2a52f
+RemoteMd5Sum: defb29cbc49aa328090ee7dccefcdc7a
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: language.php
 FolderName: 
 FileName: language.php
 LocalMd5Sum: a893539485789bb8f6974af186123f3f
-RemoteMd5Sum: 8f305b9e0cf441cece166ce084ed212e
+RemoteMd5Sum: a893539485789bb8f6974af186123f3f
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: lib.php
 FolderName: 
 FileName: lib.php
 LocalMd5Sum: 12eef9162335f58a87cafc5ff9c6e628
-RemoteMd5Sum: aa80f5a6e197f38ce097cfa9d53343fb
+RemoteMd5Sum: 12eef9162335f58a87cafc5ff9c6e628
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: link.php
 FolderName: 
 FileName: link.php
 LocalMd5Sum: 8e7476a31eac2de7f448457c598c2dcb
-RemoteMd5Sum: e12ee5ad083a78dd6184dcb2f134bf03
+RemoteMd5Sum: 8e7476a31eac2de7f448457c598c2dcb
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: loading.gif
 FolderName: 
@@ -911,12 +911,12 @@ FilePath: login.php
 FolderName: 
 FileName: login.php
 LocalMd5Sum: f2692727d3ce963263f079075b8004c8
-RemoteMd5Sum: a3fb245d8ad5cfd98dfd5be49b2decc6
+RemoteMd5Sum: f2692727d3ce963263f079075b8004c8
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: logo.png
 FolderName: 
@@ -932,50 +932,50 @@ Queued for uploading? No
 FilePath: madb_autofill.php
 FolderName: 
 FileName: madb_autofill.php
-LocalMd5Sum: 275f737ca1e6e1257c290e3816918aca
-RemoteMd5Sum: f37c377e36586e428574b1982bce8171
+LocalMd5Sum: ea9e6700dca588ae0eef7f9388531dab
+RemoteMd5Sum: ea9e6700dca588ae0eef7f9388531dab
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: madb_dml.php
 FolderName: 
 FileName: madb_dml.php
 LocalMd5Sum: 82d197df2d9ebe044604e8d9fa45fc4c
-RemoteMd5Sum: 36e7c73807cdbca6fe8be9816c084e70
+RemoteMd5Sum: 82d197df2d9ebe044604e8d9fa45fc4c
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: madb_view.php
 FolderName: 
 FileName: madb_view.php
 LocalMd5Sum: 32edce773d37fb4c14a2e1189f14da90
-RemoteMd5Sum: db4371d4c1f873d1fae2945e80ef0178
+RemoteMd5Sum: 32edce773d37fb4c14a2e1189f14da90
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: manifest.json.php
 FolderName: 
 FileName: manifest.json.php
 LocalMd5Sum: 5d6bfc4592fe7fefc7729663c92e289d
-RemoteMd5Sum: c51cb19d54b6299797ffea7eaa82fba3
+RemoteMd5Sum: 5d6bfc4592fe7fefc7729663c92e289d
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
-FilePath: md5s.889660.tmp.tmp
+FilePath: md5s.673945.tmp.tmp
 FolderName: 
-FileName: md5s.889660.tmp.tmp
+FileName: md5s.673945.tmp.tmp
 LocalMd5Sum: d41d8cd98f00b204e9800998ecf8427e
 RemoteMd5Sum: 
 IsExcludedFolder? No
@@ -988,45 +988,45 @@ FilePath: membership_passwordReset.php
 FolderName: 
 FileName: membership_passwordReset.php
 LocalMd5Sum: c368859813ba837c36da7cad7067ad4e
-RemoteMd5Sum: e09cb450bf4798ae0205d587863093dc
+RemoteMd5Sum: c368859813ba837c36da7cad7067ad4e
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: membership_profile.php
 FolderName: 
 FileName: membership_profile.php
 LocalMd5Sum: 113f07dc04d04c0d61dc12959e17d9b9
-RemoteMd5Sum: 1cbe26d17ae700a3b943d2526beb9a20
+RemoteMd5Sum: 113f07dc04d04c0d61dc12959e17d9b9
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: membership_signup.php
 FolderName: 
 FileName: membership_signup.php
 LocalMd5Sum: 389075a367723f1057f1165133292e8d
-RemoteMd5Sum: 9ab9339c2294a7967f8551d355403e89
+RemoteMd5Sum: 389075a367723f1057f1165133292e8d
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: membership_thankyou.php
 FolderName: 
 FileName: membership_thankyou.php
 LocalMd5Sum: b24c10ac0d64af7a9ee418adef68cbb8
-RemoteMd5Sum: 4bf3d1b7b1eee0b3774722c2bbdc1cb9
+RemoteMd5Sum: b24c10ac0d64af7a9ee418adef68cbb8
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: nicEdit.js
 FolderName: 
@@ -1054,12 +1054,12 @@ FilePath: parent-children.php
 FolderName: 
 FileName: parent-children.php
 LocalMd5Sum: 295fd6a75e9ec9e19667f918caa9b1a8
-RemoteMd5Sum: cf013560e1c29d6f8f7dcd11951313f1
+RemoteMd5Sum: 295fd6a75e9ec9e19667f918caa9b1a8
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: photo.gif
 FolderName: 
@@ -1076,45 +1076,45 @@ FilePath: pwa-offline.php
 FolderName: 
 FileName: pwa-offline.php
 LocalMd5Sum: 0adc583447246e2a6225b5224ccc9848
-RemoteMd5Sum: 64f76a4ead56f469eaa7f950f3db582e
+RemoteMd5Sum: 0adc583447246e2a6225b5224ccc9848
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: service-worker.js
 FolderName: 
 FileName: service-worker.js
-LocalMd5Sum: bcc8be26213db4a70fae4ed26a494906
-RemoteMd5Sum: 585114879dd76a80e71c7863a84a5fcf
+LocalMd5Sum: ad2b61f7892b2c0cb0f7d25432a1364a
+RemoteMd5Sum: ad2b61f7892b2c0cb0f7d25432a1364a
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: settings-manager.php
 FolderName: 
 FileName: settings-manager.php
 LocalMd5Sum: 7e5e0ef6841a571383b1f81e872f9a12
-RemoteMd5Sum: fa77b0c423547f6ab94cbf5313e34a60
+RemoteMd5Sum: 7e5e0ef6841a571383b1f81e872f9a12
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: setup.php
 FolderName: 
 FileName: setup.php
 LocalMd5Sum: 50fed8ae6621e7600f3da9f4b2c44ccb
-RemoteMd5Sum: 16936224e96cdb2767f7f03b3799d260
+RemoteMd5Sum: 50fed8ae6621e7600f3da9f4b2c44ccb
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: shortcuts.js
 FolderName: 
@@ -1141,41 +1141,41 @@ Queued for uploading? No
 FilePath: task_master.axp
 FolderName: 
 FileName: task_master.axp
-LocalMd5Sum: 7cab89d3ec43d71d01fb1306d23dace6
-RemoteMd5Sum: a872bbed7257234276ce37c4733cda68
+LocalMd5Sum: 9529dc44e54711fe6e99821b97ce7e53
+RemoteMd5Sum: 9529dc44e54711fe6e99821b97ce7e53
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: thumbnail.php
 FolderName: 
 FileName: thumbnail.php
 LocalMd5Sum: aeaedb7bf7364982f1c83fc13dc18899
-RemoteMd5Sum: d57aefbc16ad2e4ca6b189a35246e570
+RemoteMd5Sum: aeaedb7bf7364982f1c83fc13dc18899
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: updateDB.php
 FolderName: 
 FileName: updateDB.php
-LocalMd5Sum: 94a96c2e40a3a1a878f3fe365f2af722
-RemoteMd5Sum: 9fad0ba58065522ce1189189a7df4957
+LocalMd5Sum: 3cbc7f287dd392eb3bdae14b9efeadfa
+RemoteMd5Sum: 3cbc7f287dd392eb3bdae14b9efeadfa
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: upload.log
 FolderName: 
 FileName: upload.log
-LocalMd5Sum: 3c6bb807266679575db75c94b2a9b395
-RemoteMd5Sum: 306e1a419317eadd0422489778428e07
+LocalMd5Sum: ea0914307aa5862a6968bdf63c96d5ec
+RemoteMd5Sum: a17c20d60a89dce3ffbed519b58d49ec
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? Yes
@@ -1186,12 +1186,12 @@ FilePath: utedb_autofill.php
 FolderName: 
 FileName: utedb_autofill.php
 LocalMd5Sum: 63ea849d209da70eee053e3a30da1ba3
-RemoteMd5Sum: 5d3dedb94c19a47819ddc26696501b74
+RemoteMd5Sum: 63ea849d209da70eee053e3a30da1ba3
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
 Excluded from uploads? No
-Queued for uploading? Yes
+Queued for uploading? No
 
 FilePath: utedb_dml.php
 FolderName: 
@@ -1570,7 +1570,7 @@ Queued for uploading? Yes
 FilePath: admin\incFunctions.php
 FolderName: admin\
 FileName: incFunctions.php
-LocalMd5Sum: 044611896eeeb9b76badbdf2df629e6a
+LocalMd5Sum: 7f4c4a2b5b5db22946a6486da81d7867
 RemoteMd5Sum: 3b41143bd7dc71b1feb6dfa984c2f027
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -1812,8 +1812,8 @@ Queued for uploading? Yes
 FilePath: admin\pageServerStatus.php
 FolderName: admin\
 FileName: pageServerStatus.php
-LocalMd5Sum: 6f02d1b500d756be0adb38d01adc8125
-RemoteMd5Sum: a91b18f788da90529806f58e2a864f9a
+LocalMd5Sum: 7c515d1d747e3768e8af835113598bd6
+RemoteMd5Sum: bdfc41040bf66b2a46a0c0abb5f25726
 IsExcludedFolder? No
 IsExcludedFilePath? No
 IsExcludedFileType? No
@@ -4089,7 +4089,7 @@ Queued for uploading? Yes
 FilePath: templates\children-howss-printable.php
 FolderName: templates\
 FileName: children-howss-printable.php
-LocalMd5Sum: a0b155c75a5a8c0d1e24b9c2c28ff553
+LocalMd5Sum: eadeaac215227cd46f0c67c37b935588
 RemoteMd5Sum: 1ff404ac4043c5a5ee1463965c841234
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4100,7 +4100,7 @@ Queued for uploading? Yes
 FilePath: templates\children-howss.php
 FolderName: templates\
 FileName: children-howss.php
-LocalMd5Sum: ff447bd5f400824125f1bacd7b8a24c9
+LocalMd5Sum: ab38a9c54ea76dda5a84882ebfc5e812
 RemoteMd5Sum: b4f6c6c48bf2ecf9aa3a775bb49ccc02
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4320,7 +4320,7 @@ Queued for uploading? Yes
 FilePath: templates\howqs_templateDV.html
 FolderName: templates\
 FileName: howqs_templateDV.html
-LocalMd5Sum: fdb381d2f11bc27efd716633b65c3eb1
+LocalMd5Sum: 0c7187facbac8c0c251005cf8268641c
 RemoteMd5Sum: 30bc83cb1b456f4183d44adbc85cc4d1
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4375,7 +4375,7 @@ Queued for uploading? Yes
 FilePath: templates\howrs_templateDV.html
 FolderName: templates\
 FileName: howrs_templateDV.html
-LocalMd5Sum: 4f317e0ed20feb64e7ea28fd194ffc52
+LocalMd5Sum: c2cb6abcf6359c65a0475aa78b6c5810
 RemoteMd5Sum: d1a62c5a407621bc18eb93a2ba4b4f11
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4386,7 +4386,7 @@ Queued for uploading? Yes
 FilePath: templates\howrs_templateDVP.html
 FolderName: templates\
 FileName: howrs_templateDVP.html
-LocalMd5Sum: d1aa2a999008b3bcdbd596871e663323
+LocalMd5Sum: a743cddc35e9ed826f386dcb5c8561b9
 RemoteMd5Sum: 7e745379f1e4ceeaed2e6ee0fe4702ba
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4430,7 +4430,7 @@ Queued for uploading? Yes
 FilePath: templates\howss_templateDV.html
 FolderName: templates\
 FileName: howss_templateDV.html
-LocalMd5Sum: c26b7d7dbd76ee720236a3c76ec151fe
+LocalMd5Sum: 911cdf204877fc2e24d0235d9addad49
 RemoteMd5Sum: fefc5b70cddd86c38e9a0ecda7a34ae8
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4441,7 +4441,7 @@ Queued for uploading? Yes
 FilePath: templates\howss_templateDVP.html
 FolderName: templates\
 FileName: howss_templateDVP.html
-LocalMd5Sum: 475613c21b9db5e10f896d98036ca31d
+LocalMd5Sum: 3c799b4291c2a7fd1f9936dc3f45f628
 RemoteMd5Sum: 21dfc5096b711e5b361720166ea9fd65
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4452,7 +4452,7 @@ Queued for uploading? Yes
 FilePath: templates\howss_templateTV.html
 FolderName: templates\
 FileName: howss_templateTV.html
-LocalMd5Sum: 349f0169ca0d685055546de7b839f234
+LocalMd5Sum: 0003363e653218a7cf464c0410e5ace7
 RemoteMd5Sum: 7e89a28b71efc291bcc08ddeedb47a34
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4463,7 +4463,7 @@ Queued for uploading? Yes
 FilePath: templates\howss_templateTVS.html
 FolderName: templates\
 FileName: howss_templateTVS.html
-LocalMd5Sum: e6291bdf2c996d46b008f49d25ec0bdf
+LocalMd5Sum: 070c34a0f64336f0ccb0cddbb99c2746
 RemoteMd5Sum: 1382c32ba79854507c68893bd2f363c2
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4485,7 +4485,7 @@ Queued for uploading? Yes
 FilePath: templates\howts_templateDV.html
 FolderName: templates\
 FileName: howts_templateDV.html
-LocalMd5Sum: c51441f4d61ebd34ce4ef00330a7cdfa
+LocalMd5Sum: 5ec0c983eebe01e66bfde0709e6a9970
 RemoteMd5Sum: 0a756586f1d94af98fdd7e3406c06271
 IsExcludedFolder? No
 IsExcludedFilePath? No
@@ -4977,39 +4977,3 @@ IsExcludedFileType? No
 Excluded from uploads? No
 Queued for uploading? Yes
 
-
-Uploading changed files ...
-Maintenance mode: On
-common.js (updated)
-datalist.php (updated)
-db.php (FAILED)
-    
-defaultFilters.php (updated)
-defaultLang.php (updated)
-definitions.php (FAILED)
-    
-dynamic.css (updated)
-footer.php (FAILED)
-    
-header.php (FAILED)
-    
-home.php (FAILED)
-    
-howqs_autofill.php (FAILED)
-    
-howqs_dml.php (FAILED)
-    
-howqs_view.php (FAILED)
-    
-howrs_autofill.php (FAILED)
-    
-howrs_dml.php (updated)
-howrs_view.php (FAILED)
-    
-howss_autofill.php (FAILED)
-    
-howss_dml.php (updated)
-howss_view.php (FAILED)
-    
-howts_autofill.php (FAILED)
-    

@@ -189,6 +189,20 @@
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
+				'premises' => [
+					'Caption' => 'Premises',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
+				'pnb' => [
+					'Caption' => 'Pnb',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) return $all_tables;
@@ -217,6 +231,8 @@
 			'howqs' => ['Howts (Quantify)', '', 'table.gif', 'None'],
 			'howts' => ['Howts (Timespan)', '', 'table.gif', 'None'],
 			'utedb' => ['Universal TEDB', '', 'table.gif', 'None'],
+			'premises' => ['Premises', '', 'table.gif', 'None'],
+			'pnb' => ['Pnb', '', 'table.gif', 'None'],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) {
@@ -1961,6 +1977,87 @@
 						],
 					],
 				],
+				'premises' => [
+					'premises_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Id',
+							'description' => '',
+						],
+					],
+					'premises_name' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'Premise Name',
+							'description' => '',
+						],
+					],
+					'premises_latitude' => [
+						'appgini' => "DECIMAL(10,7) NOT NULL",
+						'info' => [
+							'caption' => 'Latitude',
+							'description' => '',
+						],
+					],
+					'premises_longitude' => [
+						'appgini' => "DECIMAL(10,7) NOT NULL",
+						'info' => [
+							'caption' => 'Longitude',
+							'description' => '',
+						],
+					],
+					'premises_radius' => [
+						'appgini' => "DECIMAL(10,2) NOT NULL",
+						'info' => [
+							'caption' => 'Premises radius',
+							'description' => '',
+						],
+					],
+					'premises_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Premises created',
+							'description' => '',
+						],
+					],
+					'premises_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Premises updated',
+							'description' => '',
+						],
+					],
+				],
+				'pnb' => [
+					'pnb_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'Pnb id',
+							'description' => '',
+						],
+					],
+					'pnb_type' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Pnb type',
+							'description' => '',
+						],
+					],
+					'pnb_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Pnb created',
+							'description' => '',
+						],
+					],
+					'pnb_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Pnb updated',
+							'description' => '',
+						],
+					],
+				],
 			];
 
 			$internalTablesSimple = [
@@ -3181,6 +3278,8 @@
 			'howqs' => [],
 			'howts' => [],
 			'utedb' => [],
+			'premises' => [],
+			'pnb' => [],
 		];
 	}
 	#########################################################
@@ -3388,6 +3487,10 @@
 				'utedb_howq3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`howqs1`.`howqs_howq1`) || CHAR_LENGTH(`howqs1`.`howqs_howq2`), CONCAT_WS(\'\',   `howqs1`.`howqs_howq1`, \'-\', `howqs1`.`howqs_howq2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
 				'utedb_howt2' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS(\'\',   `howts1`.`howts_howt2`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
 				'utedb_howt3' => 'SELECT `madb`.`madb_id`, IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS(\'\',   `howts1`.`howts_howt3`), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ORDER BY 2',
+			],
+			'premises' => [
+			],
+			'pnb' => [
 			],
 		];
 

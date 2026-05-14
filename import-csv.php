@@ -137,6 +137,18 @@
 
 			return $data;
 		},
+		'premises' => function($data, $options = []) {
+			if(isset($data['premises_created'])) $data['premises_created'] = guessMySQLDateTime($data['premises_created']);
+			if(isset($data['premises_updated'])) $data['premises_updated'] = guessMySQLDateTime($data['premises_updated']);
+
+			return $data;
+		},
+		'pnb' => function($data, $options = []) {
+			if(isset($data['pnb_created'])) $data['pnb_created'] = guessMySQLDateTime($data['pnb_created']);
+			if(isset($data['pnb_updated'])) $data['pnb_updated'] = guessMySQLDateTime($data['pnb_updated']);
+
+			return $data;
+		},
 	];
 
 	// accept a record as an assoc array, return a boolean indicating whether to import or skip record
@@ -153,6 +165,8 @@
 		'howqs' => function($data, $options = []) { return true; },
 		'howts' => function($data, $options = []) { return true; },
 		'utedb' => function($data, $options = []) { return true; },
+		'premises' => function($data, $options = []) { return true; },
+		'pnb' => function($data, $options = []) { return true; },
 	];
 
 	/*

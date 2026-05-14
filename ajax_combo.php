@@ -727,6 +727,10 @@
 				'not_null' => false,
 			],
 		],
+		'premises' => [
+		],
+		'pnb' => [
+		],
 	];
 
 	// XSS prevention

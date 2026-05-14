@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the premises_init() hook (in hooks/premises.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="premises-premises_id-<%%VALUE(premises_id)%%>" class="premises-premises_id text-right"><%%SELECT%%><%%VALUE(premises_id)%%><%%ENDSELECT%%></td>
+		<td id="premises-premises_name-<%%VALUE(premises_id)%%>" class="premises-premises_name"><%%SELECT%%><%%VALUE(premises_name)%%><%%ENDSELECT%%></td>
+		<td id="premises-premises_latitude-<%%VALUE(premises_id)%%>" class="premises-premises_latitude text-right"><%%SELECT%%><%%VALUE(premises_latitude)%%><%%ENDSELECT%%></td>
+		<td id="premises-premises_longitude-<%%VALUE(premises_id)%%>" class="premises-premises_longitude text-right"><%%SELECT%%><%%VALUE(premises_longitude)%%><%%ENDSELECT%%></td>
+		<td id="premises-premises_radius-<%%VALUE(premises_id)%%>" class="premises-premises_radius text-right"><%%SELECT%%><%%VALUE(premises_radius)%%><%%ENDSELECT%%></td>
+		<td id="premises-premises_created-<%%VALUE(premises_id)%%>" class="premises-premises_created"><%%SELECT%%><%%VALUE(premises_created)%%><%%ENDSELECT%%></td>
+		<td id="premises-premises_updated-<%%VALUE(premises_id)%%>" class="premises-premises_updated"><%%SELECT%%><%%VALUE(premises_updated)%%><%%ENDSELECT%%></td>

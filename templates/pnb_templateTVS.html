@@ -1,0 +1,11 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the pnb_init() hook (in hooks/pnb.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="pnb-pnb_id-<%%VALUE(pnb_id)%%>" class="pnb-pnb_id text-right text-bold"><%%VALUE(pnb_id)%%></td>
+		<td id="pnb-pnb_type-<%%VALUE(pnb_id)%%>" class="pnb-pnb_type text-bold"><%%VALUE(pnb_type)%%></td>
+		<td id="pnb-pnb_created-<%%VALUE(pnb_id)%%>" class="pnb-pnb_created text-bold"><%%VALUE(pnb_created)%%></td>
+		<td id="pnb-pnb_updated-<%%VALUE(pnb_id)%%>" class="pnb-pnb_updated text-bold"><%%VALUE(pnb_updated)%%></td>
