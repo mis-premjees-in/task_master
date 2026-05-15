@@ -610,8 +610,8 @@ function howrs_validateData(insertMode) {
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['list', 'howrs_howr1', 'Howr1 (Method)'],
-		['text', 'howrs_howr2', 'Howr2 (Type)'],
+		['list', 'howrs_howr1', 'How (R) 1 (Method)'],
+		['text', 'howrs_howr2', 'How (R) 2 (Type)'],
 		['text', 'howrs_description', 'Description'],
 	];
 
@@ -633,7 +633,7 @@ function howss_validateData(insertMode) {
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'howss_hows1', 'Hows1 (Flowchart)'],
+		['text', 'howss_hows1', 'How (S) 1 (Flowchart)'],
 		['text', 'howss_description', 'Description'],
 	];
 
@@ -655,8 +655,8 @@ function howqs_validateData(insertMode) {
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'howqs_howq1', 'Howq1 (Type)'],
-		['text', 'howqs_howq2', 'Howq2 (Measure)'],
+		['text', 'howqs_howq1', 'How (Q) 1 (Type)'],
+		['text', 'howqs_howq2', 'How (Q) 2 (Measure)'],
 		['text', 'howqs_description', 'Description'],
 	];
 
@@ -678,8 +678,8 @@ function howts_validateData(insertMode) {
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'howts_howt1', 'Howt1 (Type)'],
-		['text', 'howts_howt2', 'Howt2 (Span)'],
+		['text', 'howts_howt1', 'How (S) 1 (Type)'],
+		['text', 'howts_howt2', 'How (T) 2 (Span)'],
 		['text', 'howrs_description', 'Description'],
 	];
 

@@ -50,9 +50,9 @@
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
 		"`howrs`.`howrs_id`" => "Id",
-		"`howrs`.`howrs_howr1`" => "Howr1 (Method)",
-		"`howrs`.`howrs_howr2`" => "Howr2 (Type)",
-		"`howrs`.`howrs_howr3`" => "Howr3 (Url If Any)",
+		"`howrs`.`howrs_howr1`" => "How (R) 1 (Method)",
+		"`howrs`.`howrs_howr2`" => "How (R) 2 (Type)",
+		"`howrs`.`howrs_howr3`" => "How (R) 3 (Url If Any)",
 		"`howrs`.`howrs_description`" => "Description",
 		"`howrs`.`howrs_created`" => "Created AT",
 		"`howrs`.`howrs_updated`" => "Updated AT",
@@ -96,12 +96,12 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'howrs_view.php';
-	$x->TableTitle = 'Howrs (Method)';
+	$x->TableTitle = 'How (R) (Method)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`howrs`.`howrs_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Howr1 (Method)', 'Howr2 (Type)', 'Howr3 (Url If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColCaption = ['Id', 'How (R) 1 (Method)', 'How (R) 2 (Type)', 'How (R) 3 (Url If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
 	$x->ColFieldName = ['howrs_id', 'howrs_howr1', 'howrs_howr2', 'howrs_howr3', 'howrs_description', 'howrs_created', 'howrs_updated', '%madb.madb_howr1%', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 

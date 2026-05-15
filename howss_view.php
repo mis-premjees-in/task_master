@@ -53,10 +53,10 @@
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
 		"`howss`.`howss_id`" => "Id",
-		"`howss`.`howss_hows1`" => "Hows1 (Flowchart)",
-		"`howss`.`howss_hows2`" => "Hows2 (SOP)",
-		"`howss`.`howss_hows3`" => "Hows3 (TV Url If Any)",
-		"`howss`.`howss_hows4`" => "Hows4 (PT Url If Any)",
+		"`howss`.`howss_hows1`" => "How (S) 1 (Flowchart)",
+		"`howss`.`howss_hows2`" => "How (S) 2 (SOP)",
+		"`howss`.`howss_hows3`" => "How (S) 3 (TV Url If Any)",
+		"`howss`.`howss_hows4`" => "How (S) 4 (PT Url If Any)",
 		"`howss`.`howss_description`" => "Description",
 		"`howss`.`howss_created`" => "Created AT",
 		"`howss`.`howss_updated`" => "Updated AT",
@@ -101,12 +101,12 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'howss_view.php';
-	$x->TableTitle = 'Howss (Steps)';
+	$x->TableTitle = 'How (S) (Steps)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`howss`.`howss_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Hows1 (Flowchart)', 'Hows2 (SOP)', 'Hows3 (TV Url If Any)', 'Hows4 (PT Url If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColCaption = ['Id', 'How (S) 1 (Flowchart)', 'How (S) 2 (SOP)', 'How (S) 3 (TV Url If Any)', 'How (S) 4 (PT Url If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
 	$x->ColFieldName = ['howss_id', 'howss_hows1', 'howss_hows2', 'howss_hows3', 'howss_hows4', 'howss_description', 'howss_created', 'howss_updated', '%madb.madb_hows1%', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, -1, ];
 

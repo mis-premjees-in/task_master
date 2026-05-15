@@ -50,9 +50,9 @@
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
 		"`howts`.`howts_id`" => "Id",
-		"`howts`.`howts_howt1`" => "Howt1 (Type)",
-		"`howts`.`howts_howt2`" => "Howt2 (Span)",
-		"`howts`.`howts_howt3`" => "Howt3 (Target - if any)",
+		"`howts`.`howts_howt1`" => "How (S) 1 (Type)",
+		"`howts`.`howts_howt2`" => "How (T) 2 (Span)",
+		"`howts`.`howts_howt3`" => "How (T) 3 (Target - if any)",
 		"`howts`.`howrs_description`" => "Description",
 		"`howts`.`howrs_created`" => "Created AT",
 		"`howts`.`howrs_updated`" => "Updated AT",
@@ -96,12 +96,12 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'howts_view.php';
-	$x->TableTitle = 'Howts (Timespan)';
+	$x->TableTitle = 'How (T) (Timespan)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`howts`.`howts_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Howt1 (Type)', 'Howt2 (Span)', 'Howt3 (Target - if any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColCaption = ['Id', 'How (S) 1 (Type)', 'How (T) 2 (Span)', 'How (T) 3 (Target - if any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
 	$x->ColFieldName = ['howts_id', 'howts_howt1', 'howts_howt2', 'howts_howt3', 'howrs_description', 'howrs_created', 'howrs_updated', '%madb.madb_howt1%', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 

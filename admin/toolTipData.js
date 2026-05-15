@@ -138,76 +138,76 @@ whys_delete2Tip=["",spacer+"This option allows each member of the group to delet
 whys_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Whys (Precinct/Department)' table."];
 
 // howrs table
-howrs_addTip=["",spacer+"This option allows all members of the group to add records to the 'Howrs (Method)' table. A member who adds a record to the table becomes the 'owner' of that record."];
+howrs_addTip=["",spacer+"This option allows all members of the group to add records to the 'How (R) (Method)' table. A member who adds a record to the table becomes the 'owner' of that record."];
 
-howrs_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Howrs (Method)' table."];
-howrs_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Howrs (Method)' table."];
-howrs_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Howrs (Method)' table."];
-howrs_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Howrs (Method)' table."];
+howrs_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'How (R) (Method)' table."];
+howrs_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'How (R) (Method)' table."];
+howrs_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'How (R) (Method)' table."];
+howrs_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'How (R) (Method)' table."];
 
-howrs_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Howrs (Method)' table."];
-howrs_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Howrs (Method)' table."];
-howrs_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Howrs (Method)' table."];
-howrs_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Howrs (Method)' table, regardless of their owner."];
+howrs_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'How (R) (Method)' table."];
+howrs_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'How (R) (Method)' table."];
+howrs_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'How (R) (Method)' table."];
+howrs_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'How (R) (Method)' table, regardless of their owner."];
 
-howrs_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Howrs (Method)' table."];
-howrs_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Howrs (Method)' table."];
-howrs_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Howrs (Method)' table."];
-howrs_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Howrs (Method)' table."];
+howrs_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'How (R) (Method)' table."];
+howrs_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'How (R) (Method)' table."];
+howrs_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'How (R) (Method)' table."];
+howrs_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'How (R) (Method)' table."];
 
 // howss table
-howss_addTip=["",spacer+"This option allows all members of the group to add records to the 'Howss (Steps)' table. A member who adds a record to the table becomes the 'owner' of that record."];
+howss_addTip=["",spacer+"This option allows all members of the group to add records to the 'How (S) (Steps)' table. A member who adds a record to the table becomes the 'owner' of that record."];
 
-howss_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Howss (Steps)' table."];
-howss_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Howss (Steps)' table."];
-howss_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Howss (Steps)' table."];
-howss_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Howss (Steps)' table."];
+howss_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'How (S) (Steps)' table."];
+howss_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'How (S) (Steps)' table."];
+howss_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'How (S) (Steps)' table."];
+howss_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'How (S) (Steps)' table."];
 
-howss_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Howss (Steps)' table."];
-howss_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Howss (Steps)' table."];
-howss_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Howss (Steps)' table."];
-howss_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Howss (Steps)' table, regardless of their owner."];
+howss_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'How (S) (Steps)' table."];
+howss_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'How (S) (Steps)' table."];
+howss_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'How (S) (Steps)' table."];
+howss_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'How (S) (Steps)' table, regardless of their owner."];
 
-howss_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Howss (Steps)' table."];
-howss_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Howss (Steps)' table."];
-howss_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Howss (Steps)' table."];
-howss_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Howss (Steps)' table."];
+howss_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'How (S) (Steps)' table."];
+howss_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'How (S) (Steps)' table."];
+howss_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'How (S) (Steps)' table."];
+howss_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'How (S) (Steps)' table."];
 
 // howqs table
-howqs_addTip=["",spacer+"This option allows all members of the group to add records to the 'Howts (Quantify)' table. A member who adds a record to the table becomes the 'owner' of that record."];
+howqs_addTip=["",spacer+"This option allows all members of the group to add records to the 'How (Q) (Quantify)' table. A member who adds a record to the table becomes the 'owner' of that record."];
 
-howqs_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Howts (Quantify)' table."];
-howqs_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Howts (Quantify)' table."];
-howqs_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Howts (Quantify)' table."];
-howqs_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Howts (Quantify)' table."];
+howqs_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'How (Q) (Quantify)' table."];
+howqs_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'How (Q) (Quantify)' table."];
+howqs_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'How (Q) (Quantify)' table."];
+howqs_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'How (Q) (Quantify)' table."];
 
-howqs_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Howts (Quantify)' table."];
-howqs_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Howts (Quantify)' table."];
-howqs_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Howts (Quantify)' table."];
-howqs_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Howts (Quantify)' table, regardless of their owner."];
+howqs_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'How (Q) (Quantify)' table."];
+howqs_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'How (Q) (Quantify)' table."];
+howqs_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'How (Q) (Quantify)' table."];
+howqs_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'How (Q) (Quantify)' table, regardless of their owner."];
 
-howqs_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Howts (Quantify)' table."];
-howqs_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Howts (Quantify)' table."];
-howqs_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Howts (Quantify)' table."];
-howqs_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Howts (Quantify)' table."];
+howqs_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'How (Q) (Quantify)' table."];
+howqs_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'How (Q) (Quantify)' table."];
+howqs_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'How (Q) (Quantify)' table."];
+howqs_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'How (Q) (Quantify)' table."];
 
 // howts table
-howts_addTip=["",spacer+"This option allows all members of the group to add records to the 'Howts (Timespan)' table. A member who adds a record to the table becomes the 'owner' of that record."];
+howts_addTip=["",spacer+"This option allows all members of the group to add records to the 'How (T) (Timespan)' table. A member who adds a record to the table becomes the 'owner' of that record."];
 
-howts_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Howts (Timespan)' table."];
-howts_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Howts (Timespan)' table."];
-howts_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Howts (Timespan)' table."];
-howts_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Howts (Timespan)' table."];
+howts_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'How (T) (Timespan)' table."];
+howts_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'How (T) (Timespan)' table."];
+howts_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'How (T) (Timespan)' table."];
+howts_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'How (T) (Timespan)' table."];
 
-howts_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Howts (Timespan)' table."];
-howts_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Howts (Timespan)' table."];
-howts_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Howts (Timespan)' table."];
-howts_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Howts (Timespan)' table, regardless of their owner."];
+howts_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'How (T) (Timespan)' table."];
+howts_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'How (T) (Timespan)' table."];
+howts_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'How (T) (Timespan)' table."];
+howts_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'How (T) (Timespan)' table, regardless of their owner."];
 
-howts_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Howts (Timespan)' table."];
-howts_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Howts (Timespan)' table."];
-howts_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Howts (Timespan)' table."];
-howts_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Howts (Timespan)' table."];
+howts_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'How (T) (Timespan)' table."];
+howts_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'How (T) (Timespan)' table."];
+howts_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'How (T) (Timespan)' table."];
+howts_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'How (T) (Timespan)' table."];
 
 // utedb table
 utedb_addTip=["",spacer+"This option allows all members of the group to add records to the 'Universal TEDB' table. A member who adds a record to the table becomes the 'owner' of that record."];

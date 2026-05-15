@@ -47,7 +47,7 @@
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
 		"`pnb`.`pnb_id`" => "Id",
-		"`pnb`.`pnb_type`" => "Pnb type",
+		"`pnb`.`pnb_type`" => "PnB Type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "Premises Id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "Whos Id",
 		"`pnb`.`pnb_created`" => "Created AT",
@@ -96,7 +96,7 @@
 	$x->PrimaryKey = '`pnb`.`pnb_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'Pnb type', 'Premises Id', 'Whos Id', 'Created AT', 'Updated AT', ];
+	$x->ColCaption = ['Id', 'PnB Type', 'Premises Id', 'Whos Id', 'Created AT', 'Updated AT', ];
 	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_whos_id', 'pnb_created', 'pnb_updated', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, ];
 

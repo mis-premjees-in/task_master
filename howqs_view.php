@@ -50,9 +50,9 @@
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
 		"`howqs`.`howqs_id`" => "Id",
-		"`howqs`.`howqs_howq1`" => "Howq1 (Type)",
-		"`howqs`.`howqs_howq2`" => "Howq2 (Measure)",
-		"`howqs`.`howqs_howq3`" => "Howq3 (Target)",
+		"`howqs`.`howqs_howq1`" => "How (Q) 1 (Type)",
+		"`howqs`.`howqs_howq2`" => "How (Q) 2 (Measure)",
+		"`howqs`.`howqs_howq3`" => "How (Q) 3 (Target)",
 		"`howqs`.`howqs_description`" => "Description",
 		"`howqs`.`howqs_created`" => "Created AT",
 		"`howqs`.`howqs_updated`" => "Updated AT",
@@ -96,12 +96,12 @@
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'howqs_view.php';
-	$x->TableTitle = 'Howts (Quantify)';
+	$x->TableTitle = 'How (Q) (Quantify)';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`howqs`.`howqs_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Howq1 (Type)', 'Howq2 (Measure)', 'Howq3 (Target)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColCaption = ['Id', 'How (Q) 1 (Type)', 'How (Q) 2 (Measure)', 'How (Q) 3 (Target)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
 	$x->ColFieldName = ['howqs_id', 'howqs_howq1', 'howqs_howq2', 'howqs_howq3', 'howqs_description', 'howqs_created', 'howqs_updated', '%madb.madb_howq1%', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 

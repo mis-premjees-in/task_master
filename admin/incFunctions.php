@@ -155,28 +155,28 @@
 					'homepageShowCount' => 1
 				],
 				'howrs' => [
-					'Caption' => 'Howrs (Method)',
+					'Caption' => 'How (R) (Method)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
 				'howss' => [
-					'Caption' => 'Howss (Steps)',
+					'Caption' => 'How (S) (Steps)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 0
 				],
 				'howqs' => [
-					'Caption' => 'Howts (Quantify)',
+					'Caption' => 'How (Q) (Quantify)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
 				'howts' => [
-					'Caption' => 'Howts (Timespan)',
+					'Caption' => 'How (T) (Timespan)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
@@ -226,10 +226,10 @@
 			'whichs' => ['Whichs (Things)', '', 'table.gif', 'None'],
 			'wheres' => ['Wheres (Area/Zone)', '', 'table.gif', 'None'],
 			'whys' => ['Whys (Precinct/Department)', '', 'table.gif', 'None'],
-			'howrs' => ['Howrs (Method)', '', 'table.gif', 'None'],
-			'howss' => ['Howss (Steps)', '', 'table.gif', 'None'],
-			'howqs' => ['Howts (Quantify)', '', 'table.gif', 'None'],
-			'howts' => ['Howts (Timespan)', '', 'table.gif', 'None'],
+			'howrs' => ['How (R) (Method)', '', 'table.gif', 'None'],
+			'howss' => ['How (S) (Steps)', '', 'table.gif', 'None'],
+			'howqs' => ['How (Q) (Quantify)', '', 'table.gif', 'None'],
+			'howts' => ['How (T) (Timespan)', '', 'table.gif', 'None'],
 			'utedb' => ['Universal TEDB', '', 'table.gif', 'None'],
 			'premises' => ['Premises', '', 'table.gif', 'None'],
 			'pnb' => ['Presence & Being', '', 'table.gif', 'None'],
@@ -998,210 +998,210 @@
 					'madb_what1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'What1',
+							'caption' => 'What 1',
 							'description' => '',
 						],
 					],
 					'madb_who1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Who1',
+							'caption' => 'Who 1',
 							'description' => '',
 						],
 					],
 					'madb_when1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'When1',
+							'caption' => 'When 1',
 							'description' => '',
 						],
 					],
 					'madb_which1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Which1',
+							'caption' => 'Which 1',
 							'description' => '',
 						],
 					],
 					'madb_where1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Where1',
+							'caption' => 'Where 1',
 							'description' => '',
 						],
 					],
 					'madb_why1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Why1',
+							'caption' => 'Why 1',
 							'description' => '',
 						],
 					],
 					'madb_howr1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howr1',
+							'caption' => 'How (R) 1',
 							'description' => '',
 						],
 					],
 					'madb_hows1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Hows1',
+							'caption' => 'How (S) 1',
 							'description' => '',
 						],
 					],
 					'madb_howq1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howq1',
+							'caption' => 'How (Q) 1',
 							'description' => '',
 						],
 					],
 					'madb_howt1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Madb howt1',
+							'caption' => 'How (T) 1',
 							'description' => '',
 						],
 					],
 					'madb_why2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Why2',
+							'caption' => 'Why 2',
 							'description' => '',
 						],
 					],
 					'madb_why3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Why3',
+							'caption' => 'Why 3',
 							'description' => '',
 						],
 					],
 					'madb_where2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Where2',
+							'caption' => 'Where 2',
 							'description' => '',
 						],
 					],
 					'madb_where3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Where3',
+							'caption' => 'Where 3',
 							'description' => '',
 						],
 					],
 					'madb_which2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Which2',
+							'caption' => 'Which 2',
 							'description' => '',
 						],
 					],
 					'madb_which3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Which3',
+							'caption' => 'Which 3',
 							'description' => '',
 						],
 					],
 					'madb_when2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'When2',
+							'caption' => 'When 2',
 							'description' => '',
 						],
 					],
 					'madb_when3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'When3',
+							'caption' => 'When 3',
 							'description' => '',
 						],
 					],
 					'madb_who2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Who2',
+							'caption' => 'Who 2',
 							'description' => '',
 						],
 					],
 					'madb_who3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Who3',
+							'caption' => 'Who 3',
 							'description' => '',
 						],
 					],
 					'madb_what2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'What2',
+							'caption' => 'What 2',
 							'description' => '',
 						],
 					],
 					'madb_what3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'What3',
+							'caption' => 'What 3',
 							'description' => '',
 						],
 					],
 					'madb_howr2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howr2',
+							'caption' => 'How (R) 2',
 							'description' => '',
 						],
 					],
 					'madb_howr3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howr3',
+							'caption' => 'How (R) 3',
 							'description' => '',
 						],
 					],
 					'madb_hows2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Hows2',
+							'caption' => 'How (S) 2',
 							'description' => '',
 						],
 					],
 					'madb_hows3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Hows3',
+							'caption' => 'How (S) 3',
 							'description' => '',
 						],
 					],
 					'madb_howq2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howq2',
+							'caption' => 'How (Q) 2',
 							'description' => '',
 						],
 					],
 					'madb_howq3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howq3',
+							'caption' => 'How (Q) 3',
 							'description' => '',
 						],
 					],
 					'madb_howt2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howt2',
+							'caption' => 'How (T) 2',
 							'description' => '',
 						],
 					],
 					'madb_howt3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howt3',
+							'caption' => 'How (T) 3',
 							'description' => '',
 						],
 					],
@@ -1544,21 +1544,21 @@
 					'howrs_howr1' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'Howr1 (Method)',
+							'caption' => 'How (R) 1 (Method)',
 							'description' => '',
 						],
 					],
 					'howrs_howr2' => [
 						'appgini' => "VARCHAR(255) NOT NULL",
 						'info' => [
-							'caption' => 'Howr2 (Type)',
+							'caption' => 'How (R) 2 (Type)',
 							'description' => '',
 						],
 					],
 					'howrs_howr3' => [
 						'appgini' => "TINYTEXT NULL",
 						'info' => [
-							'caption' => 'Howr3 (Url If Any)',
+							'caption' => 'How (R) 3 (Url If Any)',
 							'description' => '',
 						],
 					],
@@ -1595,28 +1595,28 @@
 					'howss_hows1' => [
 						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
-							'caption' => 'Hows1 (Flowchart)',
+							'caption' => 'How (S) 1 (Flowchart)',
 							'description' => '',
 						],
 					],
 					'howss_hows2' => [
 						'appgini' => "TINYTEXT NULL",
 						'info' => [
-							'caption' => 'Hows2 (SOP)',
+							'caption' => 'How (S) 2 (SOP)',
 							'description' => '',
 						],
 					],
 					'howss_hows3' => [
 						'appgini' => "TINYTEXT NULL",
 						'info' => [
-							'caption' => 'Hows3 (TV Url If Any)',
+							'caption' => 'How (S) 3 (TV Url If Any)',
 							'description' => '',
 						],
 					],
 					'howss_hows4' => [
 						'appgini' => "TINYTEXT NULL",
 						'info' => [
-							'caption' => 'Hows4 (PT Url If Any)',
+							'caption' => 'How (S) 4 (PT Url If Any)',
 							'description' => '',
 						],
 					],
@@ -1653,21 +1653,21 @@
 					'howqs_howq1' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'Howq1 (Type)',
+							'caption' => 'How (Q) 1 (Type)',
 							'description' => '',
 						],
 					],
 					'howqs_howq2' => [
 						'appgini' => "DECIMAL(10,2) NOT NULL",
 						'info' => [
-							'caption' => 'Howq2 (Measure)',
+							'caption' => 'How (Q) 2 (Measure)',
 							'description' => '',
 						],
 					],
 					'howqs_howq3' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Howq3 (Target)',
+							'caption' => 'How (Q) 3 (Target)',
 							'description' => '',
 						],
 					],
@@ -1704,21 +1704,21 @@
 					'howts_howt1' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'Howt1 (Type)',
+							'caption' => 'How (S) 1 (Type)',
 							'description' => '',
 						],
 					],
 					'howts_howt2' => [
 						'appgini' => "DECIMAL(10,2) NOT NULL",
 						'info' => [
-							'caption' => 'Howt2 (Span)',
+							'caption' => 'How (T) 2 (Span)',
 							'description' => '',
 						],
 					],
 					'howts_howt3' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Howt3 (Target - if any)',
+							'caption' => 'How (T) 3 (Target - if any)',
 							'description' => '',
 						],
 					],
@@ -2053,7 +2053,7 @@
 					'pnb_type' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Pnb type',
+							'caption' => 'PnB Type',
 							'description' => '',
 						],
 					],
