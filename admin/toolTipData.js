@@ -246,22 +246,22 @@ premises_delete2Tip=["",spacer+"This option allows each member of the group to d
 premises_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Premises' table."];
 
 // pnb table
-pnb_addTip=["",spacer+"This option allows all members of the group to add records to the 'Pnb' table. A member who adds a record to the table becomes the 'owner' of that record."];
+pnb_addTip=["",spacer+"This option allows all members of the group to add records to the 'Presence & Being' table. A member who adds a record to the table becomes the 'owner' of that record."];
 
-pnb_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Pnb' table."];
-pnb_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Pnb' table."];
-pnb_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Pnb' table."];
-pnb_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Pnb' table."];
+pnb_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Presence & Being' table."];
+pnb_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Presence & Being' table."];
+pnb_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Presence & Being' table."];
+pnb_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Presence & Being' table."];
 
-pnb_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Pnb' table."];
-pnb_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Pnb' table."];
-pnb_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Pnb' table."];
-pnb_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Pnb' table, regardless of their owner."];
+pnb_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Presence & Being' table."];
+pnb_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Presence & Being' table."];
+pnb_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Presence & Being' table."];
+pnb_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Presence & Being' table, regardless of their owner."];
 
-pnb_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Pnb' table."];
-pnb_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Pnb' table."];
-pnb_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Pnb' table."];
-pnb_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Pnb' table."];
+pnb_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Presence & Being' table."];
+pnb_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Presence & Being' table."];
+pnb_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Presence & Being' table."];
+pnb_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Presence & Being' table."];
 
 /*
 	Style syntax:

@@ -1401,7 +1401,7 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%URLCOMBOTEXT(madb_premises_id)%%>', urlencode($combo_madb_premises_id->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['madb_what1' => ['whats', 'What1'], 'madb_who1' => ['whos', 'Who1'], 'madb_when1' => ['whens', 'When1'], 'madb_which1' => ['whichs', 'Which1'], 'madb_where1' => ['wheres', 'Where1'], 'madb_why1' => ['whys', 'Why1'], 'madb_howr1' => ['howrs', 'Howr1'], 'madb_hows1' => ['howss', 'Hows1'], 'madb_howq1' => ['howqs', 'Howq1'], 'madb_howt1' => ['howts', 'Madb howt1'], 'madb_premises_id' => ['premises', 'Madb premises id'], ];
+	$lookup_fields = ['madb_what1' => ['whats', 'What1'], 'madb_who1' => ['whos', 'Who1'], 'madb_when1' => ['whens', 'When1'], 'madb_which1' => ['whichs', 'Which1'], 'madb_where1' => ['wheres', 'Where1'], 'madb_why1' => ['whys', 'Why1'], 'madb_howr1' => ['howrs', 'Howr1'], 'madb_hows1' => ['howss', 'Hows1'], 'madb_howq1' => ['howqs', 'Howq1'], 'madb_howt1' => ['howts', 'Madb howt1'], 'madb_premises_id' => ['premises', 'Premises Id'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 

@@ -20,7 +20,7 @@
 	$x->QueryFieldsTV = [
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "pnb_premises_id",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -37,7 +37,7 @@
 	$x->QueryFieldsCSV = [
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "pnb_premises_id",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -45,7 +45,7 @@
 	$x->QueryFieldsFilters = [
 		"`pnb`.`pnb_id`" => "Pnb id",
 		"`pnb`.`pnb_type`" => "Pnb type",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "Pnb premises id",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "Premises Id",
 		"`pnb`.`pnb_created`" => "Pnb created",
 		"`pnb`.`pnb_updated`" => "Pnb updated",
 	];
@@ -54,13 +54,13 @@
 	$x->QueryFieldsQS = [
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "pnb_premises_id",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = ['pnb_premises_id' => 'Pnb premises id', ];
+	$x->filterers = ['pnb_premises_id' => 'Premises Id', ];
 
 	$x->QueryFrom = "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` ";
 	$x->QueryWhere = '';
@@ -82,16 +82,16 @@
 	$x->AllowPrintingDV = 1;
 	$x->AllowCSV = 1;
 	$x->AllowAdminShowSQL = showSQL();
-	$x->RecordsPerPage = 10;
+	$x->RecordsPerPage = 100;
 	$x->QuickSearch = 1;
 	$x->QuickSearchText = $Translation['quick search'];
 	$x->ScriptFileName = 'pnb_view.php';
-	$x->TableTitle = 'Pnb';
+	$x->TableTitle = 'Presence & Being';
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`pnb`.`pnb_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Pnb id', 'Pnb type', 'Pnb premises id', 'Pnb created', 'Pnb updated', ];
+	$x->ColCaption = ['Pnb id', 'Pnb type', 'Premises Id', 'Pnb created', 'Pnb updated', ];
 	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_created', 'pnb_updated', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, ];
 

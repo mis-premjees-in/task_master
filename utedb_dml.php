@@ -47,8 +47,8 @@ function utedb_insert(&$error_message = '') {
 		'utedb_howq3' => Request::lookup('utedb_madb'),
 		'utedb_howt2' => Request::lookup('utedb_madb'),
 		'utedb_howt3' => Request::lookup('utedb_madb'),
-		'utedb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 		'utedb_premises_id' => Request::lookup('utedb_premises_id', ''),
+		'utedb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
 	// record owner is current user
@@ -146,8 +146,8 @@ function utedb_update(&$selected_id, &$error_message = '') {
 		'utedb_howq3' => Request::lookup('utedb_madb'),
 		'utedb_howt2' => Request::lookup('utedb_madb'),
 		'utedb_howt3' => Request::lookup('utedb_madb'),
-		'utedb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 		'utedb_premises_id' => Request::lookup('utedb_premises_id', ''),
+		'utedb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
 	if($data['utedb_madb'] === '') {
@@ -551,7 +551,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_premises_id)%%>', urlencode($combo_utedb_premises_id->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['utedb_madb' => ['madb', 'MADb Id'], 'utedb_premises_id' => ['premises', 'Utedb premises id'], ];
+	$lookup_fields = ['utedb_madb' => ['madb', 'MADb Id'], 'utedb_premises_id' => ['premises', 'Premises Id'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -569,9 +569,9 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	// process images
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_madb)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_premises_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_updated)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(utedb_premises_id)%%>', '', $templateCode);
 
 	// process values
 	if($hasSelectedId) {
@@ -581,24 +581,24 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', safe_html($urow['utedb_madb']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', html_attr($row['utedb_madb']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode($urow['utedb_madb']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', safe_html($urow['utedb_premises_id']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', html_attr($row['utedb_premises_id']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode($urow['utedb_premises_id']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', safe_html($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', safe_html($urow['utedb_updated']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_updated)%%>', urlencode($urow['utedb_updated']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', safe_html($urow['utedb_premises_id']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', html_attr($row['utedb_premises_id']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode($urow['utedb_premises_id']), $templateCode);
 	} else {
 		$templateCode = str_replace('<%%VALUE(utedb_id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_madb)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_updated)%%>', urlencode('<%%editingTimestamp%%>'), $templateCode);
-		$templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode(''), $templateCode);
 	}
 
 	// process translations

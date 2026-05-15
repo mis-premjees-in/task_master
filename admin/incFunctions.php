@@ -197,11 +197,11 @@
 					'homepageShowCount' => 1
 				],
 				'pnb' => [
-					'Caption' => 'Pnb',
+					'Caption' => 'Presence & Being',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
 				],
 		];
 
@@ -232,7 +232,7 @@
 			'howts' => ['Howts (Timespan)', '', 'table.gif', 'None'],
 			'utedb' => ['Universal TEDB', '', 'table.gif', 'None'],
 			'premises' => ['Premises', '', 'table.gif', 'None'],
-			'pnb' => ['Pnb', '', 'table.gif', 'None'],
+			'pnb' => ['Presence & Being', '', 'table.gif', 'None'],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) {
@@ -1208,7 +1208,7 @@
 					'madb_premises_id' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Madb premises id',
+							'caption' => 'Premises Id',
 							'description' => '',
 						],
 					],
@@ -1969,6 +1969,13 @@
 							'description' => '',
 						],
 					],
+					'utedb_premises_id' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'Premises Id',
+							'description' => '',
+						],
+					],
 					'utedb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
@@ -1980,13 +1987,6 @@
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Updated AT',
-							'description' => '',
-						],
-					],
-					'utedb_premises_id' => [
-						'appgini' => "INT NULL",
-						'info' => [
-							'caption' => 'Utedb premises id',
 							'description' => '',
 						],
 					],
@@ -2060,7 +2060,7 @@
 					'pnb_premises_id' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Pnb premises id',
+							'caption' => 'Premises Id',
 							'description' => '',
 						],
 					],
