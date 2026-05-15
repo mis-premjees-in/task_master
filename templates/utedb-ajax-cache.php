@@ -38,7 +38,8 @@
 			utedb_howq2: <?php echo json_encode($jdata['utedb_howq2']); ?>,
 			utedb_howq3: <?php echo json_encode($jdata['utedb_howq3']); ?>,
 			utedb_howt2: <?php echo json_encode($jdata['utedb_howt2']); ?>,
-			utedb_howt3: <?php echo json_encode($jdata['utedb_howt3']); ?>
+			utedb_howt3: <?php echo json_encode($jdata['utedb_howt3']); ?>,
+			utedb_premises_id: <?php echo json_encode(['id' => $rdata['utedb_premises_id'], 'value' => $rdata['utedb_premises_id'], 'text' => $jdata['utedb_premises_id']]); ?>
 		};
 
 		/* initialize or continue using AppGini.cache for the current table */
@@ -94,6 +95,14 @@
 				return true;
 			}
 
+			return false;
+		});
+
+		/* saved value for utedb_premises_id */
+		cache.addCheck(function(u, d) {
+			if(u != 'ajax_combo.php') return false;
+			if(d.t == tn && d.f == 'utedb_premises_id' && d.id == data.utedb_premises_id.id)
+				return { results: [ data.utedb_premises_id ], more: false, elapsed: 0.01 };
 			return false;
 		});
 

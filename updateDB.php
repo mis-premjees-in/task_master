@@ -9,8 +9,11 @@
 	// check if this setup file already run
 	if($thisMD5 != $prevMD5) {
 		// set up tables
-		setupTable('madb', []);
-		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1','madb_howr1','madb_hows1','madb_howq1','madb_howt1',]);
+		setupTable('madb', [
+				"ALTER TABLE madb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `madb` CHANGE `field1` `madb_premises_id` VARCHAR(40) NULL ",
+			]);
+		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1','madb_howr1','madb_hows1','madb_howq1','madb_howt1','madb_premises_id',]);
 
 		setupTable('whats', []);
 
@@ -32,72 +35,19 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', []);
-		setupIndexes('utedb', ['utedb_madb',]);
-
-		setupTable('premises', [
-				"ALTER TABLE `table13` RENAME `premises`",
-				"UPDATE `membership_userrecords` SET `tableName`='premises' WHERE `tableName`='table13'",
-				"UPDATE `membership_userpermissions` SET `tableName`='premises' WHERE `tableName`='table13'",
-				"UPDATE `membership_grouppermissions` SET `tableName`='premises' WHERE `tableName`='table13'",
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premises_id` VARCHAR(40) NULL ",
-				"ALTER TABLE `premises` CHANGE `premises_id` `premises_id` VARCHAR(40) NOT NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_id` `premises_id` INT NOT NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_id` `premises_id` INT NOT NULL AUTO_INCREMENT ",
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premises_name` VARCHAR(40) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_name` `premises_name` VARCHAR(40) NOT NULL ",
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premises_latitude` VARCHAR(40) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_latitude` `premises_latitude` DECIMAL(10,2) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_latitude` `premises_latitude` DECIMAL(10,7) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_latitude` `premises_latitude` DECIMAL(10,7) NOT NULL ",
-				"ALTER TABLE `premises` ADD `premises_latitude_1` DECIMAL(10,7) NOT NULL ",
-				"ALTER TABLE `premises` CHANGE `premises_latitude_1` `premises_longitude` DECIMAL(10,7) NOT NULL ",
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premises_radius` VARCHAR(40) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_radius` `premises_radius` DECIMAL(10,2) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_radius` `premises_radius` DECIMAL(10,2) NOT NULL ",
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premises_created` VARCHAR(40) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_created` `premises_created` TIMESTAMP NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_created` `premises_created` TIMESTAMP NULL ",
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premises_updated` VARCHAR(40) NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_updated` `premises_updated` TIMESTAMP NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_updated` `premises_updated` TIMESTAMP NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_updated` `premises_updated` TIMESTAMP NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_updated` `premises_updated` TIMESTAMP NULL ",
-				"ALTER TABLE `premises` ADD PRIMARY KEY (`premises_id`)",
+		setupTable('utedb', [
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `field1` `utedb_premises_id` VARCHAR(40) NULL ",
 			]);
+		setupIndexes('utedb', ['utedb_madb','utedb_premises_id',]);
+
+		setupTable('premises', []);
 
 		setupTable('pnb', [
-				"ALTER TABLE `table14` RENAME `pnb`",
-				"UPDATE `membership_userrecords` SET `tableName`='pnb' WHERE `tableName`='table14'",
-				"UPDATE `membership_userpermissions` SET `tableName`='pnb' WHERE `tableName`='table14'",
-				"UPDATE `membership_grouppermissions` SET `tableName`='pnb' WHERE `tableName`='table14'",
 				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `pnb` CHANGE `field1` `pnb_id` VARCHAR(40) NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_id` `pnb_id` INT NULL ",
-				"ALTER TABLE `pnb` CHANGE `pnb_id` `pnb_id` INT NOT NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_id` `pnb_id` INT NOT NULL AUTO_INCREMENT ",
-				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `pnb` CHANGE `field1` `pnb_type` VARCHAR(40) NULL ",
-				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `pnb` CHANGE `field1` `pnb_created` VARCHAR(40) NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_created` `pnb_created` DATETIME NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_created` `pnb_created` TIMESTAMP NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_created` `pnb_created` TIMESTAMP NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_created` `pnb_created` TIMESTAMP NULL ",
-				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `pnb` CHANGE `field1` `pnb_updated` VARCHAR(40) NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_updated` `pnb_updated` TIMESTAMP NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_updated` `pnb_updated` TIMESTAMP NULL ",
-				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `pnb` DROP `field1`",
-				"ALTER TABLE `pnb` ADD PRIMARY KEY (`pnb_id`)",
+				"ALTER TABLE `pnb` CHANGE `field1` `pnb_premises_id` VARCHAR(40) NULL ",
 			]);
+		setupIndexes('pnb', ['pnb_premises_id',]);
 
 
 

@@ -37,7 +37,8 @@
 			madb_howq2: <?php echo json_encode($jdata['madb_howq2']); ?>,
 			madb_howq3: <?php echo json_encode($jdata['madb_howq3']); ?>,
 			madb_howt2: <?php echo json_encode($jdata['madb_howt2']); ?>,
-			madb_howt3: <?php echo json_encode($jdata['madb_howt3']); ?>
+			madb_howt3: <?php echo json_encode($jdata['madb_howt3']); ?>,
+			madb_premises_id: <?php echo json_encode(['id' => $rdata['madb_premises_id'], 'value' => $rdata['madb_premises_id'], 'text' => $jdata['madb_premises_id']]); ?>
 		};
 
 		/* initialize or continue using AppGini.cache for the current table */
@@ -272,6 +273,14 @@
 				return true;
 			}
 
+			return false;
+		});
+
+		/* saved value for madb_premises_id */
+		cache.addCheck(function(u, d) {
+			if(u != 'ajax_combo.php') return false;
+			if(d.t == tn && d.f == 'madb_premises_id' && d.id == data.madb_premises_id.id)
+				return { results: [ data.madb_premises_id ], more: false, elapsed: 0.01 };
 			return false;
 		});
 

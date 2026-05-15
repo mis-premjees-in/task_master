@@ -20,6 +20,7 @@
 	$x->QueryFieldsTV = [
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "pnb_premises_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -27,14 +28,16 @@
 	$x->SortFields = [
 		1 => '`pnb`.`pnb_id`',
 		2 => 2,
-		3 => '`pnb`.`pnb_created`',
-		4 => '`pnb`.`pnb_updated`',
+		3 => 3,
+		4 => '`pnb`.`pnb_created`',
+		5 => '`pnb`.`pnb_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = [
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "pnb_premises_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -42,6 +45,7 @@
 	$x->QueryFieldsFilters = [
 		"`pnb`.`pnb_id`" => "Pnb id",
 		"`pnb`.`pnb_type`" => "Pnb type",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "Pnb premises id",
 		"`pnb`.`pnb_created`" => "Pnb created",
 		"`pnb`.`pnb_updated`" => "Pnb updated",
 	];
@@ -50,14 +54,15 @@
 	$x->QueryFieldsQS = [
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Pnb premises id */" => "pnb_premises_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = [];
+	$x->filterers = ['pnb_premises_id' => 'Pnb premises id', ];
 
-	$x->QueryFrom = "`pnb` ";
+	$x->QueryFrom = "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -85,10 +90,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`pnb`.`pnb_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, ];
-	$x->ColCaption = ['Pnb id', 'Pnb type', 'Pnb created', 'Pnb updated', ];
-	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_created', 'pnb_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, ];
+	$x->ColCaption = ['Pnb id', 'Pnb type', 'Pnb premises id', 'Pnb created', 'Pnb updated', ];
+	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_created', 'pnb_updated', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/pnb_templateTV.html';

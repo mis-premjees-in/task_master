@@ -15,6 +15,7 @@
 			if(isset($data['madb_hows1'])) $data['madb_hows1'] = pkGivenLookupText($data['madb_hows1'], 'madb', 'madb_hows1');
 			if(isset($data['madb_howq1'])) $data['madb_howq1'] = pkGivenLookupText($data['madb_howq1'], 'madb', 'madb_howq1');
 			if(isset($data['madb_howt1'])) $data['madb_howt1'] = pkGivenLookupText($data['madb_howt1'], 'madb', 'madb_howt1');
+			if(isset($data['madb_premises_id'])) $data['madb_premises_id'] = pkGivenLookupText($data['madb_premises_id'], 'madb', 'madb_premises_id');
 			if(isset($data['madb_created'])) $data['madb_created'] = guessMySQLDateTime($data['madb_created']);
 			if(isset($data['madb_updated'])) $data['madb_updated'] = guessMySQLDateTime($data['madb_updated']);
 			if(isset($data['madb_why2'])) $data['madb_why2'] = thisOr($data['madb_why1'], pkGivenLookupText($data['madb_why2'], 'madb', 'madb_why2'));
@@ -104,6 +105,7 @@
 			if(isset($data['utedb_madb'])) $data['utedb_madb'] = pkGivenLookupText($data['utedb_madb'], 'utedb', 'utedb_madb');
 			if(isset($data['utedb_created'])) $data['utedb_created'] = guessMySQLDateTime($data['utedb_created']);
 			if(isset($data['utedb_updated'])) $data['utedb_updated'] = guessMySQLDateTime($data['utedb_updated']);
+			if(isset($data['utedb_premises_id'])) $data['utedb_premises_id'] = pkGivenLookupText($data['utedb_premises_id'], 'utedb', 'utedb_premises_id');
 			if(isset($data['utedb_what1'])) $data['utedb_what1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_what1'], 'utedb', 'utedb_what1'));
 			if(isset($data['utedb_who1'])) $data['utedb_who1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_who1'], 'utedb', 'utedb_who1'));
 			if(isset($data['utedb_when1'])) $data['utedb_when1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_when1'], 'utedb', 'utedb_when1'));
@@ -144,6 +146,7 @@
 			return $data;
 		},
 		'pnb' => function($data, $options = []) {
+			if(isset($data['pnb_premises_id'])) $data['pnb_premises_id'] = pkGivenLookupText($data['pnb_premises_id'], 'pnb', 'pnb_premises_id');
 			if(isset($data['pnb_created'])) $data['pnb_created'] = guessMySQLDateTime($data['pnb_created']);
 			if(isset($data['pnb_updated'])) $data['pnb_updated'] = guessMySQLDateTime($data['pnb_updated']);
 

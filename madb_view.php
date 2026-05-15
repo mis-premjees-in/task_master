@@ -49,6 +49,7 @@
 		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq3 */" => "madb_howq3",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "madb_howt2",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "madb_howt3",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Madb premises id */" => "madb_premises_id",
 		"`madb`.`madb_created`" => "madb_created",
 		"`madb`.`madb_updated`" => "madb_updated",
 	];
@@ -85,8 +86,9 @@
 		29 => '`howqs1`.`howqs_howq3`',
 		30 => '`howts1`.`howts_howt2`',
 		31 => '`howts1`.`howts_howt3`',
-		32 => '`madb`.`madb_created`',
-		33 => '`madb`.`madb_updated`',
+		32 => 32,
+		33 => '`madb`.`madb_created`',
+		34 => '`madb`.`madb_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -122,6 +124,7 @@
 		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq3 */" => "madb_howq3",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "madb_howt2",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "madb_howt3",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Madb premises id */" => "madb_premises_id",
 		"`madb`.`madb_created`" => "madb_created",
 		"`madb`.`madb_updated`" => "madb_updated",
 	];
@@ -158,6 +161,7 @@
 		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq3 */" => "Howq3",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "Howt2",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "Howt3",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Madb premises id */" => "Madb premises id",
 		"`madb`.`madb_created`" => "Created AT",
 		"`madb`.`madb_updated`" => "Updated AT",
 	];
@@ -195,14 +199,15 @@
 		"IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') /* Howq3 */" => "madb_howq3",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') /* Howt2 */" => "madb_howt2",
 		"IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') /* Howt3 */" => "madb_howt3",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Madb premises id */" => "madb_premises_id",
 		"`madb`.`madb_created`" => "madb_created",
 		"`madb`.`madb_updated`" => "madb_updated",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = ['madb_what1' => 'What1', 'madb_who1' => 'Who1', 'madb_when1' => 'When1', 'madb_which1' => 'Which1', 'madb_where1' => 'Where1', 'madb_why1' => 'Why1', 'madb_howr1' => 'Howr1', 'madb_hows1' => 'Hows1', 'madb_howq1' => 'Howq1', 'madb_howt1' => 'Madb howt1', ];
+	$x->filterers = ['madb_what1' => 'What1', 'madb_who1' => 'Who1', 'madb_when1' => 'When1', 'madb_which1' => 'Which1', 'madb_where1' => 'Where1', 'madb_why1' => 'Why1', 'madb_howr1' => 'Howr1', 'madb_hows1' => 'Hows1', 'madb_howq1' => 'Howq1', 'madb_howt1' => 'Madb howt1', 'madb_premises_id' => 'Madb premises id', ];
 
-	$x->QueryFrom = "`madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` ";
+	$x->QueryFrom = "`madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb`.`madb_premises_id` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -230,10 +235,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`madb`.`madb_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'What1', 'Who1', 'When1', 'Which1', 'Where1', 'Why1', 'Howr1', 'Hows1', 'Howq1', 'Madb howt1', 'Why2', 'Why3', 'Where2', 'Where3', 'Which2', 'Which3', 'When2', 'When3', 'Who2', 'Who3', 'What2', 'What3', 'Howr2', 'Howr3', 'Hows2', 'Hows3', 'Howq2', 'Howq3', 'Howt2', 'Howt3', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['madb_id', 'madb_what1', 'madb_who1', 'madb_when1', 'madb_which1', 'madb_where1', 'madb_why1', 'madb_howr1', 'madb_hows1', 'madb_howq1', 'madb_howt1', 'madb_why2', 'madb_why3', 'madb_where2', 'madb_where3', 'madb_which2', 'madb_which3', 'madb_when2', 'madb_when3', 'madb_who2', 'madb_who3', 'madb_what2', 'madb_what3', 'madb_howr2', 'madb_howr3', 'madb_hows2', 'madb_hows3', 'madb_howq2', 'madb_howq3', 'madb_howt2', 'madb_howt3', 'madb_created', 'madb_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
+	$x->ColCaption = ['Id', 'What1', 'Who1', 'When1', 'Which1', 'Where1', 'Why1', 'Howr1', 'Hows1', 'Howq1', 'Madb howt1', 'Why2', 'Why3', 'Where2', 'Where3', 'Which2', 'Which3', 'When2', 'When3', 'Who2', 'Who3', 'What2', 'What3', 'Howr2', 'Howr3', 'Hows2', 'Hows3', 'Howq2', 'Howq3', 'Howt2', 'Howt3', 'Madb premises id', 'Created AT', 'Updated AT', ];
+	$x->ColFieldName = ['madb_id', 'madb_what1', 'madb_who1', 'madb_when1', 'madb_which1', 'madb_where1', 'madb_why1', 'madb_howr1', 'madb_hows1', 'madb_howq1', 'madb_howt1', 'madb_why2', 'madb_why3', 'madb_where2', 'madb_where3', 'madb_which2', 'madb_which3', 'madb_when2', 'madb_when3', 'madb_who2', 'madb_who3', 'madb_what2', 'madb_what3', 'madb_howr2', 'madb_howr3', 'madb_hows2', 'madb_hows3', 'madb_howq2', 'madb_howq3', 'madb_howt2', 'madb_howt3', 'madb_premises_id', 'madb_created', 'madb_updated', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/madb_templateTV.html';

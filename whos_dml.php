@@ -78,6 +78,7 @@ function whos_copy_children($destination_id, $source_id) {
 			'madb_howq3' => $row['madb_howq3'],
 			'madb_howt2' => $row['madb_howt2'],
 			'madb_howt3' => $row['madb_howt3'],
+			'madb_premises_id' => $row['madb_premises_id'],
 		];
 
 		$ch = curl_insert_handler('madb', $data);
