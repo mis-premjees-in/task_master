@@ -21,7 +21,7 @@
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "pnb_whos_id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -40,7 +40,7 @@
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "pnb_whos_id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -49,7 +49,7 @@
 		"`pnb`.`pnb_id`" => "Id",
 		"`pnb`.`pnb_type`" => "PnB Type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "Premises Id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "Whos Id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "Whos Id",
 		"`pnb`.`pnb_created`" => "Created AT",
 		"`pnb`.`pnb_updated`" => "Updated AT",
 	];
@@ -59,7 +59,7 @@
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "pnb_whos_id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
