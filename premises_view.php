@@ -54,8 +54,8 @@
 		"`premises`.`premises_latitude`" => "Latitude",
 		"`premises`.`premises_longitude`" => "Longitude",
 		"`premises`.`premises_radius`" => "Premises radius",
-		"`premises`.`premises_created`" => "Premises created",
-		"`premises`.`premises_updated`" => "Premises updated",
+		"`premises`.`premises_created`" => "Created AT",
+		"`premises`.`premises_updated`" => "Updated AT",
 	];
 
 	// Fields that can be quick searched
@@ -101,7 +101,7 @@
 	$x->PrimaryKey = '`premises`.`premises_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Premise Name', 'Latitude', 'Longitude', 'Premises radius', 'Premises created', 'Premises updated', 'Pnb', ];
+	$x->ColCaption = ['Id', 'Premise Name', 'Latitude', 'Longitude', 'Premises radius', 'Created AT', 'Updated AT', 'Pnb', ];
 	$x->ColFieldName = ['premises_id', 'premises_name', 'premises_latitude', 'premises_longitude', 'premises_radius', 'premises_created', 'premises_updated', '%pnb.pnb_premises_id%', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 

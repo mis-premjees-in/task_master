@@ -37,9 +37,7 @@
 
 		setupTable('premises', []);
 
-		setupTable('pnb', [
-				" ALTER TABLE `pnb` CHANGE `pnb_created` `pnb_created` TIMESTAMP NULL ",
-			]);
+		setupTable('pnb', []);
 		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);
 
 

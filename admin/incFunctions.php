@@ -2030,14 +2030,14 @@
 					'premises_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
-							'caption' => 'Premises created',
+							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],
 					'premises_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
-							'caption' => 'Premises updated',
+							'caption' => 'Updated AT',
 							'description' => '',
 						],
 					],
@@ -2046,7 +2046,7 @@
 					'pnb_id' => [
 						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
 						'info' => [
-							'caption' => 'Pnb id',
+							'caption' => 'Id',
 							'description' => '',
 						],
 					],
@@ -2074,14 +2074,14 @@
 					'pnb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
-							'caption' => 'Pnb created',
+							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],
 					'pnb_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
-							'caption' => 'Pnb updated',
+							'caption' => 'Updated AT',
 							'description' => '',
 						],
 					],
