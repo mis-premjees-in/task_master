@@ -21,7 +21,7 @@
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Pnb whos id */" => "pnb_whos_id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -40,7 +40,7 @@
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Pnb whos id */" => "pnb_whos_id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -49,7 +49,7 @@
 		"`pnb`.`pnb_id`" => "Pnb id",
 		"`pnb`.`pnb_type`" => "Pnb type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "Premises Id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Pnb whos id */" => "Pnb whos id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "Whos Id",
 		"`pnb`.`pnb_created`" => "Pnb created",
 		"`pnb`.`pnb_updated`" => "Pnb updated",
 	];
@@ -59,13 +59,13 @@
 		"`pnb`.`pnb_id`" => "pnb_id",
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Pnb whos id */" => "pnb_whos_id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = ['pnb_premises_id' => 'Premises Id', 'pnb_whos_id' => 'Pnb whos id', ];
+	$x->filterers = ['pnb_premises_id' => 'Premises Id', 'pnb_whos_id' => 'Whos Id', ];
 
 	$x->QueryFrom = "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` ";
 	$x->QueryWhere = '';
@@ -96,7 +96,7 @@
 	$x->PrimaryKey = '`pnb`.`pnb_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Pnb id', 'Pnb type', 'Premises Id', 'Pnb whos id', 'Pnb created', 'Pnb updated', ];
+	$x->ColCaption = ['Pnb id', 'Pnb type', 'Premises Id', 'Whos Id', 'Pnb created', 'Pnb updated', ];
 	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_whos_id', 'pnb_created', 'pnb_updated', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, ];
 

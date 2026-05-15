@@ -509,7 +509,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$templateCode = str_replace('<%%URLCOMBOTEXT(pnb_whos_id)%%>', urlencode($combo_pnb_whos_id->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['pnb_premises_id' => ['premises', 'Premises Id'], 'pnb_whos_id' => ['whos', 'Pnb whos id'], ];
+	$lookup_fields = ['pnb_premises_id' => ['premises', 'Premises Id'], 'pnb_whos_id' => ['whos', 'Whos Id'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 

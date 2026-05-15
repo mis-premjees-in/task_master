@@ -38,8 +38,7 @@
 		setupTable('premises', []);
 
 		setupTable('pnb', [
-				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `pnb` CHANGE `field1` `pnb_whos_id` VARCHAR(40) NULL ",
+				" ALTER TABLE `pnb` CHANGE `pnb_created` `pnb_created` TIMESTAMP NULL ",
 			]);
 		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);
 

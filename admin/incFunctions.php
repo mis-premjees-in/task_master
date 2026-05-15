@@ -2067,7 +2067,7 @@
 					'pnb_whos_id' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Pnb whos id',
+							'caption' => 'Whos Id',
 							'description' => '',
 						],
 					],
