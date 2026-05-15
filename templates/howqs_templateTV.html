@@ -12,3 +12,7 @@
 		<td id="howqs-howqs_description-<%%VALUE(howqs_id)%%>" class="howqs-howqs_description"><%%SELECT%%><%%VALUE(howqs_description)%%><%%ENDSELECT%%></td>
 		<td id="howqs-howqs_created-<%%VALUE(howqs_id)%%>" class="howqs-howqs_created"><%%SELECT%%><%%VALUE(howqs_created)%%><%%ENDSELECT%%></td>
 		<td id="howqs-howqs_updated-<%%VALUE(howqs_id)%%>" class="howqs-howqs_updated"><%%SELECT%%><%%VALUE(howqs_updated)%%><%%ENDSELECT%%></td>
+		<td class="child-madb-madb_howq1 child-records-info" data-id="<%%VALUE(howqs_id)%%>" data-table="madb" data-lookup-field="madb_howq1">
+			<a href="madb_view.php?filterer_madb_howq1=<%%VALUE(howqs_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Madb)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="madb_view.php?filterer_madb_howq1=<%%VALUE(howqs_id)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Madb)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

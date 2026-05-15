@@ -12,3 +12,7 @@
 		<td id="howts-howrs_description-<%%VALUE(howts_id)%%>" class="howts-howrs_description text-bold"><%%VALUE(howrs_description)%%></td>
 		<td id="howts-howrs_created-<%%VALUE(howts_id)%%>" class="howts-howrs_created text-bold"><%%VALUE(howrs_created)%%></td>
 		<td id="howts-howrs_updated-<%%VALUE(howts_id)%%>" class="howts-howrs_updated text-bold"><%%VALUE(howrs_updated)%%></td>
+		<td class="child-madb-madb_howt1 child-records-info" data-id="<%%VALUE(howts_id)%%>" data-table="madb" data-lookup-field="madb_howt1">
+			<a href="madb_view.php?filterer_madb_howt1=<%%VALUE(howts_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Madb)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="madb_view.php?filterer_madb_howt1=<%%VALUE(howts_id)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Madb)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

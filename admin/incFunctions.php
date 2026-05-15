@@ -159,7 +159,7 @@
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
 				],
 				'howss' => [
 					'Caption' => 'Howss (Steps)',
@@ -173,14 +173,14 @@
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
 				],
 				'howts' => [
 					'Caption' => 'Howts (Timespan)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
 				],
 				'utedb' => [
 					'Caption' => 'Universal TEDB',

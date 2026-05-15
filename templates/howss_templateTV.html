@@ -13,3 +13,7 @@
 		<td id="howss-howss_description-<%%VALUE(howss_id)%%>" class="howss-howss_description"><%%SELECT%%><%%VALUE(howss_description)%%><%%ENDSELECT%%></td>
 		<td id="howss-howss_created-<%%VALUE(howss_id)%%>" class="howss-howss_created"><%%SELECT%%><%%VALUE(howss_created)%%><%%ENDSELECT%%></td>
 		<td id="howss-howss_updated-<%%VALUE(howss_id)%%>" class="howss-howss_updated"><%%SELECT%%><%%VALUE(howss_updated)%%><%%ENDSELECT%%></td>
+		<td class="child-madb-madb_hows1 child-records-info" data-id="<%%VALUE(howss_id)%%>" data-table="madb" data-lookup-field="madb_hows1">
+			<a href="madb_view.php?filterer_madb_hows1=<%%VALUE(howss_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Madb)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="madb_view.php?filterer_madb_hows1=<%%VALUE(howss_id)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Madb)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

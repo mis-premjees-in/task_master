@@ -43,48 +43,6 @@ function wheres_copy_children($destination_id, $source_id) {
 	$currentUsername = getLoggedMemberID();
 	$errorMessage = '';
 
-	// copy madb
-	$res = sql("SELECT * FROM `madb` WHERE `madb_where1`='{$safe_sid}'", $eo);
-	while($row = db_fetch_assoc($res)) {
-		$data = [
-			'SelectedID' => $row['madb_id'],
-			'madb_what1' => $row['madb_what1'],
-			'madb_who1' => $row['madb_who1'],
-			'madb_when1' => $row['madb_when1'],
-			'madb_which1' => $row['madb_which1'],
-			'madb_where1' => $destination_id,
-			'madb_why1' => $row['madb_why1'],
-			'madb_howr1' => $row['madb_howr1'],
-			'madb_hows1' => $row['madb_hows1'],
-			'madb_howq1' => $row['madb_howq1'],
-			'madb_howt1' => $row['madb_howt1'],
-			'madb_why2' => $row['madb_why2'],
-			'madb_why3' => $row['madb_why3'],
-			'madb_where2' => $row['madb_where2'],
-			'madb_where3' => $row['madb_where3'],
-			'madb_which2' => $row['madb_which2'],
-			'madb_which3' => $row['madb_which3'],
-			'madb_when2' => $row['madb_when2'],
-			'madb_when3' => $row['madb_when3'],
-			'madb_who2' => $row['madb_who2'],
-			'madb_who3' => $row['madb_who3'],
-			'madb_what2' => $row['madb_what2'],
-			'madb_what3' => $row['madb_what3'],
-			'madb_howr2' => $row['madb_howr2'],
-			'madb_howr3' => $row['madb_howr3'],
-			'madb_hows2' => $row['madb_hows2'],
-			'madb_hows3' => $row['madb_hows3'],
-			'madb_howq2' => $row['madb_howq2'],
-			'madb_howq3' => $row['madb_howq3'],
-			'madb_howt2' => $row['madb_howt2'],
-			'madb_howt3' => $row['madb_howt3'],
-			'madb_premises_id' => $row['madb_premises_id'],
-		];
-
-		$ch = curl_insert_handler('madb', $data);
-		if($ch !== false) $requests[] = $ch;
-	}
-
 	// launch requests, asynchronously
 	curl_batch($requests);
 }

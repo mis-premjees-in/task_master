@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`howrs`.`howrs_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'Howr1 (Method)', 'Howr2 (Type)', 'Howr3 (Url If Any)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['howrs_id', 'howrs_howr1', 'howrs_howr2', 'howrs_howr3', 'howrs_description', 'howrs_created', 'howrs_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Howr1 (Method)', 'Howr2 (Type)', 'Howr3 (Url If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['howrs_id', 'howrs_howr1', 'howrs_howr2', 'howrs_howr3', 'howrs_description', 'howrs_created', 'howrs_updated', '%madb.madb_howr1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/howrs_templateTV.html';

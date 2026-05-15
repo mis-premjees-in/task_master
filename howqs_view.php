@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`howqs`.`howqs_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'Howq1 (Type)', 'Howq2 (Measure)', 'Howq3 (Target)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['howqs_id', 'howqs_howq1', 'howqs_howq2', 'howqs_howq3', 'howqs_description', 'howqs_created', 'howqs_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Howq1 (Type)', 'Howq2 (Measure)', 'Howq3 (Target)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['howqs_id', 'howqs_howq1', 'howqs_howq2', 'howqs_howq3', 'howqs_description', 'howqs_created', 'howqs_updated', '%madb.madb_howq1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/howqs_templateTV.html';

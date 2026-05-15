@@ -1215,7 +1215,7 @@
 	#########################################################
 
 	function tablesWithAddNewInHomepage() {
-		return ['madb','whats','whos','whens','whichs','wheres','whys','utedb','premises','pnb',];
+		return ['madb','whats','whos','whens','whichs','wheres','whys','howrs','howqs','howts','utedb','premises','pnb',];
 	}
 
 	#########################################################
@@ -1570,8 +1570,8 @@ EOT;
 					'parent-primary-key' => 'howrs_id',
 					'child-primary-key' => 'madb_id',
 					'child-primary-key-index' => 0,
-					'tab-label' => 'Master Anatomy DB <span class="hidden child-label-madb child-field-caption">(Howr1)</span>',
-					'auto-close' => false,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Howr1)</span>',
+					'auto-close' => true,
 					'table-icon' => 'table.gif',
 					'display-refresh' => true,
 					'display-add-new' => true,
@@ -1594,8 +1594,8 @@ EOT;
 					'parent-primary-key' => 'howss_id',
 					'child-primary-key' => 'madb_id',
 					'child-primary-key-index' => 0,
-					'tab-label' => 'Master Anatomy DB <span class="hidden child-label-madb child-field-caption">(Hows1)</span>',
-					'auto-close' => false,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Hows1)</span>',
+					'auto-close' => true,
 					'table-icon' => 'table.gif',
 					'display-refresh' => true,
 					'display-add-new' => true,
@@ -1618,8 +1618,8 @@ EOT;
 					'parent-primary-key' => 'howqs_id',
 					'child-primary-key' => 'madb_id',
 					'child-primary-key-index' => 0,
-					'tab-label' => 'Master Anatomy DB <span class="hidden child-label-madb child-field-caption">(Howq1)</span>',
-					'auto-close' => false,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Howq1)</span>',
+					'auto-close' => true,
 					'table-icon' => 'table.gif',
 					'display-refresh' => true,
 					'display-add-new' => true,
@@ -1642,8 +1642,8 @@ EOT;
 					'parent-primary-key' => 'howts_id',
 					'child-primary-key' => 'madb_id',
 					'child-primary-key-index' => 0,
-					'tab-label' => 'Master Anatomy DB <span class="hidden child-label-madb child-field-caption">(Madb howt1)</span>',
-					'auto-close' => false,
+					'tab-label' => 'Madb <span class="hidden child-label-madb child-field-caption">(Madb howt1)</span>',
+					'auto-close' => true,
 					'table-icon' => 'table.gif',
 					'display-refresh' => true,
 					'display-add-new' => true,
@@ -1765,7 +1765,7 @@ EOT;
 					'child-primary-key' => 'pnb_id',
 					'child-primary-key-index' => 0,
 					'tab-label' => 'Pnb <span class="hidden child-label-pnb child-field-caption">(Premises Id)</span>',
-					'auto-close' => false,
+					'auto-close' => true,
 					'table-icon' => 'table.gif',
 					'display-refresh' => true,
 					'display-add-new' => true,

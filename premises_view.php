@@ -100,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`premises`.`premises_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'Premise Name', 'Latitude', 'Longitude', 'Premises radius', 'Premises created', 'Premises updated', ];
-	$x->ColFieldName = ['premises_id', 'premises_name', 'premises_latitude', 'premises_longitude', 'premises_radius', 'premises_created', 'premises_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Premise Name', 'Latitude', 'Longitude', 'Premises radius', 'Premises created', 'Premises updated', 'Pnb', ];
+	$x->ColFieldName = ['premises_id', 'premises_name', 'premises_latitude', 'premises_longitude', 'premises_radius', 'premises_created', 'premises_updated', '%pnb.pnb_premises_id%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/premises_templateTV.html';

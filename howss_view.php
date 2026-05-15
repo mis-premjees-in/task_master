@@ -105,10 +105,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`howss`.`howss_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'Hows1 (Flowchart)', 'Hows2 (SOP)', 'Hows3 (TV Url If Any)', 'Hows4 (PT Url If Any)', 'Description', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['howss_id', 'howss_hows1', 'howss_hows2', 'howss_hows3', 'howss_hows4', 'howss_description', 'howss_created', 'howss_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Hows1 (Flowchart)', 'Hows2 (SOP)', 'Hows3 (TV Url If Any)', 'Hows4 (PT Url If Any)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['howss_id', 'howss_hows1', 'howss_hows2', 'howss_hows3', 'howss_hows4', 'howss_description', 'howss_created', 'howss_updated', '%madb.madb_hows1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/howss_templateTV.html';
