@@ -53,6 +53,6 @@
 	@define('THEME_COMPACT', true);
 	@define('NO_THEME_SELECTION', false); // if true, the theme selection will not be available in the user profile page
 	@define('HOMEPAGE_FIRST_TABLE_DOUBLE_WIDTH', true);
-	@define('HOMEPAGE_TABLES_PER_ROW', 4);
+	@define('HOMEPAGE_TABLES_PER_ROW', 3);
 	@define('HOMEPAGE_PANEL_HEIGHT', 100);
 	@define('DEFAULT_NAV_MENU', 'vertical');
