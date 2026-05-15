@@ -678,7 +678,7 @@ function howts_validateData(insertMode) {
 	// check all required fields have values
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
-		['text', 'howts_howt1', 'How (S) 1 (Type)'],
+		['text', 'howts_howt1', 'How (T) 1 (Type)'],
 		['text', 'howts_howt2', 'How (T) 2 (Span)'],
 		['text', 'howrs_description', 'Description'],
 	];

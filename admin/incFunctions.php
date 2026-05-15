@@ -1665,7 +1665,7 @@
 						],
 					],
 					'howqs_howq3' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "DECIMAL(10,2) NULL",
 						'info' => [
 							'caption' => 'How (Q) 3 (Target)',
 							'description' => '',
@@ -1704,7 +1704,7 @@
 					'howts_howt1' => [
 						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
-							'caption' => 'How (S) 1 (Type)',
+							'caption' => 'How (T) 1 (Type)',
 							'description' => '',
 						],
 					],
@@ -1716,7 +1716,7 @@
 						],
 					],
 					'howts_howt3' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "DECIMAL(10,2) NULL",
 						'info' => [
 							'caption' => 'How (T) 3 (Target - if any)',
 							'description' => '',
@@ -1762,210 +1762,210 @@
 					'utedb_what1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'What1',
+							'caption' => 'What 1',
 							'description' => '',
 						],
 					],
 					'utedb_who1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Who1',
+							'caption' => 'Who 1',
 							'description' => '',
 						],
 					],
 					'utedb_when1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'When1',
+							'caption' => 'When 1',
 							'description' => '',
 						],
 					],
 					'utedb_which1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Which1',
+							'caption' => 'Which 1',
 							'description' => '',
 						],
 					],
 					'utedb_where1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Where1',
+							'caption' => 'Where 1',
 							'description' => '',
 						],
 					],
 					'utedb_why1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Why1',
+							'caption' => 'Why 1',
 							'description' => '',
 						],
 					],
 					'utedb_howr1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howr1',
+							'caption' => 'How (R) 1',
 							'description' => '',
 						],
 					],
 					'utedb_hows1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Hows1',
+							'caption' => 'How (S) 1',
 							'description' => '',
 						],
 					],
 					'utedb_howq1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howq1',
+							'caption' => 'How (Q) 1',
 							'description' => '',
 						],
 					],
 					'utedb_howt1' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howt1',
+							'caption' => 'How (T) 1',
 							'description' => '',
 						],
 					],
 					'utedb_why2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Why2',
+							'caption' => 'Why 2',
 							'description' => '',
 						],
 					],
 					'utedb_why3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Why3',
+							'caption' => 'Why 3',
 							'description' => '',
 						],
 					],
 					'utedb_where2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Where2',
+							'caption' => 'Where 2',
 							'description' => '',
 						],
 					],
 					'utedb_where3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Where3',
+							'caption' => 'Where 3',
 							'description' => '',
 						],
 					],
 					'utedb_which2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Which2',
+							'caption' => 'Which 2',
 							'description' => '',
 						],
 					],
 					'utedb_which3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Which3',
+							'caption' => 'Which 3',
 							'description' => '',
 						],
 					],
 					'utedb_when2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'When2',
+							'caption' => 'When 2',
 							'description' => '',
 						],
 					],
 					'utedb_when3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'When3',
+							'caption' => 'When 3',
 							'description' => '',
 						],
 					],
 					'utedb_who2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Who2',
+							'caption' => 'Who 2',
 							'description' => '',
 						],
 					],
 					'utedb_who3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Who3',
+							'caption' => 'Who 3',
 							'description' => '',
 						],
 					],
 					'utedb_what2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'What2',
+							'caption' => 'What 2',
 							'description' => '',
 						],
 					],
 					'utedb_what3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'What3',
+							'caption' => 'What 3',
 							'description' => '',
 						],
 					],
 					'utedb_howr2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howr2',
+							'caption' => 'How (R) 2',
 							'description' => '',
 						],
 					],
 					'utedb_howr3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howr3',
+							'caption' => 'How (R) 3',
 							'description' => '',
 						],
 					],
 					'utedb_hows2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Hows2',
+							'caption' => 'How (S) 2',
 							'description' => '',
 						],
 					],
 					'utedb_hows3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Hows3',
+							'caption' => 'How (S) 3',
 							'description' => '',
 						],
 					],
 					'utedb_howq2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howq2',
+							'caption' => 'How (Q) 2',
 							'description' => '',
 						],
 					],
 					'utedb_howq3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howq3',
+							'caption' => 'How (Q) 3',
 							'description' => '',
 						],
 					],
 					'utedb_howt2' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howt2',
+							'caption' => 'How (T) 2',
 							'description' => '',
 						],
 					],
 					'utedb_howt3' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Howt3',
+							'caption' => 'How (T) 3',
 							'description' => '',
 						],
 					],
@@ -3444,7 +3444,7 @@
 				'madb_which1' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_id`',
 				'madb_where1' => 'SELECT `wheres`.`wheres_id`, IF(CHAR_LENGTH(`wheres`.`wheres_where1`) || CHAR_LENGTH(`wheres`.`wheres_where2`)|| CHAR_LENGTH(`wheres`.`wheres_where3`), CONCAT_WS(\'\', `wheres`.`wheres_where1`, \'-\', `wheres`.`wheres_where2`, \'-\', `wheres`.`wheres_where3`), \'\') FROM `wheres` ORDER BY `wheres`.`wheres_id`',
 				'madb_why1' => 'SELECT `whys`.`whys_id`, IF(CHAR_LENGTH(`whys`.`whys_why1`) || CHAR_LENGTH(`whys`.`whys_why2`) || CHAR_LENGTH(`whys`.`whys_why3`), CONCAT_WS(\'\', `whys`.`whys_why1`, \'-\', `whys`.`whys_why2`,\'\', \'-\', `whys`.`whys_why3`), \'\') FROM `whys` ORDER BY `whys`.`whys_id`',
-				'madb_howr1' => 'SELECT `howrs`.`howrs_id`, IF(CHAR_LENGTH(`howrs`.`howrs_howr1`) || CHAR_LENGTH(`howrs`.`howrs_howr2`)|| CHAR_LENGTH(`howrs`.`howrs_howr3`), CONCAT_WS(\'\', `howrs`.`howrs_howr1`, \'-\', `howrs`.`howrs_howr2`, \'-\', `howrs`.`howrs_howr3`), \'\') FROM `howrs` ORDER BY `howrs`.`howrs_id`',
+				'madb_howr1' => 'SELECT `howrs`.`howrs_id`, IF(CHAR_LENGTH(`howrs`.`howrs_howr1`) || CHAR_LENGTH(`howrs`.`howrs_howr2`), CONCAT_WS(\'\', `howrs`.`howrs_howr1`, \'-\', `howrs`.`howrs_howr2`), \'\') FROM `howrs` ORDER BY `howrs`.`howrs_id`',
 				'madb_hows1' => 'SELECT `howss`.`howss_id`, IF(CHAR_LENGTH(`howss`.`howss_hows1`) || CHAR_LENGTH(`howss`.`howss_hows2`)|| CHAR_LENGTH(`howss`.`howss_hows3`), CONCAT_WS(\'\', `howss`.`howss_hows1`, \'-\', `howss`.`howss_hows2`, \'-\', `howss`.`howss_hows3`), \'\') FROM `howss` ORDER BY `howss`.`howss_id`',
 				'madb_howq1' => 'SELECT `howqs`.`howqs_id`, IF(CHAR_LENGTH(`howqs`.`howqs_howq1`) || CHAR_LENGTH(`howqs`.`howqs_howq2`)|| CHAR_LENGTH(`howqs`.`howqs_howq3`), CONCAT_WS(\'\', `howqs`.`howqs_howq1`, \'-\', `howqs`.`howqs_howq2`, \'-\', `howqs`.`howqs_howq3`), \'\') FROM `howqs` ORDER BY `howqs`.`howqs_id`',
 				'madb_howt1' => 'SELECT `howts`.`howts_id`, IF(CHAR_LENGTH(`howts`.`howts_howt1`) || CHAR_LENGTH(`howts`.`howts_howt2`)|| CHAR_LENGTH(`howts`.`howts_howt3`), CONCAT_WS(\'\', `howts`.`howts_howt1`, \'-\', `howts`.`howts_howt2`, \'-\', `howts`.`howts_howt3`), \'\') FROM `howts` ORDER BY `howts`.`howts_id`',

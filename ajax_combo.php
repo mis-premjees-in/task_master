@@ -105,7 +105,7 @@
 				'parent_caption' => 'IF(CHAR_LENGTH(`howrs`.`howrs_howr1`) || CHAR_LENGTH(`howrs`.`howrs_howr2`), CONCAT_WS(\'\', `howrs`.`howrs_howr1`, \'-\', `howrs`.`howrs_howr2`), \'\')',
 				'parent_from' => '`howrs` ',
 				'filterers' => [],
-				'custom_query' => 'SELECT `howrs`.`howrs_id`, IF(CHAR_LENGTH(`howrs`.`howrs_howr1`) || CHAR_LENGTH(`howrs`.`howrs_howr2`)|| CHAR_LENGTH(`howrs`.`howrs_howr3`), CONCAT_WS(\'\', `howrs`.`howrs_howr1`, \'-\', `howrs`.`howrs_howr2`, \'-\', `howrs`.`howrs_howr3`), \'\') FROM `howrs` ORDER BY `howrs`.`howrs_id`',
+				'custom_query' => 'SELECT `howrs`.`howrs_id`, IF(CHAR_LENGTH(`howrs`.`howrs_howr1`) || CHAR_LENGTH(`howrs`.`howrs_howr2`), CONCAT_WS(\'\', `howrs`.`howrs_howr1`, \'-\', `howrs`.`howrs_howr2`), \'\') FROM `howrs` ORDER BY `howrs`.`howrs_id`',
 				'inherit_permissions' => false,
 				'list_type' => 0,
 				'not_null' => false,

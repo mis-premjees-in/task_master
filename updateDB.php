@@ -28,9 +28,14 @@
 
 		setupTable('howss', []);
 
-		setupTable('howqs', []);
+		setupTable('howqs', [
+				" ALTER TABLE `howqs` CHANGE `howqs_howq3` `howqs_howq3` DECIMAL(10,2) NULL ",
+			]);
 
-		setupTable('howts', []);
+		setupTable('howts', [
+				" ALTER TABLE `howts` CHANGE `howts_howt3` `howts_howt3` INT NULL ",
+				" ALTER TABLE `howts` CHANGE `howts_howt3` `howts_howt3` DECIMAL(10,2) NULL ",
+			]);
 
 		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb','utedb_premises_id',]);
