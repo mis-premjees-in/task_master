@@ -18,6 +18,7 @@ function pnb_insert(&$error_message = '') {
 	$data = [
 		'pnb_type' => Request::val('pnb_type', ''),
 		'pnb_premises_id' => Request::lookup('pnb_premises_id', ''),
+		'pnb_whos_id' => Request::lookup('pnb_whos_id', ''),
 		'pnb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -87,6 +88,7 @@ function pnb_update(&$selected_id, &$error_message = '') {
 	$data = [
 		'pnb_type' => Request::val('pnb_type', ''),
 		'pnb_premises_id' => Request::lookup('pnb_premises_id', ''),
+		'pnb_whos_id' => Request::lookup('pnb_whos_id', ''),
 		'pnb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -176,6 +178,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$fieldsAreEditable = !$dvprint && (($allowInsert && !$hasSelectedId) || ($allowUpdate && $hasSelectedId) || $showSaveAsCopy);
 
 	$filterer_pnb_premises_id = Request::val('filterer_pnb_premises_id');
+	$filterer_pnb_whos_id = Request::val('filterer_pnb_whos_id');
 
 	// populate filterers, starting from children to grand-parents
 
@@ -198,6 +201,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$combo_pnb_type->SelectName = 'pnb_type';
 	// combobox: pnb_premises_id
 	$combo_pnb_premises_id = new DataCombo;
+	// combobox: pnb_whos_id
+	$combo_pnb_whos_id = new DataCombo;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('pnb', $selectedId))) {
@@ -205,6 +210,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		}
 		$combo_pnb_type->SelectedData = $row['pnb_type'];
 		$combo_pnb_premises_id->SelectedData = $row['pnb_premises_id'];
+		$combo_pnb_whos_id->SelectedData = $row['pnb_whos_id'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -213,10 +219,13 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$filterValue = Request::val('FilterValue');
 		$combo_pnb_type->SelectedText = (isset($filterField[1]) && $filterField[1] == '2' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_pnb_premises_id->SelectedData = $filterer_pnb_premises_id;
+		$combo_pnb_whos_id->SelectedData = $filterer_pnb_whos_id;
 	}
 	$combo_pnb_type->Render();
 	$combo_pnb_premises_id->HTML = '<span id="pnb_premises_id-container' . $rnd1 . '"></span><input type="hidden" name="pnb_premises_id" id="pnb_premises_id' . $rnd1 . '" value="' . html_attr($combo_pnb_premises_id->SelectedData) . '">';
 	$combo_pnb_premises_id->MatchText = '<span id="pnb_premises_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="pnb_premises_id" id="pnb_premises_id' . $rnd1 . '" value="' . html_attr($combo_pnb_premises_id->SelectedData) . '">';
+	$combo_pnb_whos_id->HTML = '<span id="pnb_whos_id-container' . $rnd1 . '"></span><input type="hidden" name="pnb_whos_id" id="pnb_whos_id' . $rnd1 . '" value="' . html_attr($combo_pnb_whos_id->SelectedData) . '">';
+	$combo_pnb_whos_id->MatchText = '<span id="pnb_whos_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="pnb_whos_id" id="pnb_whos_id' . $rnd1 . '" value="' . html_attr($combo_pnb_whos_id->SelectedData) . '">';
 
 	ob_start();
 	?>
@@ -224,10 +233,12 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	<script>
 		// initial lookup values
 		AppGini.current_pnb_premises_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['pnb_premises_id'] : htmlspecialchars($filterer_pnb_premises_id, ENT_QUOTES)); ?>"};
+		AppGini.current_pnb_whos_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['pnb_whos_id'] : htmlspecialchars($filterer_pnb_whos_id, ENT_QUOTES)); ?>"};
 
 		$j(function() {
 			setTimeout(function() {
 				if(typeof(pnb_premises_id_reload__RAND__) == 'function') pnb_premises_id_reload__RAND__();
+				if(typeof(pnb_whos_id_reload__RAND__) == 'function') pnb_whos_id_reload__RAND__();
 			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
 		function pnb_premises_id_reload__RAND__() {
@@ -304,6 +315,85 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
 
 					if(typeof(pnb_premises_id_update_autofills__RAND__) == 'function') pnb_premises_id_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
+		function pnb_whos_id_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#pnb_whos_id-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_pnb_whos_id__RAND__.value, t: 'pnb', f: 'pnb_whos_id' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="pnb_whos_id"]').val(resp.results[0].id);
+							$j('[id=pnb_whos_id-container-readonly__RAND__]').html('<span class="match-text" id="pnb_whos_id-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
+
+
+							if(typeof(pnb_whos_id_update_autofills__RAND__) == 'function') pnb_whos_id_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'pnb', f: 'pnb_whos_id' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_pnb_whos_id__RAND__.value = e.added.id;
+				AppGini.current_pnb_whos_id__RAND__.text = e.added.text;
+				$j('[name="pnb_whos_id"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=whos_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(pnb_whos_id_update_autofills__RAND__) == 'function') pnb_whos_id_update_autofills__RAND__();
+			});
+
+			if(!$j("#pnb_whos_id-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_pnb_whos_id__RAND__.value, t: 'pnb', f: 'pnb_whos_id' },
+					success: function(resp) {
+						$j('[name="pnb_whos_id"]').val(resp.results[0].id);
+						$j('[id=pnb_whos_id-container-readonly__RAND__]').html('<span class="match-text" id="pnb_whos_id-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
+
+						if(typeof(pnb_whos_id_update_autofills__RAND__) == 'function') pnb_whos_id_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_pnb_whos_id__RAND__.value, t: 'pnb', f: 'pnb_whos_id' },
+				success: function(resp) {
+					$j('[id=pnb_whos_id-container__RAND__], [id=pnb_whos_id-container-readonly__RAND__]').html('<span class="match-text" id="pnb_whos_id-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
+
+					if(typeof(pnb_whos_id_update_autofills__RAND__) == 'function') pnb_whos_id_update_autofills__RAND__();
 				}
 			});
 		<?php } ?>
@@ -397,6 +487,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$jsReadOnly .= "\t\$j('#pnb_type').replaceWith('<div class=\"form-control-static\" id=\"pnb_type\">' + (\$j('#pnb_type').val() || '') + '</div>'); \$j('#pnb_type-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#pnb_premises_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#pnb_premises_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#pnb_whos_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#pnb_whos_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -412,9 +504,12 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$templateCode = str_replace('<%%COMBO(pnb_premises_id)%%>', $combo_pnb_premises_id->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(pnb_premises_id)%%>', $combo_pnb_premises_id->MatchText, $templateCode);
 	$templateCode = str_replace('<%%URLCOMBOTEXT(pnb_premises_id)%%>', urlencode($combo_pnb_premises_id->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(pnb_whos_id)%%>', $combo_pnb_whos_id->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(pnb_whos_id)%%>', $combo_pnb_whos_id->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(pnb_whos_id)%%>', urlencode($combo_pnb_whos_id->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['pnb_premises_id' => ['premises', 'Premises Id'], ];
+	$lookup_fields = ['pnb_premises_id' => ['premises', 'Premises Id'], 'pnb_whos_id' => ['whos', 'Pnb whos id'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -433,6 +528,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_type)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_premises_id)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(pnb_whos_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_updated)%%>', '', $templateCode);
 
@@ -447,6 +543,9 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(pnb_premises_id)%%>', safe_html($urow['pnb_premises_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(pnb_premises_id)%%>', html_attr($row['pnb_premises_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_premises_id)%%>', urlencode($urow['pnb_premises_id']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(pnb_whos_id)%%>', safe_html($urow['pnb_whos_id']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(pnb_whos_id)%%>', html_attr($row['pnb_whos_id']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_whos_id)%%>', urlencode($urow['pnb_whos_id']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_created)%%>', safe_html($urow['pnb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_created)%%>', urlencode($urow['pnb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_updated)%%>', safe_html($urow['pnb_updated']), $templateCode);
@@ -458,6 +557,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$templateCode = str_replace('<%%URLVALUE(pnb_type)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_premises_id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_premises_id)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(pnb_whos_id)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_whos_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

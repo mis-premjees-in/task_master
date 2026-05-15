@@ -118,7 +118,7 @@
 			'howts' => "`howts`.`howts_id` as 'howts_id', `howts`.`howts_howt1` as 'howts_howt1', `howts`.`howts_howt2` as 'howts_howt2', `howts`.`howts_howt3` as 'howts_howt3', `howts`.`howrs_description` as 'howrs_description', `howts`.`howrs_created` as 'howrs_created', `howts`.`howrs_updated` as 'howrs_updated'",
 			'utedb' => "`utedb`.`utedb_id` as 'utedb_id', IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') as 'utedb_madb', IF(    CHAR_LENGTH(`whats2`.`whats_what1`), CONCAT_WS('',   `whats2`.`whats_what1`), '') as 'utedb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'utedb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when1`, '-', `whens1`.`whens_when2`), '') as 'utedb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'utedb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'utedb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'utedb_why1', IF(    CHAR_LENGTH(`howrs1`.`howrs_howr1`) || CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr1`, '-', `howrs1`.`howrs_howr2`), '') as 'utedb_howr1', IF(    CHAR_LENGTH(`howss1`.`howss_hows1`) || CHAR_LENGTH(`howss1`.`howss_hows2`), CONCAT_WS('',   `howss1`.`howss_hows1`, '-', `howss1`.`howss_hows2`), '') as 'utedb_hows1', IF(    CHAR_LENGTH(`howqs1`.`howqs_howq1`) || CHAR_LENGTH(`howqs1`.`howqs_howq2`), CONCAT_WS('',   `howqs1`.`howqs_howq1`, '-', `howqs1`.`howqs_howq2`), '') as 'utedb_howq1', IF(    CHAR_LENGTH(`howts1`.`howts_howt1`) || CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt1`, '-', `howts1`.`howts_howt2`), '') as 'utedb_howt1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'utedb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'utedb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'utedb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'utedb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'utedb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'utedb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'utedb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'utedb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'utedb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'utedb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'utedb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'utedb_what3', IF(    CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr2`), '') as 'utedb_howr2', IF(    CHAR_LENGTH(`howrs1`.`howrs_howr3`), CONCAT_WS('',   `howrs1`.`howrs_howr3`), '') as 'utedb_howr3', IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') as 'utedb_hows2', IF(    CHAR_LENGTH(`howss1`.`howss_hows3`), CONCAT_WS('',   `howss1`.`howss_hows3`), '') as 'utedb_hows3', IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') as 'utedb_howq2', IF(    CHAR_LENGTH(`howqs3`.`howqs_howq1`) || CHAR_LENGTH(`howqs3`.`howqs_howq2`), CONCAT_WS('',   `howqs3`.`howqs_howq1`, '-', `howqs3`.`howqs_howq2`), '') as 'utedb_howq3', IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') as 'utedb_howt2', IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') as 'utedb_howt3', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'utedb_premises_id', `utedb`.`utedb_created` as 'utedb_created', `utedb`.`utedb_updated` as 'utedb_updated'",
 			'premises' => "`premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated'",
-			'pnb' => "`pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated'",
+			'pnb' => "`pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') as 'pnb_whos_id', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated'",
 		];
 
 		if(isset($sql_fields[$table_name])) return $sql_fields[$table_name];
@@ -143,7 +143,7 @@
 			'howts' => "`howts` ",
 			'utedb' => "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`utedb`.`utedb_premises_id` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb1`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb1`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb1`.`madb_howt1` LEFT JOIN `howqs` as howqs3 ON `howqs3`.`howqs_id`=`madb1`.`madb_howq1` ",
 			'premises' => "`premises` ",
-			'pnb' => "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` ",
+			'pnb' => "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` ",
 		];
 
 		$pkey = [
@@ -387,6 +387,7 @@
 				'pnb_id' => '',
 				'pnb_type' => '',
 				'pnb_premises_id' => '',
+				'pnb_whos_id' => '',
 				'pnb_created' => '',
 				'pnb_updated' => '',
 			],
@@ -1770,9 +1771,9 @@ EOT;
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => [0 => 'Pnb id', 1 => 'Pnb type', 2 => 'Premises Id', 3 => 'Pnb created', 4 => 'Pnb updated'],
-					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_created', 4 => 'pnb_updated'],
-					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => '`pnb`.`pnb_created`', 4 => '`pnb`.`pnb_updated`'],
+					'display-fields' => [0 => 'Pnb id', 1 => 'Pnb type', 2 => 'Premises Id', 3 => 'Pnb whos id', 4 => 'Pnb created', 5 => 'Pnb updated'],
+					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_whos_id', 4 => 'pnb_created', 5 => 'pnb_updated'],
+					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => '`pnb`.`pnb_created`', 5 => '`pnb`.`pnb_updated`'],
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -1781,7 +1782,31 @@ EOT;
 					'show-page-progress' => true,
 					'template' => 'children-pnb',
 					'template-printable' => 'children-pnb-printable',
-					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` "
+					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') as 'pnb_whos_id', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` "
+				],
+				'pnb_whos_id' => [
+					'parent-table' => 'whos',
+					'parent-primary-key' => 'whos_id',
+					'child-primary-key' => 'pnb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Presence & Being <span class="hidden child-label-pnb child-field-caption">(Pnb whos id)</span>',
+					'auto-close' => false,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Pnb id', 1 => 'Pnb type', 2 => 'Premises Id', 3 => 'Pnb whos id', 4 => 'Pnb created', 5 => 'Pnb updated'],
+					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_whos_id', 4 => 'pnb_created', 5 => 'pnb_updated'],
+					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => '`pnb`.`pnb_created`', 5 => '`pnb`.`pnb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-pnb',
+					'template-printable' => 'children-pnb-printable',
+					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_id`) || CHAR_LENGTH(`whos1`.`whos_who1`), CONCAT_WS('',   `whos1`.`whos_id`, '-', `whos1`.`whos_who1`), '') as 'pnb_whos_id', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` "
 				],
 			],
 		];

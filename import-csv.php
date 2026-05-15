@@ -147,6 +147,7 @@
 		},
 		'pnb' => function($data, $options = []) {
 			if(isset($data['pnb_premises_id'])) $data['pnb_premises_id'] = pkGivenLookupText($data['pnb_premises_id'], 'pnb', 'pnb_premises_id');
+			if(isset($data['pnb_whos_id'])) $data['pnb_whos_id'] = pkGivenLookupText($data['pnb_whos_id'], 'pnb', 'pnb_whos_id');
 			if(isset($data['pnb_created'])) $data['pnb_created'] = guessMySQLDateTime($data['pnb_created']);
 			if(isset($data['pnb_updated'])) $data['pnb_updated'] = guessMySQLDateTime($data['pnb_updated']);
 
