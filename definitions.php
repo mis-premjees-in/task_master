@@ -26,7 +26,7 @@
 	@define('datalist_auto_complete_size', 1000);
 	@define('datalist_date_format', 'dmY');
 	@define('datalist_max_records_per_page', 2000);
-	@define('datalist_image_uploads_exist', false);
+	@define('datalist_image_uploads_exist', true);
 	@define('datalist_date_separator', '/');
 
 	@define('FILTER_OPERATORS', [

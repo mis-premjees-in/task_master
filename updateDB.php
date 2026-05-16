@@ -32,7 +32,12 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', []);
+		setupTable('utedb', [
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `photo` `photo` VARCHAR(40) NULL ",
+				"ALTER TABLE `utedb` CHANGE `field1` `utedb_proof_image` VARCHAR(40) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_proof_image` `utedb_proof_image` VARCHAR(100) NULL ",
+			]);
 		setupIndexes('utedb', ['utedb_madb',]);
 
 		setupTable('premises', []);

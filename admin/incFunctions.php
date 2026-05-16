@@ -269,6 +269,10 @@
 	}
 	########################################################################
 	function getThumbnailSpecs($tableName, $fieldName, $view) {
+		if($tableName=='utedb' && $fieldName=='utedb_proof_image' && $view=='tv')
+			return ['width'=>50, 'height'=>50, 'identifier'=>'_tv'];
+		elseif($tableName=='utedb' && $fieldName=='utedb_proof_image' && $view=='dv')
+			return ['width'=>250, 'height'=>250, 'identifier'=>'_dv'];
 		return FALSE;
 	}
 	########################################################################
@@ -1974,6 +1978,13 @@
 						'info' => [
 							'caption' => 'Premises Id',
 							'description' => '',
+						],
+					],
+					'utedb_proof_image' => [
+						'appgini' => "VARCHAR(100) NULL",
+						'info' => [
+							'caption' => 'Utedb proof image',
+							'description' => 'Maximum file size allowed: 500 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
 						],
 					],
 					'utedb_created' => [

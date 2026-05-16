@@ -48,6 +48,22 @@ function utedb_insert(&$error_message = '') {
 		'utedb_howt2' => Request::lookup('utedb_madb'),
 		'utedb_howt3' => Request::lookup('utedb_madb'),
 		'utedb_premises_id' => Request::lookup('utedb_madb'),
+		'utedb_proof_image' => Request::fileUpload('utedb_proof_image', [
+			'maxSize' => 512000,
+			'types' => 'jpg|jpeg|gif|png|webp',
+			'noRename' => false,
+			'dir' => '',
+			'success' => function($name, $selected_id) {
+				Thumbnail::create($name, getThumbnailSpecs('utedb', 'utedb_proof_image', 'tv'));
+				Thumbnail::create($name, getThumbnailSpecs('utedb', 'utedb_proof_image', 'dv'));
+			},
+			'failure' => function($selected_id, $fileRemoved) {
+				if(!strlen(Request::val('SelectedID'))) return '';
+
+				/* for empty upload fields, when saving a copy of an existing record, copy the original upload field */
+				return existing_value('utedb', 'utedb_proof_image', Request::val('SelectedID'));
+			},
+		]),
 		'utedb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -94,6 +110,18 @@ function utedb_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks =
 					'<div class="text-bold">' . strip_tags($args['error_message']) . '</div>'
 					: ''
 			);
+	}
+
+	// delete file stored in the 'utedb_proof_image' field
+	$res = sql("SELECT `utedb_proof_image` FROM `utedb` WHERE `utedb_id`='{$selected_id}'", $eo);
+	if($row = @db_fetch_row($res)) {
+		if($row[0] != '') {
+			@unlink(getUploadDir('') . $row[0]);
+			$thumbDV = preg_replace('/\.(jpg|jpeg|gif|png|webp)$/i', '_dv.$1', $row[0]);
+			$thumbTV = preg_replace('/\.(jpg|jpeg|gif|png|webp)$/i', '_tv.$1', $row[0]);
+			@unlink(getUploadDir('') . $thumbTV);
+			@unlink(getUploadDir('') . $thumbDV);
+		}
 	}
 
 	sql("DELETE FROM `utedb` WHERE `utedb_id`='{$selected_id}'", $eo);
@@ -147,6 +175,37 @@ function utedb_update(&$selected_id, &$error_message = '') {
 		'utedb_howt2' => Request::lookup('utedb_madb'),
 		'utedb_howt3' => Request::lookup('utedb_madb'),
 		'utedb_premises_id' => Request::lookup('utedb_madb'),
+		'utedb_proof_image' => Request::fileUpload('utedb_proof_image', [
+			'maxSize' => 512000,
+			'types' => 'jpg|jpeg|gif|png|webp',
+			'noRename' => false,
+			'dir' => '',
+			'id' => $selected_id,
+			'success' => function($name, $selected_id) {
+				Thumbnail::create($name, getThumbnailSpecs('utedb', 'utedb_proof_image', 'tv'));
+				Thumbnail::create($name, getThumbnailSpecs('utedb', 'utedb_proof_image', 'dv'));
+			},
+			'removeOnSuccess' => true,
+			'removeOnRequest' => true,
+			'remove' => function($selected_id) {
+				// delete old file from server
+				$oldFile = existing_value('utedb', 'utedb_proof_image', $selected_id);
+				if(!$oldFile) return;
+
+				@unlink(getUploadDir('') . $oldFile);
+
+				// delete thumbnails
+				preg_match('/^[a-z0-9_]+\.(jpg|jpeg|gif|png|webp)$/i', $oldFile, $m);
+				$thumbDV = str_replace(".{$m[1]}ffffgggg", "_dv.{$m[1]}", $oldFile . 'ffffgggg');
+				$thumbTV = str_replace(".{$m[1]}ffffgggg", "_tv.{$m[1]}", $oldFile . 'ffffgggg');
+				@unlink(getUploadDir('') . $thumbTV);
+				@unlink(getUploadDir('') . $thumbDV);
+			},
+			'failure' => function($selected_id, $fileRemoved) {
+				if($fileRemoved) return '';
+				return existing_value('utedb', 'utedb_proof_image', $selected_id);
+			},
+		]),
 		'utedb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -443,6 +502,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly = '';
 		$jsReadOnly .= "\t\$j('#utedb_madb').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#utedb_madb_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#utedb_proof_image').replaceWith('<div class=\"form-control-static\" id=\"utedb_proof_image\">' + (\$j('#utedb_proof_image').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -476,6 +536,12 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	// process images
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_madb)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_proof_image)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="utedb_proof_image" id="utedb_proof_image" data-filetypes="jpg|jpeg|gif|png|webp" data-maxsize="512000" style="max-width: calc(100% - 1.5rem);" accept="capture=camera,image/*">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
+	if($allowUpdate && $row['utedb_proof_image'] != '') {
+		$templateCode = str_replace('<%%REMOVEFILE(utedb_proof_image)%%>', '<input type="checkbox" name="utedb_proof_image_remove" id="utedb_proof_image_remove" value="1"> <label for="utedb_proof_image_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
+	} else {
+		$templateCode = str_replace('<%%REMOVEFILE(utedb_proof_image)%%>', '', $templateCode);
+	}
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_updated)%%>', '', $templateCode);
 
@@ -487,6 +553,10 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', safe_html($urow['utedb_madb']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', html_attr($row['utedb_madb']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode($urow['utedb_madb']), $templateCode);
+		$row['utedb_proof_image'] = ($row['utedb_proof_image'] != '' ? $row['utedb_proof_image'] : 'blank.gif');
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', safe_html($urow['utedb_proof_image']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', html_attr($row['utedb_proof_image']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_proof_image)%%>', urlencode($urow['utedb_proof_image']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', safe_html($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', safe_html($urow['utedb_updated']), $templateCode);
@@ -496,6 +566,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_madb)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', 'blank.gif', $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

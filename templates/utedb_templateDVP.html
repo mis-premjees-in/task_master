@@ -238,6 +238,17 @@
 				<div class="form-control-static"><span id="utedb_premises_id<%%RND1%%>"></span></div>
 			</div>
 		</div>
+		<!-- Field: Utedb proof image -->
+		<div class="form-group utedb-utedb_proof_image" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Utedb proof image</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var utedb_proof_imageSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(utedb_proof_image)%%>';
+				var utedb_proof_imageSrc2<%%RND1%%>='thumbnail.php?t=utedb&f=utedb_proof_image&i=<%%VALUE(utedb_proof_image)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$j('#utedb_proof_imageImg<%%RND1%%>').attr('src', ($j('#utedb_proof_imageImg<%%RND1%%>').attr('src').search(/thumbnail\.php/) != -1 && utedb_proof_imageSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? utedb_proof_imageSrc1<%%RND1%%> : utedb_proof_imageSrc2<%%RND1%%>)); return false;"><img id="utedb_proof_imageImg<%%RND1%%>" src="thumbnail.php?t=utedb&f=utedb_proof_image&i=<%%VALUE(utedb_proof_image)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
 	</fieldset>
 </div>
 <script>

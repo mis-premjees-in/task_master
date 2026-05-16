@@ -5,6 +5,9 @@
 
 	// image paths
 	$p = [
+		'utedb' => [
+			'utedb_proof_image' => getUploadDir(''),
+		],
 	];
 
 	if(!count($p)) exit;

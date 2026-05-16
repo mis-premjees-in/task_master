@@ -703,6 +703,12 @@ function utedb_validateData(insertMode) {
 
 	if(errors) return false;
 
+	// check file uploads (file type and size)
+	if($j('#utedb_proof_image').val() && !AppGini.checkFileUpload('utedb_proof_image', 'jpg|jpeg|gif|png|webp', 512000)) {
+		AppGini.scrollTo('utedb_proof_image');
+		return false;
+	}
+
 	return !errors;
 }
 function premises_validateData(insertMode) {

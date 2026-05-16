@@ -3,6 +3,10 @@
 
 	// upload paths
 	$p = [
+		'utedb' => [
+			'utedb_proof_image' => getUploadDir(''),
+			'primary key' => 'utedb_id'
+		],
 	];
 
 	if(!count($p)) getLink();
