@@ -12,48 +12,28 @@
 		setupTable('madb', []);
 		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1','madb_howr1','madb_hows1','madb_howq1','madb_howt1','madb_premises_id',]);
 
-		setupTable('whats', [
-				" ALTER TABLE `whats` CHANGE `whats_description` `whats_description` TINYTEXT NULL ",
-			]);
+		setupTable('whats', []);
 
-		setupTable('whos', [
-				" ALTER TABLE `whos` CHANGE `whos_description` `whos_description` TINYTEXT NULL ",
-			]);
+		setupTable('whos', []);
 
-		setupTable('whens', [
-				" ALTER TABLE `whens` CHANGE `whens_description` `whens_description` TINYTEXT NULL ",
-			]);
+		setupTable('whens', []);
 
-		setupTable('whichs', [
-				" ALTER TABLE `whichs` CHANGE `whichs_description` `whichs_description` TINYTEXT NULL ",
-			]);
+		setupTable('whichs', []);
 
-		setupTable('wheres', [
-				" ALTER TABLE `wheres` CHANGE `wheres_description` `wheres_description` TINYTEXT NULL ",
-			]);
+		setupTable('wheres', []);
 
-		setupTable('whys', [
-				" ALTER TABLE `whys` CHANGE `whys_description` `whys_description` TINYTEXT NULL ",
-			]);
+		setupTable('whys', []);
 
-		setupTable('howrs', [
-				" ALTER TABLE `howrs` CHANGE `howrs_description` `howrs_description` LONGTEXT NULL ",
-			]);
+		setupTable('howrs', []);
 
-		setupTable('howss', [
-				" ALTER TABLE `howss` CHANGE `howss_description` `howss_description` LONGTEXT NULL ",
-			]);
+		setupTable('howss', []);
 
-		setupTable('howqs', [
-				" ALTER TABLE `howqs` CHANGE `howqs_description` `howqs_description` LONGTEXT NULL ",
-			]);
+		setupTable('howqs', []);
 
-		setupTable('howts', [
-				" ALTER TABLE `howts` CHANGE `howrs_description` `howrs_description` LONGTEXT NULL ",
-			]);
+		setupTable('howts', []);
 
 		setupTable('utedb', []);
-		setupIndexes('utedb', ['utedb_madb','utedb_premises_id',]);
+		setupIndexes('utedb', ['utedb_madb',]);
 
 		setupTable('premises', []);
 

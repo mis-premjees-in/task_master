@@ -47,7 +47,7 @@ function utedb_insert(&$error_message = '') {
 		'utedb_howq3' => Request::lookup('utedb_madb'),
 		'utedb_howt2' => Request::lookup('utedb_madb'),
 		'utedb_howt3' => Request::lookup('utedb_madb'),
-		'utedb_premises_id' => Request::lookup('utedb_premises_id', ''),
+		'utedb_premises_id' => Request::lookup('utedb_madb'),
 		'utedb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -146,7 +146,7 @@ function utedb_update(&$selected_id, &$error_message = '') {
 		'utedb_howq3' => Request::lookup('utedb_madb'),
 		'utedb_howt2' => Request::lookup('utedb_madb'),
 		'utedb_howt3' => Request::lookup('utedb_madb'),
-		'utedb_premises_id' => Request::lookup('utedb_premises_id', ''),
+		'utedb_premises_id' => Request::lookup('utedb_madb'),
 		'utedb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -241,7 +241,6 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$fieldsAreEditable = !$dvprint && (($allowInsert && !$hasSelectedId) || ($allowUpdate && $hasSelectedId) || $showSaveAsCopy);
 
 	$filterer_utedb_madb = Request::val('filterer_utedb_madb');
-	$filterer_utedb_premises_id = Request::val('filterer_utedb_premises_id');
 
 	// populate filterers, starting from children to grand-parents
 
@@ -249,15 +248,12 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
 	// combobox: utedb_madb
 	$combo_utedb_madb = new DataCombo;
-	// combobox: utedb_premises_id
-	$combo_utedb_premises_id = new DataCombo;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('utedb', $selectedId))) {
 			return error_message($Translation['No records found'], 'utedb_view.php', false);
 		}
 		$combo_utedb_madb->SelectedData = $row['utedb_madb'];
-		$combo_utedb_premises_id->SelectedData = $row['utedb_premises_id'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -265,12 +261,9 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
 		$combo_utedb_madb->SelectedData = $filterer_utedb_madb;
-		$combo_utedb_premises_id->SelectedData = $filterer_utedb_premises_id;
 	}
 	$combo_utedb_madb->HTML = '<span id="utedb_madb-container' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
 	$combo_utedb_madb->MatchText = '<span id="utedb_madb-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
-	$combo_utedb_premises_id->HTML = '<span id="utedb_premises_id-container' . $rnd1 . '"></span><input type="hidden" name="utedb_premises_id" id="utedb_premises_id' . $rnd1 . '" value="' . html_attr($combo_utedb_premises_id->SelectedData) . '">';
-	$combo_utedb_premises_id->MatchText = '<span id="utedb_premises_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_premises_id" id="utedb_premises_id' . $rnd1 . '" value="' . html_attr($combo_utedb_premises_id->SelectedData) . '">';
 
 	ob_start();
 	?>
@@ -278,12 +271,10 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	<script>
 		// initial lookup values
 		AppGini.current_utedb_madb__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['utedb_madb'] : htmlspecialchars($filterer_utedb_madb, ENT_QUOTES)); ?>"};
-		AppGini.current_utedb_premises_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['utedb_premises_id'] : htmlspecialchars($filterer_utedb_premises_id, ENT_QUOTES)); ?>"};
 
 		$j(function() {
 			setTimeout(function() {
 				if(typeof(utedb_madb_reload__RAND__) == 'function') utedb_madb_reload__RAND__();
-				if(typeof(utedb_premises_id_reload__RAND__) == 'function') utedb_premises_id_reload__RAND__();
 			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
 		function utedb_madb_reload__RAND__() {
@@ -360,85 +351,6 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=madb_view_parent]').hide(); } else { $j('.btn[id=madb_view_parent]').show(); }
 
 					if(typeof(utedb_madb_update_autofills__RAND__) == 'function') utedb_madb_update_autofills__RAND__();
-				}
-			});
-		<?php } ?>
-
-		}
-		function utedb_premises_id_reload__RAND__() {
-		<?php if($fieldsAreEditable) { ?>
-
-			$j("#utedb_premises_id-container__RAND__").select2({
-				/* initial default value */
-				initSelection: function(e, c) {
-					$j.ajax({
-						url: 'ajax_combo.php',
-						dataType: 'json',
-						data: { id: AppGini.current_utedb_premises_id__RAND__.value, t: 'utedb', f: 'utedb_premises_id' },
-						success: function(resp) {
-							c({
-								id: resp.results[0].id,
-								text: resp.results[0].text
-							});
-							$j('[name="utedb_premises_id"]').val(resp.results[0].id);
-							$j('[id=utedb_premises_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_premises_id-match-text">' + resp.results[0].text + '</span>');
-							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
-
-
-							if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
-						}
-					});
-				},
-				width: '100%',
-				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
-				minimumResultsForSearch: 5,
-				loadMorePadding: 200,
-				ajax: {
-					url: 'ajax_combo.php',
-					dataType: 'json',
-					cache: true,
-					data: function(term, page) { return { s: term, p: page, t: 'utedb', f: 'utedb_premises_id' }; },
-					results: function(resp, page) { return resp; }
-				},
-				escapeMarkup: function(str) { return str; }
-			}).on('change', function(e) {
-				AppGini.current_utedb_premises_id__RAND__.value = e.added.id;
-				AppGini.current_utedb_premises_id__RAND__.text = e.added.text;
-				$j('[name="utedb_premises_id"]').val(e.added.id);
-				$j(this).parents('.form-group')
-					.find('.btn[id=premises_view_parent]')
-					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
-
-
-				if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
-			});
-
-			if(!$j("#utedb_premises_id-container__RAND__").length) {
-				$j.ajax({
-					url: 'ajax_combo.php',
-					dataType: 'json',
-					data: { id: AppGini.current_utedb_premises_id__RAND__.value, t: 'utedb', f: 'utedb_premises_id' },
-					success: function(resp) {
-						$j('[name="utedb_premises_id"]').val(resp.results[0].id);
-						$j('[id=utedb_premises_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_premises_id-match-text">' + resp.results[0].text + '</span>');
-						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
-
-						if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
-					}
-				});
-			}
-
-		<?php } else { ?>
-
-			$j.ajax({
-				url: 'ajax_combo.php',
-				dataType: 'json',
-				data: { id: AppGini.current_utedb_premises_id__RAND__.value, t: 'utedb', f: 'utedb_premises_id' },
-				success: function(resp) {
-					$j('[id=utedb_premises_id-container__RAND__], [id=utedb_premises_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_premises_id-match-text">' + resp.results[0].text + '</span>');
-					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
-
-					if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
 				}
 			});
 		<?php } ?>
@@ -531,8 +443,6 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly = '';
 		$jsReadOnly .= "\t\$j('#utedb_madb').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#utedb_madb_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
-		$jsReadOnly .= "\t\$j('#utedb_premises_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
-		$jsReadOnly .= "\t\$j('#utedb_premises_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -546,12 +456,9 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%COMBO(utedb_madb)%%>', $combo_utedb_madb->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_madb)%%>', $combo_utedb_madb->MatchText, $templateCode);
 	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_madb)%%>', urlencode($combo_utedb_madb->MatchText), $templateCode);
-	$templateCode = str_replace('<%%COMBO(utedb_premises_id)%%>', $combo_utedb_premises_id->HTML, $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(utedb_premises_id)%%>', $combo_utedb_premises_id->MatchText, $templateCode);
-	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_premises_id)%%>', urlencode($combo_utedb_premises_id->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['utedb_madb' => ['madb', 'MADb Id'], 'utedb_premises_id' => ['premises', 'Premises Id'], ];
+	$lookup_fields = ['utedb_madb' => ['madb', 'MADb Id'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -569,7 +476,6 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	// process images
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_madb)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(utedb_premises_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_updated)%%>', '', $templateCode);
 
@@ -581,9 +487,6 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', safe_html($urow['utedb_madb']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', html_attr($row['utedb_madb']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode($urow['utedb_madb']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', safe_html($urow['utedb_premises_id']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', html_attr($row['utedb_premises_id']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode($urow['utedb_premises_id']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', safe_html($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', safe_html($urow['utedb_updated']), $templateCode);
@@ -593,8 +496,6 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_madb)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

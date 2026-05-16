@@ -103,7 +103,6 @@
 		},
 		'utedb' => function($data, $options = []) {
 			if(isset($data['utedb_madb'])) $data['utedb_madb'] = pkGivenLookupText($data['utedb_madb'], 'utedb', 'utedb_madb');
-			if(isset($data['utedb_premises_id'])) $data['utedb_premises_id'] = pkGivenLookupText($data['utedb_premises_id'], 'utedb', 'utedb_premises_id');
 			if(isset($data['utedb_created'])) $data['utedb_created'] = guessMySQLDateTime($data['utedb_created']);
 			if(isset($data['utedb_updated'])) $data['utedb_updated'] = guessMySQLDateTime($data['utedb_updated']);
 			if(isset($data['utedb_what1'])) $data['utedb_what1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_what1'], 'utedb', 'utedb_what1'));
@@ -136,6 +135,7 @@
 			if(isset($data['utedb_howq3'])) $data['utedb_howq3'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_howq3'], 'utedb', 'utedb_howq3'));
 			if(isset($data['utedb_howt2'])) $data['utedb_howt2'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_howt2'], 'utedb', 'utedb_howt2'));
 			if(isset($data['utedb_howt3'])) $data['utedb_howt3'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_howt3'], 'utedb', 'utedb_howt3'));
+			if(isset($data['utedb_premises_id'])) $data['utedb_premises_id'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_premises_id'], 'utedb', 'utedb_premises_id'));
 
 			return $data;
 		},

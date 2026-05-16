@@ -54,6 +54,7 @@
 				$j('#utedb_howq3<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_howt2<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_howt3<?php echo $rnd1; ?>').html('&nbsp;');
+				$j('#utedb_premises_id<?php echo $rnd1; ?>').html('&nbsp;');
 				<?php
 				break;
 			}
@@ -90,6 +91,7 @@
 			$j('#utedb_howq3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howq1']))); ?>&nbsp;');
 			$j('#utedb_howt2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt2']))); ?>&nbsp;');
 			$j('#utedb_howt3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt3']))); ?>&nbsp;');
+			$j('#utedb_premises_id<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_premises_id']))); ?>&nbsp;');
 			<?php
 			break;
 

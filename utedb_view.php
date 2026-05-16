@@ -210,9 +210,9 @@
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = ['utedb_madb' => 'MADb Id', 'utedb_premises_id' => 'Premises Id', ];
+	$x->filterers = ['utedb_madb' => 'MADb Id', ];
 
-	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`utedb`.`utedb_premises_id` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb1`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb1`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb1`.`madb_howt1` LEFT JOIN `howqs` as howqs3 ON `howqs3`.`howqs_id`=`madb1`.`madb_howq1` ";
+	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb1`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb1`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb1`.`madb_howt1` LEFT JOIN `howqs` as howqs3 ON `howqs3`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb1`.`madb_premises_id` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
