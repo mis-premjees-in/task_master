@@ -72,7 +72,7 @@
 				'parent_caption' => 'IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`), \'\')',
 				'parent_from' => '`whichs` ',
 				'filterers' => [],
-				'custom_query' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_id`',
+				'custom_query' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_which3`',
 				'inherit_permissions' => false,
 				'list_type' => 0,
 				'not_null' => false,

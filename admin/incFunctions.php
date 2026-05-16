@@ -1257,7 +1257,7 @@
 						],
 					],
 					'whats_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1308,7 +1308,7 @@
 						],
 					],
 					'whos_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1359,7 +1359,7 @@
 						],
 					],
 					'whens_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1410,7 +1410,7 @@
 						],
 					],
 					'whichs_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1461,7 +1461,7 @@
 						],
 					],
 					'wheres_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1512,7 +1512,7 @@
 						],
 					],
 					'whys_description' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1563,7 +1563,7 @@
 						],
 					],
 					'howrs_description' => [
-						'appgini' => "LONGTEXT NOT NULL",
+						'appgini' => "LONGTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1621,7 +1621,7 @@
 						],
 					],
 					'howss_description' => [
-						'appgini' => "LONGTEXT NOT NULL",
+						'appgini' => "LONGTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1672,7 +1672,7 @@
 						],
 					],
 					'howqs_description' => [
-						'appgini' => "LONGTEXT NOT NULL",
+						'appgini' => "LONGTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1723,7 +1723,7 @@
 						],
 					],
 					'howrs_description' => [
-						'appgini' => "LONGTEXT NOT NULL",
+						'appgini' => "LONGTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -3441,7 +3441,7 @@
 				'madb_what1' => 'SELECT `whats`.`whats_id`, IF(CHAR_LENGTH(`whats`.`whats_what1`) || CHAR_LENGTH(`whats`.`whats_what2`), CONCAT_WS(\'\', `whats`.`whats_what1`, \'-\', `whats`.`whats_what2`), \'\') FROM `whats` ORDER BY `whats`.`whats_id`',
 				'madb_who1' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_who3`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`, \'-\', `whos`.`whos_who3`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
 				'madb_when1' => 'SELECT `whens`.`whens_id`, IF(CHAR_LENGTH(`whens`.`whens_when1`) || CHAR_LENGTH(`whens`.`whens_when2`)|| CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when1`, \'-\', `whens`.`whens_when2`,\'-\', `whens`.`whens_when3`), \'\') FROM `whens` ORDER BY `whens`.`whens_id`',
-				'madb_which1' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_id`',
+				'madb_which1' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_which3`',
 				'madb_where1' => 'SELECT `wheres`.`wheres_id`, IF(CHAR_LENGTH(`wheres`.`wheres_where1`) || CHAR_LENGTH(`wheres`.`wheres_where2`)|| CHAR_LENGTH(`wheres`.`wheres_where3`), CONCAT_WS(\'\', `wheres`.`wheres_where1`, \'-\', `wheres`.`wheres_where2`, \'-\', `wheres`.`wheres_where3`), \'\') FROM `wheres` ORDER BY `wheres`.`wheres_id`',
 				'madb_why1' => 'SELECT `whys`.`whys_id`, IF(CHAR_LENGTH(`whys`.`whys_why1`) || CHAR_LENGTH(`whys`.`whys_why2`) || CHAR_LENGTH(`whys`.`whys_why3`), CONCAT_WS(\'\', `whys`.`whys_why1`, \'-\', `whys`.`whys_why2`,\'\', \'-\', `whys`.`whys_why3`), \'\') FROM `whys` ORDER BY `whys`.`whys_id`',
 				'madb_howr1' => 'SELECT `howrs`.`howrs_id`, IF(CHAR_LENGTH(`howrs`.`howrs_howr1`) || CHAR_LENGTH(`howrs`.`howrs_howr2`), CONCAT_WS(\'\', `howrs`.`howrs_howr1`, \'-\', `howrs`.`howrs_howr2`), \'\') FROM `howrs` ORDER BY `howrs`.`howrs_id`',

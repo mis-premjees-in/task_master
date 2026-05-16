@@ -121,11 +121,6 @@ function howss_update(&$selected_id, &$error_message = '') {
 		echo '<a href="" onclick="history.go(-1); return false;">' . $Translation['< back'] . '</a></div>';
 		exit;
 	}
-	if($data['howss_description'] === '') {
-		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Description': {$Translation['field not null']}<br><br>";
-		echo '<a href="" onclick="history.go(-1); return false;">' . $Translation['< back'] . '</a></div>';
-		exit;
-	}
 	// get existing values
 	$old_data = getRecord('howss', $selected_id);
 	if(is_array($old_data)) {

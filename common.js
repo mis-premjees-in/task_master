@@ -473,7 +473,6 @@ function whats_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['text', 'whats_what1', 'What1 (Task English)'],
 		['text', 'whats_what2', 'What2 (Task Hindi)'],
-		['text', 'whats_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -496,7 +495,6 @@ function whos_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['text', 'whos_who1', 'Who1 (Doer Role)'],
 		['text', 'whos_who2', 'Who2 (Doer ID)'],
-		['text', 'whos_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -520,7 +518,6 @@ function whens_validateData(insertMode) {
 		['list', 'whens_when1', 'When1 (Frequency)'],
 		['list', 'whens_when2', 'When2 (Sessions)'],
 		['text', 'whens_when3', 'When3 (Specific Time)'],
-		['text', 'whens_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -543,7 +540,6 @@ function whichs_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['text', 'whichs_which1', 'Which1 (Main Thing)'],
 		['text', 'whichs_which2', 'Which2 (Sub Thing)'],
-		['text', 'whichs_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -566,7 +562,6 @@ function wheres_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['list', 'wheres_where1', 'Where1 (Main Place)'],
 		['text', 'wheres_where2', 'Where2 (Zone)'],
-		['text', 'wheres_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -589,7 +584,6 @@ function whys_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['text', 'whys_why1', 'Why1 (Precinct)'],
 		['text', 'whys_why2', 'Why2 (Sub-Precinct)'],
-		['text', 'whys_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -612,7 +606,6 @@ function howrs_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['list', 'howrs_howr1', 'How (R) 1 (Method)'],
 		['text', 'howrs_howr2', 'How (R) 2 (Type)'],
-		['text', 'howrs_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -634,7 +627,6 @@ function howss_validateData(insertMode) {
 	const reqFields = [
 		// [field-type, field-name, field-caption], ...
 		['text', 'howss_hows1', 'How (S) 1 (Flowchart)'],
-		['text', 'howss_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -657,7 +649,6 @@ function howqs_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['text', 'howqs_howq1', 'How (Q) 1 (Type)'],
 		['text', 'howqs_howq2', 'How (Q) 2 (Measure)'],
-		['text', 'howqs_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
@@ -680,7 +671,6 @@ function howts_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['text', 'howts_howt1', 'How (T) 1 (Type)'],
 		['text', 'howts_howt2', 'How (T) 2 (Span)'],
-		['text', 'howrs_description', 'Description'],
 	];
 
 	reqFields.map(function(rf) {
