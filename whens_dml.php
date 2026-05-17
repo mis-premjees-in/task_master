@@ -251,6 +251,22 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	}
 	$combo_whens_when2->SelectName = 'whens_when2';
 	$combo_whens_when2->AllowNull = false;
+	// combobox: whens_when3
+	$combo_whens_when3 = new Combo;
+	$combo_whens_when3->ListType = 0;
+	$combo_whens_when3->MultipleSeparator = ', ';
+	$combo_whens_when3->ListBoxHeight = 10;
+	$combo_whens_when3->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/whens.whens_when3.csv')) {
+		$whens_when3_data = addslashes(implode('', @file(__DIR__ . '/hooks/whens.whens_when3.csv')));
+		$combo_whens_when3->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($whens_when3_data))));
+		$combo_whens_when3->ListData = $combo_whens_when3->ListItem;
+	} else {
+		$combo_whens_when3->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("06:55;;07:00;;07:05;;07:10;;07:15;;07:20;;07:25;;07:30;;07:35;;07:40;;07:45;;07:50;;07:55;;08:00;;08:05;;08:10;;08:15;;08:20;;08:25;;08:30;;08:35;;08:40;;08:45;;08:50;;08:55;;09:00;;09:05;;09:10;;09:15;;09:20;;09:25;;09:30;;09:35;;09:40;;09:45;;09:50;;09:55;;10:00;;10:05;;10:10;;10:15;;10:20;;10:25;;10:30;;10:35;;10:40;;10:45;;10:50;;10:55;;11:00;;11:05;;11:10;;11:15;;11:20;;11:25;;11:30;;11:35;;11:40;;11:45;;11:50;;11:55;;12:00;;12:05;;12:10;;12:15;;12:20;;12:25;;12:30;;12:35;;12:40;;12:45;;12:50;;12:55;;13:00;;13:05;;13:10;;13:15;;13:20;;13:25;;13:30;;13:35;;13:40;;13:45;;13:50;;13:55;;14:00;;14:05;;14:10;;14:15;;14:20;;14:25;;14:30;;14:35;;14:40;;14:45;;14:50;;14:55;;15:00;;15:05;;15:10;;15:15;;15:20;;15:25;;15:30;;15:35;;15:40;;15:45;;15:50;;15:55;;16:00;;16:05;;16:10;;16:15;;16:20;;16:25;;16:30;;16:35;;16:40;;16:45;;16:50;;16:55;;17:00;;17:05;;17:10;;17:15;;17:20;;17:25;;17:30;;17:35;;17:40;;17:45;;17:50;;17:55;;18:00;;18:05;;18:10;;18:15;;18:20;;18:25;;18:30;;18:35;;18:40;;18:45;;18:50;;18:55;;19:00;;19:05;;19:10;;19:15;;19:20;;19:25;;19:30;;19:35;;19:40;;19:45;;19:50;;19:55;;20:00;;20:05;;20:10;;20:15;;20:20;;20:25;;20:30;;20:35;;20:40;;20:45;;20:50;;20:55;;21:00;;21:05;;21:10;;21:15"))));
+		$combo_whens_when3->ListData = $combo_whens_when3->ListItem;
+	}
+	$combo_whens_when3->SelectName = 'whens_when3';
+	$combo_whens_when3->AllowNull = false;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('whens', $selectedId))) {
@@ -258,6 +274,7 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		}
 		$combo_whens_when1->SelectedData = $row['whens_when1'];
 		$combo_whens_when2->SelectedData = $row['whens_when2'];
+		$combo_whens_when3->SelectedData = $row['whens_when3'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -266,9 +283,11 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$filterValue = Request::val('FilterValue');
 		$combo_whens_when1->SelectedText = (isset($filterField[1]) && $filterField[1] == '2' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_whens_when2->SelectedText = (isset($filterField[1]) && $filterField[1] == '3' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_whens_when3->SelectedText = (isset($filterField[1]) && $filterField[1] == '4' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_whens_when1->Render();
 	$combo_whens_when2->Render();
+	$combo_whens_when3->Render();
 
 	ob_start();
 	?>
@@ -367,7 +386,7 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly = '';
 		$jsReadOnly .= "\t\$j('#whens_when1').replaceWith('<div class=\"form-control-static\" id=\"whens_when1\">' + (\$j('#whens_when1').val() || '') + '</div>'); \$j('#whens_when1-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#whens_when2').replaceWith('<div class=\"form-control-static\" id=\"whens_when2\">' + (\$j('#whens_when2').val() || '') + '</div>'); \$j('#whens_when2-multi-selection-help').hide();\n";
-		$jsReadOnly .= "\t\$j('#whens_when3').replaceWith('<div class=\"form-control-static\" id=\"whens_when3\">' + (\$j('#whens_when3').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#whens_when3').replaceWith('<div class=\"form-control-static\" id=\"whens_when3\">' + (\$j('#whens_when3').val() || '') + '</div>'); \$j('#whens_when3-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#whens_description').replaceWith('<div class=\"form-control-static\" id=\"whens_description\">' + (\$j('#whens_description').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
@@ -384,6 +403,8 @@ function whens_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%COMBOTEXT(whens_when1)%%>', $combo_whens_when1->SelectedData, $templateCode);
 	$templateCode = str_replace('<%%COMBO(whens_when2)%%>', $combo_whens_when2->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(whens_when2)%%>', $combo_whens_when2->SelectedData, $templateCode);
+	$templateCode = str_replace('<%%COMBO(whens_when3)%%>', $combo_whens_when3->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(whens_when3)%%>', $combo_whens_when3->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = [];
