@@ -58,7 +58,7 @@
 			'madb_when1' => [
 				'parent_table' => 'whens',
 				'parent_pk_field' => 'whens_id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`whens`.`whens_when1`) || CHAR_LENGTH(`whens`.`whens_when2`), CONCAT_WS(\'\', `whens`.`whens_when1`, \'-\', `whens`.`whens_when2`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`whens`.`whens_when2`) || CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when2`, \'-\', `whens`.`whens_when3`), \'\')',
 				'parent_from' => '`whens` ',
 				'filterers' => [],
 				'custom_query' => 'SELECT `whens`.`whens_id`, IF(CHAR_LENGTH(`whens`.`whens_when1`) || CHAR_LENGTH(`whens`.`whens_when2`)|| CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when1`, \'-\', `whens`.`whens_when2`,\'-\', `whens`.`whens_when3`), \'\') FROM `whens` ORDER BY `whens`.`whens_id`',
@@ -432,7 +432,7 @@
 			'utedb_when1' => [
 				'parent_table' => 'madb',
 				'parent_pk_field' => 'madb_id',
-				'parent_caption' => 'IF(    CHAR_LENGTH(`whens1`.`whens_when1`) || CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS(\'\',   `whens1`.`whens_when1`, \'-\', `whens1`.`whens_when2`), \'\')',
+				'parent_caption' => 'IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,\'%r\'),\'\')), CONCAT_WS(\'\',   `whens1`.`whens_when2`, \'-\', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,\'%r\'),\'\')), \'\')',
 				'parent_from' => '`madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb`.`madb_premises_id` ',
 				'filterers' => [],
 				'custom_query' => '',
