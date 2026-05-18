@@ -100,7 +100,9 @@
 
 		/* table groups */
 		$tg = [
-			'None'
+			'None',
+			'W(s)',
+			'H(s)'
 		];
 
 		$all_tables = [
@@ -116,70 +118,70 @@
 					'Caption' => 'Whats (Tasks)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[1],
 					'homepageShowCount' => 1
 				],
 				'whos' => [
 					'Caption' => 'Whos (Doers)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[1],
 					'homepageShowCount' => 1
 				],
 				'whens' => [
 					'Caption' => 'Whens (Frequency)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[1],
 					'homepageShowCount' => 1
 				],
 				'whichs' => [
 					'Caption' => 'Whichs (Things)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[1],
 					'homepageShowCount' => 1
 				],
 				'wheres' => [
 					'Caption' => 'Wheres (Area/Zone)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[1],
 					'homepageShowCount' => 1
 				],
 				'whys' => [
 					'Caption' => 'Whys (Precinct/Department)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[1],
 					'homepageShowCount' => 1
 				],
 				'howrs' => [
 					'Caption' => 'How (R) (Method)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[2],
 					'homepageShowCount' => 1
 				],
 				'howss' => [
 					'Caption' => 'How (S) (Steps)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[2],
 					'homepageShowCount' => 0
 				],
 				'howqs' => [
 					'Caption' => 'How (Q) (Quantify)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[2],
 					'homepageShowCount' => 1
 				],
 				'howts' => [
 					'Caption' => 'How (T) (Timespan)',
 					'Description' => '',
 					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
+					'group' => $tg[2],
 					'homepageShowCount' => 1
 				],
 				'utedb' => [
@@ -220,16 +222,16 @@
 		$arrTables = [
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */
 			'madb' => ['Master Anatomy DB', '', 'table.gif', 'None'],
-			'whats' => ['Whats (Tasks)', '', 'table.gif', 'None'],
-			'whos' => ['Whos (Doers)', '', 'table.gif', 'None'],
-			'whens' => ['Whens (Frequency)', '', 'table.gif', 'None'],
-			'whichs' => ['Whichs (Things)', '', 'table.gif', 'None'],
-			'wheres' => ['Wheres (Area/Zone)', '', 'table.gif', 'None'],
-			'whys' => ['Whys (Precinct/Department)', '', 'table.gif', 'None'],
-			'howrs' => ['How (R) (Method)', '', 'table.gif', 'None'],
-			'howss' => ['How (S) (Steps)', '', 'table.gif', 'None'],
-			'howqs' => ['How (Q) (Quantify)', '', 'table.gif', 'None'],
-			'howts' => ['How (T) (Timespan)', '', 'table.gif', 'None'],
+			'whats' => ['Whats (Tasks)', '', 'table.gif', 'W(s)'],
+			'whos' => ['Whos (Doers)', '', 'table.gif', 'W(s)'],
+			'whens' => ['Whens (Frequency)', '', 'table.gif', 'W(s)'],
+			'whichs' => ['Whichs (Things)', '', 'table.gif', 'W(s)'],
+			'wheres' => ['Wheres (Area/Zone)', '', 'table.gif', 'W(s)'],
+			'whys' => ['Whys (Precinct/Department)', '', 'table.gif', 'W(s)'],
+			'howrs' => ['How (R) (Method)', '', 'table.gif', 'H(s)'],
+			'howss' => ['How (S) (Steps)', '', 'table.gif', 'H(s)'],
+			'howqs' => ['How (Q) (Quantify)', '', 'table.gif', 'H(s)'],
+			'howts' => ['How (T) (Timespan)', '', 'table.gif', 'H(s)'],
 			'utedb' => ['Universal TEDB', '', 'table.gif', 'None'],
 			'premises' => ['Premises', '', 'table.gif', 'None'],
 			'pnb' => ['Presence & Being', '', 'table.gif', 'None'],
