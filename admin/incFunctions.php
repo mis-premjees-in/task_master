@@ -101,8 +101,8 @@
 		/* table groups */
 		$tg = [
 			'None',
-			'W(s)',
-			'H(s)'
+			'6Ws',
+			'4Hs'
 		];
 
 		$all_tables = [
@@ -222,16 +222,16 @@
 		$arrTables = [
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */
 			'madb' => ['Master Anatomy DB', '', 'table.gif', 'None'],
-			'whats' => ['Whats (Tasks)', '', 'table.gif', 'W(s)'],
-			'whos' => ['Whos (Doers)', '', 'table.gif', 'W(s)'],
-			'whens' => ['Whens (Frequency)', '', 'table.gif', 'W(s)'],
-			'whichs' => ['Whichs (Things)', '', 'table.gif', 'W(s)'],
-			'wheres' => ['Wheres (Area/Zone)', '', 'table.gif', 'W(s)'],
-			'whys' => ['Whys (Precinct/Department)', '', 'table.gif', 'W(s)'],
-			'howrs' => ['How (R) (Method)', '', 'table.gif', 'H(s)'],
-			'howss' => ['How (S) (Steps)', '', 'table.gif', 'H(s)'],
-			'howqs' => ['How (Q) (Quantify)', '', 'table.gif', 'H(s)'],
-			'howts' => ['How (T) (Timespan)', '', 'table.gif', 'H(s)'],
+			'whats' => ['Whats (Tasks)', '', 'table.gif', '6Ws'],
+			'whos' => ['Whos (Doers)', '', 'table.gif', '6Ws'],
+			'whens' => ['Whens (Frequency)', '', 'table.gif', '6Ws'],
+			'whichs' => ['Whichs (Things)', '', 'table.gif', '6Ws'],
+			'wheres' => ['Wheres (Area/Zone)', '', 'table.gif', '6Ws'],
+			'whys' => ['Whys (Precinct/Department)', '', 'table.gif', '6Ws'],
+			'howrs' => ['How (R) (Method)', '', 'table.gif', '4Hs'],
+			'howss' => ['How (S) (Steps)', '', 'table.gif', '4Hs'],
+			'howqs' => ['How (Q) (Quantify)', '', 'table.gif', '4Hs'],
+			'howts' => ['How (T) (Timespan)', '', 'table.gif', '4Hs'],
 			'utedb' => ['Universal TEDB', '', 'table.gif', 'None'],
 			'premises' => ['Premises', '', 'table.gif', 'None'],
 			'pnb' => ['Presence & Being', '', 'table.gif', 'None'],
