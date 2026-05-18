@@ -100,7 +100,7 @@
 
 		/* table groups */
 		$tg = [
-			'None',
+			'VTAP',
 			'6Ws',
 			'4Hs'
 		];
@@ -221,7 +221,7 @@
 		$arrAccessTables = [];
 		$arrTables = [
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */
-			'madb' => ['Master Anatomy DB', '', 'table.gif', 'None'],
+			'madb' => ['Master Anatomy DB', '', 'table.gif', 'VTAP'],
 			'whats' => ['Whats (Tasks)', '', 'table.gif', '6Ws'],
 			'whos' => ['Whos (Doers)', '', 'table.gif', '6Ws'],
 			'whens' => ['Whens (Frequency)', '', 'table.gif', '6Ws'],
@@ -232,9 +232,9 @@
 			'howss' => ['How (S) (Steps)', '', 'table.gif', '4Hs'],
 			'howqs' => ['How (Q) (Quantify)', '', 'table.gif', '4Hs'],
 			'howts' => ['How (T) (Timespan)', '', 'table.gif', '4Hs'],
-			'utedb' => ['Universal TEDB', '', 'table.gif', 'None'],
-			'premises' => ['Premises', '', 'table.gif', 'None'],
-			'pnb' => ['Presence & Being', '', 'table.gif', 'None'],
+			'utedb' => ['Universal TEDB', '', 'table.gif', 'VTAP'],
+			'premises' => ['Premises', '', 'table.gif', 'VTAP'],
+			'pnb' => ['Presence & Being', '', 'table.gif', 'VTAP'],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) {
