@@ -517,7 +517,7 @@ function whens_validateData(insertMode) {
 		// [field-type, field-name, field-caption], ...
 		['list', 'whens_when1', 'When1 (Frequency)'],
 		['list', 'whens_when2', 'When2 (Sessions)'],
-		['text', 'whens_when3', 'When3 (Specific Time)'],
+		['list', 'whens_when3', 'When3 (Specific Time)'],
 	];
 
 	reqFields.map(function(rf) {

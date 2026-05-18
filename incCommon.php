@@ -38,7 +38,7 @@
 
 	function get_table_groups($skip_authentication = false) {
 		$tables = getTableList($skip_authentication);
-		$all_groups = ['None'];
+		$all_groups = ['None', 'W(s)', 'H(s)'];
 
 		$groups = [];
 		foreach($all_groups as $grp) {
