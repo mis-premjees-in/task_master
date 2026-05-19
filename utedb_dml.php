@@ -64,6 +64,8 @@ function utedb_insert(&$error_message = '') {
 				return existing_value('utedb', 'utedb_proof_image', Request::val('SelectedID'));
 			},
 		]),
+		'utedb_pc_audit' => Request::val('utedb_pc_audit', ''),
+		'utedb_ai_audit' => Request::val('utedb_ai_audit', ''),
 		'utedb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -206,6 +208,8 @@ function utedb_update(&$selected_id, &$error_message = '') {
 				return existing_value('utedb', 'utedb_proof_image', $selected_id);
 			},
 		]),
+		'utedb_pc_audit' => Request::val('utedb_pc_audit', ''),
+		'utedb_ai_audit' => Request::val('utedb_ai_audit', ''),
 		'utedb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -307,12 +311,44 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
 	// combobox: utedb_madb
 	$combo_utedb_madb = new DataCombo;
+	// combobox: utedb_pc_audit
+	$combo_utedb_pc_audit = new Combo;
+	$combo_utedb_pc_audit->ListType = 0;
+	$combo_utedb_pc_audit->MultipleSeparator = ', ';
+	$combo_utedb_pc_audit->ListBoxHeight = 10;
+	$combo_utedb_pc_audit->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/utedb.utedb_pc_audit.csv')) {
+		$utedb_pc_audit_data = addslashes(implode('', @file(__DIR__ . '/hooks/utedb.utedb_pc_audit.csv')));
+		$combo_utedb_pc_audit->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($utedb_pc_audit_data))));
+		$combo_utedb_pc_audit->ListData = $combo_utedb_pc_audit->ListItem;
+	} else {
+		$combo_utedb_pc_audit->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("True;;False"))));
+		$combo_utedb_pc_audit->ListData = $combo_utedb_pc_audit->ListItem;
+	}
+	$combo_utedb_pc_audit->SelectName = 'utedb_pc_audit';
+	// combobox: utedb_ai_audit
+	$combo_utedb_ai_audit = new Combo;
+	$combo_utedb_ai_audit->ListType = 0;
+	$combo_utedb_ai_audit->MultipleSeparator = ', ';
+	$combo_utedb_ai_audit->ListBoxHeight = 10;
+	$combo_utedb_ai_audit->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/utedb.utedb_ai_audit.csv')) {
+		$utedb_ai_audit_data = addslashes(implode('', @file(__DIR__ . '/hooks/utedb.utedb_ai_audit.csv')));
+		$combo_utedb_ai_audit->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($utedb_ai_audit_data))));
+		$combo_utedb_ai_audit->ListData = $combo_utedb_ai_audit->ListItem;
+	} else {
+		$combo_utedb_ai_audit->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("True;;False"))));
+		$combo_utedb_ai_audit->ListData = $combo_utedb_ai_audit->ListItem;
+	}
+	$combo_utedb_ai_audit->SelectName = 'utedb_ai_audit';
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('utedb', $selectedId))) {
 			return error_message($Translation['No records found'], 'utedb_view.php', false);
 		}
 		$combo_utedb_madb->SelectedData = $row['utedb_madb'];
+		$combo_utedb_pc_audit->SelectedData = $row['utedb_pc_audit'];
+		$combo_utedb_ai_audit->SelectedData = $row['utedb_ai_audit'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -320,9 +356,13 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
 		$combo_utedb_madb->SelectedData = $filterer_utedb_madb;
+		$combo_utedb_pc_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '35' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_utedb_ai_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '36' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_utedb_madb->HTML = '<span id="utedb_madb-container' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
 	$combo_utedb_madb->MatchText = '<span id="utedb_madb-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
+	$combo_utedb_pc_audit->Render();
+	$combo_utedb_ai_audit->Render();
 
 	ob_start();
 	?>
@@ -503,6 +543,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly .= "\t\$j('#utedb_madb').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#utedb_madb_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('#utedb_proof_image').replaceWith('<div class=\"form-control-static\" id=\"utedb_proof_image\">' + (\$j('#utedb_proof_image').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#utedb_pc_audit').replaceWith('<div class=\"form-control-static\" id=\"utedb_pc_audit\">' + (\$j('#utedb_pc_audit').val() || '') + '</div>'); \$j('#utedb_pc_audit-multi-selection-help').hide();\n";
+		$jsReadOnly .= "\t\$j('#utedb_ai_audit').replaceWith('<div class=\"form-control-static\" id=\"utedb_ai_audit\">' + (\$j('#utedb_ai_audit').val() || '') + '</div>'); \$j('#utedb_ai_audit-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -516,6 +558,10 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%COMBO(utedb_madb)%%>', $combo_utedb_madb->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_madb)%%>', $combo_utedb_madb->MatchText, $templateCode);
 	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_madb)%%>', urlencode($combo_utedb_madb->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(utedb_pc_audit)%%>', $combo_utedb_pc_audit->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(utedb_pc_audit)%%>', $combo_utedb_pc_audit->SelectedData, $templateCode);
+	$templateCode = str_replace('<%%COMBO(utedb_ai_audit)%%>', $combo_utedb_ai_audit->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(utedb_ai_audit)%%>', $combo_utedb_ai_audit->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = ['utedb_madb' => ['madb', 'MADb Id'], ];
@@ -542,6 +588,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	} else {
 		$templateCode = str_replace('<%%REMOVEFILE(utedb_proof_image)%%>', '', $templateCode);
 	}
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_pc_audit)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_ai_audit)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_updated)%%>', '', $templateCode);
 
@@ -557,6 +605,12 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', safe_html($urow['utedb_proof_image']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', html_attr($row['utedb_proof_image']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_proof_image)%%>', urlencode($urow['utedb_proof_image']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_pc_audit)%%>', safe_html($urow['utedb_pc_audit']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_pc_audit)%%>', html_attr($row['utedb_pc_audit']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_pc_audit)%%>', urlencode($urow['utedb_pc_audit']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_ai_audit)%%>', safe_html($urow['utedb_ai_audit']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_ai_audit)%%>', html_attr($row['utedb_ai_audit']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_ai_audit)%%>', urlencode($urow['utedb_ai_audit']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', safe_html($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', safe_html($urow['utedb_updated']), $templateCode);
@@ -567,6 +621,10 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%VALUE(utedb_madb)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', 'blank.gif', $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_pc_audit)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_pc_audit)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_ai_audit)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_ai_audit)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

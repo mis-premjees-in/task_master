@@ -1989,6 +1989,20 @@
 							'description' => 'Maximum file size allowed: 500 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
 						],
 					],
+					'utedb_pc_audit' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'PC Audit',
+							'description' => '',
+						],
+					],
+					'utedb_ai_audit' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'AI Audit',
+							'description' => '',
+						],
+					],
 					'utedb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [

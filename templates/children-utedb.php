@@ -203,6 +203,8 @@
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][33]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][33]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><a href="<?php echo getUploadDir('') . urlencode($record[33]); ?>" data-lightbox="utedb-utedb_proof_image"><img src="thumbnail.php?i=<?php echo urlencode($record[33]); ?>&t=utedb&f=utedb_proof_image&v=tv" class="img-thumbnail"></a></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][34]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][34]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[34]); ?></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][35]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][35]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[35]); ?></td>
+						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][36]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][36]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[36]); ?></td>
+						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][37]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][37]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[37]); ?></td>
 					</tr>
 					<?php } ?>
 				</tbody>

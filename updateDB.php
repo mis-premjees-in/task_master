@@ -32,7 +32,13 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', []);
+		setupTable('utedb', [
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `field1` `uted_pc_audit` VARCHAR(40) NULL ",
+				"ALTER TABLE `utedb` CHANGE `uted_pc_audit` `utedb_pc_audit` VARCHAR(40) NULL ",
+				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `utedb` CHANGE `field1` `utedb_ai_audit` VARCHAR(40) NULL ",
+			]);
 		setupIndexes('utedb', ['utedb_madb',]);
 
 		setupTable('premises', []);
