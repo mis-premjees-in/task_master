@@ -277,11 +277,18 @@
 				<div class="form-control-static"><%%COMBOTEXT(utedb_bb_audit)%%></div>
 			</div>
 		</div>
-		<!-- Field: CAT Review(s) -->
-		<div class="form-group utedb-utedb_cat_reviews" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">CAT Review(s)</label>
+		<!-- Field: Customer Review(s) -->
+		<div class="form-group utedb-utedb_car" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Customer Review(s)</label>
 			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(utedb_cat_reviews)%%></div>
+				<div class="form-control-static"><%%COMBOTEXT(utedb_car)%%></div>
+			</div>
+		</div>
+		<!-- Field: CAR VIDEO -->
+		<div class="form-group utedb-utedb_car_vid" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">CAR VIDEO</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="utedb_car_vid-link" href="link.php?t=utedb&f=utedb_car_vid&i=<%%VALUE(utedb_id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-film" title="<%%VALUE(utedb_car_vid)%%>"></i></a><script>$j(function() { var e_utedb_car_vid = '<%%VALUE(utedb_car_vid)%%>'; if(e_utedb_car_vid == '' || e_utedb_car_vid == '&nbsp;' || e_utedb_car_vid == 'blank.gif') $j('#utedb_car_vid-link').hide(); });</script></div>
 			</div>
 		</div>
 		<!-- Field: Col. TF -->
@@ -291,9 +298,9 @@
 				<div class="form-control-static"><%%VALUE(utedb_col_tf)%%></div>
 			</div>
 		</div>
-		<!-- Field: Utedb delta flag -->
+		<!-- Field: Delta Flag -->
 		<div class="form-group utedb-utedb_delta_flag" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Utedb delta flag</label>
+			<label class="col-xs-3 control-label">Delta Flag</label>
 			<div class="col-xs-9">
 				<div class="form-control-static"><%%COMBOTEXT(utedb_delta_flag)%%></div>
 			</div>

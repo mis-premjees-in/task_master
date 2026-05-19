@@ -365,28 +365,51 @@
 					</div>
 				</div>
 
-				<!-- Field: CAT Review(s) -->
-				<div class="form-group utedb-utedb_cat_reviews">
+				<!-- Field: Customer Review(s) -->
+				<div class="form-group utedb-utedb_car">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="utedb_cat_reviews">CAT Review(s)</label>
+					<label class="control-label col-lg-3" for="utedb_car">Customer Review(s)</label>
 					<div class="col-lg-9">
-						<input maxlength="40" type="text" class="form-control" name="utedb_cat_reviews" id="utedb_cat_reviews" value="<%%VALUE(utedb_cat_reviews)%%>">
+						<%%COMBO(utedb_car)%%>
+					</div>
+				</div>
+
+				<!-- Field: CAR VIDEO -->
+				<div class="form-group utedb-utedb_car_vid">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">CAR VIDEO <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#utedb_car_vid-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="utedb_car_vid-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 500 KB.<br>Allowed file types: mov, avi, swf, asf, wmv, mpg, mpeg, mp4, flv</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="row" style="margin-right: 0; margin-left: 0;">
+								<div class="col-lg-8 col-md-6" style="padding-left: 0;"><a id="utedb_car_vid-link" href="link.php?t=utedb&f=utedb_car_vid&i=<%%VALUE(utedb_id)%%>" target="_blank" class="rspacer-lg"><i class="glyphicon glyphicon-film" title="<%%VALUE(utedb_car_vid)%%>" style="font-size: 4em;"></i></a></div>
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<div class="col-lg-4 col-md-6 well upload-toolbox">
+									<%%REMOVEFILE(utedb_car_vid)%%>
+									<%%UPLOADFILE(utedb_car_vid)%%>
+									<div class="text-bold text-danger file-type-error hidden"><%%TRANSLATION(invalid file type)%%></div>
+									<div class="text-bold text-danger file-size-error hidden"><%%TRANSLATION(file too large)%%></div>
+								</div>
+							</div>
+						</div>
+						<script>/* disable empty links */ $j(() => { const e_utedb_car_vid = '<%%VALUE(utedb_car_vid)%%>'; if(e_utedb_car_vid == '' || e_utedb_car_vid == '&nbsp;' || e_utedb_car_vid == 'blank.gif') { $j('#utedb_car_vid-link').hide(); $j('#utedb_car_vid-image').parents('a').attr('href', '').on('click', (e) => e.preventDefault()); } });</script>
 					</div>
 				</div>
 
 				<!-- Field: Col. TF -->
 				<div class="form-group utedb-utedb_col_tf">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="utedb_col_tf">Col. TF</label>
+					<label class="control-label col-lg-3" for="utedb_col_tf">Col. TF <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#utedb_col_tf-description"></i></label>
 					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="utedb_col_tf-description"><div class="alert alert-info bspacer-xs">COLLECTIVE TRUE AND FALSE</div></span>
 						<input maxlength="40" type="text" class="form-control" name="utedb_col_tf" id="utedb_col_tf" value="<%%VALUE(utedb_col_tf)%%>">
 					</div>
 				</div>
 
-				<!-- Field: Utedb delta flag -->
+				<!-- Field: Delta Flag -->
 				<div class="form-group utedb-utedb_delta_flag">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="utedb_delta_flag">Utedb delta flag</label>
+					<label class="control-label col-lg-3" for="utedb_delta_flag">Delta Flag</label>
 					<div class="col-lg-9">
 						<%%COMBO(utedb_delta_flag)%%>
 					</div>

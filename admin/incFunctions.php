@@ -2017,24 +2017,31 @@
 							'description' => '',
 						],
 					],
-					'utedb_cat_reviews' => [
+					'utedb_car' => [
+						'appgini' => "TINYINT NULL",
+						'info' => [
+							'caption' => 'Customer Review(s)',
+							'description' => '',
+						],
+					],
+					'utedb_car_vid' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'CAT Review(s)',
-							'description' => '',
+							'caption' => 'CAR VIDEO',
+							'description' => 'Maximum file size allowed: 500 KB.<br>Allowed file types: mov, avi, swf, asf, wmv, mpg, mpeg, mp4, flv',
 						],
 					],
 					'utedb_col_tf' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
 							'caption' => 'Col. TF',
-							'description' => '',
+							'description' => 'COLLECTIVE TRUE AND FALSE',
 						],
 					],
 					'utedb_delta_flag' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Utedb delta flag',
+							'caption' => 'Delta Flag',
 							'description' => '',
 						],
 					],

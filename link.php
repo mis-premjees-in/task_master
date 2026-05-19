@@ -5,6 +5,7 @@
 	$p = [
 		'utedb' => [
 			'utedb_proof_image' => getUploadDir(''),
+			'utedb_car_vid' => getUploadDir(''),
 			'primary key' => 'utedb_id'
 		],
 	];

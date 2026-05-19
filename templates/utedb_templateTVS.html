@@ -43,7 +43,12 @@
 		<td id="utedb-utedb_pc_audit-<%%VALUE(utedb_id)%%>" class="utedb-utedb_pc_audit text-bold"><%%VALUE(utedb_pc_audit)%%></td>
 		<td id="utedb-utedb_rda_audit-<%%VALUE(utedb_id)%%>" class="utedb-utedb_rda_audit text-bold"><%%VALUE(utedb_rda_audit)%%></td>
 		<td id="utedb-utedb_bb_audit-<%%VALUE(utedb_id)%%>" class="utedb-utedb_bb_audit text-bold"><%%VALUE(utedb_bb_audit)%%></td>
-		<td id="utedb-utedb_cat_reviews-<%%VALUE(utedb_id)%%>" class="utedb-utedb_cat_reviews text-bold"><%%VALUE(utedb_cat_reviews)%%></td>
-		<td id="utedb-utedb_catvid_reviews-<%%VALUE(utedb_id)%%>" class="utedb-utedb_catvid_reviews text-bold"><a href="link.php?t=utedb&f=utedb_catvid_reviews&i=<%%VALUE(utedb_id)%%>" target="_blank" title="<%%VALUE(utedb_catvid_reviews)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-film text-info"></i></a></td>
+		<td id="utedb-utedb_car-<%%VALUE(utedb_id)%%>" class="utedb-utedb_car text-right text-bold"><%%VALUE(utedb_car)%%></td>
+		<td id="utedb-utedb_car_vid-<%%VALUE(utedb_id)%%>" class="utedb-utedb_car_vid text-bold"><a href="link.php?t=utedb&f=utedb_car_vid&i=<%%VALUE(utedb_id)%%>" target="_blank" title="<%%VALUE(utedb_car_vid)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-film text-info"></i></a></td>
 		<td id="utedb-utedb_col_tf-<%%VALUE(utedb_id)%%>" class="utedb-utedb_col_tf text-bold"><%%VALUE(utedb_col_tf)%%></td>
-		<td id="utedb-utedb_delta_flag-<%%VALUE(uted
+		<td id="utedb-utedb_delta_flag-<%%VALUE(utedb_id)%%>" class="utedb-utedb_delta_flag text-bold"><%%VALUE(utedb_delta_flag)%%></td>
+		<td id="utedb-utedb_created-<%%VALUE(utedb_id)%%>" class="utedb-utedb_created text-bold"><%%VALUE(utedb_created)%%></td>
+		<td id="utedb-utedb_updated-<%%VALUE(utedb_id)%%>" class="utedb-utedb_updated text-bold"><%%VALUE(utedb_updated)%%></td>
+		<script>$j(function() {
+			var e_utedb_car_vid = '<%%VALUE(utedb_car_vid)%%>'; if(e_utedb_car_vid == '' || e_utedb_car_vid == '&nbsp;') $j(/*<*/ '#utedb-utedb_car_vid-<%%VALUE(utedb_id)%%>' /*>*/).html('');
+		});</script>

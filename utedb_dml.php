@@ -68,8 +68,8 @@ function utedb_insert(&$error_message = '') {
 		'utedb_pc_audit' => Request::val('utedb_pc_audit', ''),
 		'utedb_rda_audit' => Request::val('utedb_rda_audit', ''),
 		'utedb_bb_audit' => Request::val('utedb_bb_audit', ''),
-		'utedb_cat_reviews' => Request::val('utedb_cat_reviews', ''),
-		'utedb_catvid_reviews' => Request::fileUpload('utedb_catvid_reviews', [
+		'utedb_car' => Request::val('utedb_car', ''),
+		'utedb_car_vid' => Request::fileUpload('utedb_car_vid', [
 			'maxSize' => 512000,
 			'types' => 'mov|avi|swf|asf|wmv|mpg|mpeg|mp4|flv',
 			'noRename' => false,
@@ -80,7 +80,7 @@ function utedb_insert(&$error_message = '') {
 				if(!strlen(Request::val('SelectedID'))) return '';
 
 				/* for empty upload fields, when saving a copy of an existing record, copy the original upload field */
-				return existing_value('utedb', 'utedb_catvid_reviews', Request::val('SelectedID'));
+				return existing_value('utedb', 'utedb_car_vid', Request::val('SelectedID'));
 			},
 		]),
 		'utedb_col_tf' => Request::val('utedb_col_tf', ''),
@@ -145,8 +145,8 @@ function utedb_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks =
 		}
 	}
 
-	// delete file stored in the 'utedb_catvid_reviews' field
-	$res = sql("SELECT `utedb_catvid_reviews` FROM `utedb` WHERE `utedb_id`='{$selected_id}'", $eo);
+	// delete file stored in the 'utedb_car_vid' field
+	$res = sql("SELECT `utedb_car_vid` FROM `utedb` WHERE `utedb_id`='{$selected_id}'", $eo);
 	if($row = @db_fetch_row($res)) {
 		if($row[0] != '') {
 			@unlink(getUploadDir('') . $row[0]);
@@ -239,8 +239,8 @@ function utedb_update(&$selected_id, &$error_message = '') {
 		'utedb_pc_audit' => Request::val('utedb_pc_audit', ''),
 		'utedb_rda_audit' => Request::val('utedb_rda_audit', ''),
 		'utedb_bb_audit' => Request::val('utedb_bb_audit', ''),
-		'utedb_cat_reviews' => Request::val('utedb_cat_reviews', ''),
-		'utedb_catvid_reviews' => Request::fileUpload('utedb_catvid_reviews', [
+		'utedb_car' => Request::val('utedb_car', ''),
+		'utedb_car_vid' => Request::fileUpload('utedb_car_vid', [
 			'maxSize' => 512000,
 			'types' => 'mov|avi|swf|asf|wmv|mpg|mpeg|mp4|flv',
 			'noRename' => false,
@@ -252,14 +252,14 @@ function utedb_update(&$selected_id, &$error_message = '') {
 			'removeOnRequest' => true,
 			'remove' => function($selected_id) {
 				// delete old file from server
-				$oldFile = existing_value('utedb', 'utedb_catvid_reviews', $selected_id);
+				$oldFile = existing_value('utedb', 'utedb_car_vid', $selected_id);
 				if(!$oldFile) return;
 
 				@unlink(getUploadDir('') . $oldFile);
 			},
 			'failure' => function($selected_id, $fileRemoved) {
 				if($fileRemoved) return '';
-				return existing_value('utedb', 'utedb_catvid_reviews', $selected_id);
+				return existing_value('utedb', 'utedb_car_vid', $selected_id);
 			},
 		]),
 		'utedb_col_tf' => Request::val('utedb_col_tf', ''),
@@ -410,6 +410,21 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$combo_utedb_bb_audit->ListData = $combo_utedb_bb_audit->ListItem;
 	}
 	$combo_utedb_bb_audit->SelectName = 'utedb_bb_audit';
+	// combobox: utedb_car
+	$combo_utedb_car = new Combo;
+	$combo_utedb_car->ListType = 0;
+	$combo_utedb_car->MultipleSeparator = ', ';
+	$combo_utedb_car->ListBoxHeight = 10;
+	$combo_utedb_car->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/utedb.utedb_car.csv')) {
+		$utedb_car_data = addslashes(implode('', @file(__DIR__ . '/hooks/utedb.utedb_car.csv')));
+		$combo_utedb_car->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($utedb_car_data))));
+		$combo_utedb_car->ListData = $combo_utedb_car->ListItem;
+	} else {
+		$combo_utedb_car->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("1;;2;;3;;4;;5"))));
+		$combo_utedb_car->ListData = $combo_utedb_car->ListItem;
+	}
+	$combo_utedb_car->SelectName = 'utedb_car';
 	// combobox: utedb_delta_flag
 	$combo_utedb_delta_flag = new Combo;
 	$combo_utedb_delta_flag->ListType = 0;
@@ -434,6 +449,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$combo_utedb_pc_audit->SelectedData = $row['utedb_pc_audit'];
 		$combo_utedb_rda_audit->SelectedData = $row['utedb_rda_audit'];
 		$combo_utedb_bb_audit->SelectedData = $row['utedb_bb_audit'];
+		$combo_utedb_car->SelectedData = $row['utedb_car'];
 		$combo_utedb_delta_flag->SelectedData = $row['utedb_delta_flag'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
@@ -445,6 +461,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$combo_utedb_pc_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '36' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_utedb_rda_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '37' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_utedb_bb_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '38' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_utedb_car->SelectedText = (isset($filterField[1]) && $filterField[1] == '39' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_utedb_delta_flag->SelectedText = (isset($filterField[1]) && $filterField[1] == '42' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_utedb_madb->HTML = '<span id="utedb_madb-container' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
@@ -452,6 +469,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$combo_utedb_pc_audit->Render();
 	$combo_utedb_rda_audit->Render();
 	$combo_utedb_bb_audit->Render();
+	$combo_utedb_car->Render();
 	$combo_utedb_delta_flag->Render();
 
 	ob_start();
@@ -637,8 +655,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly .= "\t\$j('#utedb_pc_audit').replaceWith('<div class=\"form-control-static\" id=\"utedb_pc_audit\">' + (\$j('#utedb_pc_audit').val() || '') + '</div>'); \$j('#utedb_pc_audit-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#utedb_rda_audit').replaceWith('<div class=\"form-control-static\" id=\"utedb_rda_audit\">' + (\$j('#utedb_rda_audit').val() || '') + '</div>'); \$j('#utedb_rda_audit-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#utedb_bb_audit').replaceWith('<div class=\"form-control-static\" id=\"utedb_bb_audit\">' + (\$j('#utedb_bb_audit').val() || '') + '</div>'); \$j('#utedb_bb_audit-multi-selection-help').hide();\n";
-		$jsReadOnly .= "\t\$j('#utedb_cat_reviews').replaceWith('<div class=\"form-control-static\" id=\"utedb_cat_reviews\">' + (\$j('#utedb_cat_reviews').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\t\$j('#utedb_catvid_reviews').parent().replaceWith(`<div class=\"form-control-static\" id=\"utedb_catvid_reviews\">\${\$j('#utedb_catvid_reviews').val() || ''}\${\$j('#utedb_catvid_reviews').val() ? '<a target=\"_blank\" class=\"hspacer-lg\" href=\"' + \$j('#utedb_catvid_reviews').val() + '\" target=\"_blank\"><i class=\"glyphicon glyphicon-globe\"></i></a>' : ''}</div>`);\n";
+		$jsReadOnly .= "\t\$j('#utedb_car').replaceWith('<div class=\"form-control-static\" id=\"utedb_car\">' + (\$j('#utedb_car').val() || '') + '</div>'); \$j('#utedb_car-multi-selection-help').hide();\n";
+		$jsReadOnly .= "\t\$j('#utedb_car_vid').parent().replaceWith(`<div class=\"form-control-static\" id=\"utedb_car_vid\">\${\$j('#utedb_car_vid').val() || ''}\${\$j('#utedb_car_vid').val() ? '<a target=\"_blank\" class=\"hspacer-lg\" href=\"' + \$j('#utedb_car_vid').val() + '\" target=\"_blank\"><i class=\"glyphicon glyphicon-globe\"></i></a>' : ''}</div>`);\n";
 		$jsReadOnly .= "\t\$j('#utedb_col_tf').replaceWith('<div class=\"form-control-static\" id=\"utedb_col_tf\">' + (\$j('#utedb_col_tf').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#utedb_delta_flag').replaceWith('<div class=\"form-control-static\" id=\"utedb_delta_flag\">' + (\$j('#utedb_delta_flag').val() || '') + '</div>'); \$j('#utedb_delta_flag-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
@@ -660,6 +678,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_rda_audit)%%>', $combo_utedb_rda_audit->SelectedData, $templateCode);
 	$templateCode = str_replace('<%%COMBO(utedb_bb_audit)%%>', $combo_utedb_bb_audit->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_bb_audit)%%>', $combo_utedb_bb_audit->SelectedData, $templateCode);
+	$templateCode = str_replace('<%%COMBO(utedb_car)%%>', $combo_utedb_car->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(utedb_car)%%>', $combo_utedb_car->SelectedData, $templateCode);
 	$templateCode = str_replace('<%%COMBO(utedb_delta_flag)%%>', $combo_utedb_delta_flag->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_delta_flag)%%>', $combo_utedb_delta_flag->SelectedData, $templateCode);
 
@@ -692,12 +712,12 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_pc_audit)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_rda_audit)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_bb_audit)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(utedb_cat_reviews)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(utedb_catvid_reviews)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="utedb_catvid_reviews" id="utedb_catvid_reviews" data-filetypes="mov|avi|swf|asf|wmv|mpg|mpeg|mp4|flv" data-maxsize="512000" style="max-width: calc(100% - 1.5rem);" accept=".mov,.avi,.swf,.asf,.wmv,.mpg,.mpeg,.mp4,.flv">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
-	if($allowUpdate && $row['utedb_catvid_reviews'] != '') {
-		$templateCode = str_replace('<%%REMOVEFILE(utedb_catvid_reviews)%%>', '<input type="checkbox" name="utedb_catvid_reviews_remove" id="utedb_catvid_reviews_remove" value="1"> <label for="utedb_catvid_reviews_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_car)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_car_vid)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="utedb_car_vid" id="utedb_car_vid" data-filetypes="mov|avi|swf|asf|wmv|mpg|mpeg|mp4|flv" data-maxsize="512000" style="max-width: calc(100% - 1.5rem);" accept=".mov,.avi,.swf,.asf,.wmv,.mpg,.mpeg,.mp4,.flv">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
+	if($allowUpdate && $row['utedb_car_vid'] != '') {
+		$templateCode = str_replace('<%%REMOVEFILE(utedb_car_vid)%%>', '<input type="checkbox" name="utedb_car_vid_remove" id="utedb_car_vid_remove" value="1"> <label for="utedb_car_vid_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
 	} else {
-		$templateCode = str_replace('<%%REMOVEFILE(utedb_catvid_reviews)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%REMOVEFILE(utedb_car_vid)%%>', '', $templateCode);
 	}
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_col_tf)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_delta_flag)%%>', '', $templateCode);
@@ -728,12 +748,12 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_bb_audit)%%>', safe_html($urow['utedb_bb_audit']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_bb_audit)%%>', html_attr($row['utedb_bb_audit']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_bb_audit)%%>', urlencode($urow['utedb_bb_audit']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_cat_reviews)%%>', safe_html($urow['utedb_cat_reviews']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_cat_reviews)%%>', html_attr($row['utedb_cat_reviews']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_cat_reviews)%%>', urlencode($urow['utedb_cat_reviews']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_catvid_reviews)%%>', safe_html($urow['utedb_catvid_reviews']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_catvid_reviews)%%>', html_attr($row['utedb_catvid_reviews']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_catvid_reviews)%%>', urlencode($urow['utedb_catvid_reviews']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_car)%%>', safe_html($urow['utedb_car']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_car)%%>', html_attr($row['utedb_car']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_car)%%>', urlencode($urow['utedb_car']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_car_vid)%%>', safe_html($urow['utedb_car_vid']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_car_vid)%%>', html_attr($row['utedb_car_vid']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_car_vid)%%>', urlencode($urow['utedb_car_vid']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_col_tf)%%>', safe_html($urow['utedb_col_tf']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_col_tf)%%>', html_attr($row['utedb_col_tf']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_col_tf)%%>', urlencode($urow['utedb_col_tf']), $templateCode);
@@ -758,10 +778,10 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_rda_audit)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_bb_audit)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_bb_audit)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(utedb_cat_reviews)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_cat_reviews)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(utedb_catvid_reviews)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_catvid_reviews)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_car)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_car)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_car_vid)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_car_vid)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_col_tf)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_col_tf)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_delta_flag)%%>', '', $templateCode);
@@ -792,8 +812,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode .= $jsEditable;
 
 		if(!$hasSelectedId) {
-			$templateCode.="\n\tif(document.getElementById('utedb_catvid_reviewsEdit')) { document.getElementById('utedb_catvid_reviewsEdit').style.display='inline'; }";
-			$templateCode.="\n\tif(document.getElementById('utedb_catvid_reviewsEditLink')) { document.getElementById('utedb_catvid_reviewsEditLink').style.display='none'; }";
+			$templateCode.="\n\tif(document.getElementById('utedb_car_vidEdit')) { document.getElementById('utedb_car_vidEdit').style.display='inline'; }";
+			$templateCode.="\n\tif(document.getElementById('utedb_car_vidEditLink')) { document.getElementById('utedb_car_vidEditLink').style.display='none'; }";
 		}
 
 		$templateCode.="\n});</script>\n";

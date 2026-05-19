@@ -708,6 +708,10 @@ function utedb_validateData(insertMode) {
 		AppGini.scrollTo('utedb_proof_image');
 		return false;
 	}
+	if($j('#utedb_car_vid').val() && !AppGini.checkFileUpload('utedb_car_vid', 'mov|avi|swf|asf|wmv|mpg|mpeg|mp4|flv', 512000)) {
+		AppGini.scrollTo('utedb_car_vid');
+		return false;
+	}
 
 	return !errors;
 }
