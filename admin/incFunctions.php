@@ -1989,6 +1989,13 @@
 							'description' => 'Maximum file size allowed: 500 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
 						],
 					],
+					'utedb_ai_audit' => [
+						'appgini' => "DECIMAL(10,2) NULL",
+						'info' => [
+							'caption' => 'AI Audit (%) Score',
+							'description' => '',
+						],
+					],
 					'utedb_pc_audit' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
@@ -1996,10 +2003,38 @@
 							'description' => '',
 						],
 					],
-					'utedb_ai_audit' => [
+					'utedb_rda_audit' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'AI Audit',
+							'caption' => 'RDA Audit',
+							'description' => '',
+						],
+					],
+					'utedb_bb_audit' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'BB Audit',
+							'description' => '',
+						],
+					],
+					'utedb_cat_reviews' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'CAT Review(s)',
+							'description' => '',
+						],
+					],
+					'utedb_col_tf' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Col. TF',
+							'description' => '',
+						],
+					],
+					'utedb_delta_flag' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Utedb delta flag',
 							'description' => '',
 						],
 					],

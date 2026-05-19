@@ -329,6 +329,15 @@
 					</div>
 				</div>
 
+				<!-- Field: AI Audit (%) Score -->
+				<div class="form-group utedb-utedb_ai_audit">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="utedb_ai_audit">AI Audit (%) Score</label>
+					<div class="col-lg-9">
+						<input maxlength="12" type="text" class="form-control" name="utedb_ai_audit" id="utedb_ai_audit" value="<%%VALUE(utedb_ai_audit)%%>">
+					</div>
+				</div>
+
 				<!-- Field: PC Audit -->
 				<div class="form-group utedb-utedb_pc_audit">
 					<hr class="hidden-md hidden-lg">
@@ -338,12 +347,48 @@
 					</div>
 				</div>
 
-				<!-- Field: AI Audit -->
-				<div class="form-group utedb-utedb_ai_audit">
+				<!-- Field: RDA Audit -->
+				<div class="form-group utedb-utedb_rda_audit">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="utedb_ai_audit">AI Audit</label>
+					<label class="control-label col-lg-3" for="utedb_rda_audit">RDA Audit</label>
 					<div class="col-lg-9">
-						<%%COMBO(utedb_ai_audit)%%>
+						<%%COMBO(utedb_rda_audit)%%>
+					</div>
+				</div>
+
+				<!-- Field: BB Audit -->
+				<div class="form-group utedb-utedb_bb_audit">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="utedb_bb_audit">BB Audit</label>
+					<div class="col-lg-9">
+						<%%COMBO(utedb_bb_audit)%%>
+					</div>
+				</div>
+
+				<!-- Field: CAT Review(s) -->
+				<div class="form-group utedb-utedb_cat_reviews">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="utedb_cat_reviews">CAT Review(s)</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="utedb_cat_reviews" id="utedb_cat_reviews" value="<%%VALUE(utedb_cat_reviews)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Col. TF -->
+				<div class="form-group utedb-utedb_col_tf">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="utedb_col_tf">Col. TF</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="utedb_col_tf" id="utedb_col_tf" value="<%%VALUE(utedb_col_tf)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Utedb delta flag -->
+				<div class="form-group utedb-utedb_delta_flag">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="utedb_delta_flag">Utedb delta flag</label>
+					<div class="col-lg-9">
+						<%%COMBO(utedb_delta_flag)%%>
 					</div>
 				</div>
 
