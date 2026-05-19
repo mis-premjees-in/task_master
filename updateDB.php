@@ -32,11 +32,7 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', [
-				"ALTER TABLE `utedb` CHANGE `utedb_cat_reviews` `utedb_car` VARCHAR(40) NULL ",
-				"ALTER TABLE `utedb` CHANGE `utedb_catvid_reviews` `utedb_car_vid` VARCHAR(40) NULL ",
-				" ALTER TABLE `utedb` CHANGE `utedb_car` `utedb_car` TINYINT NULL ",
-			]);
+		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb',]);
 
 		setupTable('premises', []);

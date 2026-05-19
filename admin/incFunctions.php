@@ -2034,7 +2034,7 @@
 					'utedb_col_tf' => [
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Col. TF',
+							'caption' => 'Collective TF',
 							'description' => 'COLLECTIVE TRUE AND FALSE',
 						],
 					],

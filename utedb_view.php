@@ -199,7 +199,7 @@
 		"`utedb`.`utedb_bb_audit`" => "BB Audit",
 		"`utedb`.`utedb_car`" => "Customer Review(s)",
 		"`utedb`.`utedb_car_vid`" => "CAR VIDEO",
-		"`utedb`.`utedb_col_tf`" => "Col. TF",
+		"`utedb`.`utedb_col_tf`" => "Collective TF",
 		"`utedb`.`utedb_delta_flag`" => "Delta Flag",
 		"`utedb`.`utedb_created`" => "Created AT",
 		"`utedb`.`utedb_updated`" => "Updated AT",
@@ -284,7 +284,7 @@
 	$x->PrimaryKey = '`utedb`.`utedb_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Utedb id', 'MADb Id', 'What 1', 'Who 1', 'When 1', 'Which 1', 'Where 1', 'Why 1', 'How (R) 1', 'How (S) 1', 'How (Q) 1', 'How (T) 1', 'Why 2', 'Why 3', 'Where 2', 'Where 3', 'Which 2', 'Which 3', 'When 2', 'When 3', 'Who 2', 'Who 3', 'What 2', 'What 3', 'How (R) 2', 'How (R) 3', 'How (S) 2', 'How (S) 3', 'How (Q) 2', 'How (Q) 3', 'How (T) 2', 'How (T) 3', 'Premises Id', 'Utedb proof image', 'AI Audit (%) Score', 'PC Audit', 'RDA Audit', 'BB Audit', 'Customer Review(s)', 'CAR VIDEO', 'Col. TF', 'Delta Flag', 'Created AT', 'Updated AT', ];
+	$x->ColCaption = ['Utedb id', 'MADb Id', 'What 1', 'Who 1', 'When 1', 'Which 1', 'Where 1', 'Why 1', 'How (R) 1', 'How (S) 1', 'How (Q) 1', 'How (T) 1', 'Why 2', 'Why 3', 'Where 2', 'Where 3', 'Which 2', 'Which 3', 'When 2', 'When 3', 'Who 2', 'Who 3', 'What 2', 'What 3', 'How (R) 2', 'How (R) 3', 'How (S) 2', 'How (S) 3', 'How (Q) 2', 'How (Q) 3', 'How (T) 2', 'How (T) 3', 'Premises Id', 'Utedb proof image', 'AI Audit (%) Score', 'PC Audit', 'RDA Audit', 'BB Audit', 'Customer Review(s)', 'CAR VIDEO', 'Collective TF', 'Delta Flag', 'Created AT', 'Updated AT', ];
 	$x->ColFieldName = ['utedb_id', 'utedb_madb', 'utedb_what1', 'utedb_who1', 'utedb_when1', 'utedb_which1', 'utedb_where1', 'utedb_why1', 'utedb_howr1', 'utedb_hows1', 'utedb_howq1', 'utedb_howt1', 'utedb_why2', 'utedb_why3', 'utedb_where2', 'utedb_where3', 'utedb_which2', 'utedb_which3', 'utedb_when2', 'utedb_when3', 'utedb_who2', 'utedb_who3', 'utedb_what2', 'utedb_what3', 'utedb_howr2', 'utedb_howr3', 'utedb_hows2', 'utedb_hows3', 'utedb_howq2', 'utedb_howq3', 'utedb_howt2', 'utedb_howt3', 'utedb_premises_id', 'utedb_proof_image', 'utedb_ai_audit', 'utedb_pc_audit', 'utedb_rda_audit', 'utedb_bb_audit', 'utedb_car', 'utedb_car_vid', 'utedb_col_tf', 'utedb_delta_flag', 'utedb_created', 'utedb_updated', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, ];
 
