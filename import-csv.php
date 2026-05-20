@@ -105,6 +105,7 @@
 			if(isset($data['utedb_madb'])) $data['utedb_madb'] = pkGivenLookupText($data['utedb_madb'], 'utedb', 'utedb_madb');
 			if(isset($data['utedb_created'])) $data['utedb_created'] = guessMySQLDateTime($data['utedb_created']);
 			if(isset($data['utedb_updated'])) $data['utedb_updated'] = guessMySQLDateTime($data['utedb_updated']);
+			if(isset($data['utedb_what1'])) $data['utedb_what1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_what1'], 'utedb', 'utedb_what1'));
 			if(isset($data['utedb_who1'])) $data['utedb_who1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_who1'], 'utedb', 'utedb_who1'));
 			if(isset($data['utedb_when1'])) $data['utedb_when1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_when1'], 'utedb', 'utedb_when1'));
 			if(isset($data['utedb_which1'])) $data['utedb_which1'] = thisOr($data['utedb_madb'], pkGivenLookupText($data['utedb_which1'], 'utedb', 'utedb_which1'));

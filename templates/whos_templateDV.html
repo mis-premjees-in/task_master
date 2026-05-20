@@ -41,7 +41,7 @@
 					<label class="control-label col-lg-3" for="whos_who2">Who2 (Doer ID)<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#whos_who2-description"></i></label>
 					<div class="col-lg-9">
 						<span class="help-block bspacer-xs collapse" id="whos_who2-description"><div class="alert alert-info bspacer-xs">Doer ID</div></span>
-						<input maxlength="40" type="text" class="form-control" name="whos_who2" id="whos_who2" value="<%%VALUE(whos_who2)%%>" required>
+						<input maxlength="40" type="text" class="form-control" name="whos_who2" id="whos_who2" value="<%%VALUE(whos_who2)%%>" required><div class="text-danger vspacer-md" id="whos_who2-uniqueness-note" style="display: none;"><%%TRANSLATION(unique field error)%%></div>
 					</div>
 				</div>
 
@@ -264,5 +264,6 @@
 		});
 
 		var whosUniqueFields = [
+			'whos_who2',
 		];
 	</script>

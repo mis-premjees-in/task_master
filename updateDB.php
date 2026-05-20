@@ -14,7 +14,9 @@
 
 		setupTable('whats', []);
 
-		setupTable('whos', []);
+		setupTable('whos', [
+				"ALTER TABLE `whos` ADD UNIQUE `whos_who2_unique` (`whos_who2`)",
+			]);
 
 		setupTable('whens', []);
 
