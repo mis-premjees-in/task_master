@@ -9,7 +9,6 @@
 		/* data for selected record, or defaults if none is selected */
 		var data = {
 			utedb_madb: <?php echo json_encode(['id' => $rdata['utedb_madb'], 'value' => $rdata['utedb_madb'], 'text' => $jdata['utedb_madb']]); ?>,
-			utedb_what1: <?php echo json_encode($jdata['utedb_what1']); ?>,
 			utedb_who1: <?php echo json_encode($jdata['utedb_who1']); ?>,
 			utedb_when1: <?php echo json_encode($jdata['utedb_when1']); ?>,
 			utedb_which1: <?php echo json_encode($jdata['utedb_which1']); ?>,
@@ -62,7 +61,6 @@
 			for(var rnd in d) if(rnd.match(/^rnd/)) break;
 
 			if(d.mfk == 'utedb_madb' && d.id == data.utedb_madb.id) {
-				$j('#utedb_what1' + d[rnd]).html(data.utedb_what1);
 				$j('#utedb_who1' + d[rnd]).html(data.utedb_who1);
 				$j('#utedb_when1' + d[rnd]).html(data.utedb_when1);
 				$j('#utedb_which1' + d[rnd]).html(data.utedb_which1);

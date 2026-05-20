@@ -20,7 +20,7 @@
 	$x->QueryFieldsTV = [
 		"`utedb`.`utedb_id`" => "utedb_id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "utedb_madb",
-		"IF(    CHAR_LENGTH(`whats2`.`whats_what1`), CONCAT_WS('',   `whats2`.`whats_what1`), '') /* What 1 */" => "utedb_what1",
+		"`utedb`.`utedb_what1`" => "utedb_what1",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Who 1 */" => "utedb_who1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "utedb_when1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "utedb_which1",
@@ -67,7 +67,7 @@
 	$x->SortFields = [
 		1 => '`utedb`.`utedb_id`',
 		2 => 2,
-		3 => 3,
+		3 => '`utedb`.`utedb_what1`',
 		4 => 4,
 		5 => 5,
 		6 => 6,
@@ -115,7 +115,7 @@
 	$x->QueryFieldsCSV = [
 		"`utedb`.`utedb_id`" => "utedb_id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "utedb_madb",
-		"IF(    CHAR_LENGTH(`whats2`.`whats_what1`), CONCAT_WS('',   `whats2`.`whats_what1`), '') /* What 1 */" => "utedb_what1",
+		"`utedb`.`utedb_what1`" => "utedb_what1",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Who 1 */" => "utedb_who1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "utedb_when1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "utedb_which1",
@@ -162,7 +162,7 @@
 	$x->QueryFieldsFilters = [
 		"`utedb`.`utedb_id`" => "Utedb id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "MADb Id",
-		"IF(    CHAR_LENGTH(`whats2`.`whats_what1`), CONCAT_WS('',   `whats2`.`whats_what1`), '') /* What 1 */" => "What 1",
+		"`utedb`.`utedb_what1`" => "What 1",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Who 1 */" => "Who 1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "When 1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "Which 1",
@@ -209,7 +209,7 @@
 	$x->QueryFieldsQS = [
 		"`utedb`.`utedb_id`" => "utedb_id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "utedb_madb",
-		"IF(    CHAR_LENGTH(`whats2`.`whats_what1`), CONCAT_WS('',   `whats2`.`whats_what1`), '') /* What 1 */" => "utedb_what1",
+		"`utedb`.`utedb_what1`" => "utedb_what1",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Who 1 */" => "utedb_who1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "utedb_when1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "utedb_which1",
@@ -255,7 +255,7 @@
 	// Lookup fields that can be used as filterers
 	$x->filterers = ['utedb_madb' => 'MADb Id', ];
 
-	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whats` as whats2 ON `whats2`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb1`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb1`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb1`.`madb_howt1` LEFT JOIN `howqs` as howqs3 ON `howqs3`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb1`.`madb_premises_id` ";
+	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb1`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb1`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb1`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb1`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb1`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb1`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb1`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb1`.`madb_howt1` LEFT JOIN `howqs` as howqs3 ON `howqs3`.`howqs_id`=`madb1`.`madb_howq1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb1`.`madb_premises_id` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -297,7 +297,7 @@
 	$x->ShowTableHeader = 1;
 	$x->TVClasses = "";
 	$x->DVClasses = "";
-	$x->HasCalculatedFields = false;
+	$x->HasCalculatedFields = true;
 	$x->AllowConsoleLog = false;
 	$x->AllowDVNavigation = true;
 

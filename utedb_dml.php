@@ -17,7 +17,6 @@ function utedb_insert(&$error_message = '') {
 
 	$data = [
 		'utedb_madb' => Request::lookup('utedb_madb', ''),
-		'utedb_what1' => Request::lookup('utedb_madb'),
 		'utedb_who1' => Request::lookup('utedb_madb'),
 		'utedb_when1' => Request::lookup('utedb_madb'),
 		'utedb_which1' => Request::lookup('utedb_madb'),
@@ -173,7 +172,6 @@ function utedb_update(&$selected_id, &$error_message = '') {
 
 	$data = [
 		'utedb_madb' => Request::lookup('utedb_madb', ''),
-		'utedb_what1' => Request::lookup('utedb_madb'),
 		'utedb_who1' => Request::lookup('utedb_madb'),
 		'utedb_when1' => Request::lookup('utedb_madb'),
 		'utedb_which1' => Request::lookup('utedb_madb'),
@@ -702,6 +700,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	// process images
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_madb)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_what1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_proof_image)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="utedb_proof_image" id="utedb_proof_image" data-filetypes="jpg|jpeg|gif|png|webp" data-maxsize="512000" style="max-width: calc(100% - 1.5rem);" accept="capture=camera,image/*">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
 	if($allowUpdate && $row['utedb_proof_image'] != '') {
 		$templateCode = str_replace('<%%REMOVEFILE(utedb_proof_image)%%>', '<input type="checkbox" name="utedb_proof_image_remove" id="utedb_proof_image_remove" value="1"> <label for="utedb_proof_image_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
@@ -732,6 +731,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', safe_html($urow['utedb_madb']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', html_attr($row['utedb_madb']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode($urow['utedb_madb']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_what1)%%>', safe_html($urow['utedb_what1']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_what1)%%>', urlencode($urow['utedb_what1']), $templateCode);
 		$row['utedb_proof_image'] = ($row['utedb_proof_image'] != '' ? $row['utedb_proof_image'] : 'blank.gif');
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', safe_html($urow['utedb_proof_image']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', html_attr($row['utedb_proof_image']), $templateCode);
@@ -769,6 +770,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_madb)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_what1)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_what1)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', 'blank.gif', $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_ai_audit)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_ai_audit)%%>', urlencode(''), $templateCode);
