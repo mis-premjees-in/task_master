@@ -47,6 +47,7 @@ function madb_insert(&$error_message = '') {
 		'madb_howt2' => Request::lookup('madb_howt1'),
 		'madb_howt3' => Request::lookup('madb_howt1'),
 		'madb_premises_id' => Request::lookup('madb_premises_id', ''),
+		'madb_status' => Request::val('madb_status', 'Active'),
 		'madb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -165,6 +166,7 @@ function madb_update(&$selected_id, &$error_message = '') {
 		'madb_howt2' => Request::lookup('madb_howt1'),
 		'madb_howt3' => Request::lookup('madb_howt1'),
 		'madb_premises_id' => Request::lookup('madb_premises_id', ''),
+		'madb_status' => Request::val('madb_status', ''),
 		'madb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -291,6 +293,21 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$combo_madb_howt1 = new DataCombo;
 	// combobox: madb_premises_id
 	$combo_madb_premises_id = new DataCombo;
+	// combobox: madb_status
+	$combo_madb_status = new Combo;
+	$combo_madb_status->ListType = 0;
+	$combo_madb_status->MultipleSeparator = ', ';
+	$combo_madb_status->ListBoxHeight = 10;
+	$combo_madb_status->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/madb.madb_status.csv')) {
+		$madb_status_data = addslashes(implode('', @file(__DIR__ . '/hooks/madb.madb_status.csv')));
+		$combo_madb_status->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($madb_status_data))));
+		$combo_madb_status->ListData = $combo_madb_status->ListItem;
+	} else {
+		$combo_madb_status->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Active;;Inactive"))));
+		$combo_madb_status->ListData = $combo_madb_status->ListItem;
+	}
+	$combo_madb_status->SelectName = 'madb_status';
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('madb', $selectedId))) {
@@ -307,6 +324,7 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$combo_madb_howq1->SelectedData = $row['madb_howq1'];
 		$combo_madb_howt1->SelectedData = $row['madb_howt1'];
 		$combo_madb_premises_id->SelectedData = $row['madb_premises_id'];
+		$combo_madb_status->SelectedData = $row['madb_status'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -324,6 +342,7 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$combo_madb_howq1->SelectedData = $filterer_madb_howq1;
 		$combo_madb_howt1->SelectedData = $filterer_madb_howt1;
 		$combo_madb_premises_id->SelectedData = $filterer_madb_premises_id;
+		$combo_madb_status->SelectedText = (isset($filterField[1]) && $filterField[1] == '33' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8('Active'));
 	}
 	$combo_madb_what1->HTML = '<span id="madb_what1-container' . $rnd1 . '"></span><input type="hidden" name="madb_what1" id="madb_what1' . $rnd1 . '" value="' . html_attr($combo_madb_what1->SelectedData) . '">';
 	$combo_madb_what1->MatchText = '<span id="madb_what1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_what1" id="madb_what1' . $rnd1 . '" value="' . html_attr($combo_madb_what1->SelectedData) . '">';
@@ -347,6 +366,7 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$combo_madb_howt1->MatchText = '<span id="madb_howt1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_howt1" id="madb_howt1' . $rnd1 . '" value="' . html_attr($combo_madb_howt1->SelectedData) . '">';
 	$combo_madb_premises_id->HTML = '<span id="madb_premises_id-container' . $rnd1 . '"></span><input type="hidden" name="madb_premises_id" id="madb_premises_id' . $rnd1 . '" value="' . html_attr($combo_madb_premises_id->SelectedData) . '">';
 	$combo_madb_premises_id->MatchText = '<span id="madb_premises_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="madb_premises_id" id="madb_premises_id' . $rnd1 . '" value="' . html_attr($combo_madb_premises_id->SelectedData) . '">';
+	$combo_madb_status->Render();
 
 	ob_start();
 	?>
@@ -1356,6 +1376,7 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$jsReadOnly .= "\t\$j('#madb_howt1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('#madb_premises_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#madb_premises_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#madb_status').replaceWith('<div class=\"form-control-static\" id=\"madb_status\">' + (\$j('#madb_status').val() || '') + '</div>'); \$j('#madb_status-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -1399,6 +1420,8 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%COMBO(madb_premises_id)%%>', $combo_madb_premises_id->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(madb_premises_id)%%>', $combo_madb_premises_id->MatchText, $templateCode);
 	$templateCode = str_replace('<%%URLCOMBOTEXT(madb_premises_id)%%>', urlencode($combo_madb_premises_id->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(madb_status)%%>', $combo_madb_status->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(madb_status)%%>', $combo_madb_status->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = ['madb_what1' => ['whats', 'What 1'], 'madb_who1' => ['whos', 'Who 1'], 'madb_when1' => ['whens', 'When 1'], 'madb_which1' => ['whichs', 'Which 1'], 'madb_where1' => ['wheres', 'Where 1'], 'madb_why1' => ['whys', 'Why 1'], 'madb_howr1' => ['howrs', 'How (R) 1'], 'madb_hows1' => ['howss', 'How (S) 1'], 'madb_howq1' => ['howqs', 'How (Q) 1'], 'madb_howt1' => ['howts', 'How (T) 1'], 'madb_premises_id' => ['premises', 'Premises Id'], ];
@@ -1429,6 +1452,7 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%UPLOADFILE(madb_howq1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_howt1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_premises_id)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(madb_status)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(madb_updated)%%>', '', $templateCode);
 
@@ -1470,6 +1494,9 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(madb_premises_id)%%>', safe_html($urow['madb_premises_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(madb_premises_id)%%>', html_attr($row['madb_premises_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_premises_id)%%>', urlencode($urow['madb_premises_id']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(madb_status)%%>', safe_html($urow['madb_status']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(madb_status)%%>', html_attr($row['madb_status']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_status)%%>', urlencode($urow['madb_status']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_created)%%>', safe_html($urow['madb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_created)%%>', urlencode($urow['madb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_updated)%%>', safe_html($urow['madb_updated']), $templateCode);
@@ -1499,6 +1526,8 @@ function madb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(madb_howt1)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_premises_id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_premises_id)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(madb_status)%%>', 'Active', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(madb_status)%%>', urlencode('Active'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(madb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(madb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

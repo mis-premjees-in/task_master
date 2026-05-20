@@ -20,6 +20,7 @@ function whos_insert(&$error_message = '') {
 		'whos_who2' => Request::val('whos_who2', ''),
 		'whos_who3' => Request::val('whos_who3', ''),
 		'whos_description' => br2nl(Request::val('whos_description', '')),
+		'whos_swg_token' => Request::val('whos_swg_token', ''),
 		'whos_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -131,6 +132,7 @@ function whos_update(&$selected_id, &$error_message = '') {
 		'whos_who2' => Request::val('whos_who2', ''),
 		'whos_who3' => Request::val('whos_who3', ''),
 		'whos_description' => br2nl(Request::val('whos_description', '')),
+		'whos_swg_token' => Request::val('whos_swg_token', ''),
 		'whos_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -346,6 +348,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$jsReadOnly .= "\t\$j('#whos_who2').replaceWith('<div class=\"form-control-static\" id=\"whos_who2\">' + (\$j('#whos_who2').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whos_who3').replaceWith('<div class=\"form-control-static\" id=\"whos_who3\">' + (\$j('#whos_who3').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whos_description').replaceWith('<div class=\"form-control-static\" id=\"whos_description\">' + (\$j('#whos_description').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#whos_swg_token').replaceWith('<div class=\"form-control-static\" id=\"whos_swg_token\">' + (\$j('#whos_swg_token').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -379,6 +382,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%UPLOADFILE(whos_who2)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_who3)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_description)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_token)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_updated)%%>', '', $templateCode);
 
@@ -398,6 +402,9 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(whos_who3)%%>', urlencode($urow['whos_who3']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_description)%%>', safe_html($urow['whos_description'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_description)%%>', urlencode($urow['whos_description']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(whos_swg_token)%%>', safe_html($urow['whos_swg_token']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(whos_swg_token)%%>', html_attr($row['whos_swg_token']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_swg_token)%%>', urlencode($urow['whos_swg_token']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_created)%%>', safe_html($urow['whos_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode($urow['whos_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', safe_html($urow['whos_updated']), $templateCode);
@@ -413,6 +420,8 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(whos_who3)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_description)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_description)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whos_swg_token)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_swg_token)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

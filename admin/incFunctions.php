@@ -1218,6 +1218,13 @@
 							'description' => '',
 						],
 					],
+					'madb_status' => [
+						'appgini' => "VARCHAR(40) NULL DEFAULT 'Active'",
+						'info' => [
+							'caption' => 'Madb status',
+							'description' => '',
+						],
+					],
 					'madb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
@@ -1317,6 +1324,13 @@
 						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Description',
+							'description' => '',
+						],
+					],
+					'whos_swg_token' => [
+						'appgini' => "VARCHAR(255) NULL",
+						'info' => [
+							'caption' => 'SWG Token',
 							'description' => '',
 						],
 					],

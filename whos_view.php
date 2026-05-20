@@ -23,6 +23,7 @@
 		"`whos`.`whos_who2`" => "whos_who2",
 		"`whos`.`whos_who3`" => "whos_who3",
 		"`whos`.`whos_description`" => "whos_description",
+		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_created`" => "whos_created",
 		"`whos`.`whos_updated`" => "whos_updated",
 	];
@@ -33,8 +34,9 @@
 		3 => 3,
 		4 => 4,
 		5 => 5,
-		6 => '`whos`.`whos_created`',
-		7 => '`whos`.`whos_updated`',
+		6 => 6,
+		7 => '`whos`.`whos_created`',
+		8 => '`whos`.`whos_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -44,6 +46,7 @@
 		"`whos`.`whos_who2`" => "whos_who2",
 		"`whos`.`whos_who3`" => "whos_who3",
 		"`whos`.`whos_description`" => "whos_description",
+		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_created`" => "whos_created",
 		"`whos`.`whos_updated`" => "whos_updated",
 	];
@@ -54,6 +57,7 @@
 		"`whos`.`whos_who2`" => "Who2 (Doer ID)",
 		"`whos`.`whos_who3`" => "Who3 (Buddy ID)",
 		"`whos`.`whos_description`" => "Description",
+		"`whos`.`whos_swg_token`" => "SWG Token",
 		"`whos`.`whos_created`" => "Created AT",
 		"`whos`.`whos_updated`" => "Updated AT",
 	];
@@ -65,6 +69,7 @@
 		"`whos`.`whos_who2`" => "whos_who2",
 		"`whos`.`whos_who3`" => "whos_who3",
 		"`whos`.`whos_description`" => "whos_description",
+		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_created`" => "whos_created",
 		"`whos`.`whos_updated`" => "whos_updated",
 	];
@@ -100,10 +105,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whos`.`whos_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Who1 (Doer Role)', 'Who2 (Doer ID)', 'Who3 (Buddy ID)', 'Description', 'Created AT', 'Updated AT', 'Madb', ];
-	$x->ColFieldName = ['whos_id', 'whos_who1', 'whos_who2', 'whos_who3', 'whos_description', 'whos_created', 'whos_updated', '%madb.madb_who1%', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Who1 (Doer Role)', 'Who2 (Doer ID)', 'Who3 (Buddy ID)', 'Description', 'SWG Token', 'Created AT', 'Updated AT', 'Madb', ];
+	$x->ColFieldName = ['whos_id', 'whos_who1', 'whos_who2', 'whos_who3', 'whos_description', 'whos_swg_token', 'whos_created', 'whos_updated', '%madb.madb_who1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/whos_templateTV.html';
