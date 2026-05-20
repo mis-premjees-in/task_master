@@ -24,36 +24,6 @@
 		case 'utedb_madb':
 			if(!$id) {
 				?>
-				$j('#utedb_what1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_who1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_when1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_which1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_where1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_why1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howr1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_hows1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howq1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howt1<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_why2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_why3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_where2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_where3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_which2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_which3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_when2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_when3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_who2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_who3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_what2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_what3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howr2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howr3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_hows2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_hows3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howq2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howq3<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howt2<?php echo $rnd1; ?>').html('&nbsp;');
-				$j('#utedb_howt3<?php echo $rnd1; ?>').html('&nbsp;');
 				$j('#utedb_premises_id<?php echo $rnd1; ?>').html('&nbsp;');
 				<?php
 				break;
@@ -61,36 +31,6 @@
 			$res = sql("SELECT `madb`.`madb_id` as 'madb_id', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') as 'madb_what1', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'madb_who1', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when1', IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') as 'madb_which1', IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') as 'madb_where1', IF(    CHAR_LENGTH(`whys1`.`whys_why1`) || CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why1`, '-', `whys1`.`whys_why2`), '') as 'madb_why1', IF(    CHAR_LENGTH(`howrs1`.`howrs_howr1`) || CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr1`, '-', `howrs1`.`howrs_howr2`), '') as 'madb_howr1', IF(    CHAR_LENGTH(`howss1`.`howss_hows1`) || CHAR_LENGTH(`howss1`.`howss_hows2`), CONCAT_WS('',   `howss1`.`howss_hows1`, '-', `howss1`.`howss_hows2`), '') as 'madb_hows1', IF(    CHAR_LENGTH(`howqs1`.`howqs_howq1`) || CHAR_LENGTH(`howqs1`.`howqs_howq2`), CONCAT_WS('',   `howqs1`.`howqs_howq1`, '-', `howqs1`.`howqs_howq2`), '') as 'madb_howq1', IF(    CHAR_LENGTH(`howts1`.`howts_howt1`) || CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt1`, '-', `howts1`.`howts_howt2`), '') as 'madb_howt1', IF(    CHAR_LENGTH(`whys1`.`whys_why2`), CONCAT_WS('',   `whys1`.`whys_why2`), '') as 'madb_why2', IF(    CHAR_LENGTH(`whys1`.`whys_why3`), CONCAT_WS('',   `whys1`.`whys_why3`), '') as 'madb_why3', IF(    CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where2`), '') as 'madb_where2', IF(    CHAR_LENGTH(`wheres1`.`wheres_where3`), CONCAT_WS('',   `wheres1`.`wheres_where3`), '') as 'madb_where3', IF(    CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which2`), '') as 'madb_which2', IF(    CHAR_LENGTH(`whichs1`.`whichs_which3`), CONCAT_WS('',   `whichs1`.`whichs_which3`), '') as 'madb_which3', IF(    CHAR_LENGTH(`whens1`.`whens_when2`), CONCAT_WS('',   `whens1`.`whens_when2`), '') as 'madb_when2', IF(    CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'madb_when3', IF(    CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who2`), '') as 'madb_who2', IF(    CHAR_LENGTH(`whos1`.`whos_who3`), CONCAT_WS('',   `whos1`.`whos_who3`), '') as 'madb_who3', IF(    CHAR_LENGTH(`whats1`.`whats_what2`), CONCAT_WS('',   `whats1`.`whats_what2`), '') as 'madb_what2', IF(    CHAR_LENGTH(`whats1`.`whats_what3`), CONCAT_WS('',   `whats1`.`whats_what3`), '') as 'madb_what3', IF(    CHAR_LENGTH(`howrs1`.`howrs_howr2`), CONCAT_WS('',   `howrs1`.`howrs_howr2`), '') as 'madb_howr2', IF(    CHAR_LENGTH(`howrs1`.`howrs_howr3`), CONCAT_WS('',   `howrs1`.`howrs_howr3`), '') as 'madb_howr3', IF(    CHAR_LENGTH(`howss1`.`howss_hows2`), CONCAT_WS('',   `howss1`.`howss_hows2`), '') as 'madb_hows2', IF(    CHAR_LENGTH(`howss1`.`howss_hows3`), CONCAT_WS('',   `howss1`.`howss_hows3`), '') as 'madb_hows3', IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') as 'madb_howq2', IF(    CHAR_LENGTH(`howqs1`.`howqs_howq3`), CONCAT_WS('',   `howqs1`.`howqs_howq3`), '') as 'madb_howq3', IF(    CHAR_LENGTH(`howts1`.`howts_howt2`), CONCAT_WS('',   `howts1`.`howts_howt2`), '') as 'madb_howt2', IF(    CHAR_LENGTH(`howts1`.`howts_howt3`), CONCAT_WS('',   `howts1`.`howts_howt3`), '') as 'madb_howt3', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'madb_premises_id', `madb`.`madb_status` as 'madb_status', `madb`.`madb_created` as 'madb_created', `madb`.`madb_updated` as 'madb_updated' FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb`.`madb_premises_id`  WHERE `madb`.`madb_id`='{$id}' limit 1", $eo);
 			$row = db_fetch_assoc($res);
 			?>
-			$j('#utedb_what1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_what1']))); ?>&nbsp;');
-			$j('#utedb_who1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_who1']))); ?>&nbsp;');
-			$j('#utedb_when1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_when1']))); ?>&nbsp;');
-			$j('#utedb_which1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_which1']))); ?>&nbsp;');
-			$j('#utedb_where1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_where1']))); ?>&nbsp;');
-			$j('#utedb_why1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_why1']))); ?>&nbsp;');
-			$j('#utedb_howr1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howr1']))); ?>&nbsp;');
-			$j('#utedb_hows1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_hows1']))); ?>&nbsp;');
-			$j('#utedb_howq1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howq1']))); ?>&nbsp;');
-			$j('#utedb_howt1<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt1']))); ?>&nbsp;');
-			$j('#utedb_why2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_why2']))); ?>&nbsp;');
-			$j('#utedb_why3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_why3']))); ?>&nbsp;');
-			$j('#utedb_where2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_where2']))); ?>&nbsp;');
-			$j('#utedb_where3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_where3']))); ?>&nbsp;');
-			$j('#utedb_which2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_which2']))); ?>&nbsp;');
-			$j('#utedb_which3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_which3']))); ?>&nbsp;');
-			$j('#utedb_when2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_when2']))); ?>&nbsp;');
-			$j('#utedb_when3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_when3']))); ?>&nbsp;');
-			$j('#utedb_who2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_who2']))); ?>&nbsp;');
-			$j('#utedb_who3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_who3']))); ?>&nbsp;');
-			$j('#utedb_what2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_what2']))); ?>&nbsp;');
-			$j('#utedb_what3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_what3']))); ?>&nbsp;');
-			$j('#utedb_howr2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howr2']))); ?>&nbsp;');
-			$j('#utedb_howr3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howr3']))); ?>&nbsp;');
-			$j('#utedb_hows2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt2']))); ?>&nbsp;');
-			$j('#utedb_hows3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_hows3']))); ?>&nbsp;');
-			$j('#utedb_howq2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howq2']))); ?>&nbsp;');
-			$j('#utedb_howq3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howq1']))); ?>&nbsp;');
-			$j('#utedb_howt2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt2']))); ?>&nbsp;');
-			$j('#utedb_howt3<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_howt3']))); ?>&nbsp;');
 			$j('#utedb_premises_id<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['madb_premises_id']))); ?>&nbsp;');
 			<?php
 			break;

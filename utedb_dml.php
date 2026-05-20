@@ -17,36 +17,6 @@ function utedb_insert(&$error_message = '') {
 
 	$data = [
 		'utedb_madb' => Request::lookup('utedb_madb', ''),
-		'utedb_what1' => Request::lookup('utedb_madb'),
-		'utedb_who1' => Request::lookup('utedb_madb'),
-		'utedb_when1' => Request::lookup('utedb_madb'),
-		'utedb_which1' => Request::lookup('utedb_madb'),
-		'utedb_where1' => Request::lookup('utedb_madb'),
-		'utedb_why1' => Request::lookup('utedb_madb'),
-		'utedb_howr1' => Request::lookup('utedb_madb'),
-		'utedb_hows1' => Request::lookup('utedb_madb'),
-		'utedb_howq1' => Request::lookup('utedb_madb'),
-		'utedb_howt1' => Request::lookup('utedb_madb'),
-		'utedb_why2' => Request::lookup('utedb_madb'),
-		'utedb_why3' => Request::lookup('utedb_madb'),
-		'utedb_where2' => Request::lookup('utedb_madb'),
-		'utedb_where3' => Request::lookup('utedb_madb'),
-		'utedb_which2' => Request::lookup('utedb_madb'),
-		'utedb_which3' => Request::lookup('utedb_madb'),
-		'utedb_when2' => Request::lookup('utedb_madb'),
-		'utedb_when3' => Request::lookup('utedb_madb'),
-		'utedb_who2' => Request::lookup('utedb_madb'),
-		'utedb_who3' => Request::lookup('utedb_madb'),
-		'utedb_what2' => Request::lookup('utedb_madb'),
-		'utedb_what3' => Request::lookup('utedb_madb'),
-		'utedb_howr2' => Request::lookup('utedb_madb'),
-		'utedb_howr3' => Request::lookup('utedb_madb'),
-		'utedb_hows2' => Request::lookup('utedb_madb'),
-		'utedb_hows3' => Request::lookup('utedb_madb'),
-		'utedb_howq2' => Request::lookup('utedb_madb'),
-		'utedb_howq3' => Request::lookup('utedb_madb'),
-		'utedb_howt2' => Request::lookup('utedb_madb'),
-		'utedb_howt3' => Request::lookup('utedb_madb'),
 		'utedb_premises_id' => Request::lookup('utedb_madb'),
 		'utedb_proof_image' => Request::fileUpload('utedb_proof_image', [
 			'maxSize' => 512000,
@@ -173,36 +143,6 @@ function utedb_update(&$selected_id, &$error_message = '') {
 
 	$data = [
 		'utedb_madb' => Request::lookup('utedb_madb', ''),
-		'utedb_what1' => Request::lookup('utedb_madb'),
-		'utedb_who1' => Request::lookup('utedb_madb'),
-		'utedb_when1' => Request::lookup('utedb_madb'),
-		'utedb_which1' => Request::lookup('utedb_madb'),
-		'utedb_where1' => Request::lookup('utedb_madb'),
-		'utedb_why1' => Request::lookup('utedb_madb'),
-		'utedb_howr1' => Request::lookup('utedb_madb'),
-		'utedb_hows1' => Request::lookup('utedb_madb'),
-		'utedb_howq1' => Request::lookup('utedb_madb'),
-		'utedb_howt1' => Request::lookup('utedb_madb'),
-		'utedb_why2' => Request::lookup('utedb_madb'),
-		'utedb_why3' => Request::lookup('utedb_madb'),
-		'utedb_where2' => Request::lookup('utedb_madb'),
-		'utedb_where3' => Request::lookup('utedb_madb'),
-		'utedb_which2' => Request::lookup('utedb_madb'),
-		'utedb_which3' => Request::lookup('utedb_madb'),
-		'utedb_when2' => Request::lookup('utedb_madb'),
-		'utedb_when3' => Request::lookup('utedb_madb'),
-		'utedb_who2' => Request::lookup('utedb_madb'),
-		'utedb_who3' => Request::lookup('utedb_madb'),
-		'utedb_what2' => Request::lookup('utedb_madb'),
-		'utedb_what3' => Request::lookup('utedb_madb'),
-		'utedb_howr2' => Request::lookup('utedb_madb'),
-		'utedb_howr3' => Request::lookup('utedb_madb'),
-		'utedb_hows2' => Request::lookup('utedb_madb'),
-		'utedb_hows3' => Request::lookup('utedb_madb'),
-		'utedb_howq2' => Request::lookup('utedb_madb'),
-		'utedb_howq3' => Request::lookup('utedb_madb'),
-		'utedb_howt2' => Request::lookup('utedb_madb'),
-		'utedb_howt3' => Request::lookup('utedb_madb'),
 		'utedb_premises_id' => Request::lookup('utedb_madb'),
 		'utedb_proof_image' => Request::fileUpload('utedb_proof_image', [
 			'maxSize' => 512000,
@@ -458,11 +398,11 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
 		$combo_utedb_madb->SelectedData = $filterer_utedb_madb;
-		$combo_utedb_pc_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '36' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
-		$combo_utedb_rda_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '37' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
-		$combo_utedb_bb_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '38' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
-		$combo_utedb_car->SelectedText = (isset($filterField[1]) && $filterField[1] == '39' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
-		$combo_utedb_delta_flag->SelectedText = (isset($filterField[1]) && $filterField[1] == '42' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_utedb_pc_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '6' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_utedb_rda_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '7' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_utedb_bb_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '8' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_utedb_car->SelectedText = (isset($filterField[1]) && $filterField[1] == '9' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_utedb_delta_flag->SelectedText = (isset($filterField[1]) && $filterField[1] == '12' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_utedb_madb->HTML = '<span id="utedb_madb-container' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
 	$combo_utedb_madb->MatchText = '<span id="utedb_madb-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
