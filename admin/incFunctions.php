@@ -3394,7 +3394,7 @@
 			'howqs' => [],
 			'howts' => [],
 			'utedb' => [
-				'utedb_what1' => 'SELECT MADB_WHAT1 FROM MADB WHERE MADB_ID=UTEDB_MADB',
+				'utedb_what1' => 'SELECT madb_what1 FROM madb WHERE madb_id=(select utedb_madb from utedb where utedb_id=%ID%)',
 			],
 			'premises' => [],
 			'pnb' => [],
