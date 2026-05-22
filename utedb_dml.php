@@ -55,6 +55,7 @@ function utedb_insert(&$error_message = '') {
 		]),
 		'utedb_col_tf' => Request::val('utedb_col_tf', ''),
 		'utedb_delta_flag' => Request::val('utedb_delta_flag', ''),
+		'utedb_hows1' => br2nl(Request::val('utedb_hows1', '')),
 		'utedb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -204,6 +205,7 @@ function utedb_update(&$selected_id, &$error_message = '') {
 		]),
 		'utedb_col_tf' => Request::val('utedb_col_tf', ''),
 		'utedb_delta_flag' => Request::val('utedb_delta_flag', ''),
+		'utedb_hows1' => br2nl(Request::val('utedb_hows1', '')),
 		'utedb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -599,6 +601,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly .= "\t\$j('#utedb_car_vid').parent().replaceWith(`<div class=\"form-control-static\" id=\"utedb_car_vid\">\${\$j('#utedb_car_vid').val() || ''}\${\$j('#utedb_car_vid').val() ? '<a target=\"_blank\" class=\"hspacer-lg\" href=\"' + \$j('#utedb_car_vid').val() + '\" target=\"_blank\"><i class=\"glyphicon glyphicon-globe\"></i></a>' : ''}</div>`);\n";
 		$jsReadOnly .= "\t\$j('#utedb_col_tf').replaceWith('<div class=\"form-control-static\" id=\"utedb_col_tf\">' + (\$j('#utedb_col_tf').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#utedb_delta_flag').replaceWith('<div class=\"form-control-static\" id=\"utedb_delta_flag\">' + (\$j('#utedb_delta_flag').val() || '') + '</div>'); \$j('#utedb_delta_flag-multi-selection-help').hide();\n";
+		$jsReadOnly .= "\t\$j('#utedb_hows1').replaceWith('<div class=\"form-control-static\" id=\"utedb_hows1\">' + (\$j('#utedb_hows1').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -661,6 +664,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	}
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_col_tf)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_delta_flag)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_hows1)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_updated)%%>', '', $templateCode);
 
@@ -700,6 +704,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_delta_flag)%%>', safe_html($urow['utedb_delta_flag']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_delta_flag)%%>', html_attr($row['utedb_delta_flag']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_delta_flag)%%>', urlencode($urow['utedb_delta_flag']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_hows1)%%>', safe_html($urow['utedb_hows1'], $fieldsAreEditable), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_hows1)%%>', urlencode($urow['utedb_hows1']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', safe_html($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', safe_html($urow['utedb_updated']), $templateCode);
@@ -726,6 +732,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_col_tf)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_delta_flag)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_delta_flag)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_hows1)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_hows1)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

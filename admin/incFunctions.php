@@ -1849,6 +1849,13 @@
 							'description' => '',
 						],
 					],
+					'utedb_hows1' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'Utedb hows1',
+							'description' => '',
+						],
+					],
 					'utedb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
