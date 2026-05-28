@@ -118,7 +118,7 @@
 			'howts' => "`howts`.`howts_id` as 'howts_id', `howts`.`howts_howt1` as 'howts_howt1', `howts`.`howts_howt2` as 'howts_howt2', `howts`.`howts_howt3` as 'howts_howt3', `howts`.`howrs_description` as 'howrs_description', `howts`.`howrs_created` as 'howrs_created', `howts`.`howrs_updated` as 'howrs_updated'",
 			'utedb' => "`utedb`.`utedb_id` as 'utedb_id', IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') as 'utedb_madb', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'utedb_premises_id', `utedb`.`utedb_proof_image` as 'utedb_proof_image', `utedb`.`utedb_ai_audit` as 'utedb_ai_audit', `utedb`.`utedb_pc_audit` as 'utedb_pc_audit', `utedb`.`utedb_rda_audit` as 'utedb_rda_audit', `utedb`.`utedb_bb_audit` as 'utedb_bb_audit', `utedb`.`utedb_car` as 'utedb_car', `utedb`.`utedb_car_vid` as 'utedb_car_vid', `utedb`.`utedb_col_tf` as 'utedb_col_tf', `utedb`.`utedb_delta_flag` as 'utedb_delta_flag', `utedb`.`utedb_hows1` as 'utedb_hows1', `utedb`.`utedb_created` as 'utedb_created', `utedb`.`utedb_updated` as 'utedb_updated'",
 			'premises' => "`premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated'",
-			'pnb' => "`pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated'",
+			'pnb' => "`pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') as 'pnb_elairda_id', `pnb`.`pnb_comments` as 'pnb_comments', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated'",
 		];
 
 		if(isset($sql_fields[$table_name])) return $sql_fields[$table_name];
@@ -143,7 +143,7 @@
 			'howts' => "`howts` ",
 			'utedb' => "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb1`.`madb_premises_id` ",
 			'premises' => "`premises` ",
-			'pnb' => "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` ",
+			'pnb' => "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` LEFT JOIN `whos` as whos2 ON `whos2`.`whos_id`=`pnb`.`pnb_elairda_id` ",
 		];
 
 		$pkey = [
@@ -371,6 +371,8 @@
 				'pnb_premises_id' => '',
 				'pnb_whos_id' => '',
 				'pnb_delta_flag' => '',
+				'pnb_elairda_id' => '',
+				'pnb_comments' => '',
 				'pnb_created' => '',
 				'pnb_updated' => '',
 			],
@@ -1730,9 +1732,9 @@ EOT;
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => [0 => 'Id', 1 => 'PnB Type', 2 => 'Premises Id', 3 => 'Whos Id', 4 => 'Delta Flag', 5 => 'Created AT', 6 => 'Updated AT'],
-					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_whos_id', 4 => 'pnb_delta_flag', 5 => 'pnb_created', 6 => 'pnb_updated'],
-					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => 5, 5 => '`pnb`.`pnb_created`', 6 => '`pnb`.`pnb_updated`'],
+					'display-fields' => [0 => 'Id', 1 => 'PnB Type', 2 => 'Premises Id', 3 => 'Whos Id', 4 => 'Delta Flag', 5 => 'ELAI RDA ID', 6 => 'Comments', 7 => 'Created AT', 8 => 'Updated AT'],
+					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_whos_id', 4 => 'pnb_delta_flag', 5 => 'pnb_elairda_id', 6 => 'pnb_comments', 7 => 'pnb_created', 8 => 'pnb_updated'],
+					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`pnb`.`pnb_created`', 8 => '`pnb`.`pnb_updated`'],
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -1741,7 +1743,7 @@ EOT;
 					'show-page-progress' => true,
 					'template' => 'children-pnb',
 					'template-printable' => 'children-pnb-printable',
-					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` "
+					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') as 'pnb_elairda_id', `pnb`.`pnb_comments` as 'pnb_comments', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` LEFT JOIN `whos` as whos2 ON `whos2`.`whos_id`=`pnb`.`pnb_elairda_id` "
 				],
 				'pnb_whos_id' => [
 					'parent-table' => 'whos',
@@ -1754,9 +1756,9 @@ EOT;
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => [0 => 'Id', 1 => 'PnB Type', 2 => 'Premises Id', 3 => 'Whos Id', 4 => 'Delta Flag', 5 => 'Created AT', 6 => 'Updated AT'],
-					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_whos_id', 4 => 'pnb_delta_flag', 5 => 'pnb_created', 6 => 'pnb_updated'],
-					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => 5, 5 => '`pnb`.`pnb_created`', 6 => '`pnb`.`pnb_updated`'],
+					'display-fields' => [0 => 'Id', 1 => 'PnB Type', 2 => 'Premises Id', 3 => 'Whos Id', 4 => 'Delta Flag', 5 => 'ELAI RDA ID', 6 => 'Comments', 7 => 'Created AT', 8 => 'Updated AT'],
+					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_whos_id', 4 => 'pnb_delta_flag', 5 => 'pnb_elairda_id', 6 => 'pnb_comments', 7 => 'pnb_created', 8 => 'pnb_updated'],
+					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`pnb`.`pnb_created`', 8 => '`pnb`.`pnb_updated`'],
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -1765,7 +1767,31 @@ EOT;
 					'show-page-progress' => true,
 					'template' => 'children-pnb',
 					'template-printable' => 'children-pnb-printable',
-					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` "
+					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') as 'pnb_elairda_id', `pnb`.`pnb_comments` as 'pnb_comments', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` LEFT JOIN `whos` as whos2 ON `whos2`.`whos_id`=`pnb`.`pnb_elairda_id` "
+				],
+				'pnb_elairda_id' => [
+					'parent-table' => 'whos',
+					'parent-primary-key' => 'whos_id',
+					'child-primary-key' => 'pnb_id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Presence & Being <span class="hidden child-label-pnb child-field-caption">(ELAI RDA ID)</span>',
+					'auto-close' => false,
+					'table-icon' => 'table.gif',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => [0 => 'Id', 1 => 'PnB Type', 2 => 'Premises Id', 3 => 'Whos Id', 4 => 'Delta Flag', 5 => 'ELAI RDA ID', 6 => 'Comments', 7 => 'Created AT', 8 => 'Updated AT'],
+					'display-field-names' => [0 => 'pnb_id', 1 => 'pnb_type', 2 => 'pnb_premises_id', 3 => 'pnb_whos_id', 4 => 'pnb_delta_flag', 5 => 'pnb_elairda_id', 6 => 'pnb_comments', 7 => 'pnb_created', 8 => 'pnb_updated'],
+					'sortable-fields' => [0 => '`pnb`.`pnb_id`', 1 => 2, 2 => 3, 3 => 4, 4 => 5, 5 => 6, 6 => 7, 7 => '`pnb`.`pnb_created`', 8 => '`pnb`.`pnb_updated`'],
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-pnb',
+					'template-printable' => 'children-pnb-printable',
+					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') as 'pnb_elairda_id', `pnb`.`pnb_comments` as 'pnb_comments', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` LEFT JOIN `whos` as whos2 ON `whos2`.`whos_id`=`pnb`.`pnb_elairda_id` "
 				],
 			],
 		];

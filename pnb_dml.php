@@ -20,6 +20,8 @@ function pnb_insert(&$error_message = '') {
 		'pnb_premises_id' => Request::lookup('pnb_premises_id', ''),
 		'pnb_whos_id' => Request::lookup('pnb_whos_id', ''),
 		'pnb_delta_flag' => Request::val('pnb_delta_flag', ''),
+		'pnb_elairda_id' => Request::lookup('pnb_elairda_id', ''),
+		'pnb_comments' => br2nl(Request::val('pnb_comments', '')),
 		'pnb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -91,6 +93,8 @@ function pnb_update(&$selected_id, &$error_message = '') {
 		'pnb_premises_id' => Request::lookup('pnb_premises_id', ''),
 		'pnb_whos_id' => Request::lookup('pnb_whos_id', ''),
 		'pnb_delta_flag' => Request::val('pnb_delta_flag', ''),
+		'pnb_elairda_id' => Request::lookup('pnb_elairda_id', ''),
+		'pnb_comments' => br2nl(Request::val('pnb_comments', '')),
 		'pnb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -181,6 +185,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 
 	$filterer_pnb_premises_id = Request::val('filterer_pnb_premises_id');
 	$filterer_pnb_whos_id = Request::val('filterer_pnb_whos_id');
+	$filterer_pnb_elairda_id = Request::val('filterer_pnb_elairda_id');
 
 	// populate filterers, starting from children to grand-parents
 
@@ -220,6 +225,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$combo_pnb_delta_flag->ListData = $combo_pnb_delta_flag->ListItem;
 	}
 	$combo_pnb_delta_flag->SelectName = 'pnb_delta_flag';
+	// combobox: pnb_elairda_id
+	$combo_pnb_elairda_id = new DataCombo;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('pnb', $selectedId))) {
@@ -229,6 +236,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$combo_pnb_premises_id->SelectedData = $row['pnb_premises_id'];
 		$combo_pnb_whos_id->SelectedData = $row['pnb_whos_id'];
 		$combo_pnb_delta_flag->SelectedData = $row['pnb_delta_flag'];
+		$combo_pnb_elairda_id->SelectedData = $row['pnb_elairda_id'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -239,6 +247,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$combo_pnb_premises_id->SelectedData = $filterer_pnb_premises_id;
 		$combo_pnb_whos_id->SelectedData = $filterer_pnb_whos_id;
 		$combo_pnb_delta_flag->SelectedText = (isset($filterField[1]) && $filterField[1] == '5' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_pnb_elairda_id->SelectedData = $filterer_pnb_elairda_id;
 	}
 	$combo_pnb_type->Render();
 	$combo_pnb_premises_id->HTML = '<span id="pnb_premises_id-container' . $rnd1 . '"></span><input type="hidden" name="pnb_premises_id" id="pnb_premises_id' . $rnd1 . '" value="' . html_attr($combo_pnb_premises_id->SelectedData) . '">';
@@ -246,6 +255,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$combo_pnb_whos_id->HTML = '<span id="pnb_whos_id-container' . $rnd1 . '"></span><input type="hidden" name="pnb_whos_id" id="pnb_whos_id' . $rnd1 . '" value="' . html_attr($combo_pnb_whos_id->SelectedData) . '">';
 	$combo_pnb_whos_id->MatchText = '<span id="pnb_whos_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="pnb_whos_id" id="pnb_whos_id' . $rnd1 . '" value="' . html_attr($combo_pnb_whos_id->SelectedData) . '">';
 	$combo_pnb_delta_flag->Render();
+	$combo_pnb_elairda_id->HTML = '<span id="pnb_elairda_id-container' . $rnd1 . '"></span><input type="hidden" name="pnb_elairda_id" id="pnb_elairda_id' . $rnd1 . '" value="' . html_attr($combo_pnb_elairda_id->SelectedData) . '">';
+	$combo_pnb_elairda_id->MatchText = '<span id="pnb_elairda_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="pnb_elairda_id" id="pnb_elairda_id' . $rnd1 . '" value="' . html_attr($combo_pnb_elairda_id->SelectedData) . '">';
 
 	ob_start();
 	?>
@@ -254,11 +265,13 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		// initial lookup values
 		AppGini.current_pnb_premises_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['pnb_premises_id'] : htmlspecialchars($filterer_pnb_premises_id, ENT_QUOTES)); ?>"};
 		AppGini.current_pnb_whos_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['pnb_whos_id'] : htmlspecialchars($filterer_pnb_whos_id, ENT_QUOTES)); ?>"};
+		AppGini.current_pnb_elairda_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['pnb_elairda_id'] : htmlspecialchars($filterer_pnb_elairda_id, ENT_QUOTES)); ?>"};
 
 		$j(function() {
 			setTimeout(function() {
 				if(typeof(pnb_premises_id_reload__RAND__) == 'function') pnb_premises_id_reload__RAND__();
 				if(typeof(pnb_whos_id_reload__RAND__) == 'function') pnb_whos_id_reload__RAND__();
+				if(typeof(pnb_elairda_id_reload__RAND__) == 'function') pnb_elairda_id_reload__RAND__();
 			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
 		function pnb_premises_id_reload__RAND__() {
@@ -419,6 +432,85 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		<?php } ?>
 
 		}
+		function pnb_elairda_id_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#pnb_elairda_id-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_pnb_elairda_id__RAND__.value, t: 'pnb', f: 'pnb_elairda_id' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="pnb_elairda_id"]').val(resp.results[0].id);
+							$j('[id=pnb_elairda_id-container-readonly__RAND__]').html('<span class="match-text" id="pnb_elairda_id-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
+
+
+							if(typeof(pnb_elairda_id_update_autofills__RAND__) == 'function') pnb_elairda_id_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'pnb', f: 'pnb_elairda_id' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_pnb_elairda_id__RAND__.value = e.added.id;
+				AppGini.current_pnb_elairda_id__RAND__.text = e.added.text;
+				$j('[name="pnb_elairda_id"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=whos_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(pnb_elairda_id_update_autofills__RAND__) == 'function') pnb_elairda_id_update_autofills__RAND__();
+			});
+
+			if(!$j("#pnb_elairda_id-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_pnb_elairda_id__RAND__.value, t: 'pnb', f: 'pnb_elairda_id' },
+					success: function(resp) {
+						$j('[name="pnb_elairda_id"]').val(resp.results[0].id);
+						$j('[id=pnb_elairda_id-container-readonly__RAND__]').html('<span class="match-text" id="pnb_elairda_id-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
+
+						if(typeof(pnb_elairda_id_update_autofills__RAND__) == 'function') pnb_elairda_id_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_pnb_elairda_id__RAND__.value, t: 'pnb', f: 'pnb_elairda_id' },
+				success: function(resp) {
+					$j('[id=pnb_elairda_id-container__RAND__], [id=pnb_elairda_id-container-readonly__RAND__]').html('<span class="match-text" id="pnb_elairda_id-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
+
+					if(typeof(pnb_elairda_id_update_autofills__RAND__) == 'function') pnb_elairda_id_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
 	</script>
 	<?php
 
@@ -510,6 +602,9 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$jsReadOnly .= "\t\$j('#pnb_whos_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#pnb_whos_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('#pnb_delta_flag').replaceWith('<div class=\"form-control-static\" id=\"pnb_delta_flag\">' + (\$j('#pnb_delta_flag').val() || '') + '</div>'); \$j('#pnb_delta_flag-multi-selection-help').hide();\n";
+		$jsReadOnly .= "\t\$j('#pnb_elairda_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#pnb_elairda_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#pnb_comments').replaceWith('<div class=\"form-control-static\" id=\"pnb_comments\">' + (\$j('#pnb_comments').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -530,9 +625,12 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$templateCode = str_replace('<%%URLCOMBOTEXT(pnb_whos_id)%%>', urlencode($combo_pnb_whos_id->MatchText), $templateCode);
 	$templateCode = str_replace('<%%COMBO(pnb_delta_flag)%%>', $combo_pnb_delta_flag->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(pnb_delta_flag)%%>', $combo_pnb_delta_flag->SelectedData, $templateCode);
+	$templateCode = str_replace('<%%COMBO(pnb_elairda_id)%%>', $combo_pnb_elairda_id->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(pnb_elairda_id)%%>', $combo_pnb_elairda_id->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(pnb_elairda_id)%%>', urlencode($combo_pnb_elairda_id->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['pnb_premises_id' => ['premises', 'Premises Id'], 'pnb_whos_id' => ['whos', 'Whos Id'], ];
+	$lookup_fields = ['pnb_premises_id' => ['premises', 'Premises Id'], 'pnb_whos_id' => ['whos', 'Whos Id'], 'pnb_elairda_id' => ['whos', 'ELAI RDA ID'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -553,6 +651,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_premises_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_whos_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_delta_flag)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(pnb_elairda_id)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(pnb_comments)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_updated)%%>', '', $templateCode);
 
@@ -573,6 +673,11 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(pnb_delta_flag)%%>', safe_html($urow['pnb_delta_flag']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(pnb_delta_flag)%%>', html_attr($row['pnb_delta_flag']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_delta_flag)%%>', urlencode($urow['pnb_delta_flag']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(pnb_elairda_id)%%>', safe_html($urow['pnb_elairda_id']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(pnb_elairda_id)%%>', html_attr($row['pnb_elairda_id']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_elairda_id)%%>', urlencode($urow['pnb_elairda_id']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(pnb_comments)%%>', safe_html($urow['pnb_comments'], $fieldsAreEditable), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_comments)%%>', urlencode($urow['pnb_comments']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_created)%%>', safe_html($urow['pnb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_created)%%>', urlencode($urow['pnb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_updated)%%>', safe_html($urow['pnb_updated']), $templateCode);
@@ -588,6 +693,10 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$templateCode = str_replace('<%%URLVALUE(pnb_whos_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_delta_flag)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_delta_flag)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(pnb_elairda_id)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_elairda_id)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(pnb_comments)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_comments)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

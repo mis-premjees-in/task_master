@@ -444,6 +444,17 @@
 				'list_type' => 0,
 				'not_null' => false,
 			],
+			'pnb_elairda_id' => [
+				'parent_table' => 'whos',
+				'parent_pk_field' => 'whos_id',
+				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\')',
+				'parent_from' => '`whos` ',
+				'filterers' => [],
+				'custom_query' => '',
+				'inherit_permissions' => false,
+				'list_type' => 0,
+				'not_null' => false,
+			],
 		],
 	];
 

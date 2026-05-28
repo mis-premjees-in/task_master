@@ -1958,6 +1958,20 @@
 							'description' => '',
 						],
 					],
+					'pnb_elairda_id' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'ELAI RDA ID',
+							'description' => '',
+						],
+					],
+					'pnb_comments' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'Comments',
+							'description' => '',
+						],
+					],
 					'pnb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
@@ -3159,7 +3173,7 @@
 			],
 			'pnb' => [
 				'premises' => ['pnb_premises_id'],
-				'whos' => ['pnb_whos_id'],
+				'whos' => ['pnb_elairda_id', 'pnb_whos_id'],
 			],
 		];
 
@@ -3385,6 +3399,7 @@
 			'pnb' => [
 				'pnb_premises_id' => 'SELECT `premises`.`premises_id`, IF(CHAR_LENGTH(`premises`.`premises_id`) || CHAR_LENGTH(`premises`.`premises_name`), CONCAT_WS(\'\', `premises`.`premises_id`, \'-\', `premises`.`premises_name`), \'\') FROM `premises` ORDER BY 2',
 				'pnb_whos_id' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_id`) || CHAR_LENGTH(`whos`.`whos_who1`)||CHAR_LENGTH(`whos`.`whos_who1`), CONCAT_WS(\'\', `whos`.`whos_id`, \'-\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
+				'pnb_elairda_id' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\') FROM `whos` ORDER BY 2',
 			],
 		];
 

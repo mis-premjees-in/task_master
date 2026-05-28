@@ -23,6 +23,8 @@
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_delta_flag`" => "pnb_delta_flag",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "pnb_elairda_id",
+		"`pnb`.`pnb_comments`" => "pnb_comments",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -33,8 +35,10 @@
 		3 => 3,
 		4 => 4,
 		5 => 5,
-		6 => '`pnb`.`pnb_created`',
-		7 => '`pnb`.`pnb_updated`',
+		6 => 6,
+		7 => 7,
+		8 => '`pnb`.`pnb_created`',
+		9 => '`pnb`.`pnb_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -44,6 +48,8 @@
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_delta_flag`" => "pnb_delta_flag",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "pnb_elairda_id",
+		"`pnb`.`pnb_comments`" => "pnb_comments",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -54,6 +60,8 @@
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "Premises Id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "Whos Id",
 		"`pnb`.`pnb_delta_flag`" => "Delta Flag",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "ELAI RDA ID",
+		"`pnb`.`pnb_comments`" => "Comments",
 		"`pnb`.`pnb_created`" => "Created AT",
 		"`pnb`.`pnb_updated`" => "Updated AT",
 	];
@@ -65,14 +73,16 @@
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
 		"`pnb`.`pnb_delta_flag`" => "pnb_delta_flag",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "pnb_elairda_id",
+		"`pnb`.`pnb_comments`" => "pnb_comments",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = ['pnb_premises_id' => 'Premises Id', 'pnb_whos_id' => 'Whos Id', ];
+	$x->filterers = ['pnb_premises_id' => 'Premises Id', 'pnb_whos_id' => 'Whos Id', 'pnb_elairda_id' => 'ELAI RDA ID', ];
 
-	$x->QueryFrom = "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` ";
+	$x->QueryFrom = "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` LEFT JOIN `whos` as whos2 ON `whos2`.`whos_id`=`pnb`.`pnb_elairda_id` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -100,10 +110,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`pnb`.`pnb_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'PnB Type', 'Premises Id', 'Whos Id', 'Delta Flag', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_whos_id', 'pnb_delta_flag', 'pnb_created', 'pnb_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, ];
+	$x->ColCaption = ['Id', 'PnB Type', 'Premises Id', 'Whos Id', 'Delta Flag', 'ELAI RDA ID', 'Comments', 'Created AT', 'Updated AT', ];
+	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_whos_id', 'pnb_delta_flag', 'pnb_elairda_id', 'pnb_comments', 'pnb_created', 'pnb_updated', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/pnb_templateTV.html';

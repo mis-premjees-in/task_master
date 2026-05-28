@@ -38,10 +38,14 @@
 		setupTable('premises', []);
 
 		setupTable('pnb', [
-				"ALTER TABLE `pnb` ADD `utedb_delta_flag` VARCHAR(40) NULL ",
-				"ALTER TABLE `pnb` CHANGE `utedb_delta_flag` `pnb_delta_flag` VARCHAR(40) NULL ",
+				"ALTER TABLE `pnb` ADD `pnb_whos_id_1` INT NULL ",
+				"ALTER TABLE `pnb` ADD INDEX `pnb_whos_id_1`",
+				"ALTER TABLE `pnb` CHANGE `pnb_whos_id_1` `pnb_elairda_id` INT NULL ",
+				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `pnb` CHANGE `field1` `pnb_comments` VARCHAR(40) NULL ",
+				" ALTER TABLE `pnb` CHANGE `pnb_comments` `pnb_comments` TINYTEXT NULL ",
 			]);
-		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);
+		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id','pnb_elairda_id',]);
 
 
 

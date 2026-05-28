@@ -55,6 +55,24 @@
 					</div>
 				</div>
 
+				<!-- Field: ELAI RDA ID -->
+				<div class="form-group pnb-pnb_elairda_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="pnb_elairda_id" data-parent_link="view_parent_modal">ELAI RDA ID</label>
+					<div class="col-lg-9">
+						<div class="lookup-flex"><%%COMBO(pnb_elairda_id)%%><%%PLINK(pnb_elairda_id)%%><%%ADDNEW(whos)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Comments -->
+				<div class="form-group pnb-pnb_comments">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="pnb_comments">Comments</label>
+					<div class="col-lg-9">
+						<textarea maxlength="255" class="form-control" name="pnb_comments" id="pnb_comments" rows=" 5"><%%VALUE(pnb_comments)%%></textarea>
+					</div>
+				</div>
+
 			</fieldset>
 		</div>
 
