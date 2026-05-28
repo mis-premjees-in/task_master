@@ -1951,6 +1951,13 @@
 							'description' => '',
 						],
 					],
+					'pnb_delta_flag' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'Delta Flag',
+							'description' => '',
+						],
+					],
 					'pnb_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [

@@ -32,16 +32,15 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', [
-				"ALTER TABLE utedb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `utedb` CHANGE `field1` `utedb_hows1` VARCHAR(40) NULL ",
-				" ALTER TABLE `utedb` CHANGE `utedb_hows1` `utedb_hows1` TINYTEXT NULL ",
-			]);
+		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb',]);
 
 		setupTable('premises', []);
 
-		setupTable('pnb', []);
+		setupTable('pnb', [
+				"ALTER TABLE `pnb` ADD `utedb_delta_flag` VARCHAR(40) NULL ",
+				"ALTER TABLE `pnb` CHANGE `utedb_delta_flag` `pnb_delta_flag` VARCHAR(40) NULL ",
+			]);
 		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);
 
 

@@ -22,6 +22,7 @@
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
+		"`pnb`.`pnb_delta_flag`" => "pnb_delta_flag",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -31,8 +32,9 @@
 		2 => 2,
 		3 => 3,
 		4 => 4,
-		5 => '`pnb`.`pnb_created`',
-		6 => '`pnb`.`pnb_updated`',
+		5 => 5,
+		6 => '`pnb`.`pnb_created`',
+		7 => '`pnb`.`pnb_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -41,6 +43,7 @@
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
+		"`pnb`.`pnb_delta_flag`" => "pnb_delta_flag",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -50,6 +53,7 @@
 		"`pnb`.`pnb_type`" => "PnB Type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "Premises Id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "Whos Id",
+		"`pnb`.`pnb_delta_flag`" => "Delta Flag",
 		"`pnb`.`pnb_created`" => "Created AT",
 		"`pnb`.`pnb_updated`" => "Updated AT",
 	];
@@ -60,6 +64,7 @@
 		"`pnb`.`pnb_type`" => "pnb_type",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "pnb_premises_id",
 		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* Whos Id */" => "pnb_whos_id",
+		"`pnb`.`pnb_delta_flag`" => "pnb_delta_flag",
 		"`pnb`.`pnb_created`" => "pnb_created",
 		"`pnb`.`pnb_updated`" => "pnb_updated",
 	];
@@ -95,10 +100,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`pnb`.`pnb_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'PnB Type', 'Premises Id', 'Whos Id', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_whos_id', 'pnb_created', 'pnb_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, ];
+	$x->ColCaption = ['Id', 'PnB Type', 'Premises Id', 'Whos Id', 'Delta Flag', 'Created AT', 'Updated AT', ];
+	$x->ColFieldName = ['pnb_id', 'pnb_type', 'pnb_premises_id', 'pnb_whos_id', 'pnb_delta_flag', 'pnb_created', 'pnb_updated', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/pnb_templateTV.html';

@@ -19,6 +19,7 @@ function pnb_insert(&$error_message = '') {
 		'pnb_type' => Request::val('pnb_type', ''),
 		'pnb_premises_id' => Request::lookup('pnb_premises_id', ''),
 		'pnb_whos_id' => Request::lookup('pnb_whos_id', ''),
+		'pnb_delta_flag' => Request::val('pnb_delta_flag', ''),
 		'pnb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -89,6 +90,7 @@ function pnb_update(&$selected_id, &$error_message = '') {
 		'pnb_type' => Request::val('pnb_type', ''),
 		'pnb_premises_id' => Request::lookup('pnb_premises_id', ''),
 		'pnb_whos_id' => Request::lookup('pnb_whos_id', ''),
+		'pnb_delta_flag' => Request::val('pnb_delta_flag', ''),
 		'pnb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -203,6 +205,21 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$combo_pnb_premises_id = new DataCombo;
 	// combobox: pnb_whos_id
 	$combo_pnb_whos_id = new DataCombo;
+	// combobox: pnb_delta_flag
+	$combo_pnb_delta_flag = new Combo;
+	$combo_pnb_delta_flag->ListType = 0;
+	$combo_pnb_delta_flag->MultipleSeparator = ', ';
+	$combo_pnb_delta_flag->ListBoxHeight = 10;
+	$combo_pnb_delta_flag->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/pnb.pnb_delta_flag.csv')) {
+		$pnb_delta_flag_data = addslashes(implode('', @file(__DIR__ . '/hooks/pnb.pnb_delta_flag.csv')));
+		$combo_pnb_delta_flag->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($pnb_delta_flag_data))));
+		$combo_pnb_delta_flag->ListData = $combo_pnb_delta_flag->ListItem;
+	} else {
+		$combo_pnb_delta_flag->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Red;;Green"))));
+		$combo_pnb_delta_flag->ListData = $combo_pnb_delta_flag->ListItem;
+	}
+	$combo_pnb_delta_flag->SelectName = 'pnb_delta_flag';
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('pnb', $selectedId))) {
@@ -211,6 +228,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$combo_pnb_type->SelectedData = $row['pnb_type'];
 		$combo_pnb_premises_id->SelectedData = $row['pnb_premises_id'];
 		$combo_pnb_whos_id->SelectedData = $row['pnb_whos_id'];
+		$combo_pnb_delta_flag->SelectedData = $row['pnb_delta_flag'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -220,12 +238,14 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$combo_pnb_type->SelectedText = (isset($filterField[1]) && $filterField[1] == '2' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_pnb_premises_id->SelectedData = $filterer_pnb_premises_id;
 		$combo_pnb_whos_id->SelectedData = $filterer_pnb_whos_id;
+		$combo_pnb_delta_flag->SelectedText = (isset($filterField[1]) && $filterField[1] == '5' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_pnb_type->Render();
 	$combo_pnb_premises_id->HTML = '<span id="pnb_premises_id-container' . $rnd1 . '"></span><input type="hidden" name="pnb_premises_id" id="pnb_premises_id' . $rnd1 . '" value="' . html_attr($combo_pnb_premises_id->SelectedData) . '">';
 	$combo_pnb_premises_id->MatchText = '<span id="pnb_premises_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="pnb_premises_id" id="pnb_premises_id' . $rnd1 . '" value="' . html_attr($combo_pnb_premises_id->SelectedData) . '">';
 	$combo_pnb_whos_id->HTML = '<span id="pnb_whos_id-container' . $rnd1 . '"></span><input type="hidden" name="pnb_whos_id" id="pnb_whos_id' . $rnd1 . '" value="' . html_attr($combo_pnb_whos_id->SelectedData) . '">';
 	$combo_pnb_whos_id->MatchText = '<span id="pnb_whos_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="pnb_whos_id" id="pnb_whos_id' . $rnd1 . '" value="' . html_attr($combo_pnb_whos_id->SelectedData) . '">';
+	$combo_pnb_delta_flag->Render();
 
 	ob_start();
 	?>
@@ -489,6 +509,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$jsReadOnly .= "\t\$j('#pnb_premises_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('#pnb_whos_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#pnb_whos_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#pnb_delta_flag').replaceWith('<div class=\"form-control-static\" id=\"pnb_delta_flag\">' + (\$j('#pnb_delta_flag').val() || '') + '</div>'); \$j('#pnb_delta_flag-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -507,6 +528,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$templateCode = str_replace('<%%COMBO(pnb_whos_id)%%>', $combo_pnb_whos_id->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(pnb_whos_id)%%>', $combo_pnb_whos_id->MatchText, $templateCode);
 	$templateCode = str_replace('<%%URLCOMBOTEXT(pnb_whos_id)%%>', urlencode($combo_pnb_whos_id->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(pnb_delta_flag)%%>', $combo_pnb_delta_flag->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(pnb_delta_flag)%%>', $combo_pnb_delta_flag->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = ['pnb_premises_id' => ['premises', 'Premises Id'], 'pnb_whos_id' => ['whos', 'Whos Id'], ];
@@ -529,6 +552,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_type)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_premises_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_whos_id)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(pnb_delta_flag)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(pnb_updated)%%>', '', $templateCode);
 
@@ -546,6 +570,9 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(pnb_whos_id)%%>', safe_html($urow['pnb_whos_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(pnb_whos_id)%%>', html_attr($row['pnb_whos_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_whos_id)%%>', urlencode($urow['pnb_whos_id']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(pnb_delta_flag)%%>', safe_html($urow['pnb_delta_flag']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(pnb_delta_flag)%%>', html_attr($row['pnb_delta_flag']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_delta_flag)%%>', urlencode($urow['pnb_delta_flag']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_created)%%>', safe_html($urow['pnb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_created)%%>', urlencode($urow['pnb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_updated)%%>', safe_html($urow['pnb_updated']), $templateCode);
@@ -559,6 +586,8 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$templateCode = str_replace('<%%URLVALUE(pnb_premises_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_whos_id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_whos_id)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(pnb_delta_flag)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(pnb_delta_flag)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(pnb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(pnb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);
