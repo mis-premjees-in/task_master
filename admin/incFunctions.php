@@ -1334,6 +1334,13 @@
 							'description' => '',
 						],
 					],
+					'whos_swg_email' => [
+						'appgini' => "VARCHAR(100) NULL",
+						'info' => [
+							'caption' => 'SWG Email',
+							'description' => '',
+						],
+					],
 					'whos_created' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
@@ -1853,6 +1860,13 @@
 						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Utedb hows1',
+							'description' => '',
+						],
+					],
+					'utedb_elairda_id' => [
+						'appgini' => "INT NULL",
+						'info' => [
+							'caption' => 'ELAI RDA ID',
 							'description' => '',
 						],
 					],
@@ -3170,6 +3184,7 @@
 			],
 			'utedb' => [
 				'madb' => ['utedb_madb'],
+				'whos' => ['utedb_elairda_id'],
 			],
 			'pnb' => [
 				'premises' => ['pnb_premises_id'],
@@ -3393,6 +3408,7 @@
 			'utedb' => [
 				'utedb_madb' => 'SELECT `madb`.`madb_id`, IF(CHAR_LENGTH(`madb`.`madb_id`) || CHAR_LENGTH(`madb`.`madb_what1`), CONCAT_WS(\'\', `madb`.`madb_id`, \'-\', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS(\'\',   `whats1`.`whats_what1`), \'\')), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb`.`madb_premises_id` ORDER BY 2',
 				'utedb_premises_id' => 'SELECT `madb`.`madb_id`, IF(CHAR_LENGTH(`madb`.`madb_premises_id`), CONCAT_WS(\'\', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS(\'\',   `premises1`.`premises_id`, \'-\', `premises1`.`premises_name`), \'\'), \'-\'), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb`.`madb_premises_id` ORDER BY 2',
+				'utedb_elairda_id' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\') FROM `whos` ORDER BY 2',
 			],
 			'premises' => [
 			],

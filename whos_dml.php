@@ -21,6 +21,7 @@ function whos_insert(&$error_message = '') {
 		'whos_who3' => Request::val('whos_who3', ''),
 		'whos_description' => br2nl(Request::val('whos_description', '')),
 		'whos_swg_token' => Request::val('whos_swg_token', ''),
+		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
 		'whos_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -84,6 +85,26 @@ function whos_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks = 
 		$RetMsg = $Translation['confirm delete'];
 		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
 		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'madb'), $RetMsg);
+		$RetMsg = str_replace('<Delete>', '<input type="button" class="btn btn-danger" value="' . html_attr($Translation['yes']) . '" onClick="window.location = `whos_view.php?SelectedID=' . urlencode($selected_id) . '&delete_x=1&confirmed=1&csrf_token=' . urlencode(csrf_token(false, true)) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		$RetMsg = str_replace('<Cancel>', '<input type="button" class="btn btn-success" value="' . html_attr($Translation[ 'no']) . '" onClick="window.location = `whos_view.php?SelectedID=' . urlencode($selected_id) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
+		return $RetMsg;
+	}
+
+	// child table: utedb
+	$res = sql("SELECT `whos_id` FROM `whos` WHERE `whos_id`='{$selected_id}'", $eo);
+	$whos_id = db_fetch_row($res);
+	$rires = sql("SELECT COUNT(1) FROM `utedb` WHERE `utedb_elairda_id`='" . makeSafe($whos_id[0]) . "'", $eo);
+	$rirow = db_fetch_row($rires);
+	$childrenATag = '<a class="alert-link" href="utedb_view.php?filterer_utedb_elairda_id=' . urlencode($whos_id[0]) . '">%s</a>';
+	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation["couldn't delete"];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'utedb'), $RetMsg);
+		return $RetMsg;
+	} elseif($rirow[0] && $AllowDeleteOfParents && !$skipChecks) {
+		$RetMsg = $Translation['confirm delete'];
+		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
+		$RetMsg = str_replace(['[<TableName>]', '<TableName>'], sprintf($childrenATag, 'utedb'), $RetMsg);
 		$RetMsg = str_replace('<Delete>', '<input type="button" class="btn btn-danger" value="' . html_attr($Translation['yes']) . '" onClick="window.location = `whos_view.php?SelectedID=' . urlencode($selected_id) . '&delete_x=1&confirmed=1&csrf_token=' . urlencode(csrf_token(false, true)) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
 		$RetMsg = str_replace('<Cancel>', '<input type="button" class="btn btn-success" value="' . html_attr($Translation[ 'no']) . '" onClick="window.location = `whos_view.php?SelectedID=' . urlencode($selected_id) . (Request::val('Embedded') ? '&Embedded=1' : '') . '`;">', $RetMsg);
 		return $RetMsg;
@@ -153,6 +174,7 @@ function whos_update(&$selected_id, &$error_message = '') {
 		'whos_who3' => Request::val('whos_who3', ''),
 		'whos_description' => br2nl(Request::val('whos_description', '')),
 		'whos_swg_token' => Request::val('whos_swg_token', ''),
+		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
 		'whos_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -369,6 +391,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$jsReadOnly .= "\t\$j('#whos_who3').replaceWith('<div class=\"form-control-static\" id=\"whos_who3\">' + (\$j('#whos_who3').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whos_description').replaceWith('<div class=\"form-control-static\" id=\"whos_description\">' + (\$j('#whos_description').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whos_swg_token').replaceWith('<div class=\"form-control-static\" id=\"whos_swg_token\">' + (\$j('#whos_swg_token').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#whos_swg_email').replaceWith('<div class=\"form-control-static\" id=\"whos_swg_email\">' + (\$j('#whos_swg_email').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -403,6 +426,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%UPLOADFILE(whos_who3)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_description)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_token)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_email)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_updated)%%>', '', $templateCode);
 
@@ -425,6 +449,8 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(whos_swg_token)%%>', safe_html($urow['whos_swg_token']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(whos_swg_token)%%>', html_attr($row['whos_swg_token']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_swg_token)%%>', urlencode($urow['whos_swg_token']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whos_swg_email)%%>', safe_html($urow['whos_swg_email'], $fieldsAreEditable), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_swg_email)%%>', urlencode($urow['whos_swg_email']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_created)%%>', safe_html($urow['whos_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode($urow['whos_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', safe_html($urow['whos_updated']), $templateCode);
@@ -442,6 +468,8 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(whos_description)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_swg_token)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_swg_token)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whos_swg_email)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_swg_email)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

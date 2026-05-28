@@ -32,19 +32,17 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', []);
-		setupIndexes('utedb', ['utedb_madb',]);
+		setupTable('utedb', [
+				"ALTER TABLE `utedb` ADD `pnb_elairda_id` INT NULL ",
+				"ALTER TABLE `utedb` ADD INDEX `pnb_elairda_id`",
+				"ALTER TABLE `utedb` CHANGE `pnb_elairda_id` `utedb_elairda_id66` INT NULL ",
+				"ALTER TABLE `utedb` CHANGE `utedb_elairda_id66` `utedb_elairda_id` INT NULL ",
+			]);
+		setupIndexes('utedb', ['utedb_madb','utedb_elairda_id',]);
 
 		setupTable('premises', []);
 
-		setupTable('pnb', [
-				"ALTER TABLE `pnb` ADD `pnb_whos_id_1` INT NULL ",
-				"ALTER TABLE `pnb` ADD INDEX `pnb_whos_id_1`",
-				"ALTER TABLE `pnb` CHANGE `pnb_whos_id_1` `pnb_elairda_id` INT NULL ",
-				"ALTER TABLE pnb ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `pnb` CHANGE `field1` `pnb_comments` VARCHAR(40) NULL ",
-				" ALTER TABLE `pnb` CHANGE `pnb_comments` `pnb_comments` TINYTEXT NULL ",
-			]);
+		setupTable('pnb', []);
 		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id','pnb_elairda_id',]);
 
 
