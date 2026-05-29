@@ -743,6 +743,23 @@ function pnb_validateData(insertMode) {
 	$j('.has-error').removeClass('has-error');
 	var errors = false;
 
+	// check all required fields have values
+	const reqFields = [
+		// [field-type, field-name, field-caption], ...
+		['list', 'pnb_type', 'PnB Type'],
+		['lookup', 'pnb_premises_id', 'Premises Id'],
+		['lookup', 'pnb_whos_id', 'Whos Id'],
+	];
+
+	reqFields.map(function(rf) {
+		// avoid displaying more error messages and overwhelming users
+		if(rf.length != 3 || errors) return;
+
+		if(!AppGini.Validation.fieldRequired(rf[0], rf[1], rf[2], insertMode)) errors = true;
+	});
+
+	if(errors) return false;
+
 	return !errors;
 }
 

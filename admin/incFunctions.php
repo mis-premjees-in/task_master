@@ -1952,21 +1952,21 @@
 						],
 					],
 					'pnb_type' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "VARCHAR(40) NOT NULL",
 						'info' => [
 							'caption' => 'PnB Type',
 							'description' => '',
 						],
 					],
 					'pnb_premises_id' => [
-						'appgini' => "INT NULL",
+						'appgini' => "INT NOT NULL",
 						'info' => [
 							'caption' => 'Premises Id',
 							'description' => '',
 						],
 					],
 					'pnb_whos_id' => [
-						'appgini' => "INT NULL",
+						'appgini' => "INT NOT NULL",
 						'info' => [
 							'caption' => 'Whos Id',
 							'description' => '',
@@ -1979,10 +1979,10 @@
 							'description' => '',
 						],
 					],
-					'pnb_elairda_id' => [
-						'appgini' => "INT NULL",
+					'pnb_admin' => [
+						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'ELAI RDA ID',
+							'caption' => 'Admin',
 							'description' => '',
 						],
 					],
@@ -3195,7 +3195,7 @@
 			],
 			'pnb' => [
 				'premises' => ['pnb_premises_id'],
-				'whos' => ['pnb_elairda_id', 'pnb_whos_id'],
+				'whos' => ['pnb_whos_id'],
 			],
 		];
 
@@ -3423,7 +3423,6 @@
 			'pnb' => [
 				'pnb_premises_id' => 'SELECT `premises`.`premises_id`, IF(CHAR_LENGTH(`premises`.`premises_id`) || CHAR_LENGTH(`premises`.`premises_name`), CONCAT_WS(\'\', `premises`.`premises_id`, \'-\', `premises`.`premises_name`), \'\') FROM `premises` ORDER BY 2',
 				'pnb_whos_id' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_id`) || CHAR_LENGTH(`whos`.`whos_who1`)||CHAR_LENGTH(`whos`.`whos_who1`), CONCAT_WS(\'\', `whos`.`whos_id`, \'-\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
-				'pnb_elairda_id' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\') FROM `whos` ORDER BY 2',
 			],
 		];
 

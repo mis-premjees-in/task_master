@@ -37,8 +37,14 @@
 
 		setupTable('premises', []);
 
-		setupTable('pnb', []);
-		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id','pnb_elairda_id',]);
+		setupTable('pnb', [
+				" ALTER TABLE `pnb` CHANGE `pnb_type` `pnb_type` VARCHAR(40) NOT NULL ",
+				" ALTER TABLE `pnb` CHANGE `pnb_premises_id` `pnb_premises_id` INT NOT NULL ",
+				" ALTER TABLE `pnb` CHANGE `pnb_whos_id` `pnb_whos_id` INT NOT NULL ",
+				" ALTER TABLE `pnb` CHANGE `pnb_elairda_id` `pnb_elairda_id` VARCHAR(40) NULL ",
+				"ALTER TABLE `pnb` CHANGE `pnb_elairda_id` `pnb_admin` VARCHAR(40) NULL ",
+			]);
+		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);
 
 
 

@@ -22,7 +22,7 @@
 				<!-- Field: PnB Type -->
 				<div class="form-group pnb-pnb_type">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="pnb_type">PnB Type</label>
+					<label class="control-label col-lg-3" for="pnb_type">PnB Type<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
 						<%%COMBO(pnb_type)%%>
 					</div>
@@ -31,7 +31,7 @@
 				<!-- Field: Premises Id -->
 				<div class="form-group pnb-pnb_premises_id">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="pnb_premises_id" data-parent_link="view_parent_modal">Premises Id</label>
+					<label class="control-label col-lg-3" for="pnb_premises_id" data-parent_link="view_parent_modal">Premises Id<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
 						<div class="lookup-flex"><%%COMBO(pnb_premises_id)%%><%%PLINK(pnb_premises_id)%%><%%ADDNEW(premises)%%></div>
 					</div>
@@ -40,7 +40,7 @@
 				<!-- Field: Whos Id -->
 				<div class="form-group pnb-pnb_whos_id">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="pnb_whos_id" data-parent_link="view_parent_modal">Whos Id</label>
+					<label class="control-label col-lg-3" for="pnb_whos_id" data-parent_link="view_parent_modal">Whos Id<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
 						<div class="lookup-flex"><%%COMBO(pnb_whos_id)%%><%%PLINK(pnb_whos_id)%%><%%ADDNEW(whos)%%></div>
 					</div>
@@ -55,12 +55,12 @@
 					</div>
 				</div>
 
-				<!-- Field: ELAI RDA ID -->
-				<div class="form-group pnb-pnb_elairda_id">
+				<!-- Field: Admin -->
+				<div class="form-group pnb-pnb_admin">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="pnb_elairda_id" data-parent_link="view_parent_modal">ELAI RDA ID</label>
+					<label class="control-label col-lg-3" for="pnb_admin">Admin</label>
 					<div class="col-lg-9">
-						<div class="lookup-flex"><%%COMBO(pnb_elairda_id)%%><%%PLINK(pnb_elairda_id)%%><%%ADDNEW(whos)%%></div>
+						<%%COMBO(pnb_admin)%%>
 					</div>
 				</div>
 
