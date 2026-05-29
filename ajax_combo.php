@@ -458,7 +458,7 @@
 			'pnb_whos_id' => [
 				'parent_table' => 'whos',
 				'parent_pk_field' => 'whos_id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_who2`), \'\')',
 				'parent_from' => '`whos` ',
 				'filterers' => [],
 				'custom_query' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_id`) || CHAR_LENGTH(`whos`.`whos_who1`)||CHAR_LENGTH(`whos`.`whos_who1`), CONCAT_WS(\'\', `whos`.`whos_id`, \'-\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
@@ -469,7 +469,7 @@
 			'pnb_elairda_id' => [
 				'parent_table' => 'whos',
 				'parent_pk_field' => 'whos_id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\')',
 				'parent_from' => '`whos` ',
 				'filterers' => [],
 				'custom_query' => '',
