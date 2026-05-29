@@ -20,6 +20,7 @@
 	$x->QueryFieldsTV = [
 		"`utedb`.`utedb_id`" => "utedb_id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "utedb_madb",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "utedb_madb_who1",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "utedb_premises_id",
 		"`utedb`.`utedb_proof_image`" => "utedb_proof_image",
 		"`utedb`.`utedb_ai_audit`" => "utedb_ai_audit",
@@ -31,7 +32,7 @@
 		"`utedb`.`utedb_col_tf`" => "utedb_col_tf",
 		"`utedb`.`utedb_delta_flag`" => "utedb_delta_flag",
 		"`utedb`.`utedb_hows1`" => "utedb_hows1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* ELAI RDA ID */" => "utedb_elairda_id",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "utedb_elairda_id",
 		"`utedb`.`utedb_created`" => "utedb_created",
 		"`utedb`.`utedb_updated`" => "utedb_updated",
 	];
@@ -41,24 +42,26 @@
 		2 => 2,
 		3 => 3,
 		4 => 4,
-		5 => '`utedb`.`utedb_ai_audit`',
-		6 => 6,
+		5 => 5,
+		6 => '`utedb`.`utedb_ai_audit`',
 		7 => 7,
 		8 => 8,
-		9 => '`utedb`.`utedb_car`',
-		10 => 10,
+		9 => 9,
+		10 => '`utedb`.`utedb_car`',
 		11 => 11,
 		12 => 12,
 		13 => 13,
 		14 => 14,
-		15 => '`utedb`.`utedb_created`',
-		16 => '`utedb`.`utedb_updated`',
+		15 => 15,
+		16 => '`utedb`.`utedb_created`',
+		17 => '`utedb`.`utedb_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = [
 		"`utedb`.`utedb_id`" => "utedb_id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "utedb_madb",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "utedb_madb_who1",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "utedb_premises_id",
 		"`utedb`.`utedb_proof_image`" => "utedb_proof_image",
 		"`utedb`.`utedb_ai_audit`" => "utedb_ai_audit",
@@ -70,7 +73,7 @@
 		"`utedb`.`utedb_col_tf`" => "utedb_col_tf",
 		"`utedb`.`utedb_delta_flag`" => "utedb_delta_flag",
 		"`utedb`.`utedb_hows1`" => "utedb_hows1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* ELAI RDA ID */" => "utedb_elairda_id",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "utedb_elairda_id",
 		"`utedb`.`utedb_created`" => "utedb_created",
 		"`utedb`.`utedb_updated`" => "utedb_updated",
 	];
@@ -78,6 +81,7 @@
 	$x->QueryFieldsFilters = [
 		"`utedb`.`utedb_id`" => "Utedb id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "MADb Id",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "Who 1",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "Premises Id",
 		"`utedb`.`utedb_ai_audit`" => "AI Audit (%) Score",
 		"`utedb`.`utedb_pc_audit`" => "PC Audit",
@@ -88,7 +92,7 @@
 		"`utedb`.`utedb_col_tf`" => "Collective TF",
 		"`utedb`.`utedb_delta_flag`" => "Delta Flag",
 		"`utedb`.`utedb_hows1`" => "Utedb hows1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* ELAI RDA ID */" => "ELAI RDA ID",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "ELAI RDA ID",
 		"`utedb`.`utedb_created`" => "Created AT",
 		"`utedb`.`utedb_updated`" => "Updated AT",
 	];
@@ -97,6 +101,7 @@
 	$x->QueryFieldsQS = [
 		"`utedb`.`utedb_id`" => "utedb_id",
 		"IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') /* MADb Id */" => "utedb_madb",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "utedb_madb_who1",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') /* Premises Id */" => "utedb_premises_id",
 		"`utedb`.`utedb_ai_audit`" => "utedb_ai_audit",
 		"`utedb`.`utedb_pc_audit`" => "utedb_pc_audit",
@@ -107,15 +112,15 @@
 		"`utedb`.`utedb_col_tf`" => "utedb_col_tf",
 		"`utedb`.`utedb_delta_flag`" => "utedb_delta_flag",
 		"`utedb`.`utedb_hows1`" => "utedb_hows1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who1`) || CHAR_LENGTH(`whos1`.`whos_who2`), CONCAT_WS('',   `whos1`.`whos_who1`, '-', `whos1`.`whos_who2`), '') /* ELAI RDA ID */" => "utedb_elairda_id",
+		"IF(    CHAR_LENGTH(`whos2`.`whos_who1`) || CHAR_LENGTH(`whos2`.`whos_who2`), CONCAT_WS('',   `whos2`.`whos_who1`, '-', `whos2`.`whos_who2`), '') /* ELAI RDA ID */" => "utedb_elairda_id",
 		"`utedb`.`utedb_created`" => "utedb_created",
 		"`utedb`.`utedb_updated`" => "utedb_updated",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = ['utedb_madb' => 'MADb Id', 'utedb_elairda_id' => 'ELAI RDA ID', ];
+	$x->filterers = ['utedb_madb' => 'MADb Id', 'utedb_madb_who1' => 'Who 1', 'utedb_elairda_id' => 'ELAI RDA ID', ];
 
-	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`utedb`.`utedb_elairda_id` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb1`.`madb_premises_id` ";
+	$x->QueryFrom = "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`utedb`.`utedb_madb_who1` LEFT JOIN `whos` as whos2 ON `whos2`.`whos_id`=`utedb`.`utedb_elairda_id` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb1`.`madb_premises_id` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -143,10 +148,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`utedb`.`utedb_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Utedb id', 'MADb Id', 'Premises Id', 'Utedb proof image', 'AI Audit (%) Score', 'PC Audit', 'RDA Audit', 'BB Audit', 'Customer Review(s)', 'CAR VIDEO', 'Collective TF', 'Delta Flag', 'Utedb hows1', 'ELAI RDA ID', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['utedb_id', 'utedb_madb', 'utedb_premises_id', 'utedb_proof_image', 'utedb_ai_audit', 'utedb_pc_audit', 'utedb_rda_audit', 'utedb_bb_audit', 'utedb_car', 'utedb_car_vid', 'utedb_col_tf', 'utedb_delta_flag', 'utedb_hows1', 'utedb_elairda_id', 'utedb_created', 'utedb_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
+	$x->ColCaption = ['Utedb id', 'MADb Id', 'Who 1', 'Premises Id', 'Utedb proof image', 'AI Audit (%) Score', 'PC Audit', 'RDA Audit', 'BB Audit', 'Customer Review(s)', 'CAR VIDEO', 'Collective TF', 'Delta Flag', 'Utedb hows1', 'ELAI RDA ID', 'Created AT', 'Updated AT', ];
+	$x->ColFieldName = ['utedb_id', 'utedb_madb', 'utedb_madb_who1', 'utedb_premises_id', 'utedb_proof_image', 'utedb_ai_audit', 'utedb_pc_audit', 'utedb_rda_audit', 'utedb_bb_audit', 'utedb_car', 'utedb_car_vid', 'utedb_col_tf', 'utedb_delta_flag', 'utedb_hows1', 'utedb_elairda_id', 'utedb_created', 'utedb_updated', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/utedb_templateTV.html';

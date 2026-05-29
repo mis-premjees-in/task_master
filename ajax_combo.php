@@ -47,7 +47,7 @@
 			'madb_who1' => [
 				'parent_table' => 'whos',
 				'parent_pk_field' => 'whos_id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who3`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who3`, \'-\', `whos`.`whos_description`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\')',
 				'parent_from' => '`whos` ',
 				'filterers' => [],
 				'custom_query' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_who3`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`, \'-\', `whos`.`whos_who3`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
@@ -406,6 +406,17 @@
 				'inherit_permissions' => false,
 				'list_type' => 0,
 				'not_null' => true,
+			],
+			'utedb_madb_who1' => [
+				'parent_table' => 'whos',
+				'parent_pk_field' => 'whos_id',
+				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\')',
+				'parent_from' => '`whos` ',
+				'filterers' => [],
+				'custom_query' => '',
+				'inherit_permissions' => false,
+				'list_type' => 0,
+				'not_null' => false,
 			],
 			'utedb_premises_id' => [
 				'parent_table' => 'madb',

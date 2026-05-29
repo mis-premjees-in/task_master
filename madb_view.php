@@ -20,7 +20,7 @@
 	$x->QueryFieldsTV = [
 		"`madb`.`madb_id`" => "madb_id",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') /* What 1 */" => "madb_what1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who3`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "madb_who1",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "madb_who1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "madb_when1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "madb_which1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where 1 */" => "madb_where1",
@@ -97,7 +97,7 @@
 	$x->QueryFieldsCSV = [
 		"`madb`.`madb_id`" => "madb_id",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') /* What 1 */" => "madb_what1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who3`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "madb_who1",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "madb_who1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "madb_when1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "madb_which1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where 1 */" => "madb_where1",
@@ -135,7 +135,7 @@
 	$x->QueryFieldsFilters = [
 		"`madb`.`madb_id`" => "Id",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') /* What 1 */" => "What 1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who3`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "Who 1",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "Who 1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "When 1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "Which 1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where 1 */" => "Where 1",
@@ -174,7 +174,7 @@
 	$x->QueryFieldsQS = [
 		"`madb`.`madb_id`" => "madb_id",
 		"IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `whats1`.`whats_what1`), '') /* What 1 */" => "madb_what1",
-		"IF(    CHAR_LENGTH(`whos1`.`whos_who3`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who3`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "madb_who1",
+		"IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') /* Who 1 */" => "madb_who1",
 		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* When 1 */" => "madb_when1",
 		"IF(    CHAR_LENGTH(`whichs1`.`whichs_which1`) || CHAR_LENGTH(`whichs1`.`whichs_which2`), CONCAT_WS('',   `whichs1`.`whichs_which1`, '-', `whichs1`.`whichs_which2`), '') /* Which 1 */" => "madb_which1",
 		"IF(    CHAR_LENGTH(`wheres1`.`wheres_where1`) || CHAR_LENGTH(`wheres1`.`wheres_where2`), CONCAT_WS('',   `wheres1`.`wheres_where1`, '-', `wheres1`.`wheres_where2`), '') /* Where 1 */" => "madb_where1",

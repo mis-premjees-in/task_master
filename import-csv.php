@@ -103,6 +103,7 @@
 		},
 		'utedb' => function($data, $options = []) {
 			if(isset($data['utedb_madb'])) $data['utedb_madb'] = pkGivenLookupText($data['utedb_madb'], 'utedb', 'utedb_madb');
+			if(isset($data['utedb_madb_who1'])) $data['utedb_madb_who1'] = pkGivenLookupText($data['utedb_madb_who1'], 'utedb', 'utedb_madb_who1');
 			if(isset($data['utedb_elairda_id'])) $data['utedb_elairda_id'] = pkGivenLookupText($data['utedb_elairda_id'], 'utedb', 'utedb_elairda_id');
 			if(isset($data['utedb_created'])) $data['utedb_created'] = guessMySQLDateTime($data['utedb_created']);
 			if(isset($data['utedb_updated'])) $data['utedb_updated'] = guessMySQLDateTime($data['utedb_updated']);

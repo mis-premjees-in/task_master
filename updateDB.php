@@ -33,7 +33,7 @@
 		setupTable('howts', []);
 
 		setupTable('utedb', []);
-		setupIndexes('utedb', ['utedb_madb','utedb_elairda_id',]);
+		setupIndexes('utedb', ['utedb_madb','utedb_madb_who1','utedb_elairda_id',]);
 
 		setupTable('premises', []);
 
