@@ -47,7 +47,7 @@
 			'madb_who1' => [
 				'parent_table' => 'whos',
 				'parent_pk_field' => 'whos_id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who3`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who3`, \'-\', `whos`.`whos_description`), \'\')',
 				'parent_from' => '`whos` ',
 				'filterers' => [],
 				'custom_query' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_who3`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`, \'-\', `whos`.`whos_who3`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',

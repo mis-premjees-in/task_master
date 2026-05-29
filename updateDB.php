@@ -32,12 +32,7 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', [
-				"ALTER TABLE `utedb` ADD `pnb_elairda_id` INT NULL ",
-				"ALTER TABLE `utedb` ADD INDEX `pnb_elairda_id`",
-				"ALTER TABLE `utedb` CHANGE `pnb_elairda_id` `utedb_elairda_id66` INT NULL ",
-				"ALTER TABLE `utedb` CHANGE `utedb_elairda_id66` `utedb_elairda_id` INT NULL ",
-			]);
+		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb','utedb_elairda_id',]);
 
 		setupTable('premises', []);
