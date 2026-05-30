@@ -45,7 +45,7 @@
 				<?php
 				break;
 			}
-			$res = sql("SELECT `whos`.`whos_id` as 'whos_id', `whos`.`whos_who1` as 'whos_who1', `whos`.`whos_who2` as 'whos_who2', `whos`.`whos_who3` as 'whos_who3', `whos`.`whos_description` as 'whos_description', `whos`.`whos_swg_token` as 'whos_swg_token', `whos`.`whos_swg_email` as 'whos_swg_email', `whos`.`whos_created` as 'whos_created', `whos`.`whos_updated` as 'whos_updated' FROM `whos`  WHERE `whos`.`whos_id`='{$id}' limit 1", $eo);
+			$res = sql("SELECT `whos`.`whos_id` as 'whos_id', `whos`.`whos_who1` as 'whos_who1', `whos`.`whos_who2` as 'whos_who2', `whos`.`whos_who3` as 'whos_who3', `whos`.`whos_description` as 'whos_description', `whos`.`whos_swg_token` as 'whos_swg_token', `whos`.`whos_swg_email` as 'whos_swg_email', IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') as 'whos_premise', `whos`.`whos_created` as 'whos_created', `whos`.`whos_updated` as 'whos_updated' FROM `whos` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`whos`.`whos_premise`  WHERE `whos`.`whos_id`='{$id}' limit 1", $eo);
 			$row = db_fetch_assoc($res);
 			?>
 			$j('#madb_who2<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['whos_who2']))); ?>&nbsp;');

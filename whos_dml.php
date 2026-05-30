@@ -22,6 +22,7 @@ function whos_insert(&$error_message = '') {
 		'whos_description' => br2nl(Request::val('whos_description', '')),
 		'whos_swg_token' => Request::val('whos_swg_token', ''),
 		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
+		'whos_premise' => Request::lookup('whos_premise', ''),
 		'whos_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -155,6 +156,7 @@ function whos_update(&$selected_id, &$error_message = '') {
 		'whos_description' => br2nl(Request::val('whos_description', '')),
 		'whos_swg_token' => Request::val('whos_swg_token', ''),
 		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
+		'whos_premise' => Request::lookup('whos_premise', ''),
 		'whos_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -253,34 +255,122 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$showSaveAsCopy = !$dvprint && ($allowInsert && $hasSelectedId && !$noSaveAsCopy);
 	$fieldsAreEditable = !$dvprint && (($allowInsert && !$hasSelectedId) || ($allowUpdate && $hasSelectedId) || $showSaveAsCopy);
 
+	$filterer_whos_premise = Request::val('filterer_whos_premise');
 
 	// populate filterers, starting from children to grand-parents
 
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
+	// combobox: whos_premise
+	$combo_whos_premise = new DataCombo;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('whos', $selectedId))) {
 			return error_message($Translation['No records found'], 'whos_view.php', false);
 		}
+		$combo_whos_premise->SelectedData = $row['whos_premise'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
 		$filterField = Request::val('FilterField');
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
+		$combo_whos_premise->SelectedData = $filterer_whos_premise;
 	}
+	$combo_whos_premise->HTML = '<span id="whos_premise-container' . $rnd1 . '"></span><input type="hidden" name="whos_premise" id="whos_premise' . $rnd1 . '" value="' . html_attr($combo_whos_premise->SelectedData) . '">';
+	$combo_whos_premise->MatchText = '<span id="whos_premise-container-readonly' . $rnd1 . '"></span><input type="hidden" name="whos_premise" id="whos_premise' . $rnd1 . '" value="' . html_attr($combo_whos_premise->SelectedData) . '">';
 
 	ob_start();
 	?>
 
 	<script>
 		// initial lookup values
+		AppGini.current_whos_premise__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['whos_premise'] : htmlspecialchars($filterer_whos_premise, ENT_QUOTES)); ?>"};
 
 		$j(function() {
 			setTimeout(function() {
+				if(typeof(whos_premise_reload__RAND__) == 'function') whos_premise_reload__RAND__();
 			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
+		function whos_premise_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#whos_premise-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_whos_premise__RAND__.value, t: 'whos', f: 'whos_premise' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="whos_premise"]').val(resp.results[0].id);
+							$j('[id=whos_premise-container-readonly__RAND__]').html('<span class="match-text" id="whos_premise-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
+
+
+							if(typeof(whos_premise_update_autofills__RAND__) == 'function') whos_premise_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'whos', f: 'whos_premise' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_whos_premise__RAND__.value = e.added.id;
+				AppGini.current_whos_premise__RAND__.text = e.added.text;
+				$j('[name="whos_premise"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=premises_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(whos_premise_update_autofills__RAND__) == 'function') whos_premise_update_autofills__RAND__();
+			});
+
+			if(!$j("#whos_premise-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_whos_premise__RAND__.value, t: 'whos', f: 'whos_premise' },
+					success: function(resp) {
+						$j('[name="whos_premise"]').val(resp.results[0].id);
+						$j('[id=whos_premise-container-readonly__RAND__]').html('<span class="match-text" id="whos_premise-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
+
+						if(typeof(whos_premise_update_autofills__RAND__) == 'function') whos_premise_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_whos_premise__RAND__.value, t: 'whos', f: 'whos_premise' },
+				success: function(resp) {
+					$j('[id=whos_premise-container__RAND__], [id=whos_premise-container-readonly__RAND__]').html('<span class="match-text" id="whos_premise-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
+
+					if(typeof(whos_premise_update_autofills__RAND__) == 'function') whos_premise_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
 	</script>
 	<?php
 
@@ -372,6 +462,8 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$jsReadOnly .= "\t\$j('#whos_description').replaceWith('<div class=\"form-control-static\" id=\"whos_description\">' + (\$j('#whos_description').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whos_swg_token').replaceWith('<div class=\"form-control-static\" id=\"whos_swg_token\">' + (\$j('#whos_swg_token').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whos_swg_email').replaceWith('<div class=\"form-control-static\" id=\"whos_swg_email\">' + (\$j('#whos_swg_email').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\t\$j('#whos_premise').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#whos_premise_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -382,9 +474,12 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	}
 
 	// process combos
+	$templateCode = str_replace('<%%COMBO(whos_premise)%%>', $combo_whos_premise->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(whos_premise)%%>', $combo_whos_premise->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(whos_premise)%%>', urlencode($combo_whos_premise->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = [];
+	$lookup_fields = ['whos_premise' => ['premises', 'Whos premise'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -407,6 +502,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%UPLOADFILE(whos_description)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_token)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_email)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(whos_premise)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_updated)%%>', '', $templateCode);
 
@@ -431,6 +527,9 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(whos_swg_token)%%>', urlencode($urow['whos_swg_token']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_swg_email)%%>', safe_html($urow['whos_swg_email'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_swg_email)%%>', urlencode($urow['whos_swg_email']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(whos_premise)%%>', safe_html($urow['whos_premise']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(whos_premise)%%>', html_attr($row['whos_premise']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_premise)%%>', urlencode($urow['whos_premise']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_created)%%>', safe_html($urow['whos_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode($urow['whos_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', safe_html($urow['whos_updated']), $templateCode);
@@ -450,6 +549,8 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(whos_swg_token)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_swg_email)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_swg_email)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whos_premise)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_premise)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', '<%%editingTimestamp%%>', $templateCode);
