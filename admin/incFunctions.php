@@ -1794,7 +1794,7 @@
 						],
 					],
 					'utedb_madb_who1' => [
-						'appgini' => "VARCHAR(255) NULL",
+						'appgini' => "INT NULL",
 						'info' => [
 							'caption' => 'Who 1',
 							'description' => '',
@@ -1877,8 +1877,8 @@
 							'description' => '',
 						],
 					],
-					'utedb_elairda_id' => [
-						'appgini' => "INT NULL",
+					'utedb_admin' => [
+						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
 							'caption' => 'ELAI RDA ID',
 							'description' => '',
@@ -3201,7 +3201,8 @@
 			],
 			'utedb' => [
 				'madb' => ['utedb_madb'],
-				'whos' => ['utedb_elairda_id'],
+				'whos' => ['utedb_madb_who1'],
+				'premises' => ['utedb_premises_id'],
 			],
 			'pnb' => [
 				'premises' => ['pnb_premises_id'],
@@ -3243,9 +3244,7 @@
 			'howss' => [],
 			'howqs' => [],
 			'howts' => [],
-			'utedb' => [
-				'utedb_madb_who1' => 'SELECT CONCAT(whos_who2,"-",whos_description) FROM whos WHERE whos_id=(select madb_who1 from madb where madb_id=(select utedb_madb from utedb where utedb_id=%ID%))',
-			],
+			'utedb' => [],
 			'premises' => [],
 			'pnb' => [],
 		];
@@ -3373,7 +3372,7 @@
 		$lookupQuery = [
 			'madb' => [
 				'madb_what1' => 'SELECT `whats`.`whats_id`, IF(CHAR_LENGTH(`whats`.`whats_what1`) || CHAR_LENGTH(`whats`.`whats_what2`), CONCAT_WS(\'\', `whats`.`whats_what1`, \'-\', `whats`.`whats_what2`), \'\') FROM `whats` ORDER BY `whats`.`whats_id`',
-				'madb_who1' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_who3`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`, \'-\', `whos`.`whos_who3`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
+				'madb_who1' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
 				'madb_when1' => 'SELECT `whens`.`whens_id`, IF(CHAR_LENGTH(`whens`.`whens_when1`) || CHAR_LENGTH(`whens`.`whens_when2`)|| CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when1`, \'-\', `whens`.`whens_when2`,\'-\', `whens`.`whens_when3`), \'\') FROM `whens` ORDER BY `whens`.`whens_id`',
 				'madb_which1' => 'SELECT `whichs`.`whichs_id`, IF(CHAR_LENGTH(`whichs`.`whichs_which1`) || CHAR_LENGTH(`whichs`.`whichs_which2`)|| CHAR_LENGTH(`whichs`.`whichs_which3`), CONCAT_WS(\'\', `whichs`.`whichs_which1`, \'-\', `whichs`.`whichs_which2`, \'-\', `whichs`.`whichs_which3`), \'\') FROM `whichs` ORDER BY `whichs`.`whichs_which3`',
 				'madb_where1' => 'SELECT `wheres`.`wheres_id`, IF(CHAR_LENGTH(`wheres`.`wheres_where1`) || CHAR_LENGTH(`wheres`.`wheres_where2`)|| CHAR_LENGTH(`wheres`.`wheres_where3`), CONCAT_WS(\'\', `wheres`.`wheres_where1`, \'-\', `wheres`.`wheres_where2`, \'-\', `wheres`.`wheres_where3`), \'\') FROM `wheres` ORDER BY `wheres`.`wheres_id`',
@@ -3427,8 +3426,8 @@
 			],
 			'utedb' => [
 				'utedb_madb' => 'SELECT `madb`.`madb_id`, IF(CHAR_LENGTH(`madb`.`madb_id`) || CHAR_LENGTH(`madb`.`madb_what1`), CONCAT_WS(\'\', `madb`.`madb_id`, \'-\', IF(    CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS(\'\',   `whats1`.`whats_what1`), \'\')), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb`.`madb_premises_id` ORDER BY 2',
-				'utedb_premises_id' => 'SELECT `madb`.`madb_id`, IF(CHAR_LENGTH(`madb`.`madb_premises_id`), CONCAT_WS(\'\', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS(\'\',   `premises1`.`premises_id`, \'-\', `premises1`.`premises_name`), \'\'), \'-\'), \'\') FROM `madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`madb`.`madb_who1` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`madb`.`madb_when1` LEFT JOIN `whichs` as whichs1 ON `whichs1`.`whichs_id`=`madb`.`madb_which1` LEFT JOIN `wheres` as wheres1 ON `wheres1`.`wheres_id`=`madb`.`madb_where1` LEFT JOIN `whys` as whys1 ON `whys1`.`whys_id`=`madb`.`madb_why1` LEFT JOIN `howrs` as howrs1 ON `howrs1`.`howrs_id`=`madb`.`madb_howr1` LEFT JOIN `howss` as howss1 ON `howss1`.`howss_id`=`madb`.`madb_hows1` LEFT JOIN `howqs` as howqs1 ON `howqs1`.`howqs_id`=`madb`.`madb_howq1` LEFT JOIN `howts` as howts1 ON `howts1`.`howts_id`=`madb`.`madb_howt1` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`madb`.`madb_premises_id` ORDER BY 2',
-				'utedb_elairda_id' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who1`) || CHAR_LENGTH(`whos`.`whos_who2`), CONCAT_WS(\'\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\') FROM `whos` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`whos`.`whos_premise` ORDER BY 2',
+				'utedb_madb_who1' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\') FROM `whos` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`whos`.`whos_premise` ORDER BY 2',
+				'utedb_premises_id' => 'SELECT `premises`.`premises_id`, IF(CHAR_LENGTH(`premises`.`premises_name`) || CHAR_LENGTH(`premises`.`premises_radius`), CONCAT_WS(\'\', `premises`.`premises_name`, \'-\', `premises`.`premises_radius`), \'\') FROM `premises` ORDER BY 2',
 			],
 			'premises' => [
 			],

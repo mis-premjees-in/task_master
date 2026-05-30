@@ -215,7 +215,6 @@
 							<li><a href="../import-csv.php"><i class="glyphicon menu-item-icon text-info glyphicon-upload"></i> <?php echo $Translation['import CSV']; ?></a></li>
 							<li><a href="pageQueryLogs.php"><i class="glyphicon menu-item-icon text-info glyphicon-book"></i> <?php echo $Translation['Query logs']; ?></a></li>
 							<li><a href="pageSQL.php"><i class="glyphicon menu-item-icon text-danger glyphicon-console"></i> <?php echo $Translation['Interactive SQL queries tool']; ?></a></li>
-							<li><a href="pageUpdateCalculatedFields.php"><i class="glyphicon menu-item-icon text-info glyphicon-refresh"></i> <?php echo $Translation['update calculated fields']; ?></a></li>
 							<li class="divider"></li>
 							<li><a href="https://forums.appgini.com" target="_blank"><i class="glyphicon menu-item-icon text-info glyphicon-new-window"></i> <?php echo $Translation['AppGini forum']; ?></a></li>
 						</ul>

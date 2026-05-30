@@ -14,10 +14,7 @@
 
 		setupTable('whats', []);
 
-		setupTable('whos', [
-				"ALTER TABLE whos ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `whos` CHANGE `field1` `whos_premise` VARCHAR(40) NULL ",
-			]);
+		setupTable('whos', []);
 		setupIndexes('whos', ['whos_premise',]);
 
 		setupTable('whens', []);
@@ -36,8 +33,13 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', []);
-		setupIndexes('utedb', ['utedb_madb','utedb_elairda_id',]);
+		setupTable('utedb', [
+				" ALTER TABLE `utedb` CHANGE `utedb_elairda_id` `utedb_elairda_id` VARCHAR(40) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_elairda_id` `utedb_elairda_id` VARCHAR(40) NULL ",
+				"ALTER TABLE `utedb` CHANGE `utedb_elairda_id` `utedb_admin` VARCHAR(40) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_madb_who1` `utedb_madb_who1` VARCHAR(40) NULL ",
+			]);
+		setupIndexes('utedb', ['utedb_madb','utedb_madb_who1','utedb_premises_id',]);
 
 		setupTable('premises', []);
 

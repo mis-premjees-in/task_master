@@ -251,7 +251,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$combo_pnb_admin->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($pnb_admin_data))));
 		$combo_pnb_admin->ListData = $combo_pnb_admin->ListItem;
 	} else {
-		$combo_pnb_admin->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("ELAI RDA;;HR;;DSCT;;MIS;;COO"))));
+		$combo_pnb_admin->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("ELAI RDA;;HR;;DSCT;;MIS;;COO;;PC"))));
 		$combo_pnb_admin->ListData = $combo_pnb_admin->ListItem;
 	}
 	$combo_pnb_admin->SelectName = 'pnb_admin';

@@ -17,7 +17,8 @@ function utedb_insert(&$error_message = '') {
 
 	$data = [
 		'utedb_madb' => Request::lookup('utedb_madb', ''),
-		'utedb_premises_id' => Request::lookup('utedb_madb'),
+		'utedb_madb_who1' => Request::lookup('utedb_madb_who1', ''),
+		'utedb_premises_id' => Request::lookup('utedb_premises_id', ''),
 		'utedb_proof_image' => Request::fileUpload('utedb_proof_image', [
 			'maxSize' => 512000,
 			'types' => 'jpg|jpeg|gif|png|webp',
@@ -56,7 +57,7 @@ function utedb_insert(&$error_message = '') {
 		'utedb_col_tf' => Request::val('utedb_col_tf', ''),
 		'utedb_delta_flag' => Request::val('utedb_delta_flag', ''),
 		'utedb_hows1' => br2nl(Request::val('utedb_hows1', '')),
-		'utedb_elairda_id' => Request::lookup('utedb_elairda_id', ''),
+		'utedb_admin' => Request::val('utedb_admin', ''),
 		'utedb_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -145,7 +146,8 @@ function utedb_update(&$selected_id, &$error_message = '') {
 
 	$data = [
 		'utedb_madb' => Request::lookup('utedb_madb', ''),
-		'utedb_premises_id' => Request::lookup('utedb_madb'),
+		'utedb_madb_who1' => Request::lookup('utedb_madb_who1', ''),
+		'utedb_premises_id' => Request::lookup('utedb_premises_id', ''),
 		'utedb_proof_image' => Request::fileUpload('utedb_proof_image', [
 			'maxSize' => 512000,
 			'types' => 'jpg|jpeg|gif|png|webp',
@@ -207,7 +209,7 @@ function utedb_update(&$selected_id, &$error_message = '') {
 		'utedb_col_tf' => Request::val('utedb_col_tf', ''),
 		'utedb_delta_flag' => Request::val('utedb_delta_flag', ''),
 		'utedb_hows1' => br2nl(Request::val('utedb_hows1', '')),
-		'utedb_elairda_id' => Request::lookup('utedb_elairda_id', ''),
+		'utedb_admin' => Request::val('utedb_admin', ''),
 		'utedb_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -302,7 +304,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$fieldsAreEditable = !$dvprint && (($allowInsert && !$hasSelectedId) || ($allowUpdate && $hasSelectedId) || $showSaveAsCopy);
 
 	$filterer_utedb_madb = Request::val('filterer_utedb_madb');
-	$filterer_utedb_elairda_id = Request::val('filterer_utedb_elairda_id');
+	$filterer_utedb_madb_who1 = Request::val('filterer_utedb_madb_who1');
+	$filterer_utedb_premises_id = Request::val('filterer_utedb_premises_id');
 
 	// populate filterers, starting from children to grand-parents
 
@@ -310,6 +313,10 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
 	// combobox: utedb_madb
 	$combo_utedb_madb = new DataCombo;
+	// combobox: utedb_madb_who1
+	$combo_utedb_madb_who1 = new DataCombo;
+	// combobox: utedb_premises_id
+	$combo_utedb_premises_id = new DataCombo;
 	// combobox: utedb_pc_audit
 	$combo_utedb_pc_audit = new Combo;
 	$combo_utedb_pc_audit->ListType = 0;
@@ -385,20 +392,35 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$combo_utedb_delta_flag->ListData = $combo_utedb_delta_flag->ListItem;
 	}
 	$combo_utedb_delta_flag->SelectName = 'utedb_delta_flag';
-	// combobox: utedb_elairda_id
-	$combo_utedb_elairda_id = new DataCombo;
+	// combobox: utedb_admin
+	$combo_utedb_admin = new Combo;
+	$combo_utedb_admin->ListType = 0;
+	$combo_utedb_admin->MultipleSeparator = ', ';
+	$combo_utedb_admin->ListBoxHeight = 10;
+	$combo_utedb_admin->RadiosPerLine = 1;
+	if(is_file(__DIR__ . '/hooks/utedb.utedb_admin.csv')) {
+		$utedb_admin_data = addslashes(implode('', @file(__DIR__ . '/hooks/utedb.utedb_admin.csv')));
+		$combo_utedb_admin->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($utedb_admin_data))));
+		$combo_utedb_admin->ListData = $combo_utedb_admin->ListItem;
+	} else {
+		$combo_utedb_admin->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("ELAI RDA;;HR;;DSCT;;MIS;;COO;;PC"))));
+		$combo_utedb_admin->ListData = $combo_utedb_admin->ListItem;
+	}
+	$combo_utedb_admin->SelectName = 'utedb_admin';
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('utedb', $selectedId))) {
 			return error_message($Translation['No records found'], 'utedb_view.php', false);
 		}
 		$combo_utedb_madb->SelectedData = $row['utedb_madb'];
+		$combo_utedb_madb_who1->SelectedData = $row['utedb_madb_who1'];
+		$combo_utedb_premises_id->SelectedData = $row['utedb_premises_id'];
 		$combo_utedb_pc_audit->SelectedData = $row['utedb_pc_audit'];
 		$combo_utedb_rda_audit->SelectedData = $row['utedb_rda_audit'];
 		$combo_utedb_bb_audit->SelectedData = $row['utedb_bb_audit'];
 		$combo_utedb_car->SelectedData = $row['utedb_car'];
 		$combo_utedb_delta_flag->SelectedData = $row['utedb_delta_flag'];
-		$combo_utedb_elairda_id->SelectedData = $row['utedb_elairda_id'];
+		$combo_utedb_admin->SelectedData = $row['utedb_admin'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -406,22 +428,27 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
 		$combo_utedb_madb->SelectedData = $filterer_utedb_madb;
+		$combo_utedb_madb_who1->SelectedData = $filterer_utedb_madb_who1;
+		$combo_utedb_premises_id->SelectedData = $filterer_utedb_premises_id;
 		$combo_utedb_pc_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '7' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_utedb_rda_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '8' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_utedb_bb_audit->SelectedText = (isset($filterField[1]) && $filterField[1] == '9' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_utedb_car->SelectedText = (isset($filterField[1]) && $filterField[1] == '10' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 		$combo_utedb_delta_flag->SelectedText = (isset($filterField[1]) && $filterField[1] == '13' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
-		$combo_utedb_elairda_id->SelectedData = $filterer_utedb_elairda_id;
+		$combo_utedb_admin->SelectedText = (isset($filterField[1]) && $filterField[1] == '15' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_utedb_madb->HTML = '<span id="utedb_madb-container' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
 	$combo_utedb_madb->MatchText = '<span id="utedb_madb-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_madb" id="utedb_madb' . $rnd1 . '" value="' . html_attr($combo_utedb_madb->SelectedData) . '">';
+	$combo_utedb_madb_who1->HTML = '<span id="utedb_madb_who1-container' . $rnd1 . '"></span><input type="hidden" name="utedb_madb_who1" id="utedb_madb_who1' . $rnd1 . '" value="' . html_attr($combo_utedb_madb_who1->SelectedData) . '">';
+	$combo_utedb_madb_who1->MatchText = '<span id="utedb_madb_who1-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_madb_who1" id="utedb_madb_who1' . $rnd1 . '" value="' . html_attr($combo_utedb_madb_who1->SelectedData) . '">';
+	$combo_utedb_premises_id->HTML = '<span id="utedb_premises_id-container' . $rnd1 . '"></span><input type="hidden" name="utedb_premises_id" id="utedb_premises_id' . $rnd1 . '" value="' . html_attr($combo_utedb_premises_id->SelectedData) . '">';
+	$combo_utedb_premises_id->MatchText = '<span id="utedb_premises_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_premises_id" id="utedb_premises_id' . $rnd1 . '" value="' . html_attr($combo_utedb_premises_id->SelectedData) . '">';
 	$combo_utedb_pc_audit->Render();
 	$combo_utedb_rda_audit->Render();
 	$combo_utedb_bb_audit->Render();
 	$combo_utedb_car->Render();
 	$combo_utedb_delta_flag->Render();
-	$combo_utedb_elairda_id->HTML = '<span id="utedb_elairda_id-container' . $rnd1 . '"></span><input type="hidden" name="utedb_elairda_id" id="utedb_elairda_id' . $rnd1 . '" value="' . html_attr($combo_utedb_elairda_id->SelectedData) . '">';
-	$combo_utedb_elairda_id->MatchText = '<span id="utedb_elairda_id-container-readonly' . $rnd1 . '"></span><input type="hidden" name="utedb_elairda_id" id="utedb_elairda_id' . $rnd1 . '" value="' . html_attr($combo_utedb_elairda_id->SelectedData) . '">';
+	$combo_utedb_admin->Render();
 
 	ob_start();
 	?>
@@ -429,12 +456,14 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	<script>
 		// initial lookup values
 		AppGini.current_utedb_madb__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['utedb_madb'] : htmlspecialchars($filterer_utedb_madb, ENT_QUOTES)); ?>"};
-		AppGini.current_utedb_elairda_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['utedb_elairda_id'] : htmlspecialchars($filterer_utedb_elairda_id, ENT_QUOTES)); ?>"};
+		AppGini.current_utedb_madb_who1__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['utedb_madb_who1'] : htmlspecialchars($filterer_utedb_madb_who1, ENT_QUOTES)); ?>"};
+		AppGini.current_utedb_premises_id__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['utedb_premises_id'] : htmlspecialchars($filterer_utedb_premises_id, ENT_QUOTES)); ?>"};
 
 		$j(function() {
 			setTimeout(function() {
 				if(typeof(utedb_madb_reload__RAND__) == 'function') utedb_madb_reload__RAND__();
-				if(typeof(utedb_elairda_id_reload__RAND__) == 'function') utedb_elairda_id_reload__RAND__();
+				if(typeof(utedb_madb_who1_reload__RAND__) == 'function') utedb_madb_who1_reload__RAND__();
+				if(typeof(utedb_premises_id_reload__RAND__) == 'function') utedb_premises_id_reload__RAND__();
 			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
 		function utedb_madb_reload__RAND__() {
@@ -516,27 +545,27 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		<?php } ?>
 
 		}
-		function utedb_elairda_id_reload__RAND__() {
+		function utedb_madb_who1_reload__RAND__() {
 		<?php if($fieldsAreEditable) { ?>
 
-			$j("#utedb_elairda_id-container__RAND__").select2({
+			$j("#utedb_madb_who1-container__RAND__").select2({
 				/* initial default value */
 				initSelection: function(e, c) {
 					$j.ajax({
 						url: 'ajax_combo.php',
 						dataType: 'json',
-						data: { id: AppGini.current_utedb_elairda_id__RAND__.value, t: 'utedb', f: 'utedb_elairda_id' },
+						data: { id: AppGini.current_utedb_madb_who1__RAND__.value, t: 'utedb', f: 'utedb_madb_who1' },
 						success: function(resp) {
 							c({
 								id: resp.results[0].id,
 								text: resp.results[0].text
 							});
-							$j('[name="utedb_elairda_id"]').val(resp.results[0].id);
-							$j('[id=utedb_elairda_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_elairda_id-match-text">' + resp.results[0].text + '</span>');
+							$j('[name="utedb_madb_who1"]').val(resp.results[0].id);
+							$j('[id=utedb_madb_who1-container-readonly__RAND__]').html('<span class="match-text" id="utedb_madb_who1-match-text">' + resp.results[0].text + '</span>');
 							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
 
 
-							if(typeof(utedb_elairda_id_update_autofills__RAND__) == 'function') utedb_elairda_id_update_autofills__RAND__();
+							if(typeof(utedb_madb_who1_update_autofills__RAND__) == 'function') utedb_madb_who1_update_autofills__RAND__();
 						}
 					});
 				},
@@ -548,33 +577,33 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 					url: 'ajax_combo.php',
 					dataType: 'json',
 					cache: true,
-					data: function(term, page) { return { s: term, p: page, t: 'utedb', f: 'utedb_elairda_id' }; },
+					data: function(term, page) { return { s: term, p: page, t: 'utedb', f: 'utedb_madb_who1' }; },
 					results: function(resp, page) { return resp; }
 				},
 				escapeMarkup: function(str) { return str; }
 			}).on('change', function(e) {
-				AppGini.current_utedb_elairda_id__RAND__.value = e.added.id;
-				AppGini.current_utedb_elairda_id__RAND__.text = e.added.text;
-				$j('[name="utedb_elairda_id"]').val(e.added.id);
+				AppGini.current_utedb_madb_who1__RAND__.value = e.added.id;
+				AppGini.current_utedb_madb_who1__RAND__.text = e.added.text;
+				$j('[name="utedb_madb_who1"]').val(e.added.id);
 				$j(this).parents('.form-group')
 					.find('.btn[id=whos_view_parent]')
 					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
 
 
-				if(typeof(utedb_elairda_id_update_autofills__RAND__) == 'function') utedb_elairda_id_update_autofills__RAND__();
+				if(typeof(utedb_madb_who1_update_autofills__RAND__) == 'function') utedb_madb_who1_update_autofills__RAND__();
 			});
 
-			if(!$j("#utedb_elairda_id-container__RAND__").length) {
+			if(!$j("#utedb_madb_who1-container__RAND__").length) {
 				$j.ajax({
 					url: 'ajax_combo.php',
 					dataType: 'json',
-					data: { id: AppGini.current_utedb_elairda_id__RAND__.value, t: 'utedb', f: 'utedb_elairda_id' },
+					data: { id: AppGini.current_utedb_madb_who1__RAND__.value, t: 'utedb', f: 'utedb_madb_who1' },
 					success: function(resp) {
-						$j('[name="utedb_elairda_id"]').val(resp.results[0].id);
-						$j('[id=utedb_elairda_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_elairda_id-match-text">' + resp.results[0].text + '</span>');
+						$j('[name="utedb_madb_who1"]').val(resp.results[0].id);
+						$j('[id=utedb_madb_who1-container-readonly__RAND__]').html('<span class="match-text" id="utedb_madb_who1-match-text">' + resp.results[0].text + '</span>');
 						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
 
-						if(typeof(utedb_elairda_id_update_autofills__RAND__) == 'function') utedb_elairda_id_update_autofills__RAND__();
+						if(typeof(utedb_madb_who1_update_autofills__RAND__) == 'function') utedb_madb_who1_update_autofills__RAND__();
 					}
 				});
 			}
@@ -584,12 +613,91 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 			$j.ajax({
 				url: 'ajax_combo.php',
 				dataType: 'json',
-				data: { id: AppGini.current_utedb_elairda_id__RAND__.value, t: 'utedb', f: 'utedb_elairda_id' },
+				data: { id: AppGini.current_utedb_madb_who1__RAND__.value, t: 'utedb', f: 'utedb_madb_who1' },
 				success: function(resp) {
-					$j('[id=utedb_elairda_id-container__RAND__], [id=utedb_elairda_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_elairda_id-match-text">' + resp.results[0].text + '</span>');
+					$j('[id=utedb_madb_who1-container__RAND__], [id=utedb_madb_who1-container-readonly__RAND__]').html('<span class="match-text" id="utedb_madb_who1-match-text">' + resp.results[0].text + '</span>');
 					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whos_view_parent]').hide(); } else { $j('.btn[id=whos_view_parent]').show(); }
 
-					if(typeof(utedb_elairda_id_update_autofills__RAND__) == 'function') utedb_elairda_id_update_autofills__RAND__();
+					if(typeof(utedb_madb_who1_update_autofills__RAND__) == 'function') utedb_madb_who1_update_autofills__RAND__();
+				}
+			});
+		<?php } ?>
+
+		}
+		function utedb_premises_id_reload__RAND__() {
+		<?php if($fieldsAreEditable) { ?>
+
+			$j("#utedb_premises_id-container__RAND__").select2({
+				/* initial default value */
+				initSelection: function(e, c) {
+					$j.ajax({
+						url: 'ajax_combo.php',
+						dataType: 'json',
+						data: { id: AppGini.current_utedb_premises_id__RAND__.value, t: 'utedb', f: 'utedb_premises_id' },
+						success: function(resp) {
+							c({
+								id: resp.results[0].id,
+								text: resp.results[0].text
+							});
+							$j('[name="utedb_premises_id"]').val(resp.results[0].id);
+							$j('[id=utedb_premises_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_premises_id-match-text">' + resp.results[0].text + '</span>');
+							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
+
+
+							if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
+						}
+					});
+				},
+				width: '100%',
+				formatNoMatches: function(term) { return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+				minimumResultsForSearch: 5,
+				loadMorePadding: 200,
+				ajax: {
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					cache: true,
+					data: function(term, page) { return { s: term, p: page, t: 'utedb', f: 'utedb_premises_id' }; },
+					results: function(resp, page) { return resp; }
+				},
+				escapeMarkup: function(str) { return str; }
+			}).on('change', function(e) {
+				AppGini.current_utedb_premises_id__RAND__.value = e.added.id;
+				AppGini.current_utedb_premises_id__RAND__.text = e.added.text;
+				$j('[name="utedb_premises_id"]').val(e.added.id);
+				$j(this).parents('.form-group')
+					.find('.btn[id=premises_view_parent]')
+					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
+
+
+				if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
+			});
+
+			if(!$j("#utedb_premises_id-container__RAND__").length) {
+				$j.ajax({
+					url: 'ajax_combo.php',
+					dataType: 'json',
+					data: { id: AppGini.current_utedb_premises_id__RAND__.value, t: 'utedb', f: 'utedb_premises_id' },
+					success: function(resp) {
+						$j('[name="utedb_premises_id"]').val(resp.results[0].id);
+						$j('[id=utedb_premises_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_premises_id-match-text">' + resp.results[0].text + '</span>');
+						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
+
+						if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
+					}
+				});
+			}
+
+		<?php } else { ?>
+
+			$j.ajax({
+				url: 'ajax_combo.php',
+				dataType: 'json',
+				data: { id: AppGini.current_utedb_premises_id__RAND__.value, t: 'utedb', f: 'utedb_premises_id' },
+				success: function(resp) {
+					$j('[id=utedb_premises_id-container__RAND__], [id=utedb_premises_id-container-readonly__RAND__]').html('<span class="match-text" id="utedb_premises_id-match-text">' + resp.results[0].text + '</span>');
+					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=premises_view_parent]').hide(); } else { $j('.btn[id=premises_view_parent]').show(); }
+
+					if(typeof(utedb_premises_id_update_autofills__RAND__) == 'function') utedb_premises_id_update_autofills__RAND__();
 				}
 			});
 		<?php } ?>
@@ -682,6 +790,10 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly = '';
 		$jsReadOnly .= "\t\$j('#utedb_madb').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#utedb_madb_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#utedb_madb_who1').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#utedb_madb_who1_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#utedb_premises_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#utedb_premises_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('#utedb_proof_image').replaceWith('<div class=\"form-control-static\" id=\"utedb_proof_image\">' + (\$j('#utedb_proof_image').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#utedb_ai_audit').replaceWith('<div class=\"form-control-static\" id=\"utedb_ai_audit\">' + (\$j('#utedb_ai_audit').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#utedb_pc_audit').replaceWith('<div class=\"form-control-static\" id=\"utedb_pc_audit\">' + (\$j('#utedb_pc_audit').val() || '') + '</div>'); \$j('#utedb_pc_audit-multi-selection-help').hide();\n";
@@ -692,8 +804,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$jsReadOnly .= "\t\$j('#utedb_col_tf').replaceWith('<div class=\"form-control-static\" id=\"utedb_col_tf\">' + (\$j('#utedb_col_tf').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#utedb_delta_flag').replaceWith('<div class=\"form-control-static\" id=\"utedb_delta_flag\">' + (\$j('#utedb_delta_flag').val() || '') + '</div>'); \$j('#utedb_delta_flag-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('#utedb_hows1').replaceWith('<div class=\"form-control-static\" id=\"utedb_hows1\">' + (\$j('#utedb_hows1').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\t\$j('#utedb_elairda_id').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
-		$jsReadOnly .= "\t\$j('#utedb_elairda_id_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#utedb_admin').replaceWith('<div class=\"form-control-static\" id=\"utedb_admin\">' + (\$j('#utedb_admin').val() || '') + '</div>'); \$j('#utedb_admin-multi-selection-help').hide();\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -707,6 +818,12 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%COMBO(utedb_madb)%%>', $combo_utedb_madb->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_madb)%%>', $combo_utedb_madb->MatchText, $templateCode);
 	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_madb)%%>', urlencode($combo_utedb_madb->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(utedb_madb_who1)%%>', $combo_utedb_madb_who1->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(utedb_madb_who1)%%>', $combo_utedb_madb_who1->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_madb_who1)%%>', urlencode($combo_utedb_madb_who1->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(utedb_premises_id)%%>', $combo_utedb_premises_id->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(utedb_premises_id)%%>', $combo_utedb_premises_id->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_premises_id)%%>', urlencode($combo_utedb_premises_id->MatchText), $templateCode);
 	$templateCode = str_replace('<%%COMBO(utedb_pc_audit)%%>', $combo_utedb_pc_audit->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_pc_audit)%%>', $combo_utedb_pc_audit->SelectedData, $templateCode);
 	$templateCode = str_replace('<%%COMBO(utedb_rda_audit)%%>', $combo_utedb_rda_audit->HTML, $templateCode);
@@ -717,12 +834,11 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_car)%%>', $combo_utedb_car->SelectedData, $templateCode);
 	$templateCode = str_replace('<%%COMBO(utedb_delta_flag)%%>', $combo_utedb_delta_flag->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(utedb_delta_flag)%%>', $combo_utedb_delta_flag->SelectedData, $templateCode);
-	$templateCode = str_replace('<%%COMBO(utedb_elairda_id)%%>', $combo_utedb_elairda_id->HTML, $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(utedb_elairda_id)%%>', $combo_utedb_elairda_id->MatchText, $templateCode);
-	$templateCode = str_replace('<%%URLCOMBOTEXT(utedb_elairda_id)%%>', urlencode($combo_utedb_elairda_id->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(utedb_admin)%%>', $combo_utedb_admin->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(utedb_admin)%%>', $combo_utedb_admin->SelectedData, $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['utedb_madb' => ['madb', 'MADb Id'], 'utedb_elairda_id' => ['whos', 'ELAI RDA ID'], ];
+	$lookup_fields = ['utedb_madb' => ['madb', 'MADb Id'], 'utedb_madb_who1' => ['whos', 'Who 1'], 'utedb_premises_id' => ['premises', 'Premises Id'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -741,6 +857,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_madb)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_madb_who1)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_premises_id)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_proof_image)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="utedb_proof_image" id="utedb_proof_image" data-filetypes="jpg|jpeg|gif|png|webp" data-maxsize="512000" style="max-width: calc(100% - 1.5rem);" accept="capture=camera,image/*">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
 	if($allowUpdate && $row['utedb_proof_image'] != '') {
 		$templateCode = str_replace('<%%REMOVEFILE(utedb_proof_image)%%>', '<input type="checkbox" name="utedb_proof_image_remove" id="utedb_proof_image_remove" value="1"> <label for="utedb_proof_image_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
@@ -761,7 +878,7 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_col_tf)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_delta_flag)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_hows1)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(utedb_elairda_id)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(utedb_admin)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(utedb_updated)%%>', '', $templateCode);
 
@@ -773,8 +890,12 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', safe_html($urow['utedb_madb']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb)%%>', html_attr($row['utedb_madb']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode($urow['utedb_madb']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(utedb_madb_who1)%%>', safe_html($urow['utedb_madb_who1']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb_who1)%%>', safe_html($urow['utedb_madb_who1']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_madb_who1)%%>', html_attr($row['utedb_madb_who1']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb_who1)%%>', urlencode($urow['utedb_madb_who1']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', safe_html($urow['utedb_premises_id']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', html_attr($row['utedb_premises_id']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode($urow['utedb_premises_id']), $templateCode);
 		$row['utedb_proof_image'] = ($row['utedb_proof_image'] != '' ? $row['utedb_proof_image'] : 'blank.gif');
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', safe_html($urow['utedb_proof_image']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', html_attr($row['utedb_proof_image']), $templateCode);
@@ -805,9 +926,9 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_delta_flag)%%>', urlencode($urow['utedb_delta_flag']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_hows1)%%>', safe_html($urow['utedb_hows1'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_hows1)%%>', urlencode($urow['utedb_hows1']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_elairda_id)%%>', safe_html($urow['utedb_elairda_id']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_elairda_id)%%>', html_attr($row['utedb_elairda_id']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_elairda_id)%%>', urlencode($urow['utedb_elairda_id']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(utedb_admin)%%>', safe_html($urow['utedb_admin']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(utedb_admin)%%>', html_attr($row['utedb_admin']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_admin)%%>', urlencode($urow['utedb_admin']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', safe_html($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode($urow['utedb_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', safe_html($urow['utedb_updated']), $templateCode);
@@ -819,6 +940,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_madb_who1)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_madb_who1)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_premises_id)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_premises_id)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_proof_image)%%>', 'blank.gif', $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_ai_audit)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_ai_audit)%%>', urlencode(''), $templateCode);
@@ -838,8 +961,8 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		$templateCode = str_replace('<%%URLVALUE(utedb_delta_flag)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_hows1)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_hows1)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(utedb_elairda_id)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(utedb_elairda_id)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(utedb_admin)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(utedb_admin)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(utedb_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(utedb_updated)%%>', '<%%editingTimestamp%%>', $templateCode);
@@ -876,23 +999,6 @@ function utedb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 	// ajaxed auto-fill fields
 	$templateCode .= '<script>';
 	$templateCode .= '$j(function() {';
-
-	$templateCode .= "\tutedb_madb_update_autofills$rnd1 = function() {\n";
-	$templateCode .= "\t\t\$j.ajax({\n";
-	if($dvprint) {
-		$templateCode .= "\t\t\turl: 'utedb_autofill.php?rnd1=$rnd1&mfk=utedb_madb&id=' + encodeURIComponent('".addslashes($row['utedb_madb'])."'),\n";
-		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
-		$templateCode .= "\t\t\ttype: 'GET'\n";
-	} else {
-		$templateCode .= "\t\t\turl: 'utedb_autofill.php?rnd1=$rnd1&mfk=utedb_madb&id=' + encodeURIComponent(AppGini.current_utedb_madb{$rnd1}.value),\n";
-		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
-		$templateCode .= "\t\t\ttype: 'GET',\n";
-		$templateCode .= "\t\t\tbeforeSend: function() { \$j('#utedb_madb$rnd1').prop('disabled', true); },\n";
-		$templateCode .= "\t\t\tcomplete: function() { " . (($allowInsert || $allowUpdate) ? "\$j('#utedb_madb$rnd1').prop('disabled', false); " : "\$j('#utedb_madb$rnd1').prop('disabled', true); ")." \$j(window).resize(); }\n";
-	}
-	$templateCode .= "\t\t});\n";
-	$templateCode .= "\t};\n";
-	if(!$dvprint) $templateCode .= "\tif(\$j('#utedb_madb_caption').length) \$j('#utedb_madb_caption').click(function() { utedb_madb_update_autofills$rnd1(); });\n";
 
 
 	$templateCode.="});";

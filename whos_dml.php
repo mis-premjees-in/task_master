@@ -94,9 +94,9 @@ function whos_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks = 
 	// child table: utedb
 	$res = sql("SELECT `whos_id` FROM `whos` WHERE `whos_id`='{$selected_id}'", $eo);
 	$whos_id = db_fetch_row($res);
-	$rires = sql("SELECT COUNT(1) FROM `utedb` WHERE `utedb_elairda_id`='" . makeSafe($whos_id[0]) . "'", $eo);
+	$rires = sql("SELECT COUNT(1) FROM `utedb` WHERE `utedb_madb_who1`='" . makeSafe($whos_id[0]) . "'", $eo);
 	$rirow = db_fetch_row($rires);
-	$childrenATag = '<a class="alert-link" href="utedb_view.php?filterer_utedb_elairda_id=' . urlencode($whos_id[0]) . '">%s</a>';
+	$childrenATag = '<a class="alert-link" href="utedb_view.php?filterer_utedb_madb_who1=' . urlencode($whos_id[0]) . '">%s</a>';
 	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
 		$RetMsg = $Translation["couldn't delete"];
 		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);

@@ -31,18 +31,18 @@
 				<!-- Field: Who 1 -->
 				<div class="form-group utedb-utedb_madb_who1">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Who 1</label>
+					<label class="control-label col-lg-3" for="utedb_madb_who1" data-parent_link="view_parent_modal">Who 1</label>
 					<div class="col-lg-9">
-						<div class="form-control-static" id="utedb_madb_who1"><%%VALUE(utedb_madb_who1)%%></div>
+						<div class="lookup-flex"><%%COMBO(utedb_madb_who1)%%><%%PLINK(utedb_madb_who1)%%><%%ADDNEW(whos)%%></div>
 					</div>
 				</div>
 
 				<!-- Field: Premises Id -->
 				<div class="form-group utedb-utedb_premises_id">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Premises Id</label>
+					<label class="control-label col-lg-3" for="utedb_premises_id" data-parent_link="view_parent_modal">Premises Id</label>
 					<div class="col-lg-9">
-						<div class="form-control-static" id="utedb_premises_id"></div>
+						<div class="lookup-flex"><%%COMBO(utedb_premises_id)%%><%%PLINK(utedb_premises_id)%%><%%ADDNEW(premises)%%></div>
 					</div>
 				</div>
 
@@ -164,11 +164,11 @@
 				</div>
 
 				<!-- Field: ELAI RDA ID -->
-				<div class="form-group utedb-utedb_elairda_id">
+				<div class="form-group utedb-utedb_admin">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="utedb_elairda_id" data-parent_link="view_parent_modal">ELAI RDA ID</label>
+					<label class="control-label col-lg-3" for="utedb_admin">ELAI RDA ID</label>
 					<div class="col-lg-9">
-						<div class="lookup-flex"><%%COMBO(utedb_elairda_id)%%><%%PLINK(utedb_elairda_id)%%><%%ADDNEW(whos)%%></div>
+						<%%COMBO(utedb_admin)%%>
 					</div>
 				</div>
 
