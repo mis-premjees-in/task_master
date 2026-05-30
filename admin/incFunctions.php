@@ -3234,7 +3234,7 @@
 			'howqs' => [],
 			'howts' => [],
 			'utedb' => [
-				'utedb_madb_who1' => 'select (SELECT CONCAT(whos_who2,"-",whos_description) FROM whos WHERE whos_id=(select madb_who1 from madb where madb_id=(select utedb_madb from utedb where utedb_id=%ID%)) from madb where madb_id=(select utedb_madb from utedb where utedb_id=%ID%)',
+				'utedb_madb_who1' => 'SELECT CONCAT(whos_who2,"-",whos_description) FROM whos WHERE whos_id=(select madb_who1 from madb where madb_id=(select utedb_madb from utedb where utedb_id=%ID%))',
 			],
 			'premises' => [],
 			'pnb' => [],
