@@ -407,17 +407,6 @@
 				'list_type' => 0,
 				'not_null' => true,
 			],
-			'utedb_madb_who1' => [
-				'parent_table' => 'whos',
-				'parent_pk_field' => 'whos_id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\')',
-				'parent_from' => '`whos` ',
-				'filterers' => [],
-				'custom_query' => '',
-				'inherit_permissions' => false,
-				'list_type' => 0,
-				'not_null' => false,
-			],
 			'utedb_premises_id' => [
 				'parent_table' => 'madb',
 				'parent_pk_field' => 'madb_id',

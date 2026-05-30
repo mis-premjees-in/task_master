@@ -32,8 +32,14 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', []);
-		setupIndexes('utedb', ['utedb_madb','utedb_madb_who1','utedb_elairda_id',]);
+		setupTable('utedb', [
+				" ALTER TABLE `utedb` CHANGE `utedb_madb_who1` `utedb_madb_who1` VARCHAR(40) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_madb_who1` `utedb_madb_who1` VARCHAR(255) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_madb_who1` `utedb_madb_who1` VARCHAR(255) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_madb_who1` `utedb_madb_who1` VARCHAR(255) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_madb_who1` `utedb_madb_who1` VARCHAR(255) NULL ",
+			]);
+		setupIndexes('utedb', ['utedb_madb','utedb_elairda_id',]);
 
 		setupTable('premises', []);
 
