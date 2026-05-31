@@ -33,9 +33,7 @@
 
 		setupTable('howts', []);
 
-		setupTable('utedb', [
-				"ALTER TABLE `utedb` CHANGE `utedb_madb_who1` `utedb_whos_id` INT NULL ",
-			]);
+		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb','utedb_whos_id','utedb_premises_id',]);
 
 		setupTable('premises', []);
