@@ -9,7 +9,7 @@
 		/* data for selected record, or defaults if none is selected */
 		var data = {
 			utedb_madb: <?php echo json_encode(['id' => $rdata['utedb_madb'], 'value' => $rdata['utedb_madb'], 'text' => $jdata['utedb_madb']]); ?>,
-			utedb_madb_who1: <?php echo json_encode(['id' => $rdata['utedb_madb_who1'], 'value' => $rdata['utedb_madb_who1'], 'text' => $jdata['utedb_madb_who1']]); ?>,
+			utedb_whos_id: <?php echo json_encode(['id' => $rdata['utedb_whos_id'], 'value' => $rdata['utedb_whos_id'], 'text' => $jdata['utedb_whos_id']]); ?>,
 			utedb_premises_id: <?php echo json_encode(['id' => $rdata['utedb_premises_id'], 'value' => $rdata['utedb_premises_id'], 'text' => $jdata['utedb_premises_id']]); ?>
 		};
 
@@ -26,11 +26,11 @@
 			return false;
 		});
 
-		/* saved value for utedb_madb_who1 */
+		/* saved value for utedb_whos_id */
 		cache.addCheck(function(u, d) {
 			if(u != 'ajax_combo.php') return false;
-			if(d.t == tn && d.f == 'utedb_madb_who1' && d.id == data.utedb_madb_who1.id)
-				return { results: [ data.utedb_madb_who1 ], more: false, elapsed: 0.01 };
+			if(d.t == tn && d.f == 'utedb_whos_id' && d.id == data.utedb_whos_id.id)
+				return { results: [ data.utedb_whos_id ], more: false, elapsed: 0.01 };
 			return false;
 		});
 

@@ -418,7 +418,7 @@
 				'list_type' => 0,
 				'not_null' => true,
 			],
-			'utedb_madb_who1' => [
+			'utedb_whos_id' => [
 				'parent_table' => 'whos',
 				'parent_pk_field' => 'whos_id',
 				'parent_caption' => 'IF(CHAR_LENGTH(`whos`.`whos_who2`) || CHAR_LENGTH(`whos`.`whos_description`), CONCAT_WS(\'\', `whos`.`whos_who2`, \'-\', `whos`.`whos_description`), \'\')',
