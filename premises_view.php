@@ -23,6 +23,8 @@
 		"`premises`.`premises_latitude`" => "premises_latitude",
 		"`premises`.`premises_longitude`" => "premises_longitude",
 		"`premises`.`premises_radius`" => "premises_radius",
+		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* Premjees Opening */" => "premjees_opening",
+		"IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') /* Premjees closing */" => "premjees_closing",
 		"`premises`.`premises_created`" => "premises_created",
 		"`premises`.`premises_updated`" => "premises_updated",
 	];
@@ -33,8 +35,10 @@
 		3 => '`premises`.`premises_latitude`',
 		4 => '`premises`.`premises_longitude`',
 		5 => '`premises`.`premises_radius`',
-		6 => '`premises`.`premises_created`',
-		7 => '`premises`.`premises_updated`',
+		6 => 6,
+		7 => 7,
+		8 => '`premises`.`premises_created`',
+		9 => '`premises`.`premises_updated`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -44,6 +48,8 @@
 		"`premises`.`premises_latitude`" => "premises_latitude",
 		"`premises`.`premises_longitude`" => "premises_longitude",
 		"`premises`.`premises_radius`" => "premises_radius",
+		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* Premjees Opening */" => "premjees_opening",
+		"IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') /* Premjees closing */" => "premjees_closing",
 		"`premises`.`premises_created`" => "premises_created",
 		"`premises`.`premises_updated`" => "premises_updated",
 	];
@@ -54,6 +60,8 @@
 		"`premises`.`premises_latitude`" => "Latitude",
 		"`premises`.`premises_longitude`" => "Longitude",
 		"`premises`.`premises_radius`" => "Premises radius",
+		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* Premjees Opening */" => "Premjees Opening",
+		"IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') /* Premjees closing */" => "Premjees closing",
 		"`premises`.`premises_created`" => "Created AT",
 		"`premises`.`premises_updated`" => "Updated AT",
 	];
@@ -65,14 +73,16 @@
 		"`premises`.`premises_latitude`" => "premises_latitude",
 		"`premises`.`premises_longitude`" => "premises_longitude",
 		"`premises`.`premises_radius`" => "premises_radius",
+		"IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') /* Premjees Opening */" => "premjees_opening",
+		"IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') /* Premjees closing */" => "premjees_closing",
 		"`premises`.`premises_created`" => "premises_created",
 		"`premises`.`premises_updated`" => "premises_updated",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = [];
+	$x->filterers = ['premjees_opening' => 'Premjees Opening', 'premjees_closing' => 'Premjees closing', ];
 
-	$x->QueryFrom = "`premises` ";
+	$x->QueryFrom = "`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -100,10 +110,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`premises`.`premises_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Premise Name', 'Latitude', 'Longitude', 'Premises radius', 'Created AT', 'Updated AT', 'Pnb', ];
-	$x->ColFieldName = ['premises_id', 'premises_name', 'premises_latitude', 'premises_longitude', 'premises_radius', 'premises_created', 'premises_updated', '%pnb.pnb_premises_id%', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, -1, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Premise Name', 'Latitude', 'Longitude', 'Premises radius', 'Premjees Opening', 'Premjees closing', 'Created AT', 'Updated AT', 'Pnb', ];
+	$x->ColFieldName = ['premises_id', 'premises_name', 'premises_latitude', 'premises_longitude', 'premises_radius', 'premjees_opening', 'premjees_closing', 'premises_created', 'premises_updated', '%pnb.pnb_premises_id%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/premises_templateTV.html';
