@@ -24,7 +24,7 @@ function whos_insert(&$error_message = '') {
 		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
 		'whos_premise' => Request::lookup('whos_premise', ''),
 		'whos_profile_img' => Request::fileUpload('whos_profile_img', [
-			'maxSize' => 102400,
+			'maxSize' => 307200,
 			'types' => 'jpg|jpeg|gif|png|webp',
 			'noRename' => false,
 			'dir' => '',
@@ -186,7 +186,7 @@ function whos_update(&$selected_id, &$error_message = '') {
 		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
 		'whos_premise' => Request::lookup('whos_premise', ''),
 		'whos_profile_img' => Request::fileUpload('whos_profile_img', [
-			'maxSize' => 102400,
+			'maxSize' => 307200,
 			'types' => 'jpg|jpeg|gif|png|webp',
 			'noRename' => false,
 			'dir' => '',
@@ -563,7 +563,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_token)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_email)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_premise)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(whos_profile_img)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="whos_profile_img" id="whos_profile_img" data-filetypes="jpg|jpeg|gif|png|webp" data-maxsize="102400" style="max-width: calc(100% - 1.5rem);" accept="capture=camera,image/*">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(whos_profile_img)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="whos_profile_img" id="whos_profile_img" data-filetypes="jpg|jpeg|gif|png|webp" data-maxsize="307200" style="max-width: calc(100% - 1.5rem);" accept="capture=camera,image/*">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
 	if($allowUpdate && $row['whos_profile_img'] != '') {
 		$templateCode = str_replace('<%%REMOVEFILE(whos_profile_img)%%>', '<input type="checkbox" name="whos_profile_img_remove" id="whos_profile_img_remove" value="1"> <label for="whos_profile_img_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
 	} else {

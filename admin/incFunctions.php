@@ -1356,7 +1356,7 @@
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
 							'caption' => 'Profile Image',
-							'description' => 'Maximum file size allowed: 100 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
+							'description' => 'Maximum file size allowed: 300 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
 						],
 					],
 					'whos_updated' => [

@@ -14,10 +14,7 @@
 
 		setupTable('whats', []);
 
-		setupTable('whos', [
-				"ALTER TABLE whos ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `whos` CHANGE `field1` `whos_profile_img` VARCHAR(40) NULL ",
-			]);
+		setupTable('whos', []);
 		setupIndexes('whos', ['whos_premise',]);
 
 		setupTable('whens', []);
