@@ -112,8 +112,8 @@
 			return $data;
 		},
 		'premises' => function($data, $options = []) {
-			if(isset($data['premjees_opening'])) $data['premjees_opening'] = pkGivenLookupText($data['premjees_opening'], 'premises', 'premjees_opening');
-			if(isset($data['premjees_closing'])) $data['premjees_closing'] = pkGivenLookupText($data['premjees_closing'], 'premises', 'premjees_closing');
+			if(isset($data['premises_opening'])) $data['premises_opening'] = pkGivenLookupText($data['premises_opening'], 'premises', 'premises_opening');
+			if(isset($data['premises_closing'])) $data['premises_closing'] = pkGivenLookupText($data['premises_closing'], 'premises', 'premises_closing');
 			if(isset($data['premises_created'])) $data['premises_created'] = guessMySQLDateTime($data['premises_created']);
 			if(isset($data['premises_updated'])) $data['premises_updated'] = guessMySQLDateTime($data['premises_updated']);
 

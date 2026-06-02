@@ -20,8 +20,8 @@ function premises_insert(&$error_message = '') {
 		'premises_latitude' => Request::val('premises_latitude', ''),
 		'premises_longitude' => Request::val('premises_longitude', ''),
 		'premises_radius' => Request::val('premises_radius', ''),
-		'premjees_opening' => Request::lookup('premjees_opening', ''),
-		'premjees_closing' => Request::lookup('premjees_closing', ''),
+		'premises_opening' => Request::lookup('premises_opening', ''),
+		'premises_closing' => Request::lookup('premises_closing', ''),
 		'premises_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -173,8 +173,8 @@ function premises_update(&$selected_id, &$error_message = '') {
 		'premises_latitude' => Request::val('premises_latitude', ''),
 		'premises_longitude' => Request::val('premises_longitude', ''),
 		'premises_radius' => Request::val('premises_radius', ''),
-		'premjees_opening' => Request::lookup('premjees_opening', ''),
-		'premjees_closing' => Request::lookup('premjees_closing', ''),
+		'premises_opening' => Request::lookup('premises_opening', ''),
+		'premises_closing' => Request::lookup('premises_closing', ''),
 		'premises_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -283,73 +283,73 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 	$showSaveAsCopy = !$dvprint && ($allowInsert && $hasSelectedId && !$noSaveAsCopy);
 	$fieldsAreEditable = !$dvprint && (($allowInsert && !$hasSelectedId) || ($allowUpdate && $hasSelectedId) || $showSaveAsCopy);
 
-	$filterer_premjees_opening = Request::val('filterer_premjees_opening');
-	$filterer_premjees_closing = Request::val('filterer_premjees_closing');
+	$filterer_premises_opening = Request::val('filterer_premises_opening');
+	$filterer_premises_closing = Request::val('filterer_premises_closing');
 
 	// populate filterers, starting from children to grand-parents
 
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
-	// combobox: premjees_opening
-	$combo_premjees_opening = new DataCombo;
-	// combobox: premjees_closing
-	$combo_premjees_closing = new DataCombo;
+	// combobox: premises_opening
+	$combo_premises_opening = new DataCombo;
+	// combobox: premises_closing
+	$combo_premises_closing = new DataCombo;
 
 	if($hasSelectedId) {
 		if(!($row = getRecord('premises', $selectedId))) {
 			return error_message($Translation['No records found'], 'premises_view.php', false);
 		}
-		$combo_premjees_opening->SelectedData = $row['premjees_opening'];
-		$combo_premjees_closing->SelectedData = $row['premjees_closing'];
+		$combo_premises_opening->SelectedData = $row['premises_opening'];
+		$combo_premises_closing->SelectedData = $row['premises_closing'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
 		$filterField = Request::val('FilterField');
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
-		$combo_premjees_opening->SelectedData = $filterer_premjees_opening;
-		$combo_premjees_closing->SelectedData = $filterer_premjees_closing;
+		$combo_premises_opening->SelectedData = $filterer_premises_opening;
+		$combo_premises_closing->SelectedData = $filterer_premises_closing;
 	}
-	$combo_premjees_opening->HTML = '<span id="premjees_opening-container' . $rnd1 . '"></span><input type="hidden" name="premjees_opening" id="premjees_opening' . $rnd1 . '" value="' . html_attr($combo_premjees_opening->SelectedData) . '">';
-	$combo_premjees_opening->MatchText = '<span id="premjees_opening-container-readonly' . $rnd1 . '"></span><input type="hidden" name="premjees_opening" id="premjees_opening' . $rnd1 . '" value="' . html_attr($combo_premjees_opening->SelectedData) . '">';
-	$combo_premjees_closing->HTML = '<span id="premjees_closing-container' . $rnd1 . '"></span><input type="hidden" name="premjees_closing" id="premjees_closing' . $rnd1 . '" value="' . html_attr($combo_premjees_closing->SelectedData) . '">';
-	$combo_premjees_closing->MatchText = '<span id="premjees_closing-container-readonly' . $rnd1 . '"></span><input type="hidden" name="premjees_closing" id="premjees_closing' . $rnd1 . '" value="' . html_attr($combo_premjees_closing->SelectedData) . '">';
+	$combo_premises_opening->HTML = '<span id="premises_opening-container' . $rnd1 . '"></span><input type="hidden" name="premises_opening" id="premises_opening' . $rnd1 . '" value="' . html_attr($combo_premises_opening->SelectedData) . '">';
+	$combo_premises_opening->MatchText = '<span id="premises_opening-container-readonly' . $rnd1 . '"></span><input type="hidden" name="premises_opening" id="premises_opening' . $rnd1 . '" value="' . html_attr($combo_premises_opening->SelectedData) . '">';
+	$combo_premises_closing->HTML = '<span id="premises_closing-container' . $rnd1 . '"></span><input type="hidden" name="premises_closing" id="premises_closing' . $rnd1 . '" value="' . html_attr($combo_premises_closing->SelectedData) . '">';
+	$combo_premises_closing->MatchText = '<span id="premises_closing-container-readonly' . $rnd1 . '"></span><input type="hidden" name="premises_closing" id="premises_closing' . $rnd1 . '" value="' . html_attr($combo_premises_closing->SelectedData) . '">';
 
 	ob_start();
 	?>
 
 	<script>
 		// initial lookup values
-		AppGini.current_premjees_opening__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['premjees_opening'] : htmlspecialchars($filterer_premjees_opening, ENT_QUOTES)); ?>"};
-		AppGini.current_premjees_closing__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['premjees_closing'] : htmlspecialchars($filterer_premjees_closing, ENT_QUOTES)); ?>"};
+		AppGini.current_premises_opening__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['premises_opening'] : htmlspecialchars($filterer_premises_opening, ENT_QUOTES)); ?>"};
+		AppGini.current_premises_closing__RAND__ = { text: "", value: "<?php echo addslashes($hasSelectedId ? $urow['premises_closing'] : htmlspecialchars($filterer_premises_closing, ENT_QUOTES)); ?>"};
 
 		$j(function() {
 			setTimeout(function() {
-				if(typeof(premjees_opening_reload__RAND__) == 'function') premjees_opening_reload__RAND__();
-				if(typeof(premjees_closing_reload__RAND__) == 'function') premjees_closing_reload__RAND__();
+				if(typeof(premises_opening_reload__RAND__) == 'function') premises_opening_reload__RAND__();
+				if(typeof(premises_closing_reload__RAND__) == 'function') premises_closing_reload__RAND__();
 			}, 50); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
-		function premjees_opening_reload__RAND__() {
+		function premises_opening_reload__RAND__() {
 		<?php if($fieldsAreEditable) { ?>
 
-			$j("#premjees_opening-container__RAND__").select2({
+			$j("#premises_opening-container__RAND__").select2({
 				/* initial default value */
 				initSelection: function(e, c) {
 					$j.ajax({
 						url: 'ajax_combo.php',
 						dataType: 'json',
-						data: { id: AppGini.current_premjees_opening__RAND__.value, t: 'premises', f: 'premjees_opening' },
+						data: { id: AppGini.current_premises_opening__RAND__.value, t: 'premises', f: 'premises_opening' },
 						success: function(resp) {
 							c({
 								id: resp.results[0].id,
 								text: resp.results[0].text
 							});
-							$j('[name="premjees_opening"]').val(resp.results[0].id);
-							$j('[id=premjees_opening-container-readonly__RAND__]').html('<span class="match-text" id="premjees_opening-match-text">' + resp.results[0].text + '</span>');
+							$j('[name="premises_opening"]').val(resp.results[0].id);
+							$j('[id=premises_opening-container-readonly__RAND__]').html('<span class="match-text" id="premises_opening-match-text">' + resp.results[0].text + '</span>');
 							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whens_view_parent]').hide(); } else { $j('.btn[id=whens_view_parent]').show(); }
 
 
-							if(typeof(premjees_opening_update_autofills__RAND__) == 'function') premjees_opening_update_autofills__RAND__();
+							if(typeof(premises_opening_update_autofills__RAND__) == 'function') premises_opening_update_autofills__RAND__();
 						}
 					});
 				},
@@ -361,33 +361,33 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 					url: 'ajax_combo.php',
 					dataType: 'json',
 					cache: true,
-					data: function(term, page) { return { s: term, p: page, t: 'premises', f: 'premjees_opening' }; },
+					data: function(term, page) { return { s: term, p: page, t: 'premises', f: 'premises_opening' }; },
 					results: function(resp, page) { return resp; }
 				},
 				escapeMarkup: function(str) { return str; }
 			}).on('change', function(e) {
-				AppGini.current_premjees_opening__RAND__.value = e.added.id;
-				AppGini.current_premjees_opening__RAND__.text = e.added.text;
-				$j('[name="premjees_opening"]').val(e.added.id);
+				AppGini.current_premises_opening__RAND__.value = e.added.id;
+				AppGini.current_premises_opening__RAND__.text = e.added.text;
+				$j('[name="premises_opening"]').val(e.added.id);
 				$j(this).parents('.form-group')
 					.find('.btn[id=whens_view_parent]')
 					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
 
 
-				if(typeof(premjees_opening_update_autofills__RAND__) == 'function') premjees_opening_update_autofills__RAND__();
+				if(typeof(premises_opening_update_autofills__RAND__) == 'function') premises_opening_update_autofills__RAND__();
 			});
 
-			if(!$j("#premjees_opening-container__RAND__").length) {
+			if(!$j("#premises_opening-container__RAND__").length) {
 				$j.ajax({
 					url: 'ajax_combo.php',
 					dataType: 'json',
-					data: { id: AppGini.current_premjees_opening__RAND__.value, t: 'premises', f: 'premjees_opening' },
+					data: { id: AppGini.current_premises_opening__RAND__.value, t: 'premises', f: 'premises_opening' },
 					success: function(resp) {
-						$j('[name="premjees_opening"]').val(resp.results[0].id);
-						$j('[id=premjees_opening-container-readonly__RAND__]').html('<span class="match-text" id="premjees_opening-match-text">' + resp.results[0].text + '</span>');
+						$j('[name="premises_opening"]').val(resp.results[0].id);
+						$j('[id=premises_opening-container-readonly__RAND__]').html('<span class="match-text" id="premises_opening-match-text">' + resp.results[0].text + '</span>');
 						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whens_view_parent]').hide(); } else { $j('.btn[id=whens_view_parent]').show(); }
 
-						if(typeof(premjees_opening_update_autofills__RAND__) == 'function') premjees_opening_update_autofills__RAND__();
+						if(typeof(premises_opening_update_autofills__RAND__) == 'function') premises_opening_update_autofills__RAND__();
 					}
 				});
 			}
@@ -397,38 +397,38 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 			$j.ajax({
 				url: 'ajax_combo.php',
 				dataType: 'json',
-				data: { id: AppGini.current_premjees_opening__RAND__.value, t: 'premises', f: 'premjees_opening' },
+				data: { id: AppGini.current_premises_opening__RAND__.value, t: 'premises', f: 'premises_opening' },
 				success: function(resp) {
-					$j('[id=premjees_opening-container__RAND__], [id=premjees_opening-container-readonly__RAND__]').html('<span class="match-text" id="premjees_opening-match-text">' + resp.results[0].text + '</span>');
+					$j('[id=premises_opening-container__RAND__], [id=premises_opening-container-readonly__RAND__]').html('<span class="match-text" id="premises_opening-match-text">' + resp.results[0].text + '</span>');
 					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whens_view_parent]').hide(); } else { $j('.btn[id=whens_view_parent]').show(); }
 
-					if(typeof(premjees_opening_update_autofills__RAND__) == 'function') premjees_opening_update_autofills__RAND__();
+					if(typeof(premises_opening_update_autofills__RAND__) == 'function') premises_opening_update_autofills__RAND__();
 				}
 			});
 		<?php } ?>
 
 		}
-		function premjees_closing_reload__RAND__() {
+		function premises_closing_reload__RAND__() {
 		<?php if($fieldsAreEditable) { ?>
 
-			$j("#premjees_closing-container__RAND__").select2({
+			$j("#premises_closing-container__RAND__").select2({
 				/* initial default value */
 				initSelection: function(e, c) {
 					$j.ajax({
 						url: 'ajax_combo.php',
 						dataType: 'json',
-						data: { id: AppGini.current_premjees_closing__RAND__.value, t: 'premises', f: 'premjees_closing' },
+						data: { id: AppGini.current_premises_closing__RAND__.value, t: 'premises', f: 'premises_closing' },
 						success: function(resp) {
 							c({
 								id: resp.results[0].id,
 								text: resp.results[0].text
 							});
-							$j('[name="premjees_closing"]').val(resp.results[0].id);
-							$j('[id=premjees_closing-container-readonly__RAND__]').html('<span class="match-text" id="premjees_closing-match-text">' + resp.results[0].text + '</span>');
+							$j('[name="premises_closing"]').val(resp.results[0].id);
+							$j('[id=premises_closing-container-readonly__RAND__]').html('<span class="match-text" id="premises_closing-match-text">' + resp.results[0].text + '</span>');
 							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whens_view_parent]').hide(); } else { $j('.btn[id=whens_view_parent]').show(); }
 
 
-							if(typeof(premjees_closing_update_autofills__RAND__) == 'function') premjees_closing_update_autofills__RAND__();
+							if(typeof(premises_closing_update_autofills__RAND__) == 'function') premises_closing_update_autofills__RAND__();
 						}
 					});
 				},
@@ -440,33 +440,33 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 					url: 'ajax_combo.php',
 					dataType: 'json',
 					cache: true,
-					data: function(term, page) { return { s: term, p: page, t: 'premises', f: 'premjees_closing' }; },
+					data: function(term, page) { return { s: term, p: page, t: 'premises', f: 'premises_closing' }; },
 					results: function(resp, page) { return resp; }
 				},
 				escapeMarkup: function(str) { return str; }
 			}).on('change', function(e) {
-				AppGini.current_premjees_closing__RAND__.value = e.added.id;
-				AppGini.current_premjees_closing__RAND__.text = e.added.text;
-				$j('[name="premjees_closing"]').val(e.added.id);
+				AppGini.current_premises_closing__RAND__.value = e.added.id;
+				AppGini.current_premises_closing__RAND__.text = e.added.text;
+				$j('[name="premises_closing"]').val(e.added.id);
 				$j(this).parents('.form-group')
 					.find('.btn[id=whens_view_parent]')
 					.toggleClass('hidden', e.added.id == '<?php echo empty_lookup_value; ?>');
 
 
-				if(typeof(premjees_closing_update_autofills__RAND__) == 'function') premjees_closing_update_autofills__RAND__();
+				if(typeof(premises_closing_update_autofills__RAND__) == 'function') premises_closing_update_autofills__RAND__();
 			});
 
-			if(!$j("#premjees_closing-container__RAND__").length) {
+			if(!$j("#premises_closing-container__RAND__").length) {
 				$j.ajax({
 					url: 'ajax_combo.php',
 					dataType: 'json',
-					data: { id: AppGini.current_premjees_closing__RAND__.value, t: 'premises', f: 'premjees_closing' },
+					data: { id: AppGini.current_premises_closing__RAND__.value, t: 'premises', f: 'premises_closing' },
 					success: function(resp) {
-						$j('[name="premjees_closing"]').val(resp.results[0].id);
-						$j('[id=premjees_closing-container-readonly__RAND__]').html('<span class="match-text" id="premjees_closing-match-text">' + resp.results[0].text + '</span>');
+						$j('[name="premises_closing"]').val(resp.results[0].id);
+						$j('[id=premises_closing-container-readonly__RAND__]').html('<span class="match-text" id="premises_closing-match-text">' + resp.results[0].text + '</span>');
 						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whens_view_parent]').hide(); } else { $j('.btn[id=whens_view_parent]').show(); }
 
-						if(typeof(premjees_closing_update_autofills__RAND__) == 'function') premjees_closing_update_autofills__RAND__();
+						if(typeof(premises_closing_update_autofills__RAND__) == 'function') premises_closing_update_autofills__RAND__();
 					}
 				});
 			}
@@ -476,12 +476,12 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 			$j.ajax({
 				url: 'ajax_combo.php',
 				dataType: 'json',
-				data: { id: AppGini.current_premjees_closing__RAND__.value, t: 'premises', f: 'premjees_closing' },
+				data: { id: AppGini.current_premises_closing__RAND__.value, t: 'premises', f: 'premises_closing' },
 				success: function(resp) {
-					$j('[id=premjees_closing-container__RAND__], [id=premjees_closing-container-readonly__RAND__]').html('<span class="match-text" id="premjees_closing-match-text">' + resp.results[0].text + '</span>');
+					$j('[id=premises_closing-container__RAND__], [id=premises_closing-container-readonly__RAND__]').html('<span class="match-text" id="premises_closing-match-text">' + resp.results[0].text + '</span>');
 					if(resp.results[0].id == '<?php echo empty_lookup_value; ?>') { $j('.btn[id=whens_view_parent]').hide(); } else { $j('.btn[id=whens_view_parent]').show(); }
 
-					if(typeof(premjees_closing_update_autofills__RAND__) == 'function') premjees_closing_update_autofills__RAND__();
+					if(typeof(premises_closing_update_autofills__RAND__) == 'function') premises_closing_update_autofills__RAND__();
 				}
 			});
 		<?php } ?>
@@ -576,10 +576,10 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 		$jsReadOnly .= "\t\$j('#premises_latitude').replaceWith('<div class=\"form-control-static\" id=\"premises_latitude\">' + (\$j('#premises_latitude').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#premises_longitude').replaceWith('<div class=\"form-control-static\" id=\"premises_longitude\">' + (\$j('#premises_longitude').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#premises_radius').replaceWith('<div class=\"form-control-static\" id=\"premises_radius\">' + (\$j('#premises_radius').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\t\$j('#premjees_opening').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
-		$jsReadOnly .= "\t\$j('#premjees_opening_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
-		$jsReadOnly .= "\t\$j('#premjees_closing').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
-		$jsReadOnly .= "\t\$j('#premjees_closing_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#premises_opening').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#premises_opening_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#premises_closing').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\t\$j('#premises_closing_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -590,15 +590,15 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 	}
 
 	// process combos
-	$templateCode = str_replace('<%%COMBO(premjees_opening)%%>', $combo_premjees_opening->HTML, $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(premjees_opening)%%>', $combo_premjees_opening->MatchText, $templateCode);
-	$templateCode = str_replace('<%%URLCOMBOTEXT(premjees_opening)%%>', urlencode($combo_premjees_opening->MatchText), $templateCode);
-	$templateCode = str_replace('<%%COMBO(premjees_closing)%%>', $combo_premjees_closing->HTML, $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(premjees_closing)%%>', $combo_premjees_closing->MatchText, $templateCode);
-	$templateCode = str_replace('<%%URLCOMBOTEXT(premjees_closing)%%>', urlencode($combo_premjees_closing->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(premises_opening)%%>', $combo_premises_opening->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(premises_opening)%%>', $combo_premises_opening->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(premises_opening)%%>', urlencode($combo_premises_opening->MatchText), $templateCode);
+	$templateCode = str_replace('<%%COMBO(premises_closing)%%>', $combo_premises_closing->HTML, $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(premises_closing)%%>', $combo_premises_closing->MatchText, $templateCode);
+	$templateCode = str_replace('<%%URLCOMBOTEXT(premises_closing)%%>', urlencode($combo_premises_closing->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['premjees_opening' => ['whens', 'Premjees Opening'], 'premjees_closing' => ['whens', 'Premjees closing'], ];
+	$lookup_fields = ['premises_opening' => ['whens', 'Premises Opening'], 'premises_closing' => ['whens', 'Premises Closing'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
@@ -619,8 +619,8 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 	$templateCode = str_replace('<%%UPLOADFILE(premises_latitude)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(premises_longitude)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(premises_radius)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(premjees_opening)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(premjees_closing)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(premises_opening)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(premises_closing)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(premises_created)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(premises_updated)%%>', '', $templateCode);
 
@@ -641,12 +641,12 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(premises_radius)%%>', safe_html($urow['premises_radius']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premises_radius)%%>', html_attr($row['premises_radius']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(premises_radius)%%>', urlencode($urow['premises_radius']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(premjees_opening)%%>', safe_html($urow['premjees_opening']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premjees_opening)%%>', html_attr($row['premjees_opening']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(premjees_opening)%%>', urlencode($urow['premjees_opening']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(premjees_closing)%%>', safe_html($urow['premjees_closing']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premjees_closing)%%>', html_attr($row['premjees_closing']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(premjees_closing)%%>', urlencode($urow['premjees_closing']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(premises_opening)%%>', safe_html($urow['premises_opening']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premises_opening)%%>', html_attr($row['premises_opening']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(premises_opening)%%>', urlencode($urow['premises_opening']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(premises_closing)%%>', safe_html($urow['premises_closing']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premises_closing)%%>', html_attr($row['premises_closing']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(premises_closing)%%>', urlencode($urow['premises_closing']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(premises_created)%%>', safe_html($urow['premises_created']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(premises_created)%%>', urlencode($urow['premises_created']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(premises_updated)%%>', safe_html($urow['premises_updated']), $templateCode);
@@ -662,10 +662,10 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 		$templateCode = str_replace('<%%URLVALUE(premises_longitude)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(premises_radius)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(premises_radius)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(premjees_opening)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(premjees_opening)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(premjees_closing)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(premjees_closing)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(premises_opening)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(premises_opening)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(premises_closing)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(premises_closing)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(premises_created)%%>', '<%%creationTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(premises_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(premises_updated)%%>', '<%%editingTimestamp%%>', $templateCode);

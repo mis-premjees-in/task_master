@@ -8,8 +8,8 @@
 
 		/* data for selected record, or defaults if none is selected */
 		var data = {
-			premjees_opening: <?php echo json_encode(['id' => $rdata['premjees_opening'], 'value' => $rdata['premjees_opening'], 'text' => $jdata['premjees_opening']]); ?>,
-			premjees_closing: <?php echo json_encode(['id' => $rdata['premjees_closing'], 'value' => $rdata['premjees_closing'], 'text' => $jdata['premjees_closing']]); ?>
+			premises_opening: <?php echo json_encode(['id' => $rdata['premises_opening'], 'value' => $rdata['premises_opening'], 'text' => $jdata['premises_opening']]); ?>,
+			premises_closing: <?php echo json_encode(['id' => $rdata['premises_closing'], 'value' => $rdata['premises_closing'], 'text' => $jdata['premises_closing']]); ?>
 		};
 
 		/* initialize or continue using AppGini.cache for the current table */
@@ -17,19 +17,19 @@
 		AppGini.cache[tn] = AppGini.cache[tn] || AppGini.ajaxCache();
 		var cache = AppGini.cache[tn];
 
-		/* saved value for premjees_opening */
+		/* saved value for premises_opening */
 		cache.addCheck(function(u, d) {
 			if(u != 'ajax_combo.php') return false;
-			if(d.t == tn && d.f == 'premjees_opening' && d.id == data.premjees_opening.id)
-				return { results: [ data.premjees_opening ], more: false, elapsed: 0.01 };
+			if(d.t == tn && d.f == 'premises_opening' && d.id == data.premises_opening.id)
+				return { results: [ data.premises_opening ], more: false, elapsed: 0.01 };
 			return false;
 		});
 
-		/* saved value for premjees_closing */
+		/* saved value for premises_closing */
 		cache.addCheck(function(u, d) {
 			if(u != 'ajax_combo.php') return false;
-			if(d.t == tn && d.f == 'premjees_closing' && d.id == data.premjees_closing.id)
-				return { results: [ data.premjees_closing ], more: false, elapsed: 0.01 };
+			if(d.t == tn && d.f == 'premises_closing' && d.id == data.premises_closing.id)
+				return { results: [ data.premises_closing ], more: false, elapsed: 0.01 };
 			return false;
 		});
 

@@ -117,7 +117,7 @@
 			'howqs' => "`howqs`.`howqs_id` as 'howqs_id', `howqs`.`howqs_howq1` as 'howqs_howq1', `howqs`.`howqs_howq2` as 'howqs_howq2', `howqs`.`howqs_howq3` as 'howqs_howq3', `howqs`.`howqs_description` as 'howqs_description', `howqs`.`howqs_created` as 'howqs_created', `howqs`.`howqs_updated` as 'howqs_updated'",
 			'howts' => "`howts`.`howts_id` as 'howts_id', `howts`.`howts_howt1` as 'howts_howt1', `howts`.`howts_howt2` as 'howts_howt2', `howts`.`howts_howt3` as 'howts_howt3', `howts`.`howrs_description` as 'howrs_description', `howts`.`howrs_created` as 'howrs_created', `howts`.`howrs_updated` as 'howrs_updated'",
 			'utedb' => "`utedb`.`utedb_id` as 'utedb_id', IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') as 'utedb_madb', IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') as 'utedb_whos_id', IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') as 'utedb_premises_id', `utedb`.`utedb_proof_image` as 'utedb_proof_image', `utedb`.`utedb_ai_audit` as 'utedb_ai_audit', `utedb`.`utedb_pc_audit` as 'utedb_pc_audit', `utedb`.`utedb_rda_audit` as 'utedb_rda_audit', `utedb`.`utedb_bb_audit` as 'utedb_bb_audit', `utedb`.`utedb_car` as 'utedb_car', `utedb`.`utedb_car_vid` as 'utedb_car_vid', `utedb`.`utedb_col_tf` as 'utedb_col_tf', `utedb`.`utedb_delta_flag` as 'utedb_delta_flag', `utedb`.`utedb_hows1` as 'utedb_hows1', `utedb`.`utedb_admin` as 'utedb_admin', `utedb`.`utedb_created` as 'utedb_created', `utedb`.`utedb_updated` as 'utedb_updated'",
-			'premises' => "`premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'premjees_opening', IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') as 'premjees_closing', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated'",
+			'premises' => "`premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'premises_opening', IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') as 'premises_closing', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated'",
 			'pnb' => "`pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', `pnb`.`pnb_admin` as 'pnb_admin', `pnb`.`pnb_comments` as 'pnb_comments', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated'",
 		];
 
@@ -142,7 +142,7 @@
 			'howqs' => "`howqs` ",
 			'howts' => "`howts` ",
 			'utedb' => "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`utedb`.`utedb_whos_id` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`utedb`.`utedb_premises_id` ",
-			'premises' => "`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` ",
+			'premises' => "`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` ",
 			'pnb' => "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` ",
 		];
 
@@ -366,8 +366,8 @@
 				'premises_latitude' => '',
 				'premises_longitude' => '',
 				'premises_radius' => '',
-				'premjees_opening' => '',
-				'premjees_closing' => '',
+				'premises_opening' => '',
+				'premises_closing' => '',
 				'premises_created' => '',
 				'premises_updated' => '',
 			],
@@ -1797,19 +1797,19 @@ EOT;
 				],
 			],
 			'premises' => [
-				'premjees_opening' => [
+				'premises_opening' => [
 					'parent-table' => 'whens',
 					'parent-primary-key' => 'whens_id',
 					'child-primary-key' => 'premises_id',
 					'child-primary-key-index' => 0,
-					'tab-label' => 'Premises <span class="hidden child-label-premises child-field-caption">(Premjees Opening)</span>',
+					'tab-label' => 'Premises <span class="hidden child-label-premises child-field-caption">(Premises Opening)</span>',
 					'auto-close' => false,
 					'table-icon' => 'table.gif',
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => [0 => 'Id', 1 => 'Premise Name', 2 => 'Latitude', 3 => 'Longitude', 4 => 'Premises radius', 5 => 'Premjees Opening', 6 => 'Premjees closing', 7 => 'Created AT', 8 => 'Updated AT'],
-					'display-field-names' => [0 => 'premises_id', 1 => 'premises_name', 2 => 'premises_latitude', 3 => 'premises_longitude', 4 => 'premises_radius', 5 => 'premjees_opening', 6 => 'premjees_closing', 7 => 'premises_created', 8 => 'premises_updated'],
+					'display-fields' => [0 => 'Id', 1 => 'Premise Name', 2 => 'Latitude', 3 => 'Longitude', 4 => 'Premises radius', 5 => 'Premises Opening', 6 => 'Premises Closing', 7 => 'Created AT', 8 => 'Updated AT'],
+					'display-field-names' => [0 => 'premises_id', 1 => 'premises_name', 2 => 'premises_latitude', 3 => 'premises_longitude', 4 => 'premises_radius', 5 => 'premises_opening', 6 => 'premises_closing', 7 => 'premises_created', 8 => 'premises_updated'],
 					'sortable-fields' => [0 => '`premises`.`premises_id`', 1 => 2, 2 => '`premises`.`premises_latitude`', 3 => '`premises`.`premises_longitude`', 4 => '`premises`.`premises_radius`', 5 => 6, 6 => 7, 7 => '`premises`.`premises_created`', 8 => '`premises`.`premises_updated`'],
 					'records-per-page' => 10,
 					'default-sort-by' => false,
@@ -1819,21 +1819,21 @@ EOT;
 					'show-page-progress' => true,
 					'template' => 'children-premises',
 					'template-printable' => 'children-premises-printable',
-					'query' => "SELECT `premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'premjees_opening', IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') as 'premjees_closing', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated' FROM `premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` "
+					'query' => "SELECT `premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'premises_opening', IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') as 'premises_closing', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated' FROM `premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` "
 				],
-				'premjees_closing' => [
+				'premises_closing' => [
 					'parent-table' => 'whens',
 					'parent-primary-key' => 'whens_id',
 					'child-primary-key' => 'premises_id',
 					'child-primary-key-index' => 0,
-					'tab-label' => 'Premises <span class="hidden child-label-premises child-field-caption">(Premjees closing)</span>',
+					'tab-label' => 'Premises <span class="hidden child-label-premises child-field-caption">(Premises Closing)</span>',
 					'auto-close' => false,
 					'table-icon' => 'table.gif',
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => [0 => 'Id', 1 => 'Premise Name', 2 => 'Latitude', 3 => 'Longitude', 4 => 'Premises radius', 5 => 'Premjees Opening', 6 => 'Premjees closing', 7 => 'Created AT', 8 => 'Updated AT'],
-					'display-field-names' => [0 => 'premises_id', 1 => 'premises_name', 2 => 'premises_latitude', 3 => 'premises_longitude', 4 => 'premises_radius', 5 => 'premjees_opening', 6 => 'premjees_closing', 7 => 'premises_created', 8 => 'premises_updated'],
+					'display-fields' => [0 => 'Id', 1 => 'Premise Name', 2 => 'Latitude', 3 => 'Longitude', 4 => 'Premises radius', 5 => 'Premises Opening', 6 => 'Premises Closing', 7 => 'Created AT', 8 => 'Updated AT'],
+					'display-field-names' => [0 => 'premises_id', 1 => 'premises_name', 2 => 'premises_latitude', 3 => 'premises_longitude', 4 => 'premises_radius', 5 => 'premises_opening', 6 => 'premises_closing', 7 => 'premises_created', 8 => 'premises_updated'],
 					'sortable-fields' => [0 => '`premises`.`premises_id`', 1 => 2, 2 => '`premises`.`premises_latitude`', 3 => '`premises`.`premises_longitude`', 4 => '`premises`.`premises_radius`', 5 => 6, 6 => 7, 7 => '`premises`.`premises_created`', 8 => '`premises`.`premises_updated`'],
 					'records-per-page' => 10,
 					'default-sort-by' => false,
@@ -1843,7 +1843,7 @@ EOT;
 					'show-page-progress' => true,
 					'template' => 'children-premises',
 					'template-printable' => 'children-premises-printable',
-					'query' => "SELECT `premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'premjees_opening', IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') as 'premjees_closing', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated' FROM `premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` "
+					'query' => "SELECT `premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'premises_opening', IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') as 'premises_closing', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated' FROM `premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` "
 				],
 			],
 			'pnb' => [

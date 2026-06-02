@@ -91,9 +91,9 @@ function whens_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks =
 	// child table: premises
 	$res = sql("SELECT `whens_id` FROM `whens` WHERE `whens_id`='{$selected_id}'", $eo);
 	$whens_id = db_fetch_row($res);
-	$rires = sql("SELECT COUNT(1) FROM `premises` WHERE `premjees_opening`='" . makeSafe($whens_id[0]) . "'", $eo);
+	$rires = sql("SELECT COUNT(1) FROM `premises` WHERE `premises_opening`='" . makeSafe($whens_id[0]) . "'", $eo);
 	$rirow = db_fetch_row($rires);
-	$childrenATag = '<a class="alert-link" href="premises_view.php?filterer_premjees_opening=' . urlencode($whens_id[0]) . '">%s</a>';
+	$childrenATag = '<a class="alert-link" href="premises_view.php?filterer_premises_opening=' . urlencode($whens_id[0]) . '">%s</a>';
 	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
 		$RetMsg = $Translation["couldn't delete"];
 		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);
@@ -111,9 +111,9 @@ function whens_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks =
 	// child table: premises
 	$res = sql("SELECT `whens_id` FROM `whens` WHERE `whens_id`='{$selected_id}'", $eo);
 	$whens_id = db_fetch_row($res);
-	$rires = sql("SELECT COUNT(1) FROM `premises` WHERE `premjees_closing`='" . makeSafe($whens_id[0]) . "'", $eo);
+	$rires = sql("SELECT COUNT(1) FROM `premises` WHERE `premises_closing`='" . makeSafe($whens_id[0]) . "'", $eo);
 	$rirow = db_fetch_row($rires);
-	$childrenATag = '<a class="alert-link" href="premises_view.php?filterer_premjees_closing=' . urlencode($whens_id[0]) . '">%s</a>';
+	$childrenATag = '<a class="alert-link" href="premises_view.php?filterer_premises_closing=' . urlencode($whens_id[0]) . '">%s</a>';
 	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks) {
 		$RetMsg = $Translation["couldn't delete"];
 		$RetMsg = str_replace('<RelatedRecords>', sprintf($childrenATag, $rirow[0]), $RetMsg);

@@ -36,15 +36,8 @@
 		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb','utedb_whos_id','utedb_premises_id',]);
 
-		setupTable('premises', [
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premjees_opening` VARCHAR(40) NULL ",
-				"ALTER TABLE premises ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `premises` CHANGE `field1` `premjees_closing` VARCHAR(40) NULL ",
-				" ALTER TABLE `premises` CHANGE `premjees_closing` `premjees_closing` TIME NULL ",
-				" ALTER TABLE `premises` CHANGE `premjees_closing` `premjees_closing` VARCHAR(40) NULL ",
-			]);
-		setupIndexes('premises', ['premjees_opening','premjees_closing',]);
+		setupTable('premises', []);
+		setupIndexes('premises', ['premises_opening','premises_closing',]);
 
 		setupTable('pnb', []);
 		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);

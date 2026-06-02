@@ -367,7 +367,7 @@
 				'parent_table' => 'premises',
 				'parent_pk_field' => 'premises_id',
 				'parent_caption' => 'IF(CHAR_LENGTH(`premises`.`premises_id`) || CHAR_LENGTH(`premises`.`premises_name`), CONCAT_WS(\'\', `premises`.`premises_id`, \'-\', `premises`.`premises_name`), \'\')',
-				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` ',
+				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` ',
 				'filterers' => [],
 				'custom_query' => '',
 				'inherit_permissions' => false,
@@ -382,7 +382,7 @@
 				'parent_table' => 'premises',
 				'parent_pk_field' => 'premises_id',
 				'parent_caption' => 'IF(CHAR_LENGTH(`premises`.`premises_name`) || CHAR_LENGTH(`premises`.`premises_radius`), CONCAT_WS(\'\', `premises`.`premises_name`, \'-\', `premises`.`premises_radius`), \'\')',
-				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` ',
+				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` ',
 				'filterers' => [],
 				'custom_query' => '',
 				'inherit_permissions' => false,
@@ -433,7 +433,7 @@
 				'parent_table' => 'premises',
 				'parent_pk_field' => 'premises_id',
 				'parent_caption' => 'IF(CHAR_LENGTH(`premises`.`premises_name`) || CHAR_LENGTH(`premises`.`premises_radius`), CONCAT_WS(\'\', `premises`.`premises_name`, \'-\', `premises`.`premises_radius`), \'\')',
-				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` ',
+				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` ',
 				'filterers' => [],
 				'custom_query' => '',
 				'inherit_permissions' => false,
@@ -442,7 +442,7 @@
 			],
 		],
 		'premises' => [
-			'premjees_opening' => [
+			'premises_opening' => [
 				'parent_table' => 'whens',
 				'parent_pk_field' => 'whens_id',
 				'parent_caption' => 'IF(CHAR_LENGTH(`whens`.`whens_when2`) || CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when2`, \'-\', `whens`.`whens_when3`), \'\')',
@@ -453,7 +453,7 @@
 				'list_type' => 0,
 				'not_null' => false,
 			],
-			'premjees_closing' => [
+			'premises_closing' => [
 				'parent_table' => 'whens',
 				'parent_pk_field' => 'whens_id',
 				'parent_caption' => 'IF(CHAR_LENGTH(`whens`.`whens_when2`) || CHAR_LENGTH(`whens`.`whens_when3`), CONCAT_WS(\'\', `whens`.`whens_when2`, \'-\', `whens`.`whens_when3`), \'\')',
@@ -470,7 +470,7 @@
 				'parent_table' => 'premises',
 				'parent_pk_field' => 'premises_id',
 				'parent_caption' => 'IF(CHAR_LENGTH(`premises`.`premises_id`) || CHAR_LENGTH(`premises`.`premises_name`), CONCAT_WS(\'\', `premises`.`premises_id`, \'-\', `premises`.`premises_name`), \'\')',
-				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premjees_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premjees_closing` ',
+				'parent_from' => '`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` ',
 				'filterers' => [],
 				'custom_query' => '',
 				'inherit_permissions' => false,
