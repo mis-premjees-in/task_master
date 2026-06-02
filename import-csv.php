@@ -49,8 +49,8 @@
 		},
 		'whos' => function($data, $options = []) {
 			if(isset($data['whos_premise'])) $data['whos_premise'] = pkGivenLookupText($data['whos_premise'], 'whos', 'whos_premise');
-			if(isset($data['whos_created'])) $data['whos_created'] = guessMySQLDateTime($data['whos_created']);
 			if(isset($data['whos_updated'])) $data['whos_updated'] = guessMySQLDateTime($data['whos_updated']);
+			if(isset($data['whos_created'])) $data['whos_created'] = guessMySQLDateTime($data['whos_created']);
 
 			return $data;
 		},

@@ -23,6 +23,22 @@ function whos_insert(&$error_message = '') {
 		'whos_swg_token' => Request::val('whos_swg_token', ''),
 		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
 		'whos_premise' => Request::lookup('whos_premise', ''),
+		'whos_profile_img' => Request::fileUpload('whos_profile_img', [
+			'maxSize' => 102400,
+			'types' => 'jpg|jpeg|gif|png|webp',
+			'noRename' => false,
+			'dir' => '',
+			'success' => function($name, $selected_id) {
+				Thumbnail::create($name, getThumbnailSpecs('whos', 'whos_profile_img', 'tv'));
+				Thumbnail::create($name, getThumbnailSpecs('whos', 'whos_profile_img', 'dv'));
+			},
+			'failure' => function($selected_id, $fileRemoved) {
+				if(!strlen(Request::val('SelectedID'))) return '';
+
+				/* for empty upload fields, when saving a copy of an existing record, copy the original upload field */
+				return existing_value('whos', 'whos_profile_img', Request::val('SelectedID'));
+			},
+		]),
 		'whos_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
 
@@ -131,6 +147,18 @@ function whos_delete($selected_id, $AllowDeleteOfParents = false, $skipChecks = 
 		return $RetMsg;
 	}
 
+	// delete file stored in the 'whos_profile_img' field
+	$res = sql("SELECT `whos_profile_img` FROM `whos` WHERE `whos_id`='{$selected_id}'", $eo);
+	if($row = @db_fetch_row($res)) {
+		if($row[0] != '') {
+			@unlink(getUploadDir('') . $row[0]);
+			$thumbDV = preg_replace('/\.(jpg|jpeg|gif|png|webp)$/i', '_dv.$1', $row[0]);
+			$thumbTV = preg_replace('/\.(jpg|jpeg|gif|png|webp)$/i', '_tv.$1', $row[0]);
+			@unlink(getUploadDir('') . $thumbTV);
+			@unlink(getUploadDir('') . $thumbDV);
+		}
+	}
+
 	sql("DELETE FROM `whos` WHERE `whos_id`='{$selected_id}'", $eo);
 
 	// hook: whos_after_delete
@@ -157,6 +185,37 @@ function whos_update(&$selected_id, &$error_message = '') {
 		'whos_swg_token' => Request::val('whos_swg_token', ''),
 		'whos_swg_email' => br2nl(Request::val('whos_swg_email', '')),
 		'whos_premise' => Request::lookup('whos_premise', ''),
+		'whos_profile_img' => Request::fileUpload('whos_profile_img', [
+			'maxSize' => 102400,
+			'types' => 'jpg|jpeg|gif|png|webp',
+			'noRename' => false,
+			'dir' => '',
+			'id' => $selected_id,
+			'success' => function($name, $selected_id) {
+				Thumbnail::create($name, getThumbnailSpecs('whos', 'whos_profile_img', 'tv'));
+				Thumbnail::create($name, getThumbnailSpecs('whos', 'whos_profile_img', 'dv'));
+			},
+			'removeOnSuccess' => true,
+			'removeOnRequest' => true,
+			'remove' => function($selected_id) {
+				// delete old file from server
+				$oldFile = existing_value('whos', 'whos_profile_img', $selected_id);
+				if(!$oldFile) return;
+
+				@unlink(getUploadDir('') . $oldFile);
+
+				// delete thumbnails
+				preg_match('/^[a-z0-9_]+\.(jpg|jpeg|gif|png|webp)$/i', $oldFile, $m);
+				$thumbDV = str_replace(".{$m[1]}ffffgggg", "_dv.{$m[1]}", $oldFile . 'ffffgggg');
+				$thumbTV = str_replace(".{$m[1]}ffffgggg", "_tv.{$m[1]}", $oldFile . 'ffffgggg');
+				@unlink(getUploadDir('') . $thumbTV);
+				@unlink(getUploadDir('') . $thumbDV);
+			},
+			'failure' => function($selected_id, $fileRemoved) {
+				if($fileRemoved) return '';
+				return existing_value('whos', 'whos_profile_img', $selected_id);
+			},
+		]),
 		'whos_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
 
@@ -464,6 +523,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$jsReadOnly .= "\t\$j('#whos_swg_email').replaceWith('<div class=\"form-control-static\" id=\"whos_swg_email\">' + (\$j('#whos_swg_email').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('#whos_premise').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\t\$j('#whos_premise_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
+		$jsReadOnly .= "\t\$j('#whos_profile_img').replaceWith('<div class=\"form-control-static\" id=\"whos_profile_img\">' + (\$j('#whos_profile_img').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\t\$j('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -503,8 +563,14 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_token)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_swg_email)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(whos_premise)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(whos_created)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(whos_profile_img)%%>', ($noUploads ? '' : "<div>{$Translation['upload image']}</div>" . '<input type="file" name="whos_profile_img" id="whos_profile_img" data-filetypes="jpg|jpeg|gif|png|webp" data-maxsize="102400" style="max-width: calc(100% - 1.5rem);" accept="capture=camera,image/*">' . '<i class="text-danger clear-upload hidden pull-right" style="margin-top: -.1em; font-size: large;">&times;</i>'), $templateCode);
+	if($allowUpdate && $row['whos_profile_img'] != '') {
+		$templateCode = str_replace('<%%REMOVEFILE(whos_profile_img)%%>', '<input type="checkbox" name="whos_profile_img_remove" id="whos_profile_img_remove" value="1"> <label for="whos_profile_img_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
+	} else {
+		$templateCode = str_replace('<%%REMOVEFILE(whos_profile_img)%%>', '', $templateCode);
+	}
 	$templateCode = str_replace('<%%UPLOADFILE(whos_updated)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(whos_created)%%>', '', $templateCode);
 
 	// process values
 	if($hasSelectedId) {
@@ -530,10 +596,14 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(whos_premise)%%>', safe_html($urow['whos_premise']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(whos_premise)%%>', html_attr($row['whos_premise']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_premise)%%>', urlencode($urow['whos_premise']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(whos_created)%%>', safe_html($urow['whos_created']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode($urow['whos_created']), $templateCode);
+		$row['whos_profile_img'] = ($row['whos_profile_img'] != '' ? $row['whos_profile_img'] : 'blank.gif');
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(whos_profile_img)%%>', safe_html($urow['whos_profile_img']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(whos_profile_img)%%>', html_attr($row['whos_profile_img']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_profile_img)%%>', urlencode($urow['whos_profile_img']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', safe_html($urow['whos_updated']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_updated)%%>', urlencode($urow['whos_updated']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whos_created)%%>', safe_html($urow['whos_created']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode($urow['whos_created']), $templateCode);
 	} else {
 		$templateCode = str_replace('<%%VALUE(whos_id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_id)%%>', urlencode(''), $templateCode);
@@ -551,10 +621,11 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 		$templateCode = str_replace('<%%URLVALUE(whos_swg_email)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_premise)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_premise)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(whos_created)%%>', '<%%creationTimestamp%%>', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whos_profile_img)%%>', 'blank.gif', $templateCode);
 		$templateCode = str_replace('<%%VALUE(whos_updated)%%>', '<%%editingTimestamp%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(whos_updated)%%>', urlencode('<%%editingTimestamp%%>'), $templateCode);
+		$templateCode = str_replace('<%%VALUE(whos_created)%%>', '<%%creationTimestamp%%>', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(whos_created)%%>', urlencode('<%%creationTimestamp%%>'), $templateCode);
 	}
 
 	// process translations

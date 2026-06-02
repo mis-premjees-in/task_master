@@ -93,6 +93,28 @@
 					</div>
 				</div>
 
+				<!-- Field: Profile Image -->
+				<div class="form-group whos-whos_profile_img">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Profile Image <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#whos_profile_img-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="whos_profile_img-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 100 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="row" style="margin-right: 0; margin-left: 0;">
+								<div class="col-lg-8 col-md-6" style="padding-left: 0;"><img src="thumbnail.php?i=<%%VALUE(whos_profile_img)%%>&t=whos&f=whos_profile_img&v=dv" class="img-thumbnail" id="whos_profile_img-image"></div>
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<div class="col-lg-4 col-md-6 well upload-toolbox">
+									<%%REMOVEFILE(whos_profile_img)%%>
+									<%%UPLOADFILE(whos_profile_img)%%>
+									<div class="text-bold text-danger file-type-error hidden"><%%TRANSLATION(invalid file type)%%></div>
+									<div class="text-bold text-danger file-size-error hidden"><%%TRANSLATION(file too large)%%></div>
+								</div>
+							</div>
+						</div>
+						<script>/* disable empty links */ $j(() => { const e_whos_profile_img = '<%%VALUE(whos_profile_img)%%>'; if(e_whos_profile_img == '' || e_whos_profile_img == '&nbsp;' || e_whos_profile_img == 'blank.gif') { $j('#whos_profile_img-link').hide(); $j('#whos_profile_img-image').parents('a').attr('href', '').on('click', (e) => e.preventDefault()); } });</script>
+					</div>
+				</div>
+
 			</fieldset>
 		</div>
 

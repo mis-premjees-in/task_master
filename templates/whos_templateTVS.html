@@ -13,8 +13,9 @@
 		<td id="whos-whos_swg_token-<%%VALUE(whos_id)%%>" class="whos-whos_swg_token text-bold"><%%VALUE(whos_swg_token)%%></td>
 		<td id="whos-whos_swg_email-<%%VALUE(whos_id)%%>" class="whos-whos_swg_email text-bold"><%%VALUE(whos_swg_email)%%></td>
 		<td id="whos-whos_premise-<%%VALUE(whos_id)%%>" class="whos-whos_premise text-bold"><%%VALUE(whos_premise)%%></td>
-		<td id="whos-whos_created-<%%VALUE(whos_id)%%>" class="whos-whos_created text-bold"><%%VALUE(whos_created)%%></td>
+		<td id="whos-whos_profile_img-<%%VALUE(whos_id)%%>" class="whos-whos_profile_img text-bold"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(whos_profile_img)%%>" data-lightbox="whos-whos_profile_img"><img src="thumbnail.php?i=<%%VALUE(whos_profile_img)%%>&t=whos&f=whos_profile_img&v=tv" class="img-thumbnail"></a></td>
 		<td id="whos-whos_updated-<%%VALUE(whos_id)%%>" class="whos-whos_updated text-bold"><%%VALUE(whos_updated)%%></td>
+		<td id="whos-whos_created-<%%VALUE(whos_id)%%>" class="whos-whos_created text-bold"><%%VALUE(whos_created)%%></td>
 		<td class="child-madb-madb_who1 child-records-info" data-id="<%%VALUE(whos_id)%%>" data-table="madb" data-lookup-field="madb_who1">
 			<a href="madb_view.php?filterer_madb_who1=<%%VALUE(whos_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Madb)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
 			<a href="madb_view.php?filterer_madb_who1=<%%VALUE(whos_id)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Madb)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>

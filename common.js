@@ -506,6 +506,12 @@ function whos_validateData(insertMode) {
 
 	if(errors) return false;
 
+	// check file uploads (file type and size)
+	if($j('#whos_profile_img').val() && !AppGini.checkFileUpload('whos_profile_img', 'jpg|jpeg|gif|png|webp', 102400)) {
+		AppGini.scrollTo('whos_profile_img');
+		return false;
+	}
+
 	return !errors;
 }
 function whens_validateData(insertMode) {

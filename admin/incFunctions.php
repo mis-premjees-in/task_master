@@ -271,7 +271,11 @@
 	}
 	########################################################################
 	function getThumbnailSpecs($tableName, $fieldName, $view) {
-		if($tableName=='utedb' && $fieldName=='utedb_proof_image' && $view=='tv')
+		if($tableName=='whos' && $fieldName=='whos_profile_img' && $view=='tv')
+			return ['width'=>50, 'height'=>50, 'identifier'=>'_tv'];
+		elseif($tableName=='whos' && $fieldName=='whos_profile_img' && $view=='dv')
+			return ['width'=>250, 'height'=>250, 'identifier'=>'_dv'];
+		elseif($tableName=='utedb' && $fieldName=='utedb_proof_image' && $view=='tv')
 			return ['width'=>50, 'height'=>50, 'identifier'=>'_tv'];
 		elseif($tableName=='utedb' && $fieldName=='utedb_proof_image' && $view=='dv')
 			return ['width'=>250, 'height'=>250, 'identifier'=>'_dv'];
@@ -1348,17 +1352,24 @@
 							'description' => '',
 						],
 					],
-					'whos_created' => [
-						'appgini' => "TIMESTAMP NULL",
+					'whos_profile_img' => [
+						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
-							'caption' => 'Created AT',
-							'description' => '',
+							'caption' => 'Profile Image',
+							'description' => 'Maximum file size allowed: 100 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
 						],
 					],
 					'whos_updated' => [
 						'appgini' => "TIMESTAMP NULL",
 						'info' => [
 							'caption' => 'Updated AT',
+							'description' => '',
+						],
+					],
+					'whos_created' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'Created AT',
 							'description' => '',
 						],
 					],

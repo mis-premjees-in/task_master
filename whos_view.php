@@ -26,8 +26,9 @@
 		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_swg_email`" => "whos_swg_email",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "whos_premise",
-		"`whos`.`whos_created`" => "whos_created",
+		"`whos`.`whos_profile_img`" => "whos_profile_img",
 		"`whos`.`whos_updated`" => "whos_updated",
+		"`whos`.`whos_created`" => "whos_created",
 	];
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = [
@@ -39,8 +40,9 @@
 		6 => 6,
 		7 => 7,
 		8 => 8,
-		9 => '`whos`.`whos_created`',
+		9 => 9,
 		10 => '`whos`.`whos_updated`',
+		11 => '`whos`.`whos_created`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -53,8 +55,9 @@
 		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_swg_email`" => "whos_swg_email",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "whos_premise",
-		"`whos`.`whos_created`" => "whos_created",
+		"`whos`.`whos_profile_img`" => "whos_profile_img",
 		"`whos`.`whos_updated`" => "whos_updated",
+		"`whos`.`whos_created`" => "whos_created",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
@@ -66,8 +69,8 @@
 		"`whos`.`whos_swg_token`" => "SWG Token",
 		"`whos`.`whos_swg_email`" => "SWG Email",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "Whos premise",
-		"`whos`.`whos_created`" => "Created AT",
 		"`whos`.`whos_updated`" => "Updated AT",
+		"`whos`.`whos_created`" => "Created AT",
 	];
 
 	// Fields that can be quick searched
@@ -80,8 +83,8 @@
 		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_swg_email`" => "whos_swg_email",
 		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "whos_premise",
-		"`whos`.`whos_created`" => "whos_created",
 		"`whos`.`whos_updated`" => "whos_updated",
+		"`whos`.`whos_created`" => "whos_created",
 	];
 
 	// Lookup fields that can be used as filterers
@@ -115,10 +118,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`whos`.`whos_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Who1 (Doer Role)', 'Who2 (Doer ID)', 'Who3 (Buddy ID)', 'Description', 'SWG Token', 'SWG Email', 'Whos premise', 'Created AT', 'Updated AT', 'Madb', ];
-	$x->ColFieldName = ['whos_id', 'whos_who1', 'whos_who2', 'whos_who3', 'whos_description', 'whos_swg_token', 'whos_swg_email', 'whos_premise', 'whos_created', 'whos_updated', '%madb.madb_who1%', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'Who1 (Doer Role)', 'Who2 (Doer ID)', 'Who3 (Buddy ID)', 'Description', 'SWG Token', 'SWG Email', 'Whos premise', 'Profile Image', 'Updated AT', 'Created AT', 'Madb', ];
+	$x->ColFieldName = ['whos_id', 'whos_who1', 'whos_who2', 'whos_who3', 'whos_description', 'whos_swg_token', 'whos_swg_email', 'whos_premise', 'whos_profile_img', 'whos_updated', 'whos_created', '%madb.madb_who1%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/whos_templateTV.html';

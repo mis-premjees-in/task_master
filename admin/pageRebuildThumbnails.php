@@ -5,6 +5,9 @@
 
 	// image paths
 	$p = [
+		'whos' => [
+			'whos_profile_img' => '../' . getUploadDir(''),
+		],
 		'utedb' => [
 			'utedb_proof_image' => '../' . getUploadDir(''),
 		],

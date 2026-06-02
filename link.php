@@ -3,6 +3,10 @@
 
 	// upload paths
 	$p = [
+		'whos' => [
+			'whos_profile_img' => getUploadDir(''),
+			'primary key' => 'whos_id'
+		],
 		'utedb' => [
 			'utedb_proof_image' => getUploadDir(''),
 			'utedb_car_vid' => getUploadDir(''),
