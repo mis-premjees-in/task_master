@@ -1,0 +1,275 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/ilct_info-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="ilct_info_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="ilct_info_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="ilct_info_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: ILCT INFO Id -->
+				<div class="form-group ilct_info-ilct_info_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_id">ILCT INFO Id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="ilct_info_id"><%%VALUE(ilct_info_id)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Title -->
+				<div class="form-group ilct_info-ilct_info_title">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_title">ILCT INFO Title<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="ilct_info_title" id="ilct_info_title" value="<%%VALUE(ilct_info_title)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Description -->
+				<div class="form-group ilct_info-ilct_info_description">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_description">ILCT INFO Description</label>
+					<div class="col-lg-9">
+						<textarea maxlength="255" class="form-control" name="ilct_info_description" id="ilct_info_description" rows=" 5"><%%VALUE(ilct_info_description)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Link -->
+				<div class="form-group ilct_info-ilct_info_link">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_link">ILCT INFO Link</label>
+					<div class="col-lg-9">
+						<textarea maxlength="255" class="form-control" name="ilct_info_link" id="ilct_info_link" rows=" 5"><%%VALUE(ilct_info_link)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO User -->
+				<div class="form-group ilct_info-ilct_info_user">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_user">ILCT INFO User</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="ilct_info_user" id="ilct_info_user" value="<%%VALUE(ilct_info_user)%%>">
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Pass -->
+				<div class="form-group ilct_info-ilct_info_pass">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_pass">ILCT INFO Pass</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="ilct_info_pass" id="ilct_info_pass" value="<%%VALUE(ilct_info_pass)%%>">
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Token -->
+				<div class="form-group ilct_info-ilct_info_token">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_token">ILCT INFO Token</label>
+					<div class="col-lg-9">
+						<input maxlength="255" type="text" class="form-control" name="ilct_info_token" id="ilct_info_token" value="<%%VALUE(ilct_info_token)%%>">
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Pass Code -->
+				<div class="form-group ilct_info-ilct_info_pass_code">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_pass_code">ILCT INFO Pass Code</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="ilct_info_pass_code" id="ilct_info_pass_code" value="<%%VALUE(ilct_info_pass_code)%%>">
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Related Table -->
+				<div class="form-group ilct_info-ilct_info_related_table">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ilct_info_related_table">ILCT INFO Related Table</label>
+					<div class="col-lg-9">
+						<%%COMBO(ilct_info_related_table)%%>
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Created -->
+				<div class="form-group ilct_info-ilct_info_created">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">ILCT INFO Created</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="ilct_info_created"><%%VALUE(ilct_info_created)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: ILCT INFO Updated -->
+				<div class="form-group ilct_info-ilct_info_updated">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">ILCT INFO Updated</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="ilct_info_updated"><%%VALUE(ilct_info_updated)%%></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2 dv-action-buttons" id="ilct_info_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#ilct_info_dv_container-loading').addClass('hidden');
+			$j('#ilct_info_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('ilct_info', 'ilct_info_title');
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+
+			if(true /* !embedded_mode */) {
+				$j('.add_new_parent').click(function() {
+					const fieldId = $j(this).prevAll('input:hidden').eq(0).attr('id');
+					const pt = $j(this).attr('id').replace(/_add_new$/, '');
+
+					modal_window({
+						url: `${pt}_view.php?addNew_x=1&Embedded=1`,
+						close: function() {
+							$j(`#${fieldId}-container`).select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = AppGini.localStorage.getItem(`${pt}_last_added_id`);
+							if(new_id === null) return;
+
+							AppGini.localStorage.removeItem(`${pt}_last_added_id`);
+							AppGini.lookupText({
+								id: new_id,
+								table: AppGini.currentTableName(),
+								field: fieldId,
+								callback: function(data) {
+									$j(`#${fieldId}-container`).select2('data', data, true);
+								}
+							});
+						},
+						beforeClose: AppGini.confirmBeforeClosingModal,
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				const pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				const fieldId = $j(this).prevAll('input:hidden').eq(0).attr('id');
+
+				let parent_id = '{empty_value}';
+				if(fieldId) {
+					parent_id = $j(`#${fieldId}`).val();
+				} else if($j(this).prevAll('[type=radio]').length) { /* handle radio lookups */
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				} else {
+					parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id !== undefined && parent_id !== '') {
+					const parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: `${pt}_view.php?Embedded=1&SelectedID=${encodeURIComponent(parent_id)}`,
+								close: function() {
+									$j(`#${fieldId}-container`).select2('focus').select2('focus');
+
+									// update lookup text in case the parent record was updated
+									AppGini.lookupText({
+										id: parent_id,
+										table: AppGini.currentTableName(),
+										field: fieldId,
+										cache: false,
+										callback: function(data) {
+											$j(`#${fieldId}-container`).select2('data', data, true);
+
+											// update auto-fills
+											const updaterName = `${fieldId}_update_autofills`;
+											if(typeof(window[updaterName]) == 'function')
+												window[updaterName]();
+										}
+									});
+								},
+								beforeClose: AppGini.confirmBeforeClosingModal,
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = `${pt}_view.php?Embedded=${embedded_mode ? '1' : ''}&SelectedID=${encodeURIComponent(parent_id)}`;
+							break;
+						case 'view_parent_new_window':
+							window.open(`${pt}_view.php?SelectedID=${encodeURIComponent(parent_id)}`);
+							break;
+					}
+
+				}
+			});
+
+			ilct_infoUniqueFields.forEach(fieldName => enforce_uniqueness('ilct_info', fieldName));
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=ilct_info&id=<%%URLVALUE(ilct_info_id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=ilct_info&id=<%%URLVALUE(ilct_info_id)%%>');
+					}
+				);
+			}
+		});
+
+		var ilct_infoUniqueFields = [
+		];
+	</script>

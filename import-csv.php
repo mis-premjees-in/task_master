@@ -127,6 +127,11 @@
 
 			return $data;
 		},
+		'ilct_info' => function($data, $options = []) {
+			if(isset($data['ilct_info_updated'])) $data['ilct_info_updated'] = guessMySQLDateTime($data['ilct_info_updated']);
+
+			return $data;
+		},
 	];
 
 	// accept a record as an assoc array, return a boolean indicating whether to import or skip record
@@ -145,6 +150,7 @@
 		'utedb' => function($data, $options = []) { return true; },
 		'premises' => function($data, $options = []) { return true; },
 		'pnb' => function($data, $options = []) { return true; },
+		'ilct_info' => function($data, $options = []) { return true; },
 	];
 
 	/*

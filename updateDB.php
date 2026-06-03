@@ -42,6 +42,48 @@
 		setupTable('pnb', []);
 		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);
 
+		setupTable('ilct_info', [
+				"ALTER TABLE `table15` RENAME `ilct_info`",
+				"UPDATE `membership_userrecords` SET `tableName`='ilct_info' WHERE `tableName`='table15'",
+				"UPDATE `membership_userpermissions` SET `tableName`='ilct_info' WHERE `tableName`='table15'",
+				"UPDATE `membership_grouppermissions` SET `tableName`='ilct_info' WHERE `tableName`='table15'",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_id` VARCHAR(40) NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` BIGINT NULL ",
+				"ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` BIGINT NOT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` INT NOT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` INT NOT NULL AUTO_INCREMENT ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_title` VARCHAR(40) NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_description` VARCHAR(40) NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_link` VARCHAR(40) NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_link` `ilct_info_link` TINYTEXT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_description` `ilct_info_description` TINYTEXT NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_user` VARCHAR(40) NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_pass` VARCHAR(40) NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_token` VARCHAR(40) NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_token` `ilct_info_token` VARCHAR(255) NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_pass_code` VARCHAR(40) NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_created` VARCHAR(40) NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_created` `ilct_info_created` TIME NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_created` `ilct_info_created` TIME NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_updated` VARCHAR(40) NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_updated` `ilct_info_updated` TIMESTAMP NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_updated` `ilct_info_updated` TIMESTAMP NULL ",
+				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
+				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_related_table` VARCHAR(40) NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_title` `ilct_info_title` VARCHAR(40) NOT NULL ",
+				"ALTER TABLE `ilct_info` ADD PRIMARY KEY (`ilct_info_id`)",
+			]);
+
 
 
 		// set up internal tables

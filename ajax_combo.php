@@ -489,6 +489,8 @@
 				'not_null' => true,
 			],
 		],
+		'ilct_info' => [
+		],
 	];
 
 	// XSS prevention

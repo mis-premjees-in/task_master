@@ -236,7 +236,7 @@ function pnb_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $a
 		$combo_pnb_delta_flag->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions($pnb_delta_flag_data))));
 		$combo_pnb_delta_flag->ListData = $combo_pnb_delta_flag->ListItem;
 	} else {
-		$combo_pnb_delta_flag->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Red;;Green"))));
+		$combo_pnb_delta_flag->ListItem = array_trim(explode('||', entitiesToUTF8(convertLegacyOptions("Red;;Green;;Orange"))));
 		$combo_pnb_delta_flag->ListData = $combo_pnb_delta_flag->ListItem;
 	}
 	$combo_pnb_delta_flag->SelectName = 'pnb_delta_flag';

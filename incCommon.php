@@ -119,6 +119,7 @@
 			'utedb' => "`utedb`.`utedb_id` as 'utedb_id', IF(    CHAR_LENGTH(`madb1`.`madb_id`) || CHAR_LENGTH(`whats1`.`whats_what1`), CONCAT_WS('',   `madb1`.`madb_id`, '-', `whats1`.`whats_what1`), '') as 'utedb_madb', IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') as 'utedb_whos_id', IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') as 'utedb_premises_id', `utedb`.`utedb_proof_image` as 'utedb_proof_image', `utedb`.`utedb_ai_audit` as 'utedb_ai_audit', `utedb`.`utedb_pc_audit` as 'utedb_pc_audit', `utedb`.`utedb_rda_audit` as 'utedb_rda_audit', `utedb`.`utedb_bb_audit` as 'utedb_bb_audit', `utedb`.`utedb_car` as 'utedb_car', `utedb`.`utedb_car_vid` as 'utedb_car_vid', `utedb`.`utedb_col_tf` as 'utedb_col_tf', `utedb`.`utedb_delta_flag` as 'utedb_delta_flag', `utedb`.`utedb_hows1` as 'utedb_hows1', `utedb`.`utedb_admin` as 'utedb_admin', `utedb`.`utedb_created` as 'utedb_created', `utedb`.`utedb_updated` as 'utedb_updated'",
 			'premises' => "`premises`.`premises_id` as 'premises_id', `premises`.`premises_name` as 'premises_name', `premises`.`premises_latitude` as 'premises_latitude', `premises`.`premises_longitude` as 'premises_longitude', `premises`.`premises_radius` as 'premises_radius', IF(    CHAR_LENGTH(`whens1`.`whens_when2`) || CHAR_LENGTH(if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens1`.`whens_when2`, '-', if(`whens1`.`whens_when3`,time_format(`whens1`.`whens_when3`,'%r'),'')), '') as 'premises_opening', IF(    CHAR_LENGTH(`whens2`.`whens_when2`) || CHAR_LENGTH(if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), CONCAT_WS('',   `whens2`.`whens_when2`, '-', if(`whens2`.`whens_when3`,time_format(`whens2`.`whens_when3`,'%r'),'')), '') as 'premises_closing', `premises`.`premises_created` as 'premises_created', `premises`.`premises_updated` as 'premises_updated'",
 			'pnb' => "`pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', `pnb`.`pnb_admin` as 'pnb_admin', `pnb`.`pnb_comments` as 'pnb_comments', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated'",
+			'ilct_info' => "`ilct_info`.`ilct_info_id` as 'ilct_info_id', `ilct_info`.`ilct_info_title` as 'ilct_info_title', `ilct_info`.`ilct_info_description` as 'ilct_info_description', `ilct_info`.`ilct_info_link` as 'ilct_info_link', `ilct_info`.`ilct_info_user` as 'ilct_info_user', `ilct_info`.`ilct_info_pass` as 'ilct_info_pass', `ilct_info`.`ilct_info_token` as 'ilct_info_token', `ilct_info`.`ilct_info_pass_code` as 'ilct_info_pass_code', `ilct_info`.`ilct_info_related_table` as 'ilct_info_related_table', TIME_FORMAT(`ilct_info`.`ilct_info_created`, '%r') as 'ilct_info_created', `ilct_info`.`ilct_info_updated` as 'ilct_info_updated'",
 		];
 
 		if(isset($sql_fields[$table_name])) return $sql_fields[$table_name];
@@ -144,6 +145,7 @@
 			'utedb' => "`utedb` LEFT JOIN `madb` as madb1 ON `madb1`.`madb_id`=`utedb`.`utedb_madb` LEFT JOIN `whats` as whats1 ON `whats1`.`whats_id`=`madb1`.`madb_what1` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`utedb`.`utedb_whos_id` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`utedb`.`utedb_premises_id` ",
 			'premises' => "`premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` ",
 			'pnb' => "`pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` ",
+			'ilct_info' => "`ilct_info` ",
 		];
 
 		$pkey = [
@@ -161,6 +163,7 @@
 			'utedb' => 'utedb_id',
 			'premises' => 'premises_id',
 			'pnb' => 'pnb_id',
+			'ilct_info' => 'ilct_info_id',
 		];
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -382,6 +385,19 @@
 				'pnb_comments' => '',
 				'pnb_created' => '',
 				'pnb_updated' => '',
+			],
+			'ilct_info' => [
+				'ilct_info_id' => '',
+				'ilct_info_title' => '',
+				'ilct_info_description' => '',
+				'ilct_info_link' => '',
+				'ilct_info_user' => '',
+				'ilct_info_pass' => '',
+				'ilct_info_token' => '',
+				'ilct_info_pass_code' => '',
+				'ilct_info_related_table' => '',
+				'ilct_info_created' => '',
+				'ilct_info_updated' => '',
 			],
 		];
 
@@ -1208,7 +1224,7 @@
 	#########################################################
 
 	function tablesWithAddNewInHomepage() {
-		return ['madb','whats','whos','whens','whichs','wheres','whys','howrs','howqs','howts','utedb','premises','pnb',];
+		return ['madb','whats','whos','whens','whichs','wheres','whys','howrs','howqs','howts','utedb','premises','pnb','ilct_info',];
 	}
 
 	#########################################################
@@ -1897,6 +1913,8 @@ EOT;
 					'query' => "SELECT `pnb`.`pnb_id` as 'pnb_id', `pnb`.`pnb_type` as 'pnb_type', IF(    CHAR_LENGTH(`premises1`.`premises_id`) || CHAR_LENGTH(`premises1`.`premises_name`), CONCAT_WS('',   `premises1`.`premises_id`, '-', `premises1`.`premises_name`), '') as 'pnb_premises_id', IF(    CHAR_LENGTH(`whos1`.`whos_who2`) || CHAR_LENGTH(`whos1`.`whos_description`), CONCAT_WS('',   `whos1`.`whos_who2`, '-', `whos1`.`whos_description`), '') as 'pnb_whos_id', `pnb`.`pnb_delta_flag` as 'pnb_delta_flag', `pnb`.`pnb_admin` as 'pnb_admin', `pnb`.`pnb_comments` as 'pnb_comments', `pnb`.`pnb_created` as 'pnb_created', `pnb`.`pnb_updated` as 'pnb_updated' FROM `pnb` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`pnb`.`pnb_premises_id` LEFT JOIN `whos` as whos1 ON `whos1`.`whos_id`=`pnb`.`pnb_whos_id` "
 				],
 			],
+			'ilct_info' => [
+			],
 		];
 
 		if($skipPermissions) return $pcConfig;
@@ -1942,7 +1960,7 @@ EOT;
 	#########################################################
 
 	function isDetailViewEnabled($tn) {
-		$tables = ['madb', 'whats', 'whos', 'whens', 'whichs', 'wheres', 'whys', 'howrs', 'howss', 'howqs', 'howts', 'utedb', 'premises', 'pnb', ];
+		$tables = ['madb', 'whats', 'whos', 'whens', 'whichs', 'wheres', 'whys', 'howrs', 'howss', 'howqs', 'howts', 'utedb', 'premises', 'pnb', 'ilct_info', ];
 		return in_array($tn, $tables);
 	}
 

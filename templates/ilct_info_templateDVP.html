@@ -1,0 +1,106 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ILCT INFO Id -->
+		<div class="form-group ilct_info-ilct_info_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_id)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Title -->
+		<div class="form-group ilct_info-ilct_info_title" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Title</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_title)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Description -->
+		<div class="form-group ilct_info-ilct_info_description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_description)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Link -->
+		<div class="form-group ilct_info-ilct_info_link" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Link</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_link)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO User -->
+		<div class="form-group ilct_info-ilct_info_user" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO User</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_user)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Pass -->
+		<div class="form-group ilct_info-ilct_info_pass" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Pass</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_pass)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Token -->
+		<div class="form-group ilct_info-ilct_info_token" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Token</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_token)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Pass Code -->
+		<div class="form-group ilct_info-ilct_info_pass_code" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Pass Code</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_pass_code)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Related Table -->
+		<div class="form-group ilct_info-ilct_info_related_table" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Related Table</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(ilct_info_related_table)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Created -->
+		<div class="form-group ilct_info-ilct_info_created" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Created</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_created)%%></div>
+			</div>
+		</div>
+		<!-- Field: ILCT INFO Updated -->
+		<div class="form-group ilct_info-ilct_info_updated" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ILCT INFO Updated</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ilct_info_updated)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

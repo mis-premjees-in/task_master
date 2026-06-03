@@ -205,6 +205,13 @@
 					'group' => $tg[0],
 					'homepageShowCount' => 1
 				],
+				'ilct_info' => [
+					'Caption' => 'IMPORTANT LCT INFO',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 1
+				],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) return $all_tables;
@@ -235,6 +242,7 @@
 			'utedb' => ['Universal TEDB', '', 'table.gif', 'VTAP'],
 			'premises' => ['Premises', '', 'table.gif', 'VTAP'],
 			'pnb' => ['Presence & Being', '', 'table.gif', 'VTAP'],
+			'ilct_info' => ['IMPORTANT LCT INFO', '', 'table.gif', 'VTAP'],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) {
@@ -2040,6 +2048,85 @@
 						],
 					],
 				],
+				'ilct_info' => [
+					'ilct_info_id' => [
+						'appgini' => "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'ILCT INFO Id',
+							'description' => '',
+						],
+					],
+					'ilct_info_title' => [
+						'appgini' => "VARCHAR(40) NOT NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Title',
+							'description' => '',
+						],
+					],
+					'ilct_info_description' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Description',
+							'description' => '',
+						],
+					],
+					'ilct_info_link' => [
+						'appgini' => "TINYTEXT NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Link',
+							'description' => '',
+						],
+					],
+					'ilct_info_user' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'ILCT INFO User',
+							'description' => '',
+						],
+					],
+					'ilct_info_pass' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Pass',
+							'description' => '',
+						],
+					],
+					'ilct_info_token' => [
+						'appgini' => "VARCHAR(255) NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Token',
+							'description' => '',
+						],
+					],
+					'ilct_info_pass_code' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Pass Code',
+							'description' => '',
+						],
+					],
+					'ilct_info_related_table' => [
+						'appgini' => "VARCHAR(40) NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Related Table',
+							'description' => '',
+						],
+					],
+					'ilct_info_created' => [
+						'appgini' => "TIME NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Created',
+							'description' => '',
+						],
+					],
+					'ilct_info_updated' => [
+						'appgini' => "TIMESTAMP NULL",
+						'info' => [
+							'caption' => 'ILCT INFO Updated',
+							'description' => '',
+						],
+					],
+				],
 			];
 
 			$internalTablesSimple = [
@@ -3275,6 +3362,7 @@
 			'utedb' => [],
 			'premises' => [],
 			'pnb' => [],
+			'ilct_info' => [],
 		];
 	}
 	#########################################################
@@ -3464,6 +3552,8 @@
 			'pnb' => [
 				'pnb_premises_id' => 'SELECT `premises`.`premises_id`, IF(CHAR_LENGTH(`premises`.`premises_id`) || CHAR_LENGTH(`premises`.`premises_name`), CONCAT_WS(\'\', `premises`.`premises_id`, \'-\', `premises`.`premises_name`), \'\') FROM `premises` LEFT JOIN `whens` as whens1 ON `whens1`.`whens_id`=`premises`.`premises_opening` LEFT JOIN `whens` as whens2 ON `whens2`.`whens_id`=`premises`.`premises_closing` ORDER BY 2',
 				'pnb_whos_id' => 'SELECT `whos`.`whos_id`, IF(CHAR_LENGTH(`whos`.`whos_id`) || CHAR_LENGTH(`whos`.`whos_who1`)||CHAR_LENGTH(`whos`.`whos_who1`), CONCAT_WS(\'\', `whos`.`whos_id`, \'-\', `whos`.`whos_who1`, \'-\', `whos`.`whos_who2`), \'\') FROM `whos` ORDER BY `whos`.`whos_id`',
+			],
+			'ilct_info' => [
 			],
 		];
 
