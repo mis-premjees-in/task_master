@@ -1934,14 +1934,14 @@
 						],
 					],
 					'premises_latitude' => [
-						'appgini' => "DECIMAL(10,10) NOT NULL",
+						'appgini' => "DECIMAL(10,7) NOT NULL",
 						'info' => [
 							'caption' => 'Latitude',
 							'description' => '',
 						],
 					],
 					'premises_longitude' => [
-						'appgini' => "DECIMAL(10,10) NOT NULL",
+						'appgini' => "DECIMAL(10,7) NOT NULL",
 						'info' => [
 							'caption' => 'Longitude',
 							'description' => '',
