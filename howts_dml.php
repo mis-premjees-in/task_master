@@ -16,7 +16,7 @@ function howts_insert(&$error_message = '') {
 	}
 
 	$data = [
-		'howts_howt1' => Request::val('howts_howt1', ''),
+		'howts_howt1' => br2nl(Request::val('howts_howt1', '')),
 		'howts_howt2' => Request::val('howts_howt2', ''),
 		'howts_howt3' => Request::val('howts_howt3', ''),
 		'howrs_description' => br2nl(Request::val('howrs_description', '')),
@@ -107,7 +107,7 @@ function howts_update(&$selected_id, &$error_message = '') {
 	if(!check_record_permission('howts', $selected_id, 'edit')) return false;
 
 	$data = [
-		'howts_howt1' => Request::val('howts_howt1', ''),
+		'howts_howt1' => br2nl(Request::val('howts_howt1', '')),
 		'howts_howt2' => Request::val('howts_howt2', ''),
 		'howts_howt3' => Request::val('howts_howt3', ''),
 		'howrs_description' => br2nl(Request::val('howrs_description', '')),
@@ -367,8 +367,7 @@ function howts_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(howts_id)%%>', safe_html($urow['howts_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howts_id)%%>', html_attr($row['howts_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howts_id)%%>', urlencode($urow['howts_id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(howts_howt1)%%>', safe_html($urow['howts_howt1']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howts_howt1)%%>', html_attr($row['howts_howt1']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(howts_howt1)%%>', safe_html($urow['howts_howt1'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howts_howt1)%%>', urlencode($urow['howts_howt1']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(howts_howt2)%%>', safe_html($urow['howts_howt2']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howts_howt2)%%>', html_attr($row['howts_howt2']), $templateCode);

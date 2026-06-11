@@ -240,10 +240,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`madb`.`madb_id`';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Id', 'What 1', 'Who 1', 'When 1', 'Which 1', 'Where 1', 'Why 1', 'How (R) 1', 'How (S) 1', 'How (Q) 1', 'How (T) 1', 'Why 2', 'Why 3', 'Where 2', 'Where 3', 'Which 2', 'Which 3', 'When 2', 'When 3', 'Who 2', 'Who 3', 'What 2', 'What 3', 'How (R) 2', 'How (R) 3', 'How (S) 2', 'How (S) 3', 'How (Q) 2', 'How (Q) 3', 'How (T) 2', 'How (T) 3', 'Premises Id', 'Madb status', 'Created AT', 'Updated AT', ];
-	$x->ColFieldName = ['madb_id', 'madb_what1', 'madb_who1', 'madb_when1', 'madb_which1', 'madb_where1', 'madb_why1', 'madb_howr1', 'madb_hows1', 'madb_howq1', 'madb_howt1', 'madb_why2', 'madb_why3', 'madb_where2', 'madb_where3', 'madb_which2', 'madb_which3', 'madb_when2', 'madb_when3', 'madb_who2', 'madb_who3', 'madb_what2', 'madb_what3', 'madb_howr2', 'madb_howr3', 'madb_hows2', 'madb_hows3', 'madb_howq2', 'madb_howq3', 'madb_howt2', 'madb_howt3', 'madb_premises_id', 'madb_status', 'madb_created', 'madb_updated', ];
-	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 100, ];
+	$x->ColCaption = ['Id', 'What 1', 'Who 1', 'When 1', 'Which 1', 'Where 1', 'Why 1', 'How (R) 1', 'How (S) 1', 'How (Q) 1', 'How (T) 1', 'Why 2', 'Why 3', 'Where 2', 'Where 3', 'Which 2', 'Which 3', 'When 2', 'When 3', 'Who 2', 'Who 3', 'What 2', 'What 3', 'How (R) 2', 'How (R) 3', 'How (S) 2', 'How (S) 3', 'How (Q) 2', 'How (Q) 3', 'How (T) 2', 'How (T) 3', 'Premises Id', 'Madb status', 'Created AT', 'Updated AT', 'Master Anatomy DB', ];
+	$x->ColFieldName = ['madb_id', 'madb_what1', 'madb_who1', 'madb_when1', 'madb_which1', 'madb_where1', 'madb_why1', 'madb_howr1', 'madb_hows1', 'madb_howq1', 'madb_howt1', 'madb_why2', 'madb_why3', 'madb_where2', 'madb_where3', 'madb_which2', 'madb_which3', 'madb_when2', 'madb_when3', 'madb_who2', 'madb_who3', 'madb_what2', 'madb_what3', 'madb_howr2', 'madb_howr3', 'madb_hows2', 'madb_hows3', 'madb_howq2', 'madb_howq3', 'madb_howt2', 'madb_howt3', 'madb_premises_id', 'madb_status', 'madb_created', 'madb_updated', '%utedb.utedb_madb%', ];
+	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/madb_templateTV.html';

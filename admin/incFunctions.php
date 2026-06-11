@@ -1261,28 +1261,28 @@
 						],
 					],
 					'whats_what1' => [
-						'appgini' => "TINYTEXT NOT NULL UNIQUE",
+						'appgini' => "TEXT NOT NULL UNIQUE",
 						'info' => [
 							'caption' => 'What1 (Task English)',
 							'description' => 'Task English',
 						],
 					],
 					'whats_what2' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TEXT NOT NULL",
 						'info' => [
 							'caption' => 'What2 (Task Hindi)',
 							'description' => 'Task Hindi',
 						],
 					],
 					'whats_what3' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'What3 (If Any)',
 							'description' => '',
 						],
 					],
 					'whats_description' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1333,7 +1333,7 @@
 						],
 					],
 					'whos_description' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1356,12 +1356,12 @@
 					'whos_premise' => [
 						'appgini' => "INT NULL",
 						'info' => [
-							'caption' => 'Whos premise',
+							'caption' => 'Whos Premise',
 							'description' => '',
 						],
 					],
 					'whos_profile_img' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "VARCHAR(255) NULL",
 						'info' => [
 							'caption' => 'Profile Image',
 							'description' => 'Maximum file size allowed: 300 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
@@ -1412,7 +1412,7 @@
 						],
 					],
 					'whens_description' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1442,28 +1442,28 @@
 						],
 					],
 					'whichs_which1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "VARCHAR(255) NOT NULL",
 						'info' => [
 							'caption' => 'Which1 (Main Thing)',
 							'description' => 'Main Thing',
 						],
 					],
 					'whichs_which2' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "VARCHAR(255) NOT NULL",
 						'info' => [
 							'caption' => 'Which2 (Sub Thing)',
 							'description' => 'Sub-Thing',
 						],
 					],
 					'whichs_which3' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "VARCHAR(255) NULL",
 						'info' => [
 							'caption' => 'Which3 (If Any)',
 							'description' => '',
 						],
 					],
 					'whichs_description' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1493,28 +1493,28 @@
 						],
 					],
 					'wheres_where1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "VARCHAR(255) NOT NULL",
 						'info' => [
 							'caption' => 'Where1 (Main Place)',
 							'description' => 'Main Place',
 						],
 					],
 					'wheres_where2' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "VARCHAR(255) NOT NULL",
 						'info' => [
 							'caption' => 'Where2 (Zone)',
 							'description' => 'Sub-Place',
 						],
 					],
 					'wheres_where3' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "VARCHAR(255) NULL",
 						'info' => [
 							'caption' => 'Where3 (If Any)',
 							'description' => '',
 						],
 					],
 					'wheres_description' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1544,28 +1544,28 @@
 						],
 					],
 					'whys_why1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "VARCHAR(255) NOT NULL",
 						'info' => [
 							'caption' => 'Why1 (Precinct)',
 							'description' => 'Department',
 						],
 					],
 					'whys_why2' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "VARCHAR(255) NOT NULL",
 						'info' => [
 							'caption' => 'Why2 (Sub-Precinct)',
 							'description' => 'Sub-Department',
 						],
 					],
 					'whys_why3' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "VARCHAR(255) NULL",
 						'info' => [
 							'caption' => 'Why3 (If Any)',
 							'description' => '',
 						],
 					],
 					'whys_description' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1595,14 +1595,14 @@
 						],
 					],
 					'howrs_howr1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'How (R) 1 (Method)',
 							'description' => '',
 						],
 					],
 					'howrs_howr2' => [
-						'appgini' => "VARCHAR(255) NOT NULL",
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'How (R) 2 (Type)',
 							'description' => '',
@@ -1616,7 +1616,7 @@
 						],
 					],
 					'howrs_description' => [
-						'appgini' => "LONGTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1646,35 +1646,35 @@
 						],
 					],
 					'howss_hows1' => [
-						'appgini' => "TINYTEXT NOT NULL",
+						'appgini' => "TEXT NOT NULL",
 						'info' => [
 							'caption' => 'How (S) 1 (Flowchart)',
 							'description' => '',
 						],
 					],
 					'howss_hows2' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'How (S) 2 (SOP)',
 							'description' => '',
 						],
 					],
 					'howss_hows3' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'How (S) 3 (TV Url If Any)',
 							'description' => '',
 						],
 					],
 					'howss_hows4' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'How (S) 4 (PT Url If Any)',
 							'description' => '',
 						],
 					],
 					'howss_description' => [
-						'appgini' => "LONGTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1704,7 +1704,7 @@
 						],
 					],
 					'howqs_howq1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'How (Q) 1 (Type)',
 							'description' => '',
@@ -1725,7 +1725,7 @@
 						],
 					],
 					'howqs_description' => [
-						'appgini' => "LONGTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1755,7 +1755,7 @@
 						],
 					],
 					'howts_howt1' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'How (T) 1 (Type)',
 							'description' => '',
@@ -1776,7 +1776,7 @@
 						],
 					],
 					'howrs_description' => [
-						'appgini' => "LONGTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Description',
 							'description' => '',
@@ -1827,7 +1827,7 @@
 						],
 					],
 					'utedb_proof_image' => [
-						'appgini' => "VARCHAR(100) NULL",
+						'appgini' => "VARCHAR(255) NULL",
 						'info' => [
 							'caption' => 'Utedb proof image',
 							'description' => 'Maximum file size allowed: 500 KB.<br>Allowed file types: jpg, jpeg, gif, png, webp',
@@ -1848,28 +1848,28 @@
 						],
 					],
 					'utedb_rda_audit' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'RDA Audit',
 							'description' => '',
 						],
 					],
 					'utedb_bb_audit' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'BB Audit',
 							'description' => '',
 						],
 					],
 					'utedb_car' => [
-						'appgini' => "TINYINT NULL",
+						'appgini' => "INT NULL",
 						'info' => [
 							'caption' => 'Customer Review(s)',
 							'description' => '',
 						],
 					],
 					'utedb_car_vid' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'CAR VIDEO',
 							'description' => 'Maximum file size allowed: 500 KB.<br>Allowed file types: mov, avi, swf, asf, wmv, mpg, mpeg, mp4, flv',
@@ -1890,14 +1890,14 @@
 						],
 					],
 					'utedb_hows1' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Hows Score',
 							'description' => '',
 						],
 					],
 					'utedb_admin' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'ELAI RDA ID',
 							'description' => '',
@@ -1927,21 +1927,21 @@
 						],
 					],
 					'premises_name' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "TEXT NOT NULL",
 						'info' => [
 							'caption' => 'Premise Name',
 							'description' => '',
 						],
 					],
 					'premises_latitude' => [
-						'appgini' => "DECIMAL(10,7) NOT NULL",
+						'appgini' => "DECIMAL(10,10) NOT NULL",
 						'info' => [
 							'caption' => 'Latitude',
 							'description' => '',
 						],
 					],
 					'premises_longitude' => [
-						'appgini' => "DECIMAL(10,7) NOT NULL",
+						'appgini' => "DECIMAL(10,10) NOT NULL",
 						'info' => [
 							'caption' => 'Longitude',
 							'description' => '',
@@ -1992,7 +1992,7 @@
 						],
 					],
 					'pnb_type' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'PnB Type',
 							'description' => '',
@@ -2020,14 +2020,14 @@
 						],
 					],
 					'pnb_admin' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'Admin',
 							'description' => '',
 						],
 					],
 					'pnb_comments' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'Comments',
 							'description' => '',
@@ -2057,56 +2057,56 @@
 						],
 					],
 					'ilct_info_title' => [
-						'appgini' => "VARCHAR(40) NOT NULL",
+						'appgini' => "TINYTEXT NOT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO Title',
 							'description' => '',
 						],
 					],
 					'ilct_info_description' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO Description',
 							'description' => '',
 						],
 					],
 					'ilct_info_link' => [
-						'appgini' => "TINYTEXT NULL",
+						'appgini' => "TEXT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO Link',
 							'description' => '',
 						],
 					],
 					'ilct_info_user' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO User',
 							'description' => '',
 						],
 					],
 					'ilct_info_pass' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO Pass',
 							'description' => '',
 						],
 					],
 					'ilct_info_token' => [
-						'appgini' => "VARCHAR(255) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO Token',
 							'description' => '',
 						],
 					],
 					'ilct_info_pass_code' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO Pass Code',
 							'description' => '',
 						],
 					],
 					'ilct_info_related_table' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "TINYTEXT NULL",
 						'info' => [
 							'caption' => 'ILCT INFO Related Table',
 							'description' => '',

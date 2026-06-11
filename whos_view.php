@@ -25,7 +25,7 @@
 		"`whos`.`whos_description`" => "whos_description",
 		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_swg_email`" => "whos_swg_email",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "whos_premise",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos Premise */" => "whos_premise",
 		"`whos`.`whos_profile_img`" => "whos_profile_img",
 		"`whos`.`whos_updated`" => "whos_updated",
 		"`whos`.`whos_created`" => "whos_created",
@@ -54,7 +54,7 @@
 		"`whos`.`whos_description`" => "whos_description",
 		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_swg_email`" => "whos_swg_email",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "whos_premise",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos Premise */" => "whos_premise",
 		"`whos`.`whos_profile_img`" => "whos_profile_img",
 		"`whos`.`whos_updated`" => "whos_updated",
 		"`whos`.`whos_created`" => "whos_created",
@@ -68,7 +68,7 @@
 		"`whos`.`whos_description`" => "Description",
 		"`whos`.`whos_swg_token`" => "SWG Token",
 		"`whos`.`whos_swg_email`" => "SWG Email",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "Whos premise",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos Premise */" => "Whos Premise",
 		"`whos`.`whos_updated`" => "Updated AT",
 		"`whos`.`whos_created`" => "Created AT",
 	];
@@ -82,13 +82,13 @@
 		"`whos`.`whos_description`" => "whos_description",
 		"`whos`.`whos_swg_token`" => "whos_swg_token",
 		"`whos`.`whos_swg_email`" => "whos_swg_email",
-		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos premise */" => "whos_premise",
+		"IF(    CHAR_LENGTH(`premises1`.`premises_name`) || CHAR_LENGTH(`premises1`.`premises_radius`), CONCAT_WS('',   `premises1`.`premises_name`, '-', `premises1`.`premises_radius`), '') /* Whos Premise */" => "whos_premise",
 		"`whos`.`whos_updated`" => "whos_updated",
 		"`whos`.`whos_created`" => "whos_created",
 	];
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = ['whos_premise' => 'Whos premise', ];
+	$x->filterers = ['whos_premise' => 'Whos Premise', ];
 
 	$x->QueryFrom = "`whos` LEFT JOIN `premises` as premises1 ON `premises1`.`premises_id`=`whos`.`whos_premise` ";
 	$x->QueryWhere = '';
@@ -119,7 +119,7 @@
 	$x->PrimaryKey = '`whos`.`whos_id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 100, ];
-	$x->ColCaption = ['Id', 'Who1 (Doer Role)', 'Who2 (Doer ID)', 'Who3 (Buddy ID)', 'Description', 'SWG Token', 'SWG Email', 'Whos premise', 'Profile Image', 'Updated AT', 'Created AT', 'Madb', ];
+	$x->ColCaption = ['Id', 'Who1 (Doer Role)', 'Who2 (Doer ID)', 'Who3 (Buddy ID)', 'Description', 'SWG Token', 'SWG Email', 'Whos Premise', 'Profile Image', 'Updated AT', 'Created AT', 'Madb', ];
 	$x->ColFieldName = ['whos_id', 'whos_who1', 'whos_who2', 'whos_who3', 'whos_description', 'whos_swg_token', 'whos_swg_email', 'whos_premise', 'whos_profile_img', 'whos_updated', 'whos_created', '%madb.madb_who1%', ];
 	$x->ColNumber  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, -1, ];
 

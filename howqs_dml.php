@@ -16,7 +16,7 @@ function howqs_insert(&$error_message = '') {
 	}
 
 	$data = [
-		'howqs_howq1' => Request::val('howqs_howq1', ''),
+		'howqs_howq1' => br2nl(Request::val('howqs_howq1', '')),
 		'howqs_howq2' => Request::val('howqs_howq2', ''),
 		'howqs_howq3' => Request::val('howqs_howq3', ''),
 		'howqs_description' => br2nl(Request::val('howqs_description', '')),
@@ -107,7 +107,7 @@ function howqs_update(&$selected_id, &$error_message = '') {
 	if(!check_record_permission('howqs', $selected_id, 'edit')) return false;
 
 	$data = [
-		'howqs_howq1' => Request::val('howqs_howq1', ''),
+		'howqs_howq1' => br2nl(Request::val('howqs_howq1', '')),
 		'howqs_howq2' => Request::val('howqs_howq2', ''),
 		'howqs_howq3' => Request::val('howqs_howq3', ''),
 		'howqs_description' => br2nl(Request::val('howqs_description', '')),
@@ -367,8 +367,7 @@ function howqs_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(howqs_id)%%>', safe_html($urow['howqs_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howqs_id)%%>', html_attr($row['howqs_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howqs_id)%%>', urlencode($urow['howqs_id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(howqs_howq1)%%>', safe_html($urow['howqs_howq1']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howqs_howq1)%%>', html_attr($row['howqs_howq1']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(howqs_howq1)%%>', safe_html($urow['howqs_howq1'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howqs_howq1)%%>', urlencode($urow['howqs_howq1']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(howqs_howq2)%%>', safe_html($urow['howqs_howq2']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howqs_howq2)%%>', html_attr($row['howqs_howq2']), $templateCode);

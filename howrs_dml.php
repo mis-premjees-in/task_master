@@ -17,7 +17,7 @@ function howrs_insert(&$error_message = '') {
 
 	$data = [
 		'howrs_howr1' => Request::val('howrs_howr1', ''),
-		'howrs_howr2' => Request::val('howrs_howr2', ''),
+		'howrs_howr2' => br2nl(Request::val('howrs_howr2', '')),
 		'howrs_howr3' => br2nl(Request::val('howrs_howr3', '')),
 		'howrs_description' => br2nl(Request::val('howrs_description', '')),
 		'howrs_created' => parseCode('<%%creationTimestamp%%>', true, true),
@@ -108,7 +108,7 @@ function howrs_update(&$selected_id, &$error_message = '') {
 
 	$data = [
 		'howrs_howr1' => Request::val('howrs_howr1', ''),
-		'howrs_howr2' => Request::val('howrs_howr2', ''),
+		'howrs_howr2' => br2nl(Request::val('howrs_howr2', '')),
 		'howrs_howr3' => br2nl(Request::val('howrs_howr3', '')),
 		'howrs_description' => br2nl(Request::val('howrs_description', '')),
 		'howrs_updated' => parseCode('<%%editingTimestamp%%>', false, true),
@@ -391,8 +391,7 @@ function howrs_form($selectedId = '', $allowUpdate = true, $allowInsert = true, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(howrs_howr1)%%>', safe_html($urow['howrs_howr1']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howrs_howr1)%%>', html_attr($row['howrs_howr1']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howrs_howr1)%%>', urlencode($urow['howrs_howr1']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(howrs_howr2)%%>', safe_html($urow['howrs_howr2']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(howrs_howr2)%%>', html_attr($row['howrs_howr2']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(howrs_howr2)%%>', safe_html($urow['howrs_howr2'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howrs_howr2)%%>', urlencode($urow['howrs_howr2']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(howrs_howr3)%%>', safe_html($urow['howrs_howr3'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(howrs_howr3)%%>', urlencode($urow['howrs_howr3']), $templateCode);

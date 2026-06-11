@@ -12,76 +12,108 @@
 		setupTable('madb', []);
 		setupIndexes('madb', ['madb_what1','madb_who1','madb_when1','madb_which1','madb_where1','madb_why1','madb_howr1','madb_hows1','madb_howq1','madb_howt1','madb_premises_id',]);
 
-		setupTable('whats', []);
+		setupTable('whats', [
+				" ALTER TABLE `whats` CHANGE `whats_what1` `whats_what1` TEXT NOT NULL ",
+				" ALTER TABLE `whats` CHANGE `whats_what2` `whats_what2` TEXT NOT NULL ",
+				" ALTER TABLE `whats` CHANGE `whats_what3` `whats_what3` TEXT NULL ",
+				" ALTER TABLE `whats` CHANGE `whats_description` `whats_description` TEXT NULL ",
+			]);
 
-		setupTable('whos', []);
+		setupTable('whos', [
+				" ALTER TABLE `whos` CHANGE `whos_description` `whos_description` TEXT NULL ",
+				" ALTER TABLE `whos` CHANGE `whos_profile_img` `whos_profile_img` TINYTEXT NULL ",
+				" ALTER TABLE `whos` CHANGE `whos_profile_img` `whos_profile_img` VARCHAR(40) NULL ",
+				" ALTER TABLE `whos` CHANGE `whos_profile_img` `whos_profile_img` VARCHAR(255) NULL ",
+			]);
 		setupIndexes('whos', ['whos_premise',]);
 
-		setupTable('whens', []);
+		setupTable('whens', [
+				" ALTER TABLE `whens` CHANGE `whens_description` `whens_description` TEXT NULL ",
+			]);
 
-		setupTable('whichs', []);
+		setupTable('whichs', [
+				" ALTER TABLE `whichs` CHANGE `whichs_which1` `whichs_which1` VARCHAR(255) NOT NULL ",
+				" ALTER TABLE `whichs` CHANGE `whichs_which2` `whichs_which2` VARCHAR(255) NOT NULL ",
+				" ALTER TABLE `whichs` CHANGE `whichs_which3` `whichs_which3` VARCHAR(255) NULL ",
+				" ALTER TABLE `whichs` CHANGE `whichs_description` `whichs_description` TEXT NULL ",
+			]);
 
-		setupTable('wheres', []);
+		setupTable('wheres', [
+				" ALTER TABLE `wheres` CHANGE `wheres_where1` `wheres_where1` VARCHAR(255) NOT NULL ",
+				" ALTER TABLE `wheres` CHANGE `wheres_where2` `wheres_where2` VARCHAR(255) NOT NULL ",
+				" ALTER TABLE `wheres` CHANGE `wheres_where3` `wheres_where3` VARCHAR(255) NULL ",
+				" ALTER TABLE `wheres` CHANGE `wheres_description` `wheres_description` TEXT NULL ",
+			]);
 
-		setupTable('whys', []);
+		setupTable('whys', [
+				" ALTER TABLE `whys` CHANGE `whys_why1` `whys_why1` VARCHAR(255) NOT NULL ",
+				" ALTER TABLE `whys` CHANGE `whys_why2` `whys_why2` VARCHAR(255) NOT NULL ",
+				" ALTER TABLE `whys` CHANGE `whys_why3` `whys_why3` VARCHAR(255) NULL ",
+				" ALTER TABLE `whys` CHANGE `whys_description` `whys_description` TEXT NULL ",
+			]);
 
-		setupTable('howrs', []);
+		setupTable('howrs', [
+				" ALTER TABLE `howrs` CHANGE `howrs_howr1` `howrs_howr1` VARCHAR(255) NOT NULL ",
+				" ALTER TABLE `howrs` CHANGE `howrs_howr1` `howrs_howr1` TINYTEXT NOT NULL ",
+				" ALTER TABLE `howrs` CHANGE `howrs_howr2` `howrs_howr2` TINYTEXT NOT NULL ",
+				" ALTER TABLE `howrs` CHANGE `howrs_description` `howrs_description` TEXT NULL ",
+			]);
 
-		setupTable('howss', []);
+		setupTable('howss', [
+				" ALTER TABLE `howss` CHANGE `howss_hows1` `howss_hows1` TEXT NOT NULL ",
+				" ALTER TABLE `howss` CHANGE `howss_hows2` `howss_hows2` TEXT NULL ",
+				" ALTER TABLE `howss` CHANGE `howss_hows3` `howss_hows3` TEXT NULL ",
+				" ALTER TABLE `howss` CHANGE `howss_hows4` `howss_hows4` TEXT NULL ",
+				" ALTER TABLE `howss` CHANGE `howss_description` `howss_description` TEXT NULL ",
+			]);
 
-		setupTable('howqs', []);
+		setupTable('howqs', [
+				" ALTER TABLE `howqs` CHANGE `howqs_howq1` `howqs_howq1` TINYTEXT NOT NULL ",
+				" ALTER TABLE `howqs` CHANGE `howqs_description` `howqs_description` TEXT NULL ",
+			]);
 
-		setupTable('howts', []);
+		setupTable('howts', [
+				" ALTER TABLE `howts` CHANGE `howts_howt1` `howts_howt1` TINYTEXT NOT NULL ",
+				" ALTER TABLE `howts` CHANGE `howrs_description` `howrs_description` TEXT NULL ",
+			]);
 
-		setupTable('utedb', []);
+		setupTable('utedb', [
+				" ALTER TABLE `utedb` CHANGE `utedb_hows1` `utedb_hows1` TEXT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_proof_image` `utedb_proof_image` TINYTEXT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_rda_audit` `utedb_rda_audit` TINYTEXT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_bb_audit` `utedb_bb_audit` TINYTEXT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_car` `utedb_car` INT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_car_vid` `utedb_car_vid` TINYTEXT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_car_vid` `utedb_car_vid` TEXT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_admin` `utedb_admin` TEXT NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_proof_image` `utedb_proof_image` VARCHAR(40) NULL ",
+				" ALTER TABLE `utedb` CHANGE `utedb_proof_image` `utedb_proof_image` VARCHAR(255) NULL ",
+			]);
 		setupIndexes('utedb', ['utedb_madb','utedb_whos_id','utedb_premises_id',]);
 
-		setupTable('premises', []);
+		setupTable('premises', [
+				" ALTER TABLE `premises` CHANGE `premises_name` `premises_name` TEXT NOT NULL ",
+				" ALTER TABLE `premises` CHANGE `premises_latitude` `premises_latitude` DECIMAL(10,10) NOT NULL ",
+				" ALTER TABLE `premises` CHANGE `premises_longitude` `premises_longitude` DECIMAL(10,10) NOT NULL ",
+			]);
 		setupIndexes('premises', ['premises_opening','premises_closing',]);
 
-		setupTable('pnb', []);
+		setupTable('pnb', [
+				" ALTER TABLE `pnb` CHANGE `pnb_type` `pnb_type` TINYTEXT NOT NULL ",
+				" ALTER TABLE `pnb` CHANGE `pnb_admin` `pnb_admin` TINYTEXT NULL ",
+				" ALTER TABLE `pnb` CHANGE `pnb_comments` `pnb_comments` TEXT NULL ",
+			]);
 		setupIndexes('pnb', ['pnb_premises_id','pnb_whos_id',]);
 
 		setupTable('ilct_info', [
-				"ALTER TABLE `table15` RENAME `ilct_info`",
-				"UPDATE `membership_userrecords` SET `tableName`='ilct_info' WHERE `tableName`='table15'",
-				"UPDATE `membership_userpermissions` SET `tableName`='ilct_info' WHERE `tableName`='table15'",
-				"UPDATE `membership_grouppermissions` SET `tableName`='ilct_info' WHERE `tableName`='table15'",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_id` VARCHAR(40) NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` BIGINT NULL ",
-				"ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` BIGINT NOT NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` INT NOT NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_id` `ilct_info_id` INT NOT NULL AUTO_INCREMENT ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_title` VARCHAR(40) NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_description` VARCHAR(40) NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_link` VARCHAR(40) NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_link` `ilct_info_link` TINYTEXT NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_description` `ilct_info_description` TINYTEXT NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_user` VARCHAR(40) NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_pass` VARCHAR(40) NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_token` VARCHAR(40) NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_token` `ilct_info_token` VARCHAR(255) NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_pass_code` VARCHAR(40) NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_created` VARCHAR(40) NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_created` `ilct_info_created` TIME NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_created` `ilct_info_created` TIME NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_updated` VARCHAR(40) NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_updated` `ilct_info_updated` TIMESTAMP NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_updated` `ilct_info_updated` TIMESTAMP NULL ",
-				"ALTER TABLE ilct_info ADD `field1` VARCHAR(40)",
-				"ALTER TABLE `ilct_info` CHANGE `field1` `ilct_info_related_table` VARCHAR(40) NULL ",
-				" ALTER TABLE `ilct_info` CHANGE `ilct_info_title` `ilct_info_title` VARCHAR(40) NOT NULL ",
-				"ALTER TABLE `ilct_info` ADD PRIMARY KEY (`ilct_info_id`)",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_title` `ilct_info_title` TINYTEXT NOT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_description` `ilct_info_description` TEXT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_link` `ilct_info_link` TEXT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_user` `ilct_info_user` TINYTEXT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_pass` `ilct_info_pass` TINYTEXT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_token` `ilct_info_token` TINYTEXT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_pass_code` `ilct_info_pass_code` TINYTEXT NULL ",
+				" ALTER TABLE `ilct_info` CHANGE `ilct_info_related_table` `ilct_info_related_table` TINYTEXT NULL ",
 			]);
 
 

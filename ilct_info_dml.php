@@ -16,13 +16,13 @@ function ilct_info_insert(&$error_message = '') {
 	}
 
 	$data = [
-		'ilct_info_title' => Request::val('ilct_info_title', ''),
+		'ilct_info_title' => br2nl(Request::val('ilct_info_title', '')),
 		'ilct_info_description' => br2nl(Request::val('ilct_info_description', '')),
 		'ilct_info_link' => br2nl(Request::val('ilct_info_link', '')),
-		'ilct_info_user' => Request::val('ilct_info_user', ''),
-		'ilct_info_pass' => Request::val('ilct_info_pass', ''),
-		'ilct_info_token' => Request::val('ilct_info_token', ''),
-		'ilct_info_pass_code' => Request::val('ilct_info_pass_code', ''),
+		'ilct_info_user' => br2nl(Request::val('ilct_info_user', '')),
+		'ilct_info_pass' => br2nl(Request::val('ilct_info_pass', '')),
+		'ilct_info_token' => br2nl(Request::val('ilct_info_token', '')),
+		'ilct_info_pass_code' => br2nl(Request::val('ilct_info_pass_code', '')),
 		'ilct_info_related_table' => Request::val('ilct_info_related_table', ''),
 		'ilct_info_created' => parseCode('<%%creationTimestamp%%>', true, true),
 	];
@@ -91,13 +91,13 @@ function ilct_info_update(&$selected_id, &$error_message = '') {
 	if(!check_record_permission('ilct_info', $selected_id, 'edit')) return false;
 
 	$data = [
-		'ilct_info_title' => Request::val('ilct_info_title', ''),
+		'ilct_info_title' => br2nl(Request::val('ilct_info_title', '')),
 		'ilct_info_description' => br2nl(Request::val('ilct_info_description', '')),
 		'ilct_info_link' => br2nl(Request::val('ilct_info_link', '')),
-		'ilct_info_user' => Request::val('ilct_info_user', ''),
-		'ilct_info_pass' => Request::val('ilct_info_pass', ''),
-		'ilct_info_token' => Request::val('ilct_info_token', ''),
-		'ilct_info_pass_code' => Request::val('ilct_info_pass_code', ''),
+		'ilct_info_user' => br2nl(Request::val('ilct_info_user', '')),
+		'ilct_info_pass' => br2nl(Request::val('ilct_info_pass', '')),
+		'ilct_info_token' => br2nl(Request::val('ilct_info_token', '')),
+		'ilct_info_pass_code' => br2nl(Request::val('ilct_info_pass_code', '')),
 		'ilct_info_related_table' => Request::val('ilct_info_related_table', ''),
 		'ilct_info_updated' => parseCode('<%%editingTimestamp%%>', false, true),
 	];
@@ -378,24 +378,19 @@ function ilct_info_form($selectedId = '', $allowUpdate = true, $allowInsert = tr
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_id)%%>', safe_html($urow['ilct_info_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_id)%%>', html_attr($row['ilct_info_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_id)%%>', urlencode($urow['ilct_info_id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_title)%%>', safe_html($urow['ilct_info_title']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_title)%%>', html_attr($row['ilct_info_title']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(ilct_info_title)%%>', safe_html($urow['ilct_info_title'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_title)%%>', urlencode($urow['ilct_info_title']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(ilct_info_description)%%>', safe_html($urow['ilct_info_description'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_description)%%>', urlencode($urow['ilct_info_description']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(ilct_info_link)%%>', safe_html($urow['ilct_info_link'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_link)%%>', urlencode($urow['ilct_info_link']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_user)%%>', safe_html($urow['ilct_info_user']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_user)%%>', html_attr($row['ilct_info_user']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(ilct_info_user)%%>', safe_html($urow['ilct_info_user'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_user)%%>', urlencode($urow['ilct_info_user']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_pass)%%>', safe_html($urow['ilct_info_pass']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_pass)%%>', html_attr($row['ilct_info_pass']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(ilct_info_pass)%%>', safe_html($urow['ilct_info_pass'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_pass)%%>', urlencode($urow['ilct_info_pass']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_token)%%>', safe_html($urow['ilct_info_token']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_token)%%>', html_attr($row['ilct_info_token']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(ilct_info_token)%%>', safe_html($urow['ilct_info_token'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_token)%%>', urlencode($urow['ilct_info_token']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_pass_code)%%>', safe_html($urow['ilct_info_pass_code']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_pass_code)%%>', html_attr($row['ilct_info_pass_code']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(ilct_info_pass_code)%%>', safe_html($urow['ilct_info_pass_code'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ilct_info_pass_code)%%>', urlencode($urow['ilct_info_pass_code']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_related_table)%%>', safe_html($urow['ilct_info_related_table']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ilct_info_related_table)%%>', html_attr($row['ilct_info_related_table']), $templateCode);

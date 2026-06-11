@@ -40,3 +40,6 @@
 		<td id="madb-madb_status-<%%VALUE(madb_id)%%>" class="madb-madb_status text-bold"><%%VALUE(madb_status)%%></td>
 		<td id="madb-madb_created-<%%VALUE(madb_id)%%>" class="madb-madb_created text-bold"><%%VALUE(madb_created)%%></td>
 		<td id="madb-madb_updated-<%%VALUE(madb_id)%%>" class="madb-madb_updated text-bold"><%%VALUE(madb_updated)%%></td>
+		<td class="child-utedb-utedb_madb child-records-info" data-id="<%%VALUE(madb_id)%%>" data-table="utedb" data-lookup-field="utedb_madb">
+			<a href="utedb_view.php?filterer_utedb_madb=<%%VALUE(madb_id)%%>&Embedded=1" target="_blank" title="<%%TRANSLATION(view)%%> (Master Anatomy DB)" class="modal-link children-count-link" style="visibility: hidden;"><span class="children-count">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+		</td>

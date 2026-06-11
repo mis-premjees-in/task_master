@@ -16,7 +16,7 @@ function premises_insert(&$error_message = '') {
 	}
 
 	$data = [
-		'premises_name' => Request::val('premises_name', ''),
+		'premises_name' => br2nl(Request::val('premises_name', '')),
 		'premises_latitude' => Request::val('premises_latitude', ''),
 		'premises_longitude' => Request::val('premises_longitude', ''),
 		'premises_radius' => Request::val('premises_radius', ''),
@@ -169,7 +169,7 @@ function premises_update(&$selected_id, &$error_message = '') {
 	if(!check_record_permission('premises', $selected_id, 'edit')) return false;
 
 	$data = [
-		'premises_name' => Request::val('premises_name', ''),
+		'premises_name' => br2nl(Request::val('premises_name', '')),
 		'premises_latitude' => Request::val('premises_latitude', ''),
 		'premises_longitude' => Request::val('premises_longitude', ''),
 		'premises_radius' => Request::val('premises_radius', ''),
@@ -629,8 +629,7 @@ function premises_form($selectedId = '', $allowUpdate = true, $allowInsert = tru
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(premises_id)%%>', safe_html($urow['premises_id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premises_id)%%>', html_attr($row['premises_id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(premises_id)%%>', urlencode($urow['premises_id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(premises_name)%%>', safe_html($urow['premises_name']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premises_name)%%>', html_attr($row['premises_name']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(premises_name)%%>', safe_html($urow['premises_name'], $fieldsAreEditable), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(premises_name)%%>', urlencode($urow['premises_name']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(premises_latitude)%%>', safe_html($urow['premises_latitude']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(premises_latitude)%%>', html_attr($row['premises_latitude']), $templateCode);

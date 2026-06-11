@@ -539,7 +539,7 @@ function whos_form($selectedId = '', $allowUpdate = true, $allowInsert = true, $
 	$templateCode = str_replace('<%%URLCOMBOTEXT(whos_premise)%%>', urlencode($combo_whos_premise->MatchText), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
-	$lookup_fields = ['whos_premise' => ['premises', 'Whos premise'], ];
+	$lookup_fields = ['whos_premise' => ['premises', 'Whos Premise'], ];
 	foreach($lookup_fields as $luf => $ptfc) {
 		$pt_perm = getTablePermissions($ptfc[0]);
 
