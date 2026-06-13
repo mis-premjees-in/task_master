@@ -36,10 +36,7 @@
 		setupTable('utedb', []);
 		setupIndexes('utedb', ['utedb_madb','utedb_whos_id','utedb_premises_id',]);
 
-		setupTable('premises', [
-				" ALTER TABLE `premises` CHANGE `premises_latitude` `premises_latitude` DECIMAL(10,7) NOT NULL ",
-				" ALTER TABLE `premises` CHANGE `premises_longitude` `premises_longitude` DECIMAL(10,7) NOT NULL ",
-			]);
+		setupTable('premises', []);
 		setupIndexes('premises', ['premises_opening','premises_closing',]);
 
 		setupTable('pnb', []);
