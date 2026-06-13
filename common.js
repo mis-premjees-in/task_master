@@ -2486,7 +2486,7 @@ AppGini.Validation = {
 				return false;
 			return $j(`#${id}`).val().trim() == '';
 		},
-		list: (id, insertMode) => $j(`#${id}`).select2('val').length == 0,
+		list: (id, insertMode) => $j(`#${id}`).select2('val') && $j(`#${id}`).select2('val').length == 0,
 		lookup: (id, insertMode) => $j(`#${id}-container`).select2('data').id.length == 0,
 		date: (id, insertMode) => $j(`#${id}`).val() == '' || $j(`#${id}-mm`).val() == '' || $j(`#${id}-dd`).val() == '',
 		image: (id, insertMode) => $j(`#${id}`).val() == '' && $j(`#${id}-image`).attr('src').match(/blank\.gif/),
